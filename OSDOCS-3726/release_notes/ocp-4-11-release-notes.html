@@ -31354,15 +31354,15 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="ocp-4-11-Defining-Kuryr-ports-pools-value-limit-during-installation"><a class="anchor" href="#ocp-4-11-Defining-Kuryr-ports-pools-value-limit-during-installation"></a>Defining Kuryr ports pools value limit during installation</h4>
+<h4 id="ocp-4-11-Defining-Kuryr-ports-pools-value-limit-during-installation"><a class="anchor" href="#ocp-4-11-Defining-Kuryr-ports-pools-value-limit-during-installation"></a>Kuryr ports pools value limit during installation on RHOSP</h4>
 <div class="paragraph">
-<p><code>poolBatchPorts</code> controls the number of new ports that are created if the number of free ports is lower than the value of <code>poolMinPorts</code>. Red Hat suggests the maximum number of Neutron ports to be created should be <code>3</code>.</p>
+<p>Red Hat does not provide guidance on defining a maximum number of Neutron ports but suggests setting a value to avoid the issue of having a variety of Bulk Ports requests, that is, having multiple pods created simultaneously on the Red Hat OpenStack Platform (RHOSP).</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="ocp-4-11-OpenShift-Container-Platform-Cluster-Sizes-for-Namespace"><a class="anchor" href="#ocp-4-11-OpenShift-Container-Platform-Cluster-Sizes-for-Namespace"></a>OpenShift Container Platform Cluster Sizes for Namespaces</h4>
 <div class="paragraph">
-<p>Be aware that CIDR sizes for namespaces are not modified post-deployment. Red Hat does not provide direct guidance on sizing your OpenShift Container Platform cluster. Determining the size within the supported bounds requires careful consideration of all the multidimensional factors that limit the cluster scale.</p>
+<p>Be aware that CIDR sizes for namespaces are not adjustable post-deployment. Red Hat does not provide direct guidance on determining the size as it requires careful consideration of the number of pods created in the namespace.</p>
 </div>
 </div>
 </div>
