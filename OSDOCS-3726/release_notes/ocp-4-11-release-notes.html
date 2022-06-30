@@ -31354,9 +31354,9 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="ocp-4-11-OpenShift-Container-Platform-Cluster-Sizes-for-Namespace"><a class="anchor" href="#ocp-4-11-OpenShift-Container-Platform-Cluster-Sizes-for-Namespace"></a>OpenShift Container Platform Cluster Sizes for Namespaces</h4>
+<h4 id="ocp-4-11-cluster-ranges-for-network"><a class="anchor" href="#ocp-4-11-cluster-ranges-for-network"></a>OpenShift Container Platform Cluster Ranges for Networks</h4>
 <div class="paragraph">
-<p>Be aware that CIDR sizes for namespaces are not adjustable post-deployment. Red Hat does not provide direct guidance on determining the size as it requires careful consideration of the number of pods created in the namespace.</p>
+<p>Be aware that CIDR ranges for networks are not adjustable after cluster installation. Red Hat does not provide direct guidance on determining the size as it requires careful consideration of the number of pods created.</p>
 </div>
 </div>
 </div>
@@ -32263,7 +32263,7 @@ oc patch clusterrolebinding <span class="k">${</span><span class="nv">clusterrol
 <p>The <code>oc annotate</code> command does not work for LDAP group names that contain an equal sign (<code>=</code>), because the command uses the equal sign as a delimiter between the annotation name and value. As a workaround, use <code>oc patch</code> or <code>oc edit</code> to add the annotation. (<a href="https://bugzilla.redhat.com/show_bug.cgi?id=1917280"><strong>BZ#1917280</strong></a>)</p>
 </li>
 <li>
-<p>In the Red Hat OpenStack Platform RHOSP, a known issue may occur when multiple Ports are created in bulk at the same time, that is, multiple Pods created simultaneously. (<a href="https://bugzilla.redhat.com/show_bug.cgi?id=2024690"><strong>BZ#2024690</strong></a>)</p>
+<p>In the Red Hat OpenStack Platform (RHOSP), a known potential issue in RHOSP Kuryr may occur when attempting to create <code>300</code> ports in bulks of <code>10</code> ports and <code>10</code> subnets. These bulk requests can create conflicts when distributing IP addresses. This issue was resolved in a previous errata; however, Red Hat suggests setting a value lower than <code>300</code> to avoid this issue in future releases. (<a href="https://bugzilla.redhat.com/show_bug.cgi?id=2024690"><strong>BZ2024690</strong></a>)</p>
 </li>
 </ul>
 </div>
