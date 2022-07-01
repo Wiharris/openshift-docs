@@ -515,6 +515,19 @@
 
             <!-- ^ this establishs whether we are reading this current page -->
 
+            <li><a class="" href="../architecture/ocm-overview-ocp.html">Red Hat OpenShift Cluster Manager</a></li>
+            <!--  if active, then highlight it,  otherwise nothing to do -->
+
+
+        <!-- for each topic in this topic_group, for example in Welcome 1, what topics exist?
+        Welcome 2 and Welcome 1 More -->
+
+
+          <!-- is this is a single page? That is, does this topic have more topics?
+          Welcome 1 More -->
+
+            <!-- ^ this establishs whether we are reading this current page -->
+
             <li><a class="" href="../architecture/control-plane.html">Control plane architecture</a></li>
             <!--  if active, then highlight it,  otherwise nothing to do -->
 
@@ -676,7 +689,7 @@
 
                   <li>
                     <a class="" href="../installing/disconnected_install/installing-mirroring-creating-registry.html">
-                      Creating a mirror registry
+                      Creating a mirror registry with mirror registry for Red Hat OpenShift
                     </a>
                   </li>
 
@@ -2079,7 +2092,7 @@
             <li class="nav-header">
               <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicSubGroup-4-8">
                 <span id="sgSpan-4-8" class="fa fa-caret-right"></span>
-                  &nbsp;Installing on IBM Cloud
+                  &nbsp;Installing on IBM Cloud VPC
 
                   <!-- prints out the names of the second level books with arrow down or to right
                   So in this case: Welcome 2 -->
@@ -2104,7 +2117,7 @@
 
                   <li>
                     <a class="" href="../installing/installing_ibm_cloud_public/preparing-to-install-on-ibm-cloud.html">
-                      Preparing to install on IBM Cloud
+                      Preparing to install on IBM Cloud VPC
                     </a>
                   </li>
 
@@ -2128,7 +2141,7 @@
 
                   <li>
                     <a class="" href="../installing/installing_ibm_cloud_public/installing-ibm-cloud-account.html">
-                      Configuring an IBM Cloud account
+                      Configuring an IBM Cloud account VPC
                     </a>
                   </li>
 
@@ -2152,7 +2165,7 @@
 
                   <li>
                     <a class="" href="../installing/installing_ibm_cloud_public/configuring-iam-ibm-cloud.html">
-                      Configuring IAM for IBM Cloud
+                      Configuring IAM for IBM Cloud VPC
                     </a>
                   </li>
 
@@ -2176,7 +2189,7 @@
 
                   <li>
                     <a class="" href="../installing/installing_ibm_cloud_public/installing-ibm-cloud-customizations.html">
-                      Installing a cluster on IBM Cloud with customizations
+                      Installing a cluster on IBM Cloud VPC with customizations
                     </a>
                   </li>
 
@@ -2200,7 +2213,7 @@
 
                   <li>
                     <a class="" href="../installing/installing_ibm_cloud_public/installing-ibm-cloud-network-customizations.html">
-                      Installing a cluster on IBM Cloud with network customizations
+                      Installing a cluster on IBM Cloud VPC with network customizations
                     </a>
                   </li>
 
@@ -2224,7 +2237,7 @@
 
                   <li>
                     <a class="" href="../installing/installing_ibm_cloud_public/uninstalling-cluster-ibm-cloud.html">
-                      Uninstalling a cluster on IBM Cloud
+                      Uninstalling a cluster on IBM Cloud VPC
                     </a>
                   </li>
 
@@ -8306,7 +8319,31 @@
 
 
                   <li>
-                    <a class="" href="../networking/external_dns_operator/nw-installing-external-dns-operator.html">
+                    <a class="" href="../networking/external_dns_operator/understanding-external-dns-operator.html">
+                      Understanding the External DNS Operator
+                    </a>
+                  </li>
+
+                
+
+
+                <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
+                     Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
+
+                
+                
+                
+                
+                
+
+                <!-- is this is a single page? That is, does this topic have more topics?
+                 Welcome 2 Index Page and Welcome 2 More -->
+
+
+
+
+                  <li>
+                    <a class="" href="../networking/external_dns_operator/nw-installing-external-dns-operator-on-cloud-providers.html">
                       Installing the External DNS Operator
                     </a>
                   </li>
@@ -8330,7 +8367,7 @@
 
 
                   <li>
-                    <a class="" href="../networking/external_dns_operator/nw-external-dns-operator-configuration-parameters.html">
+                    <a class="" href="../networking/external_dns_operator/nw-configuration-parameters.html">
                       External DNS Operator configuration parameters
                     </a>
                   </li>
@@ -8354,7 +8391,7 @@
 
 
                   <li>
-                    <a class="" href="../networking/external_dns_operator/nw-control-dns-records-public-hosted-zone-aws.html">
+                    <a class="" href="../networking/external_dns_operator/nw-creating-dns-records-on-aws.html">
                       Creating DNS records on an public hosted zone for AWS
                     </a>
                   </li>
@@ -8378,7 +8415,7 @@
 
 
                   <li>
-                    <a class="" href="../networking/external_dns_operator/nw-control-dns-records-public-hosted-zone-azure.html">
+                    <a class="" href="../networking/external_dns_operator/nw-creating-dns-records-on-azure.html">
                       Creating DNS records on an public zone for Azure
                     </a>
                   </li>
@@ -8402,8 +8439,32 @@
 
 
                   <li>
-                    <a class="" href="../networking/external_dns_operator/nw-control-dns-records-public-managed-zone-gcp.html">
+                    <a class="" href="../networking/external_dns_operator/nw-creating-dns-records-on-gcp.html">
                       Creating DNS records on an public managed zone for GCP
+                    </a>
+                  </li>
+
+                
+
+
+                <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
+                     Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
+
+                
+                
+                
+                
+                
+
+                <!-- is this is a single page? That is, does this topic have more topics?
+                 Welcome 2 Index Page and Welcome 2 More -->
+
+
+
+
+                  <li>
+                    <a class="" href="../networking/external_dns_operator/nw-creating-dns-records-on-infoblox.html">
+                      Creating DNS records on a public DNS zone for Infoblox
                     </a>
                   </li>
 
@@ -8638,13 +8699,131 @@
             <li class="nav-header">
               <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicSubGroup-12-14">
                 <span id="sgSpan-12-14" class="fa fa-caret-right"></span>
-                  &nbsp;Multiple networks
+                  &nbsp;AWS Load Balancer Operator
 
                   <!-- prints out the names of the second level books with arrow down or to right
                   So in this case: Welcome 2 -->
 
               </a>
               <ul id="topicSubGroup-12-14" class="nav-tertiary list-unstyled collapse">
+
+                <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
+                     Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
+
+                
+                
+                
+                
+                
+
+                <!-- is this is a single page? That is, does this topic have more topics?
+                 Welcome 2 Index Page and Welcome 2 More -->
+
+
+
+
+                  <li>
+                    <a class="" href="../networking/aws_load_balancer_operator/install-aws-load-balancer-operator.html">
+                      Installing the AWS Load Balancer Operator
+                    </a>
+                  </li>
+
+                
+
+
+                <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
+                     Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
+
+                
+                
+                
+                
+                
+
+                <!-- is this is a single page? That is, does this topic have more topics?
+                 Welcome 2 Index Page and Welcome 2 More -->
+
+
+
+
+                  <li>
+                    <a class="" href="../networking/aws_load_balancer_operator/create-instance-aws-load-balancer-controller.html">
+                      Creating an instance of the AWS Load Balancer Controller
+                    </a>
+                  </li>
+
+                
+
+
+                <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
+                     Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
+
+                
+                
+                
+                
+                
+
+                <!-- is this is a single page? That is, does this topic have more topics?
+                 Welcome 2 Index Page and Welcome 2 More -->
+
+
+
+
+                  <li>
+                    <a class="" href="../networking/aws_load_balancer_operator/multiple-ingress-through-single-alb.html">
+                      Serving Multiple Ingresses through a single AWS Load Balancer
+                    </a>
+                  </li>
+
+                
+
+
+                <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
+                     Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
+
+                
+                
+                
+                
+                
+
+                <!-- is this is a single page? That is, does this topic have more topics?
+                 Welcome 2 Index Page and Welcome 2 More -->
+
+
+
+
+                  <li>
+                    <a class="" href="../networking/aws_load_balancer_operator/add-tls-termination.html">
+                      Adding TLS termination on the AWS Load Balancer
+                    </a>
+                  </li>
+
+                
+
+              </ul>
+            </li>
+
+        <!-- for each topic in this topic_group, for example in Welcome 1, what topics exist?
+        Welcome 2 and Welcome 1 More -->
+
+
+            <!-- this topic contains subtopics - Welcome 2 -->
+
+
+            <!-- start a new heading area -->
+
+            <li class="nav-header">
+              <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicSubGroup-12-15">
+                <span id="sgSpan-12-15" class="fa fa-caret-right"></span>
+                  &nbsp;Multiple networks
+
+                  <!-- prints out the names of the second level books with arrow down or to right
+                  So in this case: Welcome 2 -->
+
+              </a>
+              <ul id="topicSubGroup-12-15" class="nav-tertiary list-unstyled collapse">
 
                 <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
                      Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
@@ -8874,15 +9053,15 @@
             <!-- start a new heading area -->
 
             <li class="nav-header">
-              <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicSubGroup-12-15">
-                <span id="sgSpan-12-15" class="fa fa-caret-right"></span>
+              <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicSubGroup-12-16">
+                <span id="sgSpan-12-16" class="fa fa-caret-right"></span>
                   &nbsp;Hardware networks
 
                   <!-- prints out the names of the second level books with arrow down or to right
                   So in this case: Welcome 2 -->
 
               </a>
-              <ul id="topicSubGroup-12-15" class="nav-tertiary list-unstyled collapse">
+              <ul id="topicSubGroup-12-16" class="nav-tertiary list-unstyled collapse">
 
                 <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
                      Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
@@ -9184,15 +9363,15 @@
             <!-- start a new heading area -->
 
             <li class="nav-header">
-              <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicSubGroup-12-16">
-                <span id="sgSpan-12-16" class="fa fa-caret-right"></span>
+              <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicSubGroup-12-17">
+                <span id="sgSpan-12-17" class="fa fa-caret-right"></span>
                   &nbsp;OpenShift SDN default CNI network provider
 
                   <!-- prints out the names of the second level books with arrow down or to right
                   So in this case: Welcome 2 -->
 
               </a>
-              <ul id="topicSubGroup-12-16" class="nav-tertiary list-unstyled collapse">
+              <ul id="topicSubGroup-12-17" class="nav-tertiary list-unstyled collapse">
 
                 <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
                      Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
@@ -9566,15 +9745,15 @@
             <!-- start a new heading area -->
 
             <li class="nav-header">
-              <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicSubGroup-12-17">
-                <span id="sgSpan-12-17" class="fa fa-caret-right"></span>
+              <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicSubGroup-12-18">
+                <span id="sgSpan-12-18" class="fa fa-caret-right"></span>
                   &nbsp;OVN-Kubernetes default CNI network provider
 
                   <!-- prints out the names of the second level books with arrow down or to right
                   So in this case: Welcome 2 -->
 
               </a>
-              <ul id="topicSubGroup-12-17" class="nav-tertiary list-unstyled collapse">
+              <ul id="topicSubGroup-12-18" class="nav-tertiary list-unstyled collapse">
 
                 <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
                      Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
@@ -9996,15 +10175,15 @@
             <!-- start a new heading area -->
 
             <li class="nav-header">
-              <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicSubGroup-12-18">
-                <span id="sgSpan-12-18" class="fa fa-caret-right"></span>
+              <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicSubGroup-12-19">
+                <span id="sgSpan-12-19" class="fa fa-caret-right"></span>
                   &nbsp;Configuring Routes
 
                   <!-- prints out the names of the second level books with arrow down or to right
                   So in this case: Welcome 2 -->
 
               </a>
-              <ul id="topicSubGroup-12-18" class="nav-tertiary list-unstyled collapse">
+              <ul id="topicSubGroup-12-19" class="nav-tertiary list-unstyled collapse">
 
                 <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
                      Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
@@ -10066,15 +10245,15 @@
             <!-- start a new heading area -->
 
             <li class="nav-header">
-              <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicSubGroup-12-19">
-                <span id="sgSpan-12-19" class="fa fa-caret-right"></span>
+              <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicSubGroup-12-20">
+                <span id="sgSpan-12-20" class="fa fa-caret-right"></span>
                   &nbsp;Configuring ingress cluster traffic
 
                   <!-- prints out the names of the second level books with arrow down or to right
                   So in this case: Welcome 2 -->
 
               </a>
-              <ul id="topicSubGroup-12-19" class="nav-tertiary list-unstyled collapse">
+              <ul id="topicSubGroup-12-20" class="nav-tertiary list-unstyled collapse">
 
                 <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
                      Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
@@ -10188,8 +10367,8 @@
 
 
                   <li>
-                    <a class="" href="../networking/configuring_ingress_cluster_traffic/configuring-ingress-cluster-traffic-aws-network-load-balancer.html">
-                      Configuring ingress cluster traffic on AWS using a Network Load Balancer
+                    <a class="" href="../networking/configuring_ingress_cluster_traffic/configuring-ingress-cluster-traffic-aws.html">
+                      Configuring ingress cluster traffic on AWS
                     </a>
                   </li>
 
@@ -10256,15 +10435,15 @@
             <!-- start a new heading area -->
 
             <li class="nav-header">
-              <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicSubGroup-12-20">
-                <span id="sgSpan-12-20" class="fa fa-caret-right"></span>
+              <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicSubGroup-12-21">
+                <span id="sgSpan-12-21" class="fa fa-caret-right"></span>
                   &nbsp;Kubernetes NMState
 
                   <!-- prints out the names of the second level books with arrow down or to right
                   So in this case: Welcome 2 -->
 
               </a>
-              <ul id="topicSubGroup-12-20" class="nav-tertiary list-unstyled collapse">
+              <ul id="topicSubGroup-12-21" class="nav-tertiary list-unstyled collapse">
 
                 <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
                      Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
@@ -10413,15 +10592,15 @@
             <!-- start a new heading area -->
 
             <li class="nav-header">
-              <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicSubGroup-12-24">
-                <span id="sgSpan-12-24" class="fa fa-caret-right"></span>
+              <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicSubGroup-12-25">
+                <span id="sgSpan-12-25" class="fa fa-caret-right"></span>
                   &nbsp;Load balancing with MetalLB
 
                   <!-- prints out the names of the second level books with arrow down or to right
                   So in this case: Welcome 2 -->
 
               </a>
-              <ul id="topicSubGroup-12-24" class="nav-tertiary list-unstyled collapse">
+              <ul id="topicSubGroup-12-25" class="nav-tertiary list-unstyled collapse">
 
                 <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
                      Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
@@ -12764,6 +12943,66 @@
                     <li>
                       <a class="" href="../operators/operator_sdk/helm/osdk-hybrid-helm.html" style="padding-left: 70px;">
                         Hybrid Helm Operator
+                      </a>
+                    </li>
+
+                  </ul>
+                  </li>
+
+
+
+
+                <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
+                     Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
+
+                
+                
+                
+                
+                
+
+
+
+                <!-- Welcome 3 -->
+
+
+                
+                
+                
+
+                <li class="nav-header">
+                  <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicSubSubGroup-15-4-6">
+                    <span id="ssgSpan-15-4-6" class="fa fa-caret-right"></span>
+                    &nbsp;Java-based Operators
+                  </a>
+                  <ul id="topicSubSubGroup-15-4-6" class="nav-tertiary list-unstyled collapse">
+
+                    <!-- list all topics within Welcome 3 here. Note that we are not coding this for more subtopics here -->
+
+
+                    <li>
+                      <a class="" href="../operators/operator_sdk/java/osdk-java-quickstart.html" style="padding-left: 70px;">
+                        Getting started
+                      </a>
+                    </li>
+
+
+                    <!-- list all topics within Welcome 3 here. Note that we are not coding this for more subtopics here -->
+
+
+                    <li>
+                      <a class="" href="../operators/operator_sdk/java/osdk-java-tutorial.html" style="padding-left: 70px;">
+                        Tutorial
+                      </a>
+                    </li>
+
+
+                    <!-- list all topics within Welcome 3 here. Note that we are not coding this for more subtopics here -->
+
+
+                    <li>
+                      <a class="" href="../operators/operator_sdk/java/osdk-java-project-layout.html" style="padding-left: 70px;">
+                        Project layout
                       </a>
                     </li>
 
@@ -18575,7 +18814,7 @@
 
             <!-- ^ this establishs whether we are reading this current page -->
 
-            <li><a class="" href="../monitoring/accessing-third-party-monitoring-uis-and-apis.html">Accessing third-party monitoring UIs and APIs</a></li>
+            <li><a class="" href="../monitoring/accessing-third-party-monitoring-apis.html">Accessing third-party monitoring APIs</a></li>
             <!--  if active, then highlight it,  otherwise nothing to do -->
 
 
@@ -27270,31 +27509,7 @@
 
                   <li>
                     <a class="" href="../virt/install/preparing-cluster-for-virt.html">
-                      Preparing your OpenShift cluster for OpenShift Virtualization
-                    </a>
-                  </li>
-
-                
-
-
-                <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
-                     Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
-
-                
-                
-                
-                
-                
-
-                <!-- is this is a single page? That is, does this topic have more topics?
-                 Welcome 2 Index Page and Welcome 2 More -->
-
-
-
-
-                  <li>
-                    <a class="" href="../virt/install/virt-planning-environment-object-maximums.html">
-                      Planning your environment according to OpenShift Virtualization object maximums
+                      Preparing your cluster for OpenShift Virtualization
                     </a>
                   </li>
 
@@ -28206,7 +28421,7 @@
 
                     <li>
                       <a class="" href="../virt/virtual_machines/vm_networking/virt-using-the-default-pod-network-with-virt.html" style="padding-left: 70px;">
-                        Using the default pod network with OpenShift Virtualization
+                        Configuring the virtual machine for the default pod network
                       </a>
                     </li>
 
@@ -28216,7 +28431,7 @@
 
                     <li>
                       <a class="" href="../virt/virtual_machines/vm_networking/virt-attaching-vm-multiple-networks.html" style="padding-left: 70px;">
-                        Attaching a virtual machine to multiple networks
+                        Attaching a virtual machine to a Linux bridge network
                       </a>
                     </li>
 
@@ -28789,7 +29004,7 @@
 
                   <li>
                     <a class="" href="../virt/live_migration/virt-migrating-vm-on-secondary-network.html">
-                      Migrating a virtual machine over a dedicated secondary network
+                      Migrating a virtual machine over a dedicated additional network
                     </a>
                   </li>
 
@@ -29266,6 +29481,30 @@
                   <li>
                     <a class="" href="../virt/logging_events_monitoring/virt-openshift-cluster-monitoring.html">
                       OpenShift cluster monitoring, logging, and Telemetry
+                    </a>
+                  </li>
+
+                
+
+
+                <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
+                     Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
+
+                
+                
+                
+                
+                
+
+                <!-- is this is a single page? That is, does this topic have more topics?
+                 Welcome 2 Index Page and Welcome 2 More -->
+
+
+
+
+                  <li>
+                    <a class="" href="../virt/logging_events_monitoring/virt-running-cluster-checkups.html">
+                      Running OpenShift cluster checkups
                     </a>
                   </li>
 
@@ -30307,7 +30546,7 @@
 
                   <li>
                     <a class="" href="../serverless/develop/serverless-kafka-developer.html">
-                      Knative Kafka
+                      Using Knative Kafka
                     </a>
                   </li>
 
@@ -30377,7 +30616,7 @@
 
                   <li>
                     <a class="" href="../serverless/admin_guide/serverless-kafka-admin.html">
-                      Knative Kafka
+                      Configuring Knative Kafka
                     </a>
                   </li>
 
@@ -30402,30 +30641,6 @@
                   <li>
                     <a class="" href="../serverless/admin_guide/serverless-admin-perspective.html">
                       Serverless components in the Administrator perspective
-                    </a>
-                  </li>
-
-                
-
-
-                <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
-                     Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
-
-                
-                
-                
-                
-                
-
-                <!-- is this is a single page? That is, does this topic have more topics?
-                 Welcome 2 Index Page and Welcome 2 More -->
-
-
-
-
-                  <li>
-                    <a class="" href="../serverless/admin_guide/serverless-admin-autoscaling.html">
-                      Autoscaling
                     </a>
                   </li>
 
@@ -30497,7 +30712,7 @@
 
                   <li>
                     <a class="" href="../serverless/admin_guide/serverless-ha.html">
-                      High availability on OpenShift Serverless
+                      High availability
                     </a>
                   </li>
 
@@ -30566,30 +30781,6 @@
 
 
                   <li>
-                    <a class="" href="../serverless/monitor/serverless-tracing.html">
-                      Tracing requests using Jaeger
-                    </a>
-                  </li>
-
-                
-
-
-                <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
-                     Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
-
-                
-                
-                
-                
-                
-
-                <!-- is this is a single page? That is, does this topic have more topics?
-                 Welcome 2 Index Page and Welcome 2 More -->
-
-
-
-
-                  <li>
                     <a class="" href="../serverless/monitor/serverless-developer-metrics.html">
                       Serverless developer metrics
                     </a>
@@ -30599,6 +30790,19 @@
 
               </ul>
             </li>
+
+        <!-- for each topic in this topic_group, for example in Welcome 1, what topics exist?
+        Welcome 2 and Welcome 1 More -->
+
+
+          <!-- is this is a single page? That is, does this topic have more topics?
+          Welcome 1 More -->
+
+            <!-- ^ this establishs whether we are reading this current page -->
+
+            <li><a class="" href="../serverless/serverless-tracing.html">Tracing</a></li>
+            <!--  if active, then highlight it,  otherwise nothing to do -->
+
 
         <!-- for each topic in this topic_group, for example in Welcome 1, what topics exist?
         Welcome 2 and Welcome 1 More -->
@@ -30623,15 +30827,15 @@
             <!-- start a new heading area -->
 
             <li class="nav-header">
-              <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicSubGroup-34-8">
-                <span id="sgSpan-34-8" class="fa fa-caret-right"></span>
+              <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicSubGroup-34-9">
+                <span id="sgSpan-34-9" class="fa fa-caret-right"></span>
                   &nbsp;Security
 
                   <!-- prints out the names of the second level books with arrow down or to right
                   So in this case: Welcome 2 -->
 
               </a>
-              <ul id="topicSubGroup-34-8" class="nav-tertiary list-unstyled collapse">
+              <ul id="topicSubGroup-34-9" class="nav-tertiary list-unstyled collapse">
 
                 <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
                      Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
@@ -30741,15 +30945,15 @@
             <!-- start a new heading area -->
 
             <li class="nav-header">
-              <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicSubGroup-34-9">
-                <span id="sgSpan-34-9" class="fa fa-caret-right"></span>
+              <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicSubGroup-34-10">
+                <span id="sgSpan-34-10" class="fa fa-caret-right"></span>
                   &nbsp;Functions
 
                   <!-- prints out the names of the second level books with arrow down or to right
                   So in this case: Welcome 2 -->
 
               </a>
-              <ul id="topicSubGroup-34-9" class="nav-tertiary list-unstyled collapse">
+              <ul id="topicSubGroup-34-10" class="nav-tertiary list-unstyled collapse">
 
                 <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
                      Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
@@ -31051,15 +31255,15 @@
             <!-- start a new heading area -->
 
             <li class="nav-header">
-              <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicSubGroup-34-10">
-                <span id="sgSpan-34-10" class="fa fa-caret-right"></span>
+              <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicSubGroup-34-11">
+                <span id="sgSpan-34-11" class="fa fa-caret-right"></span>
                   &nbsp;Integrations
 
                   <!-- prints out the names of the second level books with arrow down or to right
                   So in this case: Welcome 2 -->
 
               </a>
-              <ul id="topicSubGroup-34-10" class="nav-tertiary list-unstyled collapse">
+              <ul id="topicSubGroup-34-11" class="nav-tertiary list-unstyled collapse">
 
                 <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
                      Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
@@ -31248,9 +31452,27 @@
 <div class="sect2">
 <h3 id="ocp-4-11-rhcos"><a class="anchor" href="#ocp-4-11-rhcos"></a>Red Hat Enterprise Linux CoreOS (RHCOS)</h3>
 <div class="sect3">
-<h4 id="ocp-4-11-nvme-cli"><a class="anchor" href="#ocp-4-11-nvme-cli"></a>Support for NVMe over Fabrics</h4>
+<h4 id="ocp-4-11-nvme-cli"><a class="anchor" href="#ocp-4-11-nvme-cli"></a>Improved support for NVMe over Fabrics</h4>
 <div class="paragraph">
-<p>OpenShift Container Platform 4.11 introduces the <code>nvme-cli</code> package that provides an interface for communicating with NVMe disks using host software capabilities.</p>
+<p>OpenShift Container Platform 4.11 introduces the <code>nvme-cli</code> package that provides an interface for managing NVMe devices.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="ocp-4-11-kdump-x86"><a class="anchor" href="#ocp-4-11-kdump-x86"></a>Investigate kernel crashes on AMD64 machines with kdump</h4>
+<div class="paragraph">
+<p>RHCOS now supports <code>kdump</code> for the <code>x86_64</code> architecture in OpenShift Container Platform 4.11. Support for <code>kdump</code> on other architectures remains in Technology Preview.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="ocp-4-11-kdump-arm64"><a class="anchor" href="#ocp-4-11-kdump-arm64"></a>Investigate kernel crashes on ARM64 machines with kdump (Technology Preview)</h4>
+<div class="paragraph">
+<p>RHCOS now supports <code>kdump</code> for the <code>arm64</code> architecture in OpenShift Container Platform 4.11 as a Technology Preview.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="ocp-4-11-rhcos-rhel-8-6-packages"><a class="anchor" href="#ocp-4-11-rhcos-rhel-8-6-packages"></a>RHCOS now uses RHEL 8.6</h4>
+<div class="paragraph">
+<p>RHCOS now uses Red Hat Enterprise Linux (RHEL) 8.6 packages in OpenShift Container Platform 4.11 and above. This enables you to have the latest fixes, features, and enhancements, as well as the latest hardware support and driver updates.</p>
 </div>
 </div>
 </div>
@@ -31301,6 +31523,24 @@
 <p>For more information, see <a href="../installing/installing_azure/installing-azure-customizations.html#installation-configuration-parameters-additional-azure_installing-azure-customizations">Additional Azure configuration parameters</a>.</p>
 </div>
 </div>
+<div class="sect3">
+<h4 id="ocp-4-11-bootstrapExternalStaticIP_release-notes"><a class="anchor" href="#ocp-4-11-bootstrapExternalStaticIP_release-notes"></a>Added support for bootstrapExternalStaticIP and bootstrapExternalStaticGateway configuration settings</h4>
+<div class="paragraph">
+<p>When deploying an installer-provisioned OpenShift Container Platform cluster on bare metal with static IP addresses and no DHCP server on the <code>baremetal</code> network, you must specify a static IP address for the bootstrap VM and the static IP address of the gateway for the bootstrap VM. OpenShift Container Platform Branch Build provides the <code>bootstrapExternalStaticIP</code> and the <code>bootstrapExternalStaticGateway</code> configuration settings, which you can set in the <code>install-config.yaml</code> file before deployment. The introduction of these settings replaces the workaround procedure <a href="https://access.redhat.com/articles/6850661">Assigning a bootstrap VM an IP address on the baremetal network without a DHCP server</a> from the OpenShift Container Platform 4.10 release.</p>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="../installing/installing_bare_metal_ipi/ipi-install-installation-workflow.html#configuring-the-install-config-file_ipi-install-installation-workflow">Configuring the install-config.yaml file</a> and <a href="../installing/installing_bare_metal_ipi/ipi-install-installation-workflow.html#additional-install-config-parameters_ipi-install-installation-workflow">Additional install-config parameters</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="ocp-4-11-configuring-bios-raid-on-fujitsu-Hardware_release-notes"><a class="anchor" href="#ocp-4-11-configuring-bios-raid-on-fujitsu-Hardware_release-notes"></a>Configuring Fujitsu hardware</h4>
+<div class="paragraph">
+<p>OpenShift Container Platform Branch Build introduces support for configuring the BIOS and RAID arrays of control plane nodes when installing OpenShift Container Platform on bare metal with Fujitsu hardware. In OpenShift Container Platform 4.10, configuring the BIOS and RAID arrays on Fujitsu hardware was limited to worker nodes.</p>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="../installing/installing_bare_metal_ipi/ipi-install-installation-workflow.html#configuring-the-bios_ipi-install-installation-workflow">Configuring the BIOS</a> and <a href="../installing/installing_bare_metal_ipi/ipi-install-installation-workflow.html#configuring-the-raid_ipi-install-installation-workflow">Configuring the RAID</a>.</p>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="ocp-4-11-web-console"><a class="anchor" href="#ocp-4-11-web-console"></a>Web console</h3>
@@ -31324,6 +31564,24 @@
 <h4 id="new-option-for-ingress-controllers-with-the-hostnetwork-endpoint"><a class="anchor" href="#new-option-for-ingress-controllers-with-the-hostnetwork-endpoint"></a>New option for Ingress Controllers with the hostnetwork endpoint</h4>
 <div class="paragraph">
 <p>This update introduces a new option for Ingress Controllers with the <code>hostnetwork</code> endpoint strategy. You can now host multiple Ingress Controllers on the same worker node using <code>httpPort</code>, <code>httpsPort</code>, and <code>statsPort</code> binding ports.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="ocp-4-11-multiple-configuration-control-worker-nodes"><a class="anchor" href="#ocp-4-11-multiple-configuration-control-worker-nodes"></a>Multi-node configuration for control plane and worker nodes</h4>
+<div class="paragraph">
+<p>You can simultaneously apply a single configuration to multiple, bare-metal, installer-provisioned infrastructure nodes in a cluster. Applying a single configuration to multiple nodes reduces the risk of misconfiguration due to the single-provisioning process.</p>
+</div>
+<div class="paragraph">
+<p>This mechanism is only available for initial deployments when the <code>install-config</code> file is used.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="ocp-4-11-ne-clb-timeouts"><a class="anchor" href="#ocp-4-11-ne-clb-timeouts"></a>Support for configuring Classic Load Balancer Timeouts on AWS</h4>
+<div class="paragraph">
+<p>You can now configure idle connection timeouts for AWS Classic Load Balancers (CLBs) in the Ingress Controller.</p>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="../networking/configuring_ingress_cluster_traffic/configuring-ingress-cluster-traffic-aws.html#nw-configuring-clb-timeouts_configuring-ingress-cluster-traffic-aws">Configuring Classic Load Balancer timeouts</a></p>
 </div>
 </div>
 <div class="sect3">
@@ -31352,9 +31610,51 @@
 <div class="paragraph">
 <p>For more information, see <a href="https://kubernetes.io/docs/concepts/services-networking/service-traffic-policy">Service Internal Traffic Policy</a>.</p>
 </div>
+<div class="paragraph">
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
+</div>
 </div>
 <div class="sect3">
-<h4 id="ocp-4-11-cluster-ranges-for-network"><a class="anchor" href="#ocp-4-11-cluster-ranges-for-network"></a>OpenShift Container Platform Cluster Ranges for Networks</h4>
+<h4 id="ocp-4-11-routes-spec-subdomain-field"><a class="anchor" href="#ocp-4-11-routes-spec-subdomain-field"></a>Enhancement to the Route API</h4>
+<div class="paragraph">
+<p>Previously, you could not specify the subdomain of a route, and the <code>spec.host</code> field was required to set the host name. You can now specify the <code>spec.subdomain</code> field and omit the <code>spec.host</code> field of a route. The router deployment that exposes the route will use the <code>spec.subdomain</code> value to determine the host name.</p>
+</div>
+<div class="paragraph">
+<p>You can use this enhancement to simplify sharding by enabling a route to have multiple, distinct host names determined by each router deployment that exposes the route.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="ocp-4-11-external-dns-operator"><a class="anchor" href="#ocp-4-11-external-dns-operator"></a>External DNS Operator</h4>
+<div class="paragraph">
+<p>In OpenShift Container Platform 4.11, the External DNS Operator is available for AWS Route53, Azure DNS, GCP DNS, and Infoblox in General Availability (GA) status. The External DNS Operator is still in Technology Preview (TP) status for BlueCat and AWS Route53 on GovCloud.
+With this update, the External DNS Operator provides the following enhancements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>You can create DNS records on a DNS zone on Infoblox.</p>
+</li>
+<li>
+<p>By default, the External DNS Operator creates the operands in the namespace <code>external-dns-operator</code>. You do not have to manually create a namespace for the operands and Role-based access control (RBAC) prior to installation.</p>
+</li>
+<li>
+<p>You can use the status of the route to retrieve the DNS FQDN names.</p>
+</li>
+<li>
+<p>The proxy support for BlueCat DNS provider is now available.</p>
+</li>
+<li>
+<p>You can enable the automatic DNS configuration deployment while using the BlueCat DNS provider.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Ensure that you migrate from TP to GA. The upstream version of <code>ExternalDNS</code> for an OpenShift Container Platform 4.11 is <code>v0.12.0</code> and for the TP is <code>v0.10.2</code>.
+For more information, see <a href="../networking/external_dns_operator/nw-installing-external-dns-operator-on-cloud-providers.html#nw-installing-external-dns-operator-on-cloud-providers">About the External DNS Operator</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="ocp-4-11-cidr-ranges-for-network"><a class="anchor" href="#ocp-4-11-cidr-ranges-for-network"></a>OpenShift Container Platform CIDR Ranges for Networks</h4>
 <div class="paragraph">
 <p>Be aware that CIDR ranges for networks are not adjustable after cluster installation. Red Hat does not provide direct guidance on determining the size as it requires careful consideration of the number of pods created.</p>
 </div>
@@ -31378,7 +31678,29 @@
 </div>
 <div class="sect2">
 <h3 id="ocp-4-11-osdk"><a class="anchor" href="#ocp-4-11-osdk"></a>Operator development</h3>
-
+<div class="sect3">
+<h4 id="ocp-4-11-PAO-to-NTO"><a class="anchor" href="#ocp-4-11-PAO-to-NTO"></a>Performance Addon Operator functions moved to the Node Tuning Operator</h4>
+<div class="paragraph">
+<p>In earlier versions of OpenShift Container Platform, the Performance Addon Operator provided automatic, low latency performance tuning for applications. In OpenShift Container Platform 4.11, these functions are part of the Node Tuning Operator. The Node Tuning Operator is part of the standard installation for OpenShift Container Platform 4.11. If you upgrade to OpenShift Container Platform 4.11, the Node Tuning Operator removes the Performance Addon Operator and all related artifacts on startup.</p>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="../operators/operator-reference.html#about-node-tuning-operator_platform-operators-ref">Node Tuning Operator</a>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You must still use the <code>performance-addon-operator-must-gather</code> image when running the <code>must-gather</code> command with the Performance Profile Creator. For more information, see <a href="../scalability_and_performance/cnf-create-performance-profiles.html#gathering-data-about-your-cluster-using-must-gather_cnf-create-performance-profiles">Gathering data about your cluster using must-gather</a></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="ocp-4-11-builds"><a class="anchor" href="#ocp-4-11-builds"></a>Builds</h3>
@@ -31421,13 +31743,29 @@
 </div>
 <div class="sect2">
 <h3 id="ocp-4-11-scalability-and-performance"><a class="anchor" href="#ocp-4-11-scalability-and-performance"></a>Scalability and performance</h3>
-<div id="ocp-4-11-ne-livenessProbe-readinessProbe-startupProbe-timeout-configuration" class="paragraph">
-<p>/This is a 4.11 Network Edge feature that is located in the Scalability and Performance area of the docs, requested to be placed here by Miciah Masters -Sara T./
-==== Configuring Ingress Controller (router) Liveness, Readiness, and Startup probes
-OpenShift Container Platform 4.11 introduces the ability to configure the timeout values for the kubelet’s liveness, readiness, and startup probes for router deployments that are managed by the OpenShift Container Platform ingress operator. The ability to set larger timeout values can reduce the risk of unnecessary and unwanted restarts that are caused by short default timeout of 1 second.</p>
+<div class="sect3">
+<h4 id="ocp-4-11-enhance-scaleup-operations-etcd-clusters"><a class="anchor" href="#ocp-4-11-enhance-scaleup-operations-etcd-clusters"></a>Enhancement to scale-up operations for etcd clusters</h4>
+<div class="paragraph">
+<p>The Raft algorithm allows for scaling of etcd members using a new <code>learner</code> state. As a result, maintaining cluster quorum, adding and removing new members, and promoting <code>learners</code> occur without disrupting the cluster operation.</p>
+</div>
+<div id="ocp-4-11-enabling-assisted-installer-service-on-bare-metal_release-notes" class="paragraph">
+<p>OpenShift Container Platform 4.11 introduces the <code>imageStorage</code> option as part of the <code>AgentServiceConfig</code> custom resource. This option improves application performance by allowing the user to specify persistent storage claim details for use with the image service.</p>
+</div>
+<div class="paragraph">
+<p>The <code>releaseImage</code> parameter of the <code>ClusterImageSet</code> custom resource now supports operating system image version identification. The discovery ISO is based on an operating system image version as the releaseImage, or the latest version if the specified version is unavailable.</p>
+</div>
+<div class="paragraph">
+<p>The <code>openshiftVersion</code> parameter of the <code>AgentServiceConfig</code> custom resource (CR) now supports either "x.y" (major.minor) or "x.y.z" (major.minor.patch) formats.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="ocp-4-11-ne-livenessProbe-readinessProbe-startupProbe-timeout-configuration"><a class="anchor" href="#ocp-4-11-ne-livenessProbe-readinessProbe-startupProbe-timeout-configuration"></a>Configuring Ingress Controller (router) Liveness, Readiness, and Startup probes</h4>
+<div class="paragraph">
+<p>OpenShift Container Platform 4.11 introduces the ability to configure the timeout values for the kubelet’s liveness, readiness, and startup probes for router deployments that are managed by the OpenShift Container Platform ingress operator. The ability to set larger timeout values can reduce the risk of unnecessary and unwanted restarts that are caused by short default timeout of 1 second.</p>
 </div>
 <div class="paragraph">
 <p>For more information see, <a href="../scalability_and_performance/routing-optimization.html#configuring-ingress-controller-router-liveness-readiness-and-startup-probes">Configuring Ingress Controller (router) Liveness, Readiness, and Startup probes</a></p>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -31479,6 +31817,19 @@ OpenShift Container Platform 4.11 introduces the ability to configure the timeou
 <h4 id="ocp-4-11-router-load-balancing-algorithm-default-update" class="discrete">Update in default value for setting the router load-balancing algorithm</h4>
 <div class="paragraph">
 <p>The <code>haproxy.router.openshift.io/balance</code> variable, which sets the router load-balancing algorithm, now defaults to the value <code>random</code> instead of <code>leastconn</code>. See <a href="../networking/routes/route-configuration.html#nw-route-specific-annotations_route-configuration">Route-specific annotations</a> for more information.</p>
+</div>
+<h4 id="ocp-4-11-legacy-service-account" class="discrete">LegacyServiceAccountTokenNoAutoGeneration is on by default</h4>
+<div class="paragraph">
+<p>To align with upstream Kubernetes moving the <code>LegacyServiceAccountTokenNoAutoGeneration</code> feature gate to beta and enabling it by default, OpenShift Container Platform now also follows this security feature and ships with the feature enabled.</p>
+</div>
+<div class="paragraph">
+<p>This feature removes automatic generation of Service Account token secrets, meaning that a Service Account no longer receives an  automatically generated token upon its creation.</p>
+</div>
+<div class="paragraph">
+<p>However, OpenShift Controller Manager still requires Service Account tokens to appear in secrets in order to function properly, and it will continue to request these tokens in secrets in OpenShift Container Platform 4.11. In a future release, the <code>TokenRequest</code> API will be used instead.</p>
+</div>
+<div class="paragraph">
+<p>Service Account token secrets will still appear as auto-generated in OpenShift Container Platform 4.11. However, instead of two secrets per Service Account, there will now be only one, which will be further reduced to zero in a future release. For now, dockercfg secrets will still be generated as secrets and no secrets will be deleted during upgrades.</p>
 </div>
 </div>
 </div>
@@ -31961,10 +32312,28 @@ OpenShift Container Platform 4.11 introduces the ability to configure the timeou
 <td class="tableblock halign-left valign-top"><p class="tableblock">GA</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Kdump</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>kdump</code> on <code>x86_64</code> architecture</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">TP</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">TP</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GA</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>kdump</code> on <code>arm64</code> architecture</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TP</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>kdump</code> on <code>s390x</code> architecture</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TP</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>kdump</code> on <code>ppc64le</code> architecture</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TP</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OpenShift Serverless</p></td>
@@ -32263,7 +32632,7 @@ oc patch clusterrolebinding <span class="k">${</span><span class="nv">clusterrol
 <p>The <code>oc annotate</code> command does not work for LDAP group names that contain an equal sign (<code>=</code>), because the command uses the equal sign as a delimiter between the annotation name and value. As a workaround, use <code>oc patch</code> or <code>oc edit</code> to add the annotation. (<a href="https://bugzilla.redhat.com/show_bug.cgi?id=1917280"><strong>BZ#1917280</strong></a>)</p>
 </li>
 <li>
-<p>In the Red Hat OpenStack Platform (RHOSP), a known potential issue in RHOSP Kuryr may occur when attempting to create <code>300</code> ports in bulks of <code>10</code> ports and <code>10</code> subnets. These bulk requests can create conflicts when distributing IP addresses. This issue was resolved in a previous errata; however, Red Hat suggests setting a value lower than <code>300</code> to avoid this issue in future releases. (<a href="https://bugzilla.redhat.com/show_bug.cgi?id=2024690"><strong>BZ2024690</strong></a>)</p>
+<p>In the Red Hat OpenStack Platform (RHOSP), a potential issue in RHOSP Kuryr may occur when a large variety of Bulk Ports requests are created at the same time. These bulk requests can create conflicts when distributing IP addresses. This issue was resolved in a previous errata; however, Red Hat suggests setting a value to avoid the issue of having a variety of Bulk Ports requests, that is, having multiple pods created simultaneously. (<a href="https://bugzilla.redhat.com/show_bug.cgi?id=2024690"><strong>BZ2024690</strong></a>)</p>
 </li>
 </ul>
 </div>

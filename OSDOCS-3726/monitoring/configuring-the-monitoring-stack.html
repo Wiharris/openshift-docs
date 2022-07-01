@@ -515,6 +515,19 @@
 
             <!-- ^ this establishs whether we are reading this current page -->
 
+            <li><a class="" href="../architecture/ocm-overview-ocp.html">Red Hat OpenShift Cluster Manager</a></li>
+            <!--  if active, then highlight it,  otherwise nothing to do -->
+
+
+        <!-- for each topic in this topic_group, for example in Welcome 1, what topics exist?
+        Welcome 2 and Welcome 1 More -->
+
+
+          <!-- is this is a single page? That is, does this topic have more topics?
+          Welcome 1 More -->
+
+            <!-- ^ this establishs whether we are reading this current page -->
+
             <li><a class="" href="../architecture/control-plane.html">Control plane architecture</a></li>
             <!--  if active, then highlight it,  otherwise nothing to do -->
 
@@ -676,7 +689,7 @@
 
                   <li>
                     <a class="" href="../installing/disconnected_install/installing-mirroring-creating-registry.html">
-                      Creating a mirror registry
+                      Creating a mirror registry with mirror registry for Red Hat OpenShift
                     </a>
                   </li>
 
@@ -2079,7 +2092,7 @@
             <li class="nav-header">
               <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicSubGroup-4-8">
                 <span id="sgSpan-4-8" class="fa fa-caret-right"></span>
-                  &nbsp;Installing on IBM Cloud
+                  &nbsp;Installing on IBM Cloud VPC
 
                   <!-- prints out the names of the second level books with arrow down or to right
                   So in this case: Welcome 2 -->
@@ -2104,7 +2117,7 @@
 
                   <li>
                     <a class="" href="../installing/installing_ibm_cloud_public/preparing-to-install-on-ibm-cloud.html">
-                      Preparing to install on IBM Cloud
+                      Preparing to install on IBM Cloud VPC
                     </a>
                   </li>
 
@@ -2128,7 +2141,7 @@
 
                   <li>
                     <a class="" href="../installing/installing_ibm_cloud_public/installing-ibm-cloud-account.html">
-                      Configuring an IBM Cloud account
+                      Configuring an IBM Cloud account VPC
                     </a>
                   </li>
 
@@ -2152,7 +2165,7 @@
 
                   <li>
                     <a class="" href="../installing/installing_ibm_cloud_public/configuring-iam-ibm-cloud.html">
-                      Configuring IAM for IBM Cloud
+                      Configuring IAM for IBM Cloud VPC
                     </a>
                   </li>
 
@@ -2176,7 +2189,7 @@
 
                   <li>
                     <a class="" href="../installing/installing_ibm_cloud_public/installing-ibm-cloud-customizations.html">
-                      Installing a cluster on IBM Cloud with customizations
+                      Installing a cluster on IBM Cloud VPC with customizations
                     </a>
                   </li>
 
@@ -2200,7 +2213,7 @@
 
                   <li>
                     <a class="" href="../installing/installing_ibm_cloud_public/installing-ibm-cloud-network-customizations.html">
-                      Installing a cluster on IBM Cloud with network customizations
+                      Installing a cluster on IBM Cloud VPC with network customizations
                     </a>
                   </li>
 
@@ -2224,7 +2237,7 @@
 
                   <li>
                     <a class="" href="../installing/installing_ibm_cloud_public/uninstalling-cluster-ibm-cloud.html">
-                      Uninstalling a cluster on IBM Cloud
+                      Uninstalling a cluster on IBM Cloud VPC
                     </a>
                   </li>
 
@@ -8306,7 +8319,31 @@
 
 
                   <li>
-                    <a class="" href="../networking/external_dns_operator/nw-installing-external-dns-operator.html">
+                    <a class="" href="../networking/external_dns_operator/understanding-external-dns-operator.html">
+                      Understanding the External DNS Operator
+                    </a>
+                  </li>
+
+                
+
+
+                <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
+                     Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
+
+                
+                
+                
+                
+                
+
+                <!-- is this is a single page? That is, does this topic have more topics?
+                 Welcome 2 Index Page and Welcome 2 More -->
+
+
+
+
+                  <li>
+                    <a class="" href="../networking/external_dns_operator/nw-installing-external-dns-operator-on-cloud-providers.html">
                       Installing the External DNS Operator
                     </a>
                   </li>
@@ -8330,7 +8367,7 @@
 
 
                   <li>
-                    <a class="" href="../networking/external_dns_operator/nw-external-dns-operator-configuration-parameters.html">
+                    <a class="" href="../networking/external_dns_operator/nw-configuration-parameters.html">
                       External DNS Operator configuration parameters
                     </a>
                   </li>
@@ -8354,7 +8391,7 @@
 
 
                   <li>
-                    <a class="" href="../networking/external_dns_operator/nw-control-dns-records-public-hosted-zone-aws.html">
+                    <a class="" href="../networking/external_dns_operator/nw-creating-dns-records-on-aws.html">
                       Creating DNS records on an public hosted zone for AWS
                     </a>
                   </li>
@@ -8378,7 +8415,7 @@
 
 
                   <li>
-                    <a class="" href="../networking/external_dns_operator/nw-control-dns-records-public-hosted-zone-azure.html">
+                    <a class="" href="../networking/external_dns_operator/nw-creating-dns-records-on-azure.html">
                       Creating DNS records on an public zone for Azure
                     </a>
                   </li>
@@ -8402,8 +8439,32 @@
 
 
                   <li>
-                    <a class="" href="../networking/external_dns_operator/nw-control-dns-records-public-managed-zone-gcp.html">
+                    <a class="" href="../networking/external_dns_operator/nw-creating-dns-records-on-gcp.html">
                       Creating DNS records on an public managed zone for GCP
+                    </a>
+                  </li>
+
+                
+
+
+                <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
+                     Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
+
+                
+                
+                
+                
+                
+
+                <!-- is this is a single page? That is, does this topic have more topics?
+                 Welcome 2 Index Page and Welcome 2 More -->
+
+
+
+
+                  <li>
+                    <a class="" href="../networking/external_dns_operator/nw-creating-dns-records-on-infoblox.html">
+                      Creating DNS records on a public DNS zone for Infoblox
                     </a>
                   </li>
 
@@ -8638,13 +8699,131 @@
             <li class="nav-header">
               <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicSubGroup-12-14">
                 <span id="sgSpan-12-14" class="fa fa-caret-right"></span>
-                  &nbsp;Multiple networks
+                  &nbsp;AWS Load Balancer Operator
 
                   <!-- prints out the names of the second level books with arrow down or to right
                   So in this case: Welcome 2 -->
 
               </a>
               <ul id="topicSubGroup-12-14" class="nav-tertiary list-unstyled collapse">
+
+                <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
+                     Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
+
+                
+                
+                
+                
+                
+
+                <!-- is this is a single page? That is, does this topic have more topics?
+                 Welcome 2 Index Page and Welcome 2 More -->
+
+
+
+
+                  <li>
+                    <a class="" href="../networking/aws_load_balancer_operator/install-aws-load-balancer-operator.html">
+                      Installing the AWS Load Balancer Operator
+                    </a>
+                  </li>
+
+                
+
+
+                <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
+                     Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
+
+                
+                
+                
+                
+                
+
+                <!-- is this is a single page? That is, does this topic have more topics?
+                 Welcome 2 Index Page and Welcome 2 More -->
+
+
+
+
+                  <li>
+                    <a class="" href="../networking/aws_load_balancer_operator/create-instance-aws-load-balancer-controller.html">
+                      Creating an instance of the AWS Load Balancer Controller
+                    </a>
+                  </li>
+
+                
+
+
+                <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
+                     Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
+
+                
+                
+                
+                
+                
+
+                <!-- is this is a single page? That is, does this topic have more topics?
+                 Welcome 2 Index Page and Welcome 2 More -->
+
+
+
+
+                  <li>
+                    <a class="" href="../networking/aws_load_balancer_operator/multiple-ingress-through-single-alb.html">
+                      Serving Multiple Ingresses through a single AWS Load Balancer
+                    </a>
+                  </li>
+
+                
+
+
+                <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
+                     Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
+
+                
+                
+                
+                
+                
+
+                <!-- is this is a single page? That is, does this topic have more topics?
+                 Welcome 2 Index Page and Welcome 2 More -->
+
+
+
+
+                  <li>
+                    <a class="" href="../networking/aws_load_balancer_operator/add-tls-termination.html">
+                      Adding TLS termination on the AWS Load Balancer
+                    </a>
+                  </li>
+
+                
+
+              </ul>
+            </li>
+
+        <!-- for each topic in this topic_group, for example in Welcome 1, what topics exist?
+        Welcome 2 and Welcome 1 More -->
+
+
+            <!-- this topic contains subtopics - Welcome 2 -->
+
+
+            <!-- start a new heading area -->
+
+            <li class="nav-header">
+              <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicSubGroup-12-15">
+                <span id="sgSpan-12-15" class="fa fa-caret-right"></span>
+                  &nbsp;Multiple networks
+
+                  <!-- prints out the names of the second level books with arrow down or to right
+                  So in this case: Welcome 2 -->
+
+              </a>
+              <ul id="topicSubGroup-12-15" class="nav-tertiary list-unstyled collapse">
 
                 <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
                      Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
@@ -8874,15 +9053,15 @@
             <!-- start a new heading area -->
 
             <li class="nav-header">
-              <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicSubGroup-12-15">
-                <span id="sgSpan-12-15" class="fa fa-caret-right"></span>
+              <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicSubGroup-12-16">
+                <span id="sgSpan-12-16" class="fa fa-caret-right"></span>
                   &nbsp;Hardware networks
 
                   <!-- prints out the names of the second level books with arrow down or to right
                   So in this case: Welcome 2 -->
 
               </a>
-              <ul id="topicSubGroup-12-15" class="nav-tertiary list-unstyled collapse">
+              <ul id="topicSubGroup-12-16" class="nav-tertiary list-unstyled collapse">
 
                 <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
                      Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
@@ -9184,15 +9363,15 @@
             <!-- start a new heading area -->
 
             <li class="nav-header">
-              <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicSubGroup-12-16">
-                <span id="sgSpan-12-16" class="fa fa-caret-right"></span>
+              <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicSubGroup-12-17">
+                <span id="sgSpan-12-17" class="fa fa-caret-right"></span>
                   &nbsp;OpenShift SDN default CNI network provider
 
                   <!-- prints out the names of the second level books with arrow down or to right
                   So in this case: Welcome 2 -->
 
               </a>
-              <ul id="topicSubGroup-12-16" class="nav-tertiary list-unstyled collapse">
+              <ul id="topicSubGroup-12-17" class="nav-tertiary list-unstyled collapse">
 
                 <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
                      Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
@@ -9566,15 +9745,15 @@
             <!-- start a new heading area -->
 
             <li class="nav-header">
-              <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicSubGroup-12-17">
-                <span id="sgSpan-12-17" class="fa fa-caret-right"></span>
+              <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicSubGroup-12-18">
+                <span id="sgSpan-12-18" class="fa fa-caret-right"></span>
                   &nbsp;OVN-Kubernetes default CNI network provider
 
                   <!-- prints out the names of the second level books with arrow down or to right
                   So in this case: Welcome 2 -->
 
               </a>
-              <ul id="topicSubGroup-12-17" class="nav-tertiary list-unstyled collapse">
+              <ul id="topicSubGroup-12-18" class="nav-tertiary list-unstyled collapse">
 
                 <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
                      Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
@@ -9996,15 +10175,15 @@
             <!-- start a new heading area -->
 
             <li class="nav-header">
-              <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicSubGroup-12-18">
-                <span id="sgSpan-12-18" class="fa fa-caret-right"></span>
+              <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicSubGroup-12-19">
+                <span id="sgSpan-12-19" class="fa fa-caret-right"></span>
                   &nbsp;Configuring Routes
 
                   <!-- prints out the names of the second level books with arrow down or to right
                   So in this case: Welcome 2 -->
 
               </a>
-              <ul id="topicSubGroup-12-18" class="nav-tertiary list-unstyled collapse">
+              <ul id="topicSubGroup-12-19" class="nav-tertiary list-unstyled collapse">
 
                 <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
                      Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
@@ -10066,15 +10245,15 @@
             <!-- start a new heading area -->
 
             <li class="nav-header">
-              <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicSubGroup-12-19">
-                <span id="sgSpan-12-19" class="fa fa-caret-right"></span>
+              <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicSubGroup-12-20">
+                <span id="sgSpan-12-20" class="fa fa-caret-right"></span>
                   &nbsp;Configuring ingress cluster traffic
 
                   <!-- prints out the names of the second level books with arrow down or to right
                   So in this case: Welcome 2 -->
 
               </a>
-              <ul id="topicSubGroup-12-19" class="nav-tertiary list-unstyled collapse">
+              <ul id="topicSubGroup-12-20" class="nav-tertiary list-unstyled collapse">
 
                 <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
                      Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
@@ -10188,8 +10367,8 @@
 
 
                   <li>
-                    <a class="" href="../networking/configuring_ingress_cluster_traffic/configuring-ingress-cluster-traffic-aws-network-load-balancer.html">
-                      Configuring ingress cluster traffic on AWS using a Network Load Balancer
+                    <a class="" href="../networking/configuring_ingress_cluster_traffic/configuring-ingress-cluster-traffic-aws.html">
+                      Configuring ingress cluster traffic on AWS
                     </a>
                   </li>
 
@@ -10256,15 +10435,15 @@
             <!-- start a new heading area -->
 
             <li class="nav-header">
-              <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicSubGroup-12-20">
-                <span id="sgSpan-12-20" class="fa fa-caret-right"></span>
+              <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicSubGroup-12-21">
+                <span id="sgSpan-12-21" class="fa fa-caret-right"></span>
                   &nbsp;Kubernetes NMState
 
                   <!-- prints out the names of the second level books with arrow down or to right
                   So in this case: Welcome 2 -->
 
               </a>
-              <ul id="topicSubGroup-12-20" class="nav-tertiary list-unstyled collapse">
+              <ul id="topicSubGroup-12-21" class="nav-tertiary list-unstyled collapse">
 
                 <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
                      Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
@@ -10413,15 +10592,15 @@
             <!-- start a new heading area -->
 
             <li class="nav-header">
-              <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicSubGroup-12-24">
-                <span id="sgSpan-12-24" class="fa fa-caret-right"></span>
+              <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicSubGroup-12-25">
+                <span id="sgSpan-12-25" class="fa fa-caret-right"></span>
                   &nbsp;Load balancing with MetalLB
 
                   <!-- prints out the names of the second level books with arrow down or to right
                   So in this case: Welcome 2 -->
 
               </a>
-              <ul id="topicSubGroup-12-24" class="nav-tertiary list-unstyled collapse">
+              <ul id="topicSubGroup-12-25" class="nav-tertiary list-unstyled collapse">
 
                 <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
                      Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
@@ -12764,6 +12943,66 @@
                     <li>
                       <a class="" href="../operators/operator_sdk/helm/osdk-hybrid-helm.html" style="padding-left: 70px;">
                         Hybrid Helm Operator
+                      </a>
+                    </li>
+
+                  </ul>
+                  </li>
+
+
+
+
+                <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
+                     Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
+
+                
+                
+                
+                
+                
+
+
+
+                <!-- Welcome 3 -->
+
+
+                
+                
+                
+
+                <li class="nav-header">
+                  <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicSubSubGroup-15-4-6">
+                    <span id="ssgSpan-15-4-6" class="fa fa-caret-right"></span>
+                    &nbsp;Java-based Operators
+                  </a>
+                  <ul id="topicSubSubGroup-15-4-6" class="nav-tertiary list-unstyled collapse">
+
+                    <!-- list all topics within Welcome 3 here. Note that we are not coding this for more subtopics here -->
+
+
+                    <li>
+                      <a class="" href="../operators/operator_sdk/java/osdk-java-quickstart.html" style="padding-left: 70px;">
+                        Getting started
+                      </a>
+                    </li>
+
+
+                    <!-- list all topics within Welcome 3 here. Note that we are not coding this for more subtopics here -->
+
+
+                    <li>
+                      <a class="" href="../operators/operator_sdk/java/osdk-java-tutorial.html" style="padding-left: 70px;">
+                        Tutorial
+                      </a>
+                    </li>
+
+
+                    <!-- list all topics within Welcome 3 here. Note that we are not coding this for more subtopics here -->
+
+
+                    <li>
+                      <a class="" href="../operators/operator_sdk/java/osdk-java-project-layout.html" style="padding-left: 70px;">
+                        Project layout
                       </a>
                     </li>
 
@@ -18575,7 +18814,7 @@
 
             <!-- ^ this establishs whether we are reading this current page -->
 
-            <li><a class="" href="../monitoring/accessing-third-party-monitoring-uis-and-apis.html">Accessing third-party monitoring UIs and APIs</a></li>
+            <li><a class="" href="../monitoring/accessing-third-party-monitoring-apis.html">Accessing third-party monitoring APIs</a></li>
             <!--  if active, then highlight it,  otherwise nothing to do -->
 
 
@@ -27270,31 +27509,7 @@
 
                   <li>
                     <a class="" href="../virt/install/preparing-cluster-for-virt.html">
-                      Preparing your OpenShift cluster for OpenShift Virtualization
-                    </a>
-                  </li>
-
-                
-
-
-                <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
-                     Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
-
-                
-                
-                
-                
-                
-
-                <!-- is this is a single page? That is, does this topic have more topics?
-                 Welcome 2 Index Page and Welcome 2 More -->
-
-
-
-
-                  <li>
-                    <a class="" href="../virt/install/virt-planning-environment-object-maximums.html">
-                      Planning your environment according to OpenShift Virtualization object maximums
+                      Preparing your cluster for OpenShift Virtualization
                     </a>
                   </li>
 
@@ -28206,7 +28421,7 @@
 
                     <li>
                       <a class="" href="../virt/virtual_machines/vm_networking/virt-using-the-default-pod-network-with-virt.html" style="padding-left: 70px;">
-                        Using the default pod network with OpenShift Virtualization
+                        Configuring the virtual machine for the default pod network
                       </a>
                     </li>
 
@@ -28216,7 +28431,7 @@
 
                     <li>
                       <a class="" href="../virt/virtual_machines/vm_networking/virt-attaching-vm-multiple-networks.html" style="padding-left: 70px;">
-                        Attaching a virtual machine to multiple networks
+                        Attaching a virtual machine to a Linux bridge network
                       </a>
                     </li>
 
@@ -28789,7 +29004,7 @@
 
                   <li>
                     <a class="" href="../virt/live_migration/virt-migrating-vm-on-secondary-network.html">
-                      Migrating a virtual machine over a dedicated secondary network
+                      Migrating a virtual machine over a dedicated additional network
                     </a>
                   </li>
 
@@ -29266,6 +29481,30 @@
                   <li>
                     <a class="" href="../virt/logging_events_monitoring/virt-openshift-cluster-monitoring.html">
                       OpenShift cluster monitoring, logging, and Telemetry
+                    </a>
+                  </li>
+
+                
+
+
+                <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
+                     Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
+
+                
+                
+                
+                
+                
+
+                <!-- is this is a single page? That is, does this topic have more topics?
+                 Welcome 2 Index Page and Welcome 2 More -->
+
+
+
+
+                  <li>
+                    <a class="" href="../virt/logging_events_monitoring/virt-running-cluster-checkups.html">
+                      Running OpenShift cluster checkups
                     </a>
                   </li>
 
@@ -30307,7 +30546,7 @@
 
                   <li>
                     <a class="" href="../serverless/develop/serverless-kafka-developer.html">
-                      Knative Kafka
+                      Using Knative Kafka
                     </a>
                   </li>
 
@@ -30377,7 +30616,7 @@
 
                   <li>
                     <a class="" href="../serverless/admin_guide/serverless-kafka-admin.html">
-                      Knative Kafka
+                      Configuring Knative Kafka
                     </a>
                   </li>
 
@@ -30402,30 +30641,6 @@
                   <li>
                     <a class="" href="../serverless/admin_guide/serverless-admin-perspective.html">
                       Serverless components in the Administrator perspective
-                    </a>
-                  </li>
-
-                
-
-
-                <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
-                     Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
-
-                
-                
-                
-                
-                
-
-                <!-- is this is a single page? That is, does this topic have more topics?
-                 Welcome 2 Index Page and Welcome 2 More -->
-
-
-
-
-                  <li>
-                    <a class="" href="../serverless/admin_guide/serverless-admin-autoscaling.html">
-                      Autoscaling
                     </a>
                   </li>
 
@@ -30497,7 +30712,7 @@
 
                   <li>
                     <a class="" href="../serverless/admin_guide/serverless-ha.html">
-                      High availability on OpenShift Serverless
+                      High availability
                     </a>
                   </li>
 
@@ -30566,30 +30781,6 @@
 
 
                   <li>
-                    <a class="" href="../serverless/monitor/serverless-tracing.html">
-                      Tracing requests using Jaeger
-                    </a>
-                  </li>
-
-                
-
-
-                <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
-                     Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
-
-                
-                
-                
-                
-                
-
-                <!-- is this is a single page? That is, does this topic have more topics?
-                 Welcome 2 Index Page and Welcome 2 More -->
-
-
-
-
-                  <li>
                     <a class="" href="../serverless/monitor/serverless-developer-metrics.html">
                       Serverless developer metrics
                     </a>
@@ -30599,6 +30790,19 @@
 
               </ul>
             </li>
+
+        <!-- for each topic in this topic_group, for example in Welcome 1, what topics exist?
+        Welcome 2 and Welcome 1 More -->
+
+
+          <!-- is this is a single page? That is, does this topic have more topics?
+          Welcome 1 More -->
+
+            <!-- ^ this establishs whether we are reading this current page -->
+
+            <li><a class="" href="../serverless/serverless-tracing.html">Tracing</a></li>
+            <!--  if active, then highlight it,  otherwise nothing to do -->
+
 
         <!-- for each topic in this topic_group, for example in Welcome 1, what topics exist?
         Welcome 2 and Welcome 1 More -->
@@ -30623,15 +30827,15 @@
             <!-- start a new heading area -->
 
             <li class="nav-header">
-              <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicSubGroup-34-8">
-                <span id="sgSpan-34-8" class="fa fa-caret-right"></span>
+              <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicSubGroup-34-9">
+                <span id="sgSpan-34-9" class="fa fa-caret-right"></span>
                   &nbsp;Security
 
                   <!-- prints out the names of the second level books with arrow down or to right
                   So in this case: Welcome 2 -->
 
               </a>
-              <ul id="topicSubGroup-34-8" class="nav-tertiary list-unstyled collapse">
+              <ul id="topicSubGroup-34-9" class="nav-tertiary list-unstyled collapse">
 
                 <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
                      Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
@@ -30741,15 +30945,15 @@
             <!-- start a new heading area -->
 
             <li class="nav-header">
-              <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicSubGroup-34-9">
-                <span id="sgSpan-34-9" class="fa fa-caret-right"></span>
+              <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicSubGroup-34-10">
+                <span id="sgSpan-34-10" class="fa fa-caret-right"></span>
                   &nbsp;Functions
 
                   <!-- prints out the names of the second level books with arrow down or to right
                   So in this case: Welcome 2 -->
 
               </a>
-              <ul id="topicSubGroup-34-9" class="nav-tertiary list-unstyled collapse">
+              <ul id="topicSubGroup-34-10" class="nav-tertiary list-unstyled collapse">
 
                 <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
                      Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
@@ -31051,15 +31255,15 @@
             <!-- start a new heading area -->
 
             <li class="nav-header">
-              <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicSubGroup-34-10">
-                <span id="sgSpan-34-10" class="fa fa-caret-right"></span>
+              <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicSubGroup-34-11">
+                <span id="sgSpan-34-11" class="fa fa-caret-right"></span>
                   &nbsp;Integrations
 
                   <!-- prints out the names of the second level books with arrow down or to right
                   So in this case: Welcome 2 -->
 
               </a>
-              <ul id="topicSubGroup-34-10" class="nav-tertiary list-unstyled collapse">
+              <ul id="topicSubGroup-34-11" class="nav-tertiary list-unstyled collapse">
 
                 <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
                      Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
@@ -31156,7 +31360,6 @@
 <li><a href="#setting-query-log-file-for-prometheus_configuring-the-monitoring-stack">Enabling the query log file for Prometheus</a></li>
 <li><a href="#enabling-query-logging-for-thanos-querier_configuring-the-monitoring-stack">Enabling query logging for Thanos Querier</a></li>
 <li><a href="#setting-audit-log-levels-for-the-prometheus-adapter_configuring-the-monitoring-stack">Setting audit log levels for the Prometheus Adapter</a></li>
-<li><a href="#disabling_grafana_configuring-the-monitoring-stack">Disabling the default Grafana deployment</a></li>
 <li><a href="#monitoring-disabling-the-local-alertmanager_configuring-the-monitoring-stack">Disabling the local Alertmanager</a></li>
 <li><a href="#next-steps">Next steps</a></li>
 </ul>
@@ -31219,9 +31422,6 @@
 </li>
 <li>
 <p><strong>Deploying user-defined workloads to <code>openshift-&#42;</code>, and <code>kube-&#42;</code> projects.</strong> These projects are reserved for Red Hat provided components and they should not be used for user-defined workloads.</p>
-</li>
-<li>
-<p><strong>Modifying the monitoring stack Grafana instance.</strong></p>
 </li>
 <li>
 <p><strong>Installing custom Prometheus instances on OpenShift Container Platform.</strong></p>
@@ -31754,11 +31954,6 @@
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Grafana</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>grafana</code></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Telemeter Client</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>telemeterClient</code></p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -31931,9 +32126,6 @@ data:
         nodename: worker1
         nodename: worker2
     kubeStateMetrics:
-      nodeSelector:
-        nodename: worker1
-    grafana:
       nodeSelector:
         nodename: worker1
     telemeterClient:
@@ -35184,107 +35376,6 @@ The new component placement configuration is applied automatically.</p>
 <div class="content">
 <pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc <span class="nt">-n</span> openshift-monitoring <span class="nb">exec</span> <span class="nt">-c</span> &lt;prometheus_adapter_pod_name&gt; <span class="nt">--</span> <span class="nb">cat</span> /var/log/adapter/audit.log</code></pre>
 </div>
-</div>
-</li>
-</ol>
-</div>
-<div class="ulist _additional-resources">
-<div class="title">Additional resources</div>
-<ul>
-<li>
-<p>See <a href="../monitoring/configuring-the-monitoring-stack.html#preparing-to-configure-the-monitoring-stack">Preparing to configure the monitoring stack</a> for steps to create monitoring config maps.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="disabling_grafana_configuring-the-monitoring-stack"><a class="anchor" href="#disabling_grafana_configuring-the-monitoring-stack"></a>Disabling the default Grafana deployment</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>By default, a read-only Grafana instance is deployed with a collection of dashboards displaying cluster metrics. The Grafana instance is not user-configurable.</p>
-</div>
-<div class="paragraph">
-<p>You can disable the Grafana deployment, causing the associated resources to be deleted from the cluster. You might do this if you do not need these dashboards and want to conserve resources in your cluster. You will still be able to view metrics and dashboards included in the web console. Grafana can be safely enabled again at any time.</p>
-</div>
-<div class="ulist">
-<div class="title">Prerequisites</div>
-<ul>
-<li>
-<p>You have access to the cluster as a user with the <code>cluster-admin</code> role.</p>
-</li>
-<li>
-<p>You have created the <code>cluster-monitoring-config</code> <code>ConfigMap</code> object.</p>
-</li>
-<li>
-<p>You have installed the OpenShift CLI (<code>oc</code>).</p>
-</li>
-</ul>
-</div>
-<div class="olist arabic">
-<div class="title">Procedure</div>
-<ol class="arabic">
-<li>
-<p>Edit the <code>cluster-monitoring-config</code> <code>ConfigMap</code> object in the <code>openshift-monitoring</code> project:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc <span class="nt">-n</span> openshift-monitoring edit configmap cluster-monitoring-config</code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>Add <code>enabled: false</code> for the <code>grafana</code> component under <code>data/config.yaml</code>:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
-<span class="na">kind</span><span class="pi">:</span> <span class="s">ConfigMap</span>
-<span class="na">metadata</span><span class="pi">:</span>
-  <span class="na">name</span><span class="pi">:</span> <span class="s">cluster-monitoring-config</span>
-  <span class="na">namespace</span><span class="pi">:</span> <span class="s">openshift-monitoring</span>
-<span class="na">data</span><span class="pi">:</span>
-  <span class="s">config.yaml</span><span class="pi">:</span> <span class="pi">|</span>
-    <span class="s">grafana:</span>
-      <span class="s">enabled: false</span></code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>Save the file to apply the changes. The resources will begin to be removed automatically when you apply the change.</p>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>This change results in some components, including Prometheus and the Thanos Querier, being restarted. This might lead to previously collected metrics being lost if you have not yet followed the steps in the "Configuring persistent storage" section.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</li>
-<li>
-<p>Check that the Grafana pod is no longer running. The following example lists the status of pods in the <code>openshift-monitoring</code> project:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc <span class="nt">-n</span> openshift-monitoring get pods</code></pre>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>It may take a few minutes after applying the change for these pods to terminate.</p>
-</div>
-</td>
-</tr>
-</table>
 </div>
 </li>
 </ol>
