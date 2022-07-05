@@ -13101,7 +13101,7 @@
 
                   <li>
                     <a class="" href="../../operators/operator_sdk/osdk-ha-sno.html">
-                      High-availability or single node cluster detection and support
+                      High-availability or single-node cluster detection and support
                     </a>
                   </li>
 
@@ -14161,6 +14161,30 @@
                   <li>
                     <a class="" href="../../cicd/gitops/uninstalling-openshift-gitops.html">
                       Uninstalling OpenShift GitOps
+                    </a>
+                  </li>
+
+                
+
+
+                <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
+                     Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
+
+                
+                
+                
+                
+                
+
+                <!-- is this is a single page? That is, does this topic have more topics?
+                 Welcome 2 Index Page and Welcome 2 More -->
+
+
+
+
+                  <li>
+                    <a class="" href="../../cicd/gitops/setting-up-argocd-instance.html">
+                      Setting up a new Argo CD instance
                     </a>
                   </li>
 
@@ -19079,7 +19103,7 @@
 
             <!-- ^ this establishs whether we are reading this current page -->
 
-            <li><a class="" href="../../scalability_and_performance/ztp-configuring-single-node-cluster-deployment-during-installation.html">Deploying distributed units manually on single node OpenShift</a></li>
+            <li><a class="" href="../../scalability_and_performance/ztp-configuring-single-node-cluster-deployment-during-installation.html">Deploying distributed units manually on single-node OpenShift</a></li>
             <!--  if active, then highlight it,  otherwise nothing to do -->
 
 
@@ -19092,7 +19116,7 @@
 
             <!-- ^ this establishs whether we are reading this current page -->
 
-            <li><a class="" href="../../scalability_and_performance/sno-du-enabling-workload-partitioning-on-single-node-openshift.html">Workload partitioning on single node OpenShift</a></li>
+            <li><a class="" href="../../scalability_and_performance/sno-du-enabling-workload-partitioning-on-single-node-openshift.html">Workload partitioning on single-node OpenShift</a></li>
             <!--  if active, then highlight it,  otherwise nothing to do -->
 
 
@@ -27455,7 +27479,7 @@
 
             <!-- ^ this establishs whether we are reading this current page -->
 
-            <li><a class="" href="../../virt/virt-learn-more-about-openshift-virtualization.html">Start here with OpenShift Virtualization</a></li>
+            <li><a class="" href="../../virt/virt-learn-more-about-openshift-virtualization.html">Getting started with OpenShift Virtualization</a></li>
             <!--  if active, then highlight it,  otherwise nothing to do -->
 
 
@@ -31353,8 +31377,8 @@
 </table>
 </div>
 <div class="paragraph">
-<div class="title">Single Node OpenShift differences</div>
-<p>You can install OpenShift Virtualization on a single node cluster, also known as <a href="../../installing/installing_sno/install-sno-preparing-to-install-sno.html#install-sno-about-installing-on-a-single-node_install-sno-preparing">Single Node OpenShift</a> (SNO). SNO does not support high availability, which results in the following differences:</p>
+<div class="title">Single-node Openshift differences</div>
+<p>You can install OpenShift Virtualization on a single-node cluster. See <a href="../../installing/installing_sno/install-sno-preparing-to-install-sno.html#install-sno-about-installing-on-a-single-node_install-sno-preparing">About single-node Openshift</a> for more information. Single-node Openshift does not support high availability, which results in the following differences:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -31469,6 +31493,13 @@ features, see <a href="https://access.redhat.com/support/offerings/techpreview/"
 </tr>
 </table>
 </div>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If your cluster uses worker nodes with different CPUs, live migration failures can occur because different CPUs have different capabilities. To avoid such failures, use CPUs with appropriate capacity for each node and set node affinity on your virtual machines to ensure successful migration. See <a href="../../nodes/scheduling/nodes-scheduler-node-affinity.html#nodes-scheduler-node-affinity-configuring-required_nodes-scheduler-node-affinity">Configuring a required node affinity rule</a> for more information.</p>
 </li>
 </ul>
 </div>

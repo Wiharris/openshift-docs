@@ -13101,7 +13101,7 @@
 
                   <li>
                     <a class="" href="../operators/operator_sdk/osdk-ha-sno.html">
-                      High-availability or single node cluster detection and support
+                      High-availability or single-node cluster detection and support
                     </a>
                   </li>
 
@@ -14161,6 +14161,30 @@
                   <li>
                     <a class="" href="../cicd/gitops/uninstalling-openshift-gitops.html">
                       Uninstalling OpenShift GitOps
+                    </a>
+                  </li>
+
+                
+
+
+                <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
+                     Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
+
+                
+                
+                
+                
+                
+
+                <!-- is this is a single page? That is, does this topic have more topics?
+                 Welcome 2 Index Page and Welcome 2 More -->
+
+
+
+
+                  <li>
+                    <a class="" href="../cicd/gitops/setting-up-argocd-instance.html">
+                      Setting up a new Argo CD instance
                     </a>
                   </li>
 
@@ -19079,7 +19103,7 @@
 
             <!-- ^ this establishs whether we are reading this current page -->
 
-            <li><a class="" href="../scalability_and_performance/ztp-configuring-single-node-cluster-deployment-during-installation.html">Deploying distributed units manually on single node OpenShift</a></li>
+            <li><a class="" href="../scalability_and_performance/ztp-configuring-single-node-cluster-deployment-during-installation.html">Deploying distributed units manually on single-node OpenShift</a></li>
             <!--  if active, then highlight it,  otherwise nothing to do -->
 
 
@@ -19092,7 +19116,7 @@
 
             <!-- ^ this establishs whether we are reading this current page -->
 
-            <li><a class="" href="../scalability_and_performance/sno-du-enabling-workload-partitioning-on-single-node-openshift.html">Workload partitioning on single node OpenShift</a></li>
+            <li><a class="" href="../scalability_and_performance/sno-du-enabling-workload-partitioning-on-single-node-openshift.html">Workload partitioning on single-node OpenShift</a></li>
             <!--  if active, then highlight it,  otherwise nothing to do -->
 
 
@@ -27455,7 +27479,7 @@
 
             <!-- ^ this establishs whether we are reading this current page -->
 
-            <li><a class="" href="../virt/virt-learn-more-about-openshift-virtualization.html">Start here with OpenShift Virtualization</a></li>
+            <li><a class="" href="../virt/virt-learn-more-about-openshift-virtualization.html">Getting started with OpenShift Virtualization</a></li>
             <!--  if active, then highlight it,  otherwise nothing to do -->
 
 
@@ -31323,7 +31347,7 @@
 <li><a href="#ztp-the-gitops-approach_ztp-deploying-disconnected">The GitOps approach</a></li>
 <li><a href="#about-ztp-and-distributed-units-on-single-node-clusters_ztp-deploying-disconnected">About ZTP and distributed units on single nodes</a></li>
 <li><a href="#ztp-ztp-building-blocks_ztp-deploying-disconnected">Zero touch provisioning building blocks</a></li>
-<li><a href="#ztp-single-node-clusters_ztp-deploying-disconnected">Single node clusters</a></li>
+<li><a href="#ztp-single-node-clusters_ztp-deploying-disconnected">Single-node clusters</a></li>
 <li><a href="#ztp-site-planning-for-du-deployments_ztp-deploying-disconnected">Site planning considerations for distributed unit deployments</a></li>
 <li><a href="#ztp-low-latency-for-distributed-units-dus_ztp-deploying-disconnected">Low latency for distributed units (DUs)</a></li>
 <li><a href="#configuring_bios_for_du_hosts_ztp-deploying-disconnected">Configuring BIOS for distributed unit bare-metal hosts</a></li>
@@ -31497,7 +31521,7 @@ CRs are as follows:</p>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Namespace</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Namespace for the managed single node cluster.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Namespace for the managed single-node cluster.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">BMCSecret CR</p></td>
@@ -31509,7 +31533,7 @@ CRs are as follows:</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">AgentClusterInstall</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies the single node cluster&#8217;s configuration such as networking, number of supervisor (control plane) nodes, and so on.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies the single-node cluster&#8217;s configuration such as networking, number of supervisor (control plane) nodes, and so on.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ClusterDeployment</p></td>
@@ -31552,7 +31576,7 @@ This is the final step of the manifest creation phase.</p></td>
 <h2 id="ztp-ztp-building-blocks_ztp-deploying-disconnected"><a class="anchor" href="#ztp-ztp-building-blocks_ztp-deploying-disconnected"></a>Zero touch provisioning building blocks</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>ACM deploys single node OpenShift (SNO), which is OpenShift Container Platform installed on single nodes, leveraging zero touch provisioning (ZTP).
+<p>ACM deploys single-node Openshift, which is OpenShift Container Platform installed on single nodes, leveraging zero touch provisioning (ZTP).
 The initial site plan is broken down into smaller components and initial configuration data is stored in a Git repository. Zero touch provisioning uses a declarative GitOps approach to deploy these nodes.
 The deployment of the nodes includes:</p>
 </div>
@@ -31584,11 +31608,11 @@ The deployment of the nodes includes:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="ztp-single-node-clusters_ztp-deploying-disconnected"><a class="anchor" href="#ztp-single-node-clusters_ztp-deploying-disconnected"></a>Single node clusters</h2>
+<h2 id="ztp-single-node-clusters_ztp-deploying-disconnected"><a class="anchor" href="#ztp-single-node-clusters_ztp-deploying-disconnected"></a>Single-node clusters</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You use zero touch provisioning (ZTP) to deploy single node clusters to run distributed units (DUs) on small hardware footprints at disconnected
-far edge sites. A single node cluster runs OpenShift Container Platform on top of one bare-metal host, hence the single node. Edge servers contain a single node with supervisor functions and worker functions on the same host that are deployed at low bandwidth or disconnected edge sites.</p>
+<p>You use zero touch provisioning (ZTP) to deploy single-node Openshift clusters to run distributed units (DUs) on small hardware footprints at disconnected
+far edge sites. A single-node cluster runs OpenShift Container Platform on top of one bare-metal host, hence the single node. Edge servers contain a single node with supervisor functions and worker functions on the same host that are deployed at low bandwidth or disconnected edge sites.</p>
 </div>
 <div class="paragraph">
 <p>OpenShift Container Platform is configured on the single node to use workload partitioning. Workload partitioning separates cluster management workloads from
@@ -31597,12 +31621,12 @@ Workload partitioning is useful for resource-constrained environments, such as s
 where you want to reserve most of the CPU resources for user workloads and configure OpenShift Container Platform to use fewer CPU resources within the host.</p>
 </div>
 <div class="paragraph">
-<p>A single node cluster hosting a DU application on a node is divided into the following configuration categories:</p>
+<p>A single-node cluster hosting a DU application on a node is divided into the following configuration categories:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Common - Values are the same for all single node cluster sites managed by a hub cluster.</p>
+<p>Common - Values are the same for all single-node cluster sites managed by a hub cluster.</p>
 </li>
 <li>
 <p>Pools of sites - Common across a pool of sites where a pool size can be 1 to <em>n</em>.</p>
@@ -32708,7 +32732,7 @@ See <a href="https://docs.openshift.com/container-platform/4.9/operators/admin/o
 <p>The Assisted Installer Service (AIS) deploys OpenShift Container Platform clusters. Red Hat Advanced Cluster Management (RHACM) ships with AIS. AIS is deployed when you enable the MultiClusterHub Operator on the RHACM hub cluster.</p>
 </div>
 <div class="paragraph">
-<p>For distributed units (DUs), RHACM supports OpenShift Container Platform deployments that run on a single bare-metal host. The single node cluster acts as both a control plane and a worker node.</p>
+<p>For distributed units (DUs), RHACM supports OpenShift Container Platform deployments that run on a single bare-metal host. The single-node cluster acts as both a control plane and a worker node.</p>
 </div>
 <div class="ulist">
 <div class="title">Prerequisites</div>
@@ -33186,7 +33210,7 @@ provisioner_cluster_registry }}/ocp4:{{ mirror_version_spoke_release }}</span></
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>A block of IPv4 or IPv6 addresses in CIDR notation used for the target bare-metal host external communication. Also used to determine the API and Ingress VIP addresses when provisioning DU single node clusters.</td>
+<td>A block of IPv4 or IPv6 addresses in CIDR notation used for the target bare-metal host external communication. Also used to determine the API and Ingress VIP addresses when provisioning DU single-node clusters.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>

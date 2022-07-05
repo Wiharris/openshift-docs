@@ -13101,7 +13101,7 @@
 
                   <li>
                     <a class="" href="../../operators/operator_sdk/osdk-ha-sno.html">
-                      High-availability or single node cluster detection and support
+                      High-availability or single-node cluster detection and support
                     </a>
                   </li>
 
@@ -14161,6 +14161,30 @@
                   <li>
                     <a class="" href="../../cicd/gitops/uninstalling-openshift-gitops.html">
                       Uninstalling OpenShift GitOps
+                    </a>
+                  </li>
+
+                
+
+
+                <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
+                     Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
+
+                
+                
+                
+                
+                
+
+                <!-- is this is a single page? That is, does this topic have more topics?
+                 Welcome 2 Index Page and Welcome 2 More -->
+
+
+
+
+                  <li>
+                    <a class="" href="../../cicd/gitops/setting-up-argocd-instance.html">
+                      Setting up a new Argo CD instance
                     </a>
                   </li>
 
@@ -19079,7 +19103,7 @@
 
             <!-- ^ this establishs whether we are reading this current page -->
 
-            <li><a class="" href="../../scalability_and_performance/ztp-configuring-single-node-cluster-deployment-during-installation.html">Deploying distributed units manually on single node OpenShift</a></li>
+            <li><a class="" href="../../scalability_and_performance/ztp-configuring-single-node-cluster-deployment-during-installation.html">Deploying distributed units manually on single-node OpenShift</a></li>
             <!--  if active, then highlight it,  otherwise nothing to do -->
 
 
@@ -19092,7 +19116,7 @@
 
             <!-- ^ this establishs whether we are reading this current page -->
 
-            <li><a class="" href="../../scalability_and_performance/sno-du-enabling-workload-partitioning-on-single-node-openshift.html">Workload partitioning on single node OpenShift</a></li>
+            <li><a class="" href="../../scalability_and_performance/sno-du-enabling-workload-partitioning-on-single-node-openshift.html">Workload partitioning on single-node OpenShift</a></li>
             <!--  if active, then highlight it,  otherwise nothing to do -->
 
 
@@ -27455,7 +27479,7 @@
 
             <!-- ^ this establishs whether we are reading this current page -->
 
-            <li><a class="" href="../../virt/virt-learn-more-about-openshift-virtualization.html">Start here with OpenShift Virtualization</a></li>
+            <li><a class="" href="../../virt/virt-learn-more-about-openshift-virtualization.html">Getting started with OpenShift Virtualization</a></li>
             <!--  if active, then highlight it,  otherwise nothing to do -->
 
 
@@ -31962,7 +31986,11 @@
   oc adm release extract <span class="nt">--git</span><span class="o">=</span>DIR
 
   <span class="c"># Extract cloud credential requests for AWS</span>
-  oc adm release extract <span class="nt">--credentials-requests</span> <span class="nt">--cloud</span><span class="o">=</span>aws</code></pre>
+  oc adm release extract <span class="nt">--credentials-requests</span> <span class="nt">--cloud</span><span class="o">=</span>aws
+
+  <span class="c"># Use git to check out the source code for the current cluster release to DIR from linux/s390x image</span>
+  <span class="c"># Note: Wildcard filter is not supported. Pass a single os/arch to extract</span>
+  oc adm release extract <span class="nt">--git</span><span class="o">=</span>DIR quay.io/openshift-release-dev/ocp-release:4.2.2 <span class="nt">--filter-by-os</span><span class="o">=</span>linux/s390x</code></pre>
 </div>
 </div>
 </div>
@@ -31984,7 +32012,11 @@
   oc adm release info 4.2.0 4.2.2 <span class="nt">--commits</span>
 
   <span class="c"># Show where the images referenced by the release are located</span>
-  oc adm release info quay.io/openshift-release-dev/ocp-release:4.2.2 <span class="nt">--pullspecs</span></code></pre>
+  oc adm release info quay.io/openshift-release-dev/ocp-release:4.2.2 <span class="nt">--pullspecs</span>
+
+  <span class="c"># Show information about linux/s390x image</span>
+  <span class="c"># Note: Wildcard filter is not supported. Pass a single os/arch to extract</span>
+  oc adm release info quay.io/openshift-release-dev/ocp-release:4.2.2 <span class="nt">--filter-by-os</span><span class="o">=</span>linux/s390x</code></pre>
 </div>
 </div>
 </div>
@@ -32147,7 +32179,7 @@
 <div class="sect2">
 <h3 id="oc-adm-upgrade"><a class="anchor" href="#oc-adm-upgrade"></a>oc adm upgrade</h3>
 <div class="paragraph">
-<p>Upgrade a cluster</p>
+<p>Upgrade a cluster or adjust the upgrade channel</p>
 </div>
 <div class="listingblock">
 <div class="title">Example usage</div>

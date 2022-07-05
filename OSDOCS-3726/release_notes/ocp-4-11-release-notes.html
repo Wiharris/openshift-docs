@@ -13101,7 +13101,7 @@
 
                   <li>
                     <a class="" href="../operators/operator_sdk/osdk-ha-sno.html">
-                      High-availability or single node cluster detection and support
+                      High-availability or single-node cluster detection and support
                     </a>
                   </li>
 
@@ -14161,6 +14161,30 @@
                   <li>
                     <a class="" href="../cicd/gitops/uninstalling-openshift-gitops.html">
                       Uninstalling OpenShift GitOps
+                    </a>
+                  </li>
+
+                
+
+
+                <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
+                     Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
+
+                
+                
+                
+                
+                
+
+                <!-- is this is a single page? That is, does this topic have more topics?
+                 Welcome 2 Index Page and Welcome 2 More -->
+
+
+
+
+                  <li>
+                    <a class="" href="../cicd/gitops/setting-up-argocd-instance.html">
+                      Setting up a new Argo CD instance
                     </a>
                   </li>
 
@@ -19079,7 +19103,7 @@
 
             <!-- ^ this establishs whether we are reading this current page -->
 
-            <li><a class="" href="../scalability_and_performance/ztp-configuring-single-node-cluster-deployment-during-installation.html">Deploying distributed units manually on single node OpenShift</a></li>
+            <li><a class="" href="../scalability_and_performance/ztp-configuring-single-node-cluster-deployment-during-installation.html">Deploying distributed units manually on single-node OpenShift</a></li>
             <!--  if active, then highlight it,  otherwise nothing to do -->
 
 
@@ -19092,7 +19116,7 @@
 
             <!-- ^ this establishs whether we are reading this current page -->
 
-            <li><a class="" href="../scalability_and_performance/sno-du-enabling-workload-partitioning-on-single-node-openshift.html">Workload partitioning on single node OpenShift</a></li>
+            <li><a class="" href="../scalability_and_performance/sno-du-enabling-workload-partitioning-on-single-node-openshift.html">Workload partitioning on single-node OpenShift</a></li>
             <!--  if active, then highlight it,  otherwise nothing to do -->
 
 
@@ -27455,7 +27479,7 @@
 
             <!-- ^ this establishs whether we are reading this current page -->
 
-            <li><a class="" href="../virt/virt-learn-more-about-openshift-virtualization.html">Start here with OpenShift Virtualization</a></li>
+            <li><a class="" href="../virt/virt-learn-more-about-openshift-virtualization.html">Getting started with OpenShift Virtualization</a></li>
             <!--  if active, then highlight it,  otherwise nothing to do -->
 
 
@@ -31610,9 +31634,6 @@
 <div class="paragraph">
 <p>For more information, see <a href="https://kubernetes.io/docs/concepts/services-networking/service-traffic-policy">Service Internal Traffic Policy</a>.</p>
 </div>
-<div class="paragraph">
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
-</div>
 </div>
 <div class="sect3">
 <h4 id="ocp-4-11-routes-spec-subdomain-field"><a class="anchor" href="#ocp-4-11-routes-spec-subdomain-field"></a>Enhancement to the Route API</h4>
@@ -31654,9 +31675,15 @@ For more information, see <a href="../networking/external_dns_operator/nw-instal
 </div>
 </div>
 <div class="sect3">
+<h4 id="ocp-4-11-support-for-pensando-dsc-cards"><a class="anchor" href="#ocp-4-11-support-for-pensando-dsc-cards"></a>SR-IOV Support for Pensando DSC cards</h4>
+<div class="paragraph">
+<p>SR-IOV support is now available for <a href="../networking/hardware_networks/about-sriov.html#supported-devices_about-sriov">Pensando DSC cards</a>. OpenShift SR-IOV is supported, but you must set a static, Virtual Function (VF) media access control (MAC) address using the SR-IOV CNI config file when using SR-IOV.</p>
+</div>
+</div>
+<div class="sect3">
 <h4 id="ocp-4-11-cidr-ranges-for-network"><a class="anchor" href="#ocp-4-11-cidr-ranges-for-network"></a>OpenShift Container Platform CIDR Ranges for Networks</h4>
 <div class="paragraph">
-<p>Be aware that CIDR ranges for networks are not adjustable after cluster installation. Red Hat does not provide direct guidance on determining the size as it requires careful consideration of the number of pods created.</p>
+<p>Be aware that CIDR ranges for networks are not adjustable after cluster installation. Red Hat does not provide direct guidance on determining the size because it requires careful consideration of the number of pods created.</p>
 </div>
 </div>
 </div>
@@ -32011,10 +32038,62 @@ For more information, see <a href="../networking/external_dns_operator/nw-instal
 </table>
 <div class="sect2">
 <h3 id="ocp-4-11-deprecated-features"><a class="anchor" href="#ocp-4-11-deprecated-features"></a>Deprecated features</h3>
-
+<div class="sect3">
+<h4 id="ocp-4-11-oc-commands-flags-tokens-deprecated"><a class="anchor" href="#ocp-4-11-oc-commands-flags-tokens-deprecated"></a>OpenShift CLI (oc) commands and flags for requesting tokens are deprecated</h4>
+<div class="paragraph">
+<p>The following <code>oc</code> commands and flags for requesting tokens are now deprecated:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>oc serviceaccounts create-kubeconfig</code> command</p>
+</li>
+<li>
+<p>The <code>oc serviceaccounts get-token</code> command</p>
+</li>
+<li>
+<p>The <code>oc serviceaccounts new-token</code> command</p>
+</li>
+<li>
+<p>The <code>--service-account/-z</code> flag for the <code>oc registry login</code> command</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Use the <code>oc create token</code> command instead to request tokens.</p>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="ocp-4-11-removed-features"><a class="anchor" href="#ocp-4-11-removed-features"></a>Removed features</h3>
+<div class="sect3">
+<h4 id="ocp-4-11-oc-rhel-7"><a class="anchor" href="#ocp-4-11-oc-rhel-7"></a>RHEL 7 support for the OpenShift CLI (oc) has been removed</h4>
+<div class="paragraph">
+<p>Support for using Red Hat Enterprise Linux (RHEL) 7 with the OpenShift CLI (<code>oc</code>) has been removed. If you use the OpenShift CLI (<code>oc</code>) with RHEL, you must use RHEL 8.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="ocp-4-11-oc-commands-removed"><a class="anchor" href="#ocp-4-11-oc-commands-removed"></a>OpenShift CLI (oc) commands have been removed</h4>
+<div class="paragraph">
+<p>The following OpenShift CLI (<code>oc</code>) commands were removed with this release:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>oc adm migrate etcd-ttl</code></p>
+</li>
+<li>
+<p><code>oc adm migrate image-references</code></p>
+</li>
+<li>
+<p><code>oc adm migrate legacy-hpa</code></p>
+</li>
+<li>
+<p><code>oc adm migrate storage</code></p>
+</li>
+</ul>
+</div>
+</div>
 <div class="sect3">
 <h4 id="ocp-4-11-custom-scheduler"><a class="anchor" href="#ocp-4-11-custom-scheduler"></a>Support for deploying a custom scheduler manually removed</h4>
 <div class="paragraph">
@@ -32632,7 +32711,7 @@ oc patch clusterrolebinding <span class="k">${</span><span class="nv">clusterrol
 <p>The <code>oc annotate</code> command does not work for LDAP group names that contain an equal sign (<code>=</code>), because the command uses the equal sign as a delimiter between the annotation name and value. As a workaround, use <code>oc patch</code> or <code>oc edit</code> to add the annotation. (<a href="https://bugzilla.redhat.com/show_bug.cgi?id=1917280"><strong>BZ#1917280</strong></a>)</p>
 </li>
 <li>
-<p>In the Red Hat OpenStack Platform (RHOSP), a potential issue in RHOSP Kuryr may occur when a large variety of Bulk Ports requests are created at the same time. These bulk requests can create conflicts when distributing IP addresses. This issue was resolved in a previous errata; however, Red Hat suggests setting a value to avoid the issue of having a variety of Bulk Ports requests, that is, having multiple pods created simultaneously. (<a href="https://bugzilla.redhat.com/show_bug.cgi?id=2024690"><strong>BZ2024690</strong></a>)</p>
+<p>In the Red Hat OpenStack Platform (RHOSP), a potential issue in RHOSP Kuryr can occur when a large variety of bulk requests are created at the same time. These bulk requests can create conflicts when distributing IP addresses. This issue was resolved in a previous errata; however, Red Hat suggests setting your own value to avoid the issue of having a variety of bulk requests, that is, having multiple pods created simultaneously. (<a href="https://bugzilla.redhat.com/show_bug.cgi?id=2024690"><strong>BZ2024690</strong></a>)</p>
 </li>
 </ul>
 </div>
