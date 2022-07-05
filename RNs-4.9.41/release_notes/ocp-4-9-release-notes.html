@@ -33549,10 +33549,10 @@ compute-1         rendered-compute-1-31197fc6da09          True      False      
 <div class="ulist">
 <ul>
 <li>
-<p>Previously, the HAProxy redirected the wrong HTTPS route rather than the more detailed one, preventing users from having their entire application validated without being redirected to HTTPS. This fix sets a flag on the redirect map, ensuring the HAProxy redirects the appropriate HTTPS route. (<a href="https://bugzilla.redhat.com/show_bug.cgi?id=2010227#"><strong>BZ#2010227</strong></a>)</p>
+<p>Previously, when a <code>PipelineRun</code> was created with a <code>volumeClaimTemplate</code>, the pipelines used the hard-coded value of <code>gp2</code> rather than the assigned storage class name. With this fix, the appropriate storage class name is assigned when starting a <code>PipelineRun</code> with a <code>volumeClaimTemplate</code>. (<a href="https://bugzilla.redhat.com/show_bug.cgi?id=2097618#"><strong>BZ#2097618</strong></a>)</p>
 </li>
 <li>
-<p>Previously, when starting the PipelineRun creation with the VolumeClaimTemplates, the pipelines created used the hard-coded value (gp2) rather than the assigned <code>StorageClass</code> name. This fix uses the specified <code>StorageClass</code> name rather than the hard-coded value, resulting in the appropriate <code>StoragClass</code> name assigned when starting a pipeline with the VolumeClaimTemplate. (<a href="https://bugzilla.redhat.com/show_bug.cgi?id=2097618#"><strong>BZ#2097618</strong></a>)</p>
+<p>Previously, HAProxy redirected to the wrong HTTPS route. As a result, applications were not redirected to HTTPS and were not validated. This fix sets a flag on the redirect map to ensure the HAProxy redirects to the correct HTTPS route. (<a href="https://bugzilla.redhat.com/show_bug.cgi?id=2010227#"><strong>BZ#2010227</strong></a>)</p>
 </li>
 </ul>
 </div>
