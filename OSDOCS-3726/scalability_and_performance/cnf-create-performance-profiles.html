@@ -31663,7 +31663,10 @@ Flags:
   <span class="na">numa</span><span class="pi">:</span>
     <span class="na">topologyPolicy</span><span class="pi">:</span> <span class="s">single-numa-node</span>
   <span class="na">realTimeKernel</span><span class="pi">:</span>
-    <span class="na">enabled</span><span class="pi">:</span> <span class="no">true</span></code></pre>
+    <span class="na">enabled</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">workloadHints</span><span class="pi">:</span>
+    <span class="na">highPowerConsumption</span><span class="pi">:</span> <span class="no">true</span>
+    <span class="na">realtime</span><span class="pi">:</span> <span class="no">true</span></code></pre>
 </div>
 </div>
 </li>
@@ -32196,13 +32199,13 @@ spec:
 <div class="ulist">
 <ul>
 <li>
-<p><code>default</code></p>
+<p><code>default</code>: CPU partitioning with enabled power management and basic low-latency.</p>
 </li>
 <li>
-<p><code>low-latency</code></p>
+<p><code>low-latency</code>: Enhanced measures to improve latency figures.</p>
 </li>
 <li>
-<p><code>ultra-low-latency</code></p>
+<p><code>ultra-low-latency</code>: Priority given to optimal latency, at the expense of power management.</p>
 </li>
 </ul>
 </div>

@@ -31373,14 +31373,16 @@
 <li><a href="#node-tuning-operator-disabling-CPUs-for-power-consumption_cnf-master">Reducing power consumption by taking CPUs offline</a></li>
 <li><a href="#managing-device-interrupt-processing-for-guaranteed-pod-isolated-cpus_cnf-master">Managing device interrupt processing for guaranteed pod isolated CPUs</a></li>
 <li><a href="#use-device-interrupt-processing-for-isolated-cpus_cnf-master">Upgrading the performance profile to use device interrupt processing</a></li>
-<li><a href="#configuring_for_irq_dynamic_load_balancing_cnf-master">Configuring a node for IRQ dynamic load balancing</a></li>
-<li><a href="#configuring_hyperthreading_for_a_cluster_cnf-master">Configuring hyperthreading for a cluster</a></li>
 </ul>
 </li>
 <li><a href="#cnf-tuning-nodes-for-low-latency-via-performanceprofile_cnf-master">Tuning nodes for low latency with the performance profile</a>
 <ul class="sectlevel2">
 <li><a href="#cnf-configuring-huge-pages_cnf-master">Configuring huge pages</a></li>
 <li><a href="#cnf-allocating-multiple-huge-page-sizes_cnf-master">Allocating multiple huge page sizes</a></li>
+<li><a href="#configuring_for_irq_dynamic_load_balancing_cnf-master">Configuring a node for IRQ dynamic load balancing</a></li>
+<li><a href="#configuring_hyperthreading_for_a_cluster_cnf-master">Configuring hyperthreading for a cluster</a></li>
+<li><a href="#cnf-understanding-workload-hints_cnf-master">Understanding workload hints</a></li>
+<li><a href="#configuring-workload-hints_cnf-master">Configuring workload hints manually</a></li>
 <li><a href="#cnf-cpu-infra-container_cnf-master">Restricting CPUs for infra and application containers</a></li>
 </ul>
 </li>
@@ -31467,11 +31469,38 @@ requires setting up four different Operators and performing many configurations
 that, when done manually, is complex and could be prone to mistakes.</p>
 </div>
 <div class="paragraph">
-<p>OpenShift Container Platform provides a Performance Addon Operator to implement automatic
+<p>OpenShift Container Platform uses the Node Tuning Operator to implement automatic
 tuning to achieve low latency performance for OpenShift applications.
 The cluster administrator uses this performance profile configuration that makes
 it easier to make these changes in a more reliable way. The administrator can
 specify whether to update the kernel to kernel-rt, reserve CPUs for cluster and operating system housekeeping duties, including pod infra containers, and isolate CPUs for application containers to run the workloads.</p>
+</div>
+<div class="paragraph">
+<p>OpenShift Container Platform also supports workload hints for the Node Tuning Operator that can tune the <code>PerformanceProfile</code> to meet the demands of different industry environments. Workload hints are available for <code>highPowerConsumption</code> (very low latency at the cost of increased power consumption) and <code>realtime</code> (priority given to optimum latency). A combination of <code>true/false</code> settings for these hints can be used to deal with application-specific workload profiles and requirements.</p>
+</div>
+<div class="paragraph">
+<p>Workload hints simplify the fine-tuning of performance to industry sector settings. Instead of a “one size fits all” approach, workload hints can cater to usage patterns such as placing priority on:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Low latency</p>
+</li>
+<li>
+<p>Real-time capability</p>
+</li>
+<li>
+<p>Efficient use of power</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In an ideal world, all of those would be prioritized: in real life, some come at the expense of others. The Node Tuning Operator is now aware of the workload expectations and better able to meet the demands of the workload. The cluster admin can now specify into which use case that workload falls. The Node Tuning Operator uses the <code>PerformanceProfile</code> to fine tune the performance settings for the workload.</p>
+</div>
+<div class="paragraph">
+<p>The environment in which an application is operating influences its behavior. For a typical data center with no strict latency requirements, only minimal default tuning is needed that enables CPU partitioning for some high performance workload pods.
+For data centers and workloads where latency is a higher priority, measures are still taken to optimize power consumption.
+The most complicated cases are clusters close to latency-sensitive equipment such as manufacturing machinery and software-defined radios. This last class of deployment is often referred to as Far edge. For Far edge deployments, ultra-low latency is the ultimate priority, and is achieved at the expense of power management.</p>
 </div>
 <div class="sect2">
 <h3 id="about_hyperthreading_for_low_latency_and_real_time_applications_cnf-master"><a class="anchor" href="#about_hyperthreading_for_low_latency_and_real_time_applications_cnf-master"></a>About hyperthreading for low latency and real-time applications</h3>
@@ -32522,6 +32551,218 @@ rt-worker-0.example.com	          Ready	 worker,worker-rt   5d17h   v1.24.0
 </div>
 </div>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="cnf-tuning-nodes-for-low-latency-via-performanceprofile_cnf-master"><a class="anchor" href="#cnf-tuning-nodes-for-low-latency-via-performanceprofile_cnf-master"></a>Tuning nodes for low latency with the performance profile</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The performance profile lets you control latency tuning aspects of nodes that belong to a certain machine config pool. After you specify your settings, the <code>PerformanceProfile</code> object is compiled into multiple objects that perform the actual node level tuning:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A <code>MachineConfig</code> file that manipulates the nodes.</p>
+</li>
+<li>
+<p>A <code>KubeletConfig</code> file that configures the Topology Manager, the CPU Manager, and the OpenShift Container Platform nodes.</p>
+</li>
+<li>
+<p>The Tuned profile that configures the Node Tuning Operator.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You can use a performance profile to specify whether to update the kernel to kernel-rt, to allocate huge pages, and to partition the CPUs for performing housekeeping duties or running workloads.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can manually create the <code>PerformanceProfile</code> object or use the Performance Profile Creator (PPC) to generate a performance profile. See the additional resources below for more information on the PPC.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Sample performance profile</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">performance.openshift.io/v2</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">PerformanceProfile</span>
+<span class="na">metadata</span><span class="pi">:</span>
+ <span class="na">name</span><span class="pi">:</span> <span class="s">performance</span>
+<span class="na">spec</span><span class="pi">:</span>
+ <span class="na">cpu</span><span class="pi">:</span>
+  <span class="na">isolated</span><span class="pi">:</span> <span class="s2">"</span><span class="s">5-15"</span> <i class="conum" data-value="1"></i><b>(1)</b>
+  <span class="na">reserved</span><span class="pi">:</span> <span class="s2">"</span><span class="s">0-4"</span> <i class="conum" data-value="2"></i><b>(2)</b>
+ <span class="na">hugepages</span><span class="pi">:</span>
+  <span class="na">defaultHugepagesSize</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1G"</span>
+  <span class="na">pages</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">size</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1G"</span>
+    <span class="na">count</span><span class="pi">:</span> <span class="m">16</span>
+    <span class="na">node</span><span class="pi">:</span> <span class="m">0</span>
+ <span class="na">realTimeKernel</span><span class="pi">:</span>
+  <span class="na">enabled</span><span class="pi">:</span> <span class="no">true</span>  <i class="conum" data-value="3"></i><b>(3)</b>
+ <span class="na">numa</span><span class="pi">:</span>  <i class="conum" data-value="4"></i><b>(4)</b>
+  <span class="na">topologyPolicy</span><span class="pi">:</span> <span class="s2">"</span><span class="s">best-effort"</span>
+ <span class="na">nodeSelector</span><span class="pi">:</span>
+  <span class="s">node-role.kubernetes.io/worker-cnf</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> <i class="conum" data-value="5"></i><b>(5)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Use this field to isolate specific CPUs to use with application containers for workloads.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Use this field to reserve specific CPUs to use with infra containers for housekeeping.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Use this field to install the real-time kernel on the node. Valid values are <code>true</code> or <code>false</code>. Setting the <code>true</code> value installs the real-time kernel.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Use this field to configure the topology manager policy. Valid values are <code>none</code> (default), <code>best-effort</code>, <code>restricted</code>, and <code>single-numa-node</code>. For more information, see <a href="https://kubernetes.io/docs/tasks/administer-cluster/topology-manager/#topology-manager-policies">Topology Manager Policies</a>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Use this field to specify a node selector to apply the performance profile to specific nodes.</td>
+</tr>
+</table>
+</div>
+<div class="ulist _additional-resources">
+<div class="title">Additional resources</div>
+<ul>
+<li>
+<p>For information on using the Performance Profile Creator (PPC) to generate a performance profile, see <a href="../scalability_and_performance/cnf-create-performance-profiles.html#cnf-create-performance-profiles">Creating a performance profile</a>.</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="cnf-configuring-huge-pages_cnf-master"><a class="anchor" href="#cnf-configuring-huge-pages_cnf-master"></a>Configuring huge pages</h3>
+<div class="paragraph">
+<p>Nodes must pre-allocate huge pages used in an OpenShift Container Platform cluster. Use the Performance Addon Operator to allocate huge pages on a specific node.</p>
+</div>
+<div class="paragraph">
+<p>OpenShift Container Platform provides a method for creating and allocating huge pages. Performance Addon Operator provides an easier method for doing  this using the performance profile.</p>
+</div>
+<div class="paragraph">
+<p>For example, in the <code>hugepages</code> <code>pages</code> section of the performance profile, you can specify multiple blocks of <code>size</code>, <code>count</code>, and, optionally, <code>node</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="na">hugepages</span><span class="pi">:</span>
+   <span class="na">defaultHugepagesSize</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1G"</span>
+   <span class="na">pages</span><span class="pi">:</span>
+   <span class="pi">-</span> <span class="na">size</span><span class="pi">:</span>  <span class="s2">"</span><span class="s">1G"</span>
+     <span class="na">count</span><span class="pi">:</span>  <span class="m">4</span>
+     <span class="na">node</span><span class="pi">:</span>  <span class="s">0</span> <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td><code>node</code> is the NUMA node in which the huge pages are allocated. If you omit <code>node</code>, the pages are evenly spread across all NUMA nodes.</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Wait for the relevant machine config pool status that indicates the update is finished.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>These are the only configuration steps you need to do to allocate huge pages.</p>
+</div>
+<div class="ulist">
+<div class="title">Verification</div>
+<ul>
+<li>
+<p>To verify the configuration, see the <code>/proc/meminfo</code> file on the node:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc debug node/ip-10-0-141-105.ec2.internal</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">#</span><span class="w"> </span><span class="nb">grep</span> <span class="nt">-i</span> huge /proc/meminfo</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Example output</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">AnonHugePages:    #</span><span class="c">##### ##</span>
+<span class="go">ShmemHugePages:        0 kB
+HugePages_Total:       2
+HugePages_Free:        2
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+</span><span class="gp">Hugepagesize:       #</span><span class="c">### ##</span>
+<span class="gp">Hugetlb:            #</span><span class="c">### ##</span></code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Use <code>oc describe</code> to report the new size:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc describe node worker-0.ocp4poc.example.com | <span class="nb">grep</span> <span class="nt">-i</span> huge</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Example output</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="go">                                   hugepages-1g=true
+</span><span class="gp"> hugepages-#</span><span class="c">##:  ###</span>
+<span class="gp"> hugepages-#</span><span class="c">##:  ###</span></code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="cnf-allocating-multiple-huge-page-sizes_cnf-master"><a class="anchor" href="#cnf-allocating-multiple-huge-page-sizes_cnf-master"></a>Allocating multiple huge page sizes</h3>
+<div class="paragraph">
+<p>You can request huge pages with different sizes under the same container. This allows you to define more complicated pods consisting of containers with different huge page size needs.</p>
+</div>
+<div class="paragraph">
+<p>For example, you can define sizes <code>1G</code> and <code>2M</code> and the Performance Addon Operator will configure both sizes on the node, as shown here:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="na">spec</span><span class="pi">:</span>
+  <span class="na">hugepages</span><span class="pi">:</span>
+    <span class="na">defaultHugepagesSize</span><span class="pi">:</span> <span class="s">1G</span>
+    <span class="na">pages</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">count</span><span class="pi">:</span> <span class="m">1024</span>
+      <span class="na">node</span><span class="pi">:</span> <span class="m">0</span>
+      <span class="na">size</span><span class="pi">:</span> <span class="s">2M</span>
+    <span class="pi">-</span> <span class="na">count</span><span class="pi">:</span> <span class="m">4</span>
+      <span class="na">node</span><span class="pi">:</span> <span class="m">1</span>
+      <span class="na">size</span><span class="pi">:</span> <span class="s">1G</span></code></pre>
+</div>
+</div>
+</div>
 <div class="sect2">
 <h3 id="configuring_for_irq_dynamic_load_balancing_cnf-master"><a class="anchor" href="#configuring_for_irq_dynamic_load_balancing_cnf-master"></a>Configuring a node for IRQ dynamic load balancing</h3>
 <div class="paragraph">
@@ -32920,29 +33161,10 @@ rt-worker-0.example.com	          Ready	 worker,worker-rt   5d17h   v1.24.0
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="cnf-tuning-nodes-for-low-latency-via-performanceprofile_cnf-master"><a class="anchor" href="#cnf-tuning-nodes-for-low-latency-via-performanceprofile_cnf-master"></a>Tuning nodes for low latency with the performance profile</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="cnf-understanding-workload-hints_cnf-master"><a class="anchor" href="#cnf-understanding-workload-hints_cnf-master"></a>Understanding workload hints</h3>
 <div class="paragraph">
-<p>The performance profile lets you control latency tuning aspects of nodes that belong to a certain machine config pool. After you specify your settings, the <code>PerformanceProfile</code> object is compiled into multiple objects that perform the actual node level tuning:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>A <code>MachineConfig</code> file that manipulates the nodes.</p>
-</li>
-<li>
-<p>A <code>KubeletConfig</code> file that configures the Topology Manager, the CPU Manager, and the OpenShift Container Platform nodes.</p>
-</li>
-<li>
-<p>The Tuned profile that configures the Node Tuning Operator.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>You can use a performance profile to specify whether to update the kernel to kernel-rt, to allocate huge pages, and to partition the CPUs for performing housekeeping duties or running workloads.</p>
+<p>The following table describes how combinations of power consumption and real-time settings impact on latency.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -32952,60 +33174,104 @@ rt-worker-0.example.com	          Ready	 worker,worker-rt   5d17h   v1.24.0
 </td>
 <td class="content">
 <div class="paragraph">
-<p>You can manually create the <code>PerformanceProfile</code> object or use the Performance Profile Creator (PPC) to generate a performance profile. See the additional resources below for more information on the PPC.</p>
+<p>The following workload hints can be configured manually. See "Creating a performance profile" for further information. You can also work with workload hints using the Performance Profile Creator. See "Creating a performance profile" for further information.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
-<div class="listingblock">
-<div class="title">Sample performance profile</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Performance Profile creator setting</th>
+<th class="tableblock halign-left valign-top">Hint</th>
+<th class="tableblock halign-left valign-top">Environment</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Default</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
 <div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">performance.openshift.io/v2</span>
-<span class="na">kind</span><span class="pi">:</span> <span class="s">PerformanceProfile</span>
-<span class="na">metadata</span><span class="pi">:</span>
- <span class="na">name</span><span class="pi">:</span> <span class="s">performance</span>
-<span class="na">spec</span><span class="pi">:</span>
- <span class="na">cpu</span><span class="pi">:</span>
-  <span class="na">isolated</span><span class="pi">:</span> <span class="s2">"</span><span class="s">5-15"</span> <i class="conum" data-value="1"></i><b>(1)</b>
-  <span class="na">reserved</span><span class="pi">:</span> <span class="s2">"</span><span class="s">0-4"</span> <i class="conum" data-value="2"></i><b>(2)</b>
- <span class="na">hugepages</span><span class="pi">:</span>
-  <span class="na">defaultHugepagesSize</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1G"</span>
-  <span class="na">pages</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="na">size</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1G"</span>
-    <span class="na">count</span><span class="pi">:</span> <span class="m">16</span>
-    <span class="na">node</span><span class="pi">:</span> <span class="m">0</span>
- <span class="na">realTimeKernel</span><span class="pi">:</span>
-  <span class="na">enabled</span><span class="pi">:</span> <span class="no">true</span>  <i class="conum" data-value="3"></i><b>(3)</b>
- <span class="na">numa</span><span class="pi">:</span>  <i class="conum" data-value="4"></i><b>(4)</b>
-  <span class="na">topologyPolicy</span><span class="pi">:</span> <span class="s2">"</span><span class="s">best-effort"</span>
- <span class="na">nodeSelector</span><span class="pi">:</span>
-  <span class="s">node-role.kubernetes.io/worker-cnf</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> <i class="conum" data-value="5"></i><b>(5)</b></code></pre>
+<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="go">workloadHints:
+highPowerConsumption: false
+realtime: false</span></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">High throughput cluster without latency requirements</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Performance achieved through CPU partitioning only.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Low-latency</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="go">workloadHints:
+highPowerConsumption: false
+realtime: true</span></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Regional datacenters</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Both energy savings and low-latency are desirable: compromise between power management, latency and throughput.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ultra-low-latency</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="go">workloadHints:
+highPowerConsumption: true
+realtime: true</span></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Far edge clusters, latency critical workloads</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optimized for absolute minimal latency and maximum determinism at the cost of increased power consumption.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="configuring-workload-hints_cnf-master"><a class="anchor" href="#configuring-workload-hints_cnf-master"></a>Configuring workload hints manually</h3>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Create a <code>PerformanceProfile</code> appropriate for the environment&#8217;s hardware and topology as described in the table in "Understanding workload hints". Adjust the profile to match the expected workload. In this example, we tune for the lowest possible latency.</p>
+</li>
+<li>
+<p>Add the <code>highPowerConsumption</code> and <code>realtime</code> workload hints. Both are set to <code>true</code> here.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="yaml">    <span class="na">apiVersion</span><span class="pi">:</span> <span class="s">performance.openshift.io/v2</span>
+    <span class="na">kind</span><span class="pi">:</span> <span class="s">PerformanceProfile</span>
+    <span class="na">metadata</span><span class="pi">:</span>
+      <span class="na">name</span><span class="pi">:</span> <span class="s">workload-hints</span>
+    <span class="na">spec</span><span class="pi">:</span>
+      <span class="s">...</span>
+      <span class="s">workloadHints</span><span class="pi">:</span>
+        <span class="na">highPowerConsumption</span><span class="pi">:</span> <span class="no">true</span> <i class="conum" data-value="1"></i><b>(1)</b>
+        <span class="na">realtime</span><span class="pi">:</span> <span class="no">true</span> <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Use this field to isolate specific CPUs to use with application containers for workloads.</td>
+<td>If <code>highPowerConsumption</code> is <code>true</code>, the node is tuned for very low latency at the cost of increased power consumption.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Use this field to reserve specific CPUs to use with infra containers for housekeeping.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>Use this field to install the real-time kernel on the node. Valid values are <code>true</code> or <code>false</code>. Setting the <code>true</code> value installs the real-time kernel.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>Use this field to configure the topology manager policy. Valid values are <code>none</code> (default), <code>best-effort</code>, <code>restricted</code>, and <code>single-numa-node</code>. For more information, see <a href="https://kubernetes.io/docs/tasks/administer-cluster/topology-manager/#topology-manager-policies">Topology Manager Policies</a>.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="5"></i><b>5</b></td>
-<td>Use this field to specify a node selector to apply the performance profile to specific nodes.</td>
+<td>Disables some debugging and monitoring features that can affect system latency.</td>
 </tr>
 </table>
+</div>
+</li>
+</ol>
 </div>
 <div class="ulist _additional-resources">
 <div class="title">Additional resources</div>
@@ -33014,122 +33280,6 @@ rt-worker-0.example.com	          Ready	 worker,worker-rt   5d17h   v1.24.0
 <p>For information on using the Performance Profile Creator (PPC) to generate a performance profile, see <a href="../scalability_and_performance/cnf-create-performance-profiles.html#cnf-create-performance-profiles">Creating a performance profile</a>.</p>
 </li>
 </ul>
-</div>
-<div class="sect2">
-<h3 id="cnf-configuring-huge-pages_cnf-master"><a class="anchor" href="#cnf-configuring-huge-pages_cnf-master"></a>Configuring huge pages</h3>
-<div class="paragraph">
-<p>Nodes must pre-allocate huge pages used in an OpenShift Container Platform cluster. Use the Performance Addon Operator to allocate huge pages on a specific node.</p>
-</div>
-<div class="paragraph">
-<p>OpenShift Container Platform provides a method for creating and allocating huge pages. Performance Addon Operator provides an easier method for doing  this using the performance profile.</p>
-</div>
-<div class="paragraph">
-<p>For example, in the <code>hugepages</code> <code>pages</code> section of the performance profile, you can specify multiple blocks of <code>size</code>, <code>count</code>, and, optionally, <code>node</code>:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="na">hugepages</span><span class="pi">:</span>
-   <span class="na">defaultHugepagesSize</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1G"</span>
-   <span class="na">pages</span><span class="pi">:</span>
-   <span class="pi">-</span> <span class="na">size</span><span class="pi">:</span>  <span class="s2">"</span><span class="s">1G"</span>
-     <span class="na">count</span><span class="pi">:</span>  <span class="m">4</span>
-     <span class="na">node</span><span class="pi">:</span>  <span class="s">0</span> <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><i class="conum" data-value="1"></i><b>1</b></td>
-<td><code>node</code> is the NUMA node in which the huge pages are allocated. If you omit <code>node</code>, the pages are evenly spread across all NUMA nodes.</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Wait for the relevant machine config pool status that indicates the update is finished.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>These are the only configuration steps you need to do to allocate huge pages.</p>
-</div>
-<div class="ulist">
-<div class="title">Verification</div>
-<ul>
-<li>
-<p>To verify the configuration, see the <code>/proc/meminfo</code> file on the node:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc debug node/ip-10-0-141-105.ec2.internal</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">#</span><span class="w"> </span><span class="nb">grep</span> <span class="nt">-i</span> huge /proc/meminfo</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">Example output</div>
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">AnonHugePages:    #</span><span class="c">##### ##</span>
-<span class="go">ShmemHugePages:        0 kB
-HugePages_Total:       2
-HugePages_Free:        2
-HugePages_Rsvd:        0
-HugePages_Surp:        0
-</span><span class="gp">Hugepagesize:       #</span><span class="c">### ##</span>
-<span class="gp">Hugetlb:            #</span><span class="c">### ##</span></code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>Use <code>oc describe</code> to report the new size:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc describe node worker-0.ocp4poc.example.com | <span class="nb">grep</span> <span class="nt">-i</span> huge</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">Example output</div>
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="go">                                   hugepages-1g=true
-</span><span class="gp"> hugepages-#</span><span class="c">##:  ###</span>
-<span class="gp"> hugepages-#</span><span class="c">##:  ###</span></code></pre>
-</div>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="cnf-allocating-multiple-huge-page-sizes_cnf-master"><a class="anchor" href="#cnf-allocating-multiple-huge-page-sizes_cnf-master"></a>Allocating multiple huge page sizes</h3>
-<div class="paragraph">
-<p>You can request huge pages with different sizes under the same container. This allows you to define more complicated pods consisting of containers with different huge page size needs.</p>
-</div>
-<div class="paragraph">
-<p>For example, you can define sizes <code>1G</code> and <code>2M</code> and the Performance Addon Operator will configure both sizes on the node, as shown here:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="na">spec</span><span class="pi">:</span>
-  <span class="na">hugepages</span><span class="pi">:</span>
-    <span class="na">defaultHugepagesSize</span><span class="pi">:</span> <span class="s">1G</span>
-    <span class="na">pages</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="na">count</span><span class="pi">:</span> <span class="m">1024</span>
-      <span class="na">node</span><span class="pi">:</span> <span class="m">0</span>
-      <span class="na">size</span><span class="pi">:</span> <span class="s">2M</span>
-    <span class="pi">-</span> <span class="na">count</span><span class="pi">:</span> <span class="m">4</span>
-      <span class="na">node</span><span class="pi">:</span> <span class="m">1</span>
-      <span class="na">size</span><span class="pi">:</span> <span class="s">1G</span></code></pre>
-</div>
 </div>
 </div>
 <div class="sect2">

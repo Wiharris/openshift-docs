@@ -31349,6 +31349,7 @@
 </ul>
 </li>
 <li><a href="#gitops-disable-dex_configuring-sso-for-argo-cd-using-dex">Disabling Dex</a></li>
+<li><a href="#gitops-disable-dex-using-spec-sso_configuring-sso-for-argo-cd-using-dex">Enabling or disabling Dex using .spec.sso</a></li>
 </ul>
 </div>
 <div class="paragraph">
@@ -31439,24 +31440,70 @@
 <h2 id="gitops-disable-dex_configuring-sso-for-argo-cd-using-dex"><a class="anchor" href="#gitops-disable-dex_configuring-sso-for-argo-cd-using-dex"></a>Disabling Dex</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Dex is installed by default for all the Argo CD instances created by the Operator. You can disable Dex.</p>
+<p>Dex is installed by default for all the Argo CD instances created by the Operator. You can configure Red Hat OpenShift GitOps to use Dex as the SSO authentication provider by setting the <code>.spec.dex</code> parameter.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>In Red Hat OpenShift GitOps v1.6.0, <code>DISABLE_DEX</code> is deprecated and is planned to be removed in Red Hat OpenShift GitOps v1.9.0. Consider using the <code>.spec.sso.dex</code> parameter instead. See "Enabling or disabling Dex using .spec.sso".</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="ulist">
 <div class="title">Procedure</div>
 <ul>
 <li>
-<p>Set the environmental variable <code>DISABLE_DEX</code> to true in the <strong>YAML</strong> resource of the Operator:</p>
+<p>Set the environmental variable <code>DISABLE_DEX</code> to <code>true</code> in the YAML resource of the Operator:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="yaml">  <span class="na">spec</span><span class="pi">:</span>
+<pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="nn">...</span>
+<span class="na">spec</span><span class="pi">:</span>
   <span class="na">config</span><span class="pi">:</span>
     <span class="na">env</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">DISABLE_DEX</span>
-      <span class="na">value</span><span class="pi">:</span> <span class="s2">"</span><span class="s">true"</span></code></pre>
+      <span class="na">value</span><span class="pi">:</span> <span class="s2">"</span><span class="s">true"</span>
+<span class="nn">...</span></code></pre>
 </div>
 </div>
 </li>
 </ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="gitops-disable-dex-using-spec-sso_configuring-sso-for-argo-cd-using-dex"><a class="anchor" href="#gitops-disable-dex-using-spec-sso_configuring-sso-for-argo-cd-using-dex"></a>Enabling or disabling Dex using .spec.sso</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can configure Red Hat OpenShift GitOps to use Dex as its SSO authentication provider by setting the <code>.spec.sso</code> parameter.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>To enable Dex, set the <code>.spec.sso.provider: dex</code> parameter in the YAML resource of the Operator:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="nn">...</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">sso</span><span class="pi">:</span>
+    <span class="na">provider</span><span class="pi">:</span> <span class="s">dex</span>
+    <span class="na">dex</span><span class="pi">:</span>
+      <span class="na">openShiftOAuth</span><span class="pi">:</span> <span class="no">true</span>
+<span class="nn">...</span></code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>To disable dex, either remove the <code>spec.sso</code> element from the Argo CD custom resource, or specify a different SSO provider.</p>
+</li>
+</ol>
 </div>
 </div>
 </div>
