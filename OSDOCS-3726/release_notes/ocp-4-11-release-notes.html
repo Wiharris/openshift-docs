@@ -32661,7 +32661,7 @@ oc patch clusterrolebinding <span class="k">${</span><span class="nv">clusterrol
 <p>The <code>oc annotate</code> command does not work for LDAP group names that contain an equal sign (<code>=</code>), because the command uses the equal sign as a delimiter between the annotation name and value. As a workaround, use <code>oc patch</code> or <code>oc edit</code> to add the annotation. (<a href="https://bugzilla.redhat.com/show_bug.cgi?id=1917280"><strong>BZ#1917280</strong></a>)</p>
 </li>
 <li>
-<p>In the Red Hat OpenStack Platform (RHOSP), a potential issue in Kuryr ports pools can occur when a variety of bulk port creation requests are made at the same time. During these bulk requests, if the IP allocation for one of the IPs fails, the operation will be retried for all ports. This issue was resolved in a previous errata; however, Red Hat suggests setting a small value for the ports pool batch settings to avoid a variety of bulk port creation requests. (<a href="https://bugzilla.redhat.com/show_bug.cgi?id=2024690"><strong>BZ2024690</strong></a>)</p>
+<p>In the Red Hat OpenStack Platform (RHOSP), a potential issue in Kuryr ports pools can occur when a variety of bulk port creation requests are made at the same time. During these bulk requests, if the IP allocation for one of the IP addresses fails, the operation will be retried for all ports. This issue was resolved in a previous errata; however, Red Hat suggests setting a small value for the ports pool batch settings to avoid a variety of bulk port creation requests. (<a href="https://bugzilla.redhat.com/show_bug.cgi?id=2024690"><strong>BZ2024690</strong></a>)</p>
 </li>
 </ul>
 </div>
