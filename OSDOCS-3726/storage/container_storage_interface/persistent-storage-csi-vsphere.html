@@ -18047,6 +18047,19 @@
 
             <!-- ^ this establishs whether we are reading this current page -->
 
+            <li><a class="" href="../../sandboxed_containers/sandboxed-containers-4.11-release-notes.html">OpenShift sandboxed containers release notes</a></li>
+            <!--  if active, then highlight it,  otherwise nothing to do -->
+
+
+        <!-- for each topic in this topic_group, for example in Welcome 1, what topics exist?
+        Welcome 2 and Welcome 1 More -->
+
+
+          <!-- is this is a single page? That is, does this topic have more topics?
+          Welcome 1 More -->
+
+            <!-- ^ this establishs whether we are reading this current page -->
+
             <li><a class="" href="../../sandboxed_containers/understanding-sandboxed-containers.html">Understanding OpenShift sandboxed containers</a></li>
             <!--  if active, then highlight it,  otherwise nothing to do -->
 
@@ -31419,16 +31432,16 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">kind: StorageClass
-apiVersion: storage.k8s.io/v1
-metadata:
-  name: thin-csi
-provisioner: csi.vsphere.vmware.com
-parameters:
-  StoragePolicyName: "$openshift-storage-policy-xxxx"
-volumeBindingMode: WaitForFirstConsumer
-allowVolumeExpansion: false
-reclaimPolicy: Delete</pre>
+<pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="na">kind</span><span class="pi">:</span> <span class="s">StorageClass</span>
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">storage.k8s.io/v1</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">thin-csi</span>
+<span class="na">provisioner</span><span class="pi">:</span> <span class="s">csi.vsphere.vmware.com</span>
+<span class="na">parameters</span><span class="pi">:</span>
+  <span class="na">StoragePolicyName</span><span class="pi">:</span> <span class="s2">"</span><span class="s">$openshift-storage-policy-xxxx"</span>
+<span class="na">volumeBindingMode</span><span class="pi">:</span> <span class="s">WaitForFirstConsumer</span>
+<span class="na">allowVolumeExpansion</span><span class="pi">:</span> <span class="no">false</span>
+<span class="na">reclaimPolicy</span><span class="pi">:</span> <span class="s">Delete</span></code></pre>
 </div>
 </div>
 </div>
@@ -31498,12 +31511,12 @@ reclaimPolicy: Delete</pre>
 <p>Delete the third-party vSphere CSI driver <code>CSIDriver</code> object:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">~ $ oc delete CSIDriver csi.vsphere.vmware.com</pre>
+<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">~ $</span><span class="w"> </span>oc delete CSIDriver csi.vsphere.vmware.com</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">csidriver.storage.k8s.io "csi.vsphere.vmware.com" deleted</pre>
+<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="go">csidriver.storage.k8s.io "csi.vsphere.vmware.com" deleted</span></code></pre>
 </div>
 </div>
 </li>

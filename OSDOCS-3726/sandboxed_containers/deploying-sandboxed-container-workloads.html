@@ -209,7 +209,7 @@
         
       </li>
       <li class="hidden-xs active">
-        <a href="../sandboxed_containers/understanding-sandboxed-containers.html">Sandboxed Containers Support for OpenShift</a>
+        <a href="../sandboxed_containers/sandboxed-containers-4.11-release-notes.html">Sandboxed Containers Support for OpenShift</a>
       </li>
       
       <li class="hidden-xs active">
@@ -18047,6 +18047,19 @@
 
             <!-- ^ this establishs whether we are reading this current page -->
 
+            <li><a class="" href="../sandboxed_containers/sandboxed-containers-4.11-release-notes.html">OpenShift sandboxed containers release notes</a></li>
+            <!--  if active, then highlight it,  otherwise nothing to do -->
+
+
+        <!-- for each topic in this topic_group, for example in Welcome 1, what topics exist?
+        Welcome 2 and Welcome 1 More -->
+
+
+          <!-- is this is a single page? That is, does this topic have more topics?
+          Welcome 1 More -->
+
+            <!-- ^ this establishs whether we are reading this current page -->
+
             <li><a class="" href="../sandboxed_containers/understanding-sandboxed-containers.html">Understanding OpenShift sandboxed containers</a></li>
             <!--  if active, then highlight it,  otherwise nothing to do -->
 
@@ -31760,7 +31773,7 @@ compute-2.example.com          Ready                      worker   4h35m   v1.24
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Select <strong>stable-1.1</strong> from the list of available <strong>Update Channel</strong> options.</p>
+<p>Select <strong>stable-1.3</strong> from the list of available <strong>Update Channel</strong> options.</p>
 </li>
 <li>
 <p>Verify that <strong>Operator recommended Namespace</strong> is selected for <strong>Installed Namespace</strong>. This installs the Operator in the mandatory <code>openshift-sandboxed-containers-operator</code> namespace. If this namespace does not yet exist, it is automatically created.</p>
@@ -32134,7 +32147,7 @@ compute-2.example.com          Ready                      worker   4h35m   v1.24
   <span class="na">name</span><span class="pi">:</span> <span class="s">openshift-sandboxed-containers-operator</span>
   <span class="na">namespace</span><span class="pi">:</span> <span class="s">openshift-sandboxed-containers-operator</span>
 <span class="na">spec</span><span class="pi">:</span>
-  <span class="na">channel</span><span class="pi">:</span> <span class="s2">"</span><span class="s">stable-1.1"</span>
+  <span class="na">channel</span><span class="pi">:</span> <span class="s2">"</span><span class="s">stable-1.3"</span>
   <span class="na">installPlanApproval</span><span class="pi">:</span> <span class="s">Automatic</span>
   <span class="na">name</span><span class="pi">:</span> <span class="s">sandboxed-containers-operator</span>
   <span class="na">source</span><span class="pi">:</span> <span class="s">redhat-operators</span>

@@ -18047,6 +18047,19 @@
 
             <!-- ^ this establishs whether we are reading this current page -->
 
+            <li><a class="" href="../sandboxed_containers/sandboxed-containers-4.11-release-notes.html">OpenShift sandboxed containers release notes</a></li>
+            <!--  if active, then highlight it,  otherwise nothing to do -->
+
+
+        <!-- for each topic in this topic_group, for example in Welcome 1, what topics exist?
+        Welcome 2 and Welcome 1 More -->
+
+
+          <!-- is this is a single page? That is, does this topic have more topics?
+          Welcome 1 More -->
+
+            <!-- ^ this establishs whether we are reading this current page -->
+
             <li><a class="" href="../sandboxed_containers/understanding-sandboxed-containers.html">Understanding OpenShift sandboxed containers</a></li>
             <!--  if active, then highlight it,  otherwise nothing to do -->
 
@@ -31367,6 +31380,7 @@
 <ul class="sectlevel2">
 <li><a href="#ocp-4-11-deprecated-features">Deprecated features</a></li>
 <li><a href="#ocp-4-11-removed-features">Removed features</a></li>
+<li><a href="#ocp-4-11-future-removals">Future Kubernetes API removals</a></li>
 </ul>
 </li>
 <li><a href="#ocp-4-11-bug-fixes">Bug fixes</a></li>
@@ -31525,7 +31539,15 @@
 </div>
 <div class="sect2">
 <h3 id="ocp-4-11-security"><a class="anchor" href="#ocp-4-11-security"></a>Security and compliance</h3>
-
+<div class="sect3">
+<h4 id="ocp-4-11-security-oauth-server-audit-log"><a class="anchor" href="#ocp-4-11-security-oauth-server-audit-log"></a>Audit logs now include OAuth server audit events</h4>
+<div class="paragraph">
+<p>OAuth server audit events, annotated with login events, are now logged at the metadata level in the audit logs. The login events include failed login attempts.</p>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="../security/audit-log-policy-config.html#about-audit-log-profiles_audit-log-policy-config">About audit log policy profiles</a>.</p>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="ocp-4-11-networking"><a class="anchor" href="#ocp-4-11-networking"></a>Networking</h3>
@@ -32049,6 +32071,24 @@ For more information, see <a href="../networking/external_dns_operator/nw-instal
 <div class="paragraph">
 <p>Support for deploying custom schedulers manually has been removed with this release. Use the <a href="../nodes/scheduling/secondary_scheduler/index.html#nodes-secondary-scheduler-about_nodes-secondary-scheduler-about">Secondary Scheduler Operator for Red Hat OpenShift</a> instead to deploy a custom secondary scheduler in OpenShift Container Platform.</p>
 </div>
+</div>
+<div class="sect3">
+<h4 id="ocp-4-11-openshiftsdn-sno-not-supported"><a class="anchor" href="#ocp-4-11-openshiftsdn-sno-not-supported"></a>Support for deploying single-node OpenShift with OpenShiftSDN has been removed</h4>
+<div class="paragraph">
+<p>Support for deploying single-node OpenShift clusters with OpenShiftSDN has been removed with this release. OVN-Kubernetes is the default networking solution for single-node OpenShift deployments.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ocp-4-11-future-removals"><a class="anchor" href="#ocp-4-11-future-removals"></a>Future Kubernetes API removals</h3>
+<div class="paragraph">
+<p>The next minor release of OpenShift Container Platform is expected to use Kubernetes 1.25. Currently, Kubernetes 1.25 is scheduled to remove several deprecated <code>v1beta1</code> and <code>v2beta1</code> APIs.</p>
+</div>
+<div class="paragraph">
+<p>See the <a href="https://kubernetes.io/docs/reference/using-api/deprecation-guide/#v1-25">Deprecated API Migration Guide</a> in the upstream Kubernetes documentation for the list of planned Kubernetes API removals.</p>
+</div>
+<div class="paragraph">
+<p>See <a href="https://access.redhat.com/articles/6955985">Navigating Kubernetes API deprecations and removals</a> for information on how to check your cluster for Kubernetes APIs that are planned for removal.</p>
 </div>
 </div>
 </div>
@@ -32661,7 +32701,7 @@ oc patch clusterrolebinding <span class="k">${</span><span class="nv">clusterrol
 <p>The <code>oc annotate</code> command does not work for LDAP group names that contain an equal sign (<code>=</code>), because the command uses the equal sign as a delimiter between the annotation name and value. As a workaround, use <code>oc patch</code> or <code>oc edit</code> to add the annotation. (<a href="https://bugzilla.redhat.com/show_bug.cgi?id=1917280"><strong>BZ#1917280</strong></a>)</p>
 </li>
 <li>
-<p>In the Red Hat OpenStack Platform (RHOSP), a potential issue in Kuryr ports pools can occur when a variety of bulk port creation requests are made at the same time. During these bulk requests, if the IP allocation for one of the IP addresses fails, the operation will be retried for all ports. This issue was resolved in a previous errata; however, Red Hat suggests setting a small value for the ports pool batch settings to avoid a variety of bulk port creation requests. (<a href="https://bugzilla.redhat.com/show_bug.cgi?id=2024690"><strong>BZ2024690</strong></a>)</p>
+<p>In the Red Hat OpenStack Platform (RHOSP), a potential issue can affect Kuryr when the ports pools are populated with a variety of bulk port creation requests made at the same time. During these bulk requests, if the IP allocation for one of the IP addresses fails, the Neutron retries the operation for all ports. This issue was resolved in a previous errata; however, Red Hat suggests setting a small value for the ports pools batch to avoid large bulk port creation requests. (<a href="https://bugzilla.redhat.com/show_bug.cgi?id=2024690"><strong>BZ2024690</strong></a>)</p>
 </li>
 </ul>
 </div>

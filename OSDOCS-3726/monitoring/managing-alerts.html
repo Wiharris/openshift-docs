@@ -18047,6 +18047,19 @@
 
             <!-- ^ this establishs whether we are reading this current page -->
 
+            <li><a class="" href="../sandboxed_containers/sandboxed-containers-4.11-release-notes.html">OpenShift sandboxed containers release notes</a></li>
+            <!--  if active, then highlight it,  otherwise nothing to do -->
+
+
+        <!-- for each topic in this topic_group, for example in Welcome 1, what topics exist?
+        Welcome 2 and Welcome 1 More -->
+
+
+          <!-- is this is a single page? That is, does this topic have more topics?
+          Welcome 1 More -->
+
+            <!-- ^ this establishs whether we are reading this current page -->
+
             <li><a class="" href="../sandboxed_containers/understanding-sandboxed-containers.html">Understanding OpenShift sandboxed containers</a></li>
             <!--  if active, then highlight it,  otherwise nothing to do -->
 
@@ -31359,6 +31372,7 @@
 </ul>
 </li>
 <li><a href="#applying-custom-alertmanager-configuration_managing-alerts">Applying a custom Alertmanager configuration</a></li>
+<li><a href="#applying-a-custom-configuration-to-alertmanager-for-user-defined-alert-routing_managing-alerts">Applying a custom configuration to Alertmanager for user-defined alert routing</a></li>
 <li><a href="#next-steps">Next steps</a></li>
 </ul>
 </div>
@@ -32555,23 +32569,6 @@
 </div>
 <div class="sect2">
 <h3 id="creating-alert-routing-for-user-defined-projects_managing-alerts"><a class="anchor" href="#creating-alert-routing-for-user-defined-projects_managing-alerts"></a>Creating alert routing for user-defined projects</h3>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Alert routing for user-defined projects is a Technology Preview feature only. Technology Preview features are not supported with Red Hat production service level agreements (SLAs) and might not be functionally complete. Red Hat does not recommend using them in production. These features provide early access to upcoming product features, enabling customers to test functionality and provide feedback during the development process.</p>
-</div>
-<div class="paragraph">
-<p>For more information about the support scope of Red Hat Technology Preview features, see <a href="https://access.redhat.com/support/offerings/techpreview">https://access.redhat.com/support/offerings/techpreview</a>.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
 <div class="paragraph _abstract">
 <p>If you are a non-administrator user who has been given the <code>alert-routing-edit</code> role, you can create or edit alert routing for user-defined projects.</p>
 </div>
@@ -32602,7 +32599,7 @@
 <p>Add an <code>AlertmanagerConfig</code> YAML definition to the file. For example:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">monitoring.coreos.com/v1alpha1</span>
+<pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">monitoring.coreos.com/v1beta1</span>
 <span class="na">kind</span><span class="pi">:</span> <span class="s">AlertmanagerConfig</span>
 <span class="na">metadata</span><span class="pi">:</span>
   <span class="na">name</span><span class="pi">:</span> <span class="s">example-routing</span>
@@ -32656,7 +32653,7 @@ For example, a routing configuration defined in the <code>AlertmanagerConfig</co
 <h2 id="applying-custom-alertmanager-configuration_managing-alerts"><a class="anchor" href="#applying-custom-alertmanager-configuration_managing-alerts"></a>Applying a custom Alertmanager configuration</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can overwrite the default Alertmanager configuration by editing the <code>alertmanager-main</code> secret inside the <code>openshift-monitoring</code> project.</p>
+<p>You can overwrite the default Alertmanager configuration by editing the <code>alertmanager-main</code> secret in the <code>openshift-monitoring</code> namespace for the platform instance of Alertmanager.</p>
 </div>
 <div class="ulist">
 <div class="title">Prerequisites</div>
@@ -32786,6 +32783,74 @@ receivers:
 </li>
 </ol>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="applying-a-custom-configuration-to-alertmanager-for-user-defined-alert-routing_managing-alerts"><a class="anchor" href="#applying-a-custom-configuration-to-alertmanager-for-user-defined-alert-routing_managing-alerts"></a>Applying a custom configuration to Alertmanager for user-defined alert routing</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you have enabled a separate instance of Alertmanager dedicated to user-defined alert routing, you can overwrite the configuration for this instance of Alertmanager by editing the <code>alertmanager-user-workload</code> secret in the <code>openshift-user-workload-monitoring</code> namespace.</p>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>You have access to the cluster as a user with the <code>cluster-admin</code> role.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Print the currently active Alertmanager configuration into the file <code>alertmanager.yaml</code>:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc <span class="nt">-n</span> openshift-user-workload-monitoring get secret alertmanager-user-workload <span class="nt">--template</span><span class="o">=</span><span class="s1">'{{ index .data "alertmanager.yaml" }}'</span> | <span class="nb">base64</span> <span class="nt">--decode</span> <span class="o">&gt;</span> alertmanager.yaml</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Edit the configuration in <code>alertmanager.yaml</code>:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="na">route</span><span class="pi">:</span>
+  <span class="na">receiver</span><span class="pi">:</span> <span class="s">Default</span>
+  <span class="na">group_by</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Default</span>
+  <span class="na">routes</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">matchers</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s2">"</span><span class="s">service</span><span class="nv"> </span><span class="s">=</span><span class="nv"> </span><span class="s">prometheus-example-monitor"</span> <i class="conum" data-value="1"></i><b>(1)</b>
+    <span class="na">receiver</span><span class="pi">:</span> <span class="s">&lt;receiver&gt;</span> <i class="conum" data-value="2"></i><b>(2)</b>
+<span class="na">receivers</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Default</span>
+<span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">&lt;receiver&gt;</span>
+<span class="c1">#  &lt;receiver_configuration&gt;</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Specifies which alerts match the route. This example shows all alerts that have the <code>service="prometheus-example-monitor"</code> label.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Specifies the receiver to use for the alerts group.</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Apply the new configuration in the file:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc <span class="nt">-n</span> openshift-user-workload-monitoring create secret generic alertmanager-user-workload <span class="nt">--from-file</span><span class="o">=</span>alertmanager.yaml <span class="nt">--dry-run</span><span class="o">=</span>client <span class="nt">-o</span><span class="o">=</span>yaml |  oc <span class="nt">-n</span> openshift-user-workload-monitoring replace secret <span class="nt">--filename</span><span class="o">=</span>-</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
 <div class="ulist _additional-resources">
 <div class="title">Additional resources</div>
 <ul>
@@ -32797,6 +32862,9 @@ receivers:
 </li>
 <li>
 <p>See <a href="https://prometheus.io/docs/alerting/configuration/">Alertmanager configuration</a> for configuring alerting through different alert receivers.</p>
+</li>
+<li>
+<p>See <a href="../monitoring/enabling-alert-routing-for-user-defined-projects.html#enabling-alert-routing-for-user-defined-projects">Enabling alert routing for user-defined projects</a> to learn how to enable a dedicated instance of Alertmanager for user-defined alert routing.</p>
 </li>
 </ul>
 </div>

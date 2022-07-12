@@ -18047,6 +18047,19 @@
 
             <!-- ^ this establishs whether we are reading this current page -->
 
+            <li><a class="" href="../../sandboxed_containers/sandboxed-containers-4.11-release-notes.html">OpenShift sandboxed containers release notes</a></li>
+            <!--  if active, then highlight it,  otherwise nothing to do -->
+
+
+        <!-- for each topic in this topic_group, for example in Welcome 1, what topics exist?
+        Welcome 2 and Welcome 1 More -->
+
+
+          <!-- is this is a single page? That is, does this topic have more topics?
+          Welcome 1 More -->
+
+            <!-- ^ this establishs whether we are reading this current page -->
+
             <li><a class="" href="../../sandboxed_containers/understanding-sandboxed-containers.html">Understanding OpenShift sandboxed containers</a></li>
             <!--  if active, then highlight it,  otherwise nothing to do -->
 
@@ -31332,75 +31345,132 @@
 <div id="toc" class="toc">
 <div id="toctitle" class="title"></div>
 <ul class="sectlevel1">
-<li><a href="#assisted-installer-api-support-policy">API support for Assisted Installer</a></li>
-<li><a href="#assisted-installer-release-notes_installing-one-prem-assisted">Assisted Installer 2.3 release notes</a>
-<ul class="sectlevel2">
-<li><a href="#ai-release-notes-about-this-release_installing-one-prem-assisted">About this release</a></li>
-<li><a href="#ai-release-notes-bug-fixes_installing-one-prem-assisted">Bug fixes</a></li>
-<li><a href="#ai-release-notes-known-issues_installing-one-prem-assisted">Known issues</a></li>
-</ul>
-</li>
+<li><a href="#assisted-installer-api-support-policy">API support for the Assisted Installer</a></li>
+<li><a href="#using-the-assisted-installer_installing-one-prem-assisted">Using the Assisted Installer</a></li>
 </ul>
 </div>
 <div class="paragraph">
-<p>You can install OpenShift Container Platform on on-premise hardware or on-premise VMs using the Assisted Installer (AI). AI provides you with more options for customization than an installer-provisioned installation, while still running pre-flight validations and using smart defaults.</p>
+<p>You can install OpenShift Container Platform on on-premise hardware or on-premise VMs using the Assisted Installer. The Assisted Installer provides you with more options for customization than an installer-provisioned installation, while still running pre-flight validations and using smart defaults.</p>
 </div>
 <div class="paragraph">
-<p>Installing OpenShift Container Platform using AI supports both x86-64 and arm64 CPU architectures.</p>
+<p>Installing OpenShift Container Platform using the Assisted Installer supports both x86-64 and arm64 CPU architectures.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="assisted-installer-api-support-policy"><a class="anchor" href="#assisted-installer-api-support-policy"></a>API support for Assisted Installer</h2>
+<h2 id="assisted-installer-api-support-policy"><a class="anchor" href="#assisted-installer-api-support-policy"></a>API support for the Assisted Installer</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Supported APIs for Assisted Installer are stable for a minimum of three months from the announcement of deprecation.</p>
+<p>Supported APIs for the Assisted Installer are stable for a minimum of three months from the announcement of deprecation.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="assisted-installer-release-notes_installing-one-prem-assisted"><a class="anchor" href="#assisted-installer-release-notes_installing-one-prem-assisted"></a>Assisted Installer 2.3 release notes</h2>
+<h2 id="using-the-assisted-installer_installing-one-prem-assisted"><a class="anchor" href="#using-the-assisted-installer_installing-one-prem-assisted"></a>Using the Assisted Installer</h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="ai-release-notes-about-this-release_installing-one-prem-assisted"><a class="anchor" href="#ai-release-notes-about-this-release_installing-one-prem-assisted"></a>About this release</h3>
 <div class="paragraph">
-<p>These release notes track the development of Assisted Installer 2.3.</p>
+<p>The OpenShift Container Platform <a href="https://console.redhat.com/openshift/assisted-installer/clusters/~new">Assisted Installer</a> is a user-friendly installation solution offered on the <a href="http://console.redhat.com">Red Hat Hybrid Cloud Console</a>. The Assisted Installer supports the various deployment platforms with a focus on bare metal and vSphere infrastructures.</p>
 </div>
 <div class="paragraph">
-<p>This product was previously released as a Technology Preview product and is now generally available and enabled by default in the Red Hat OpenShift Cluster Manager.</p>
+<p>The Assisted Installer provides installation functionality as a service. This software-as-a-service (SaaS) approach has the following advantages:</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="ai-release-notes-bug-fixes_installing-one-prem-assisted"><a class="anchor" href="#ai-release-notes-bug-fixes_installing-one-prem-assisted"></a>Bug fixes</h3>
 <div class="ulist">
 <ul>
 <li>
-<p>Previously, users could define <code>localhost</code> as a valid host name for all of their hosts. As a result, host names were not unique, and Assisted Installer could not install the cluster. With this release, users cannot complete the cluster installation if any of the hosts are named <code>localhost</code>. An error appears and users must rename the hosts.</p>
+<p><strong>Web user interface:</strong> The web user interface performs cluster installation without the user having to create the installation configuration files manually.</p>
 </li>
 <li>
-<p>Previously, in the <strong>OpenShift Web Console troubleshooting</strong> window, the <strong>Optional</strong> field remained blank when undefined instead of displaying an IP address. With this release, the <strong>Optional</strong> field was removed.</p>
+<p><strong>No bootstrap node:</strong> A bootstrap node is not required when installing with the Assisted Installer. The bootstrapping process executes on a node within the cluster.</p>
 </li>
 <li>
-<p>Previously, when installing a cluster on vSphere, the Assisted Installer created machines and <code>MachineSet</code> objects for every virtual machine. With this release, Assisted Installer no longer creates machines or <code>MachineSet</code> objects for user-provisioned VMs.</p>
-</li>
-<li>
-<p>Previously, if Operators failed to install during an installation with Assisted Installer, users received an error message and were directed to reset the cluster installation. With this release, if Operators fail to install, the cluster is automatically degraded.</p>
-</li>
-<li>
-<p>Previously, after installing an Operator using Assisted Installer, the Operator appeared as <strong>available</strong> in the cluster <strong>Status</strong> area in the <strong>Installation progress</strong> page. However, users had to check the Operator avilability in the OpenShift Container Platform web console. With this release, the Operator appears as <strong>installed</strong> in the <strong>Status</strong> area.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="ai-release-notes-known-issues_installing-one-prem-assisted"><a class="anchor" href="#ai-release-notes-known-issues_installing-one-prem-assisted"></a>Known issues</h3>
+<p><strong>Hosting:</strong> The Assisted Installer hosts:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>The minimum disk size required for installing on bare metal using Assisted Installer is specified as 120GB. The actual required minimum disk size is 100GB.</p>
+<p>Ignition files</p>
+</li>
+<li>
+<p>The installation configuration</p>
+</li>
+<li>
+<p>A discovery ISO</p>
+</li>
+<li>
+<p>The installer</p>
 </li>
 </ul>
 </div>
+</li>
+<li>
+<p><strong>Streamlined installation workflow:</strong> Deployment does not require in-depth knowledge of OpenShift Container Platform. The Assisted Installer provides reasonable defaults and provides the installer as a service, which:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Eliminates the need to install and run the OpenShift Container Platform installer locally.</p>
+</li>
+<li>
+<p>Ensures the latest version of the installer up to the latest tested z-stream releases. Older versions remain available, if needed.</p>
+</li>
+<li>
+<p>Enables building automation by using the API without the need to run the OpenShift Container Platform installer locally.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Advanced networking:</strong> The Assisted Installer supports IPv4/IPv6 dual stack networking, NMState-based static IP addressing, and an HTTP/S proxy.</p>
+</li>
+<li>
+<p><strong>Pre-installation validation:</strong> The Assisted Installer validates the configuration before installation to ensure a high probability of success. Validation includes:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Ensuring network connectivity</p>
+</li>
+<li>
+<p>Ensuring sufficient network bandwidth</p>
+</li>
+<li>
+<p>Ensuring connectivity to the registry</p>
+</li>
+<li>
+<p>Ensuring time synchronization between cluster nodes</p>
+</li>
+<li>
+<p>Verifying that the cluster nodes meet the minimum hardware requirements</p>
+</li>
+<li>
+<p>Validating the installation configuration parameters</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>REST API:</strong> The Assisted Installer has a REST API, enabling automation.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The Assisted Installer supports installing OpenShift Container Platform on premises in a connected environment, including with an optional HTTP/S proxy. It can install the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Highly available OpenShift Container Platform or Single Node OpenShift (SNO)</p>
+</li>
+<li>
+<p>OpenShift Container Platform on bare metal or vSphere with full platform integration, or other virtualization platforms without integration</p>
+</li>
+<li>
+<p>Optionally OpenShift Virtualization and OpenShift Data Foundation (formerly OpenShift Container Storage)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The user interface provides an intuitive interactive workflow where automation does not exist or is not required. Users may also automate installations using the REST API.</p>
+</div>
+<div class="paragraph">
+<p>See <a href="https://console.redhat.com/openshift/assisted-installer/clusters/~new">Install OpenShift with the Assisted Installer</a> to create an OpenShift Container Platform cluster with the Assisted Installer.</p>
 </div>
 </div>
 </div>

@@ -18047,6 +18047,19 @@
 
             <!-- ^ this establishs whether we are reading this current page -->
 
+            <li><a class="" href="../sandboxed_containers/sandboxed-containers-4.11-release-notes.html">OpenShift sandboxed containers release notes</a></li>
+            <!--  if active, then highlight it,  otherwise nothing to do -->
+
+
+        <!-- for each topic in this topic_group, for example in Welcome 1, what topics exist?
+        Welcome 2 and Welcome 1 More -->
+
+
+          <!-- is this is a single page? That is, does this topic have more topics?
+          Welcome 1 More -->
+
+            <!-- ^ this establishs whether we are reading this current page -->
+
             <li><a class="" href="../sandboxed_containers/understanding-sandboxed-containers.html">Understanding OpenShift sandboxed containers</a></li>
             <!--  if active, then highlight it,  otherwise nothing to do -->
 
@@ -31631,7 +31644,7 @@
 <h2 id="rhel-preparing-playbook-machine_adding-rhel-compute"><a class="anchor" href="#rhel-preparing-playbook-machine_adding-rhel-compute"></a>Preparing the machine to run the playbook</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Before you can add compute machines that use Red Hat Enterprise Linux (RHEL) as the operating system to an OpenShift Container Platform Branch Build cluster, you must prepare a RHEL 7 machine to run an Ansible playbook that adds the new node to the cluster. This machine is not part of the cluster but must be able to access it.</p>
+<p>Before you can add compute machines that use Red Hat Enterprise Linux (RHEL) as the operating system to an OpenShift Container Platform Branch Build cluster, you must prepare a RHEL 8 machine to run an Ansible playbook that adds the new node to the cluster. This machine is not part of the cluster but must be able to access it.</p>
 </div>
 <div class="ulist">
 <div class="title">Prerequisites</div>
@@ -31648,7 +31661,7 @@
 <div class="title">Procedure</div>
 <ol class="arabic">
 <li>
-<p>Ensure that the <code>kubeconfig</code> file for the cluster and the installation program that you used to install the cluster are on the RHEL 7 machine. One way to accomplish this is to use the same machine that you used to install the cluster.</p>
+<p>Ensure that the <code>kubeconfig</code> file for the cluster and the installation program that you used to install the cluster are on the RHEL 8 machine. One way to accomplish this is to use the same machine that you used to install the cluster.</p>
 </li>
 <li>
 <p>Configure the machine to access all of the RHEL hosts that you plan to use as compute machines. You can use any method that your company allows, including a bastion with an SSH proxy or a VPN.</p>
@@ -31714,10 +31727,10 @@
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">#</span><span class="w"> </span>subscription-manager repos <span class="se">\</span>
-    <span class="nt">--enable</span><span class="o">=</span><span class="s2">"rhel-7-server-rpms"</span> <span class="se">\</span>
-    <span class="nt">--enable</span><span class="o">=</span><span class="s2">"rhel-7-server-extras-rpms"</span> <span class="se">\</span>
-    <span class="nt">--enable</span><span class="o">=</span><span class="s2">"rhel-7-server-ansible-2.9-rpms"</span> <span class="se">\</span>
-    <span class="nt">--enable</span><span class="o">=</span><span class="s2">"rhel-7-server-ose-4.10-rpms"</span></code></pre>
+    <span class="nt">--enable</span><span class="o">=</span><span class="s2">"rhel-8-for-x86_64-baseos-rpms"</span> <span class="se">\</span>
+    <span class="nt">--enable</span><span class="o">=</span><span class="s2">"rhel-8-for-x86_64-appstream-rpms"</span> <span class="se">\</span>
+    <span class="nt">--enable</span><span class="o">=</span><span class="s2">"ansible-2.9-for-rhel-8-x86_64-rpms"</span> <span class="se">\</span>
+    <span class="nt">--enable</span><span class="o">=</span><span class="s2">"rhocp-4.11-for-rhel-8-x86_64-rpms"</span></code></pre>
 </div>
 </div>
 </li>
@@ -31825,7 +31838,7 @@
 <pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">#</span><span class="w"> </span>subscription-manager repos <span class="se">\</span>
     <span class="nt">--enable</span><span class="o">=</span><span class="s2">"rhel-8-for-x86_64-baseos-rpms"</span> <span class="se">\</span>
     <span class="nt">--enable</span><span class="o">=</span><span class="s2">"rhel-8-for-x86_64-appstream-rpms"</span> <span class="se">\</span>
-    <span class="nt">--enable</span><span class="o">=</span><span class="s2">"rhocp-4.10-for-rhel-8-x86_64-rpms"</span> <span class="se">\</span>
+    <span class="nt">--enable</span><span class="o">=</span><span class="s2">"rhocp-4.11-for-rhel-8-x86_64-rpms"</span> <span class="se">\</span>
     <span class="nt">--enable</span><span class="o">=</span><span class="s2">"fast-datapath-for-rhel-8-x86_64-rpms"</span></code></pre>
 </div>
 </div>

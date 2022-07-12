@@ -18047,6 +18047,19 @@
 
             <!-- ^ this establishs whether we are reading this current page -->
 
+            <li><a class="" href="../../sandboxed_containers/sandboxed-containers-4.11-release-notes.html">OpenShift sandboxed containers release notes</a></li>
+            <!--  if active, then highlight it,  otherwise nothing to do -->
+
+
+        <!-- for each topic in this topic_group, for example in Welcome 1, what topics exist?
+        Welcome 2 and Welcome 1 More -->
+
+
+          <!-- is this is a single page? That is, does this topic have more topics?
+          Welcome 1 More -->
+
+            <!-- ^ this establishs whether we are reading this current page -->
+
             <li><a class="" href="../../sandboxed_containers/understanding-sandboxed-containers.html">Understanding OpenShift sandboxed containers</a></li>
             <!--  if active, then highlight it,  otherwise nothing to do -->
 
@@ -31419,37 +31432,37 @@ example, build, zone, or environment).</p>
 <div class="listingblock">
 <div class="title">Example image signature policy file</div>
 <div class="content">
-<pre class="nowrap">{
-    "default": [{"type": "reject"}],
-    "transports": {
-        "docker": {
-            "access.redhat.com": [
-                {
-                    "type": "signedBy",
-                    "keyType": "GPGKeys",
-                    "keyPath": "/etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release"
-                }
-            ]
-        },
-        "atomic": {
-            "172.30.1.1:5000/openshift": [
-                {
-                    "type": "signedBy",
-                    "keyType": "GPGKeys",
-                    "keyPath": "/etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release"
-                }
-            ],
-            "172.30.1.1:5000/production": [
-                {
-                    "type": "signedBy",
-                    "keyType": "GPGKeys",
-                    "keyPath": "/etc/pki/example.com/pubkey"
-                }
-            ],
-            "172.30.1.1:5000": [{"type": "reject"}]
-        }
-    }
-}</pre>
+<pre class="rouge highlight nowrap"><code data-lang="json"><span class="p">{</span><span class="w">
+    </span><span class="nl">"default"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reject"</span><span class="p">}],</span><span class="w">
+    </span><span class="nl">"transports"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"docker"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"access.redhat.com"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"signedBy"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"keyType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GPGKeys"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"keyPath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"atomic"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"172.30.1.1:5000/openshift"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"signedBy"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"keyType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GPGKeys"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"keyPath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nl">"172.30.1.1:5000/production"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"signedBy"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"keyType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GPGKeys"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"keyPath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/etc/pki/example.com/pubkey"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nl">"172.30.1.1:5000"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reject"</span><span class="p">}]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span></code></pre>
 </div>
 </div>
 <div class="paragraph">

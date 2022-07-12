@@ -18047,6 +18047,19 @@
 
             <!-- ^ this establishs whether we are reading this current page -->
 
+            <li><a class="" href="../sandboxed_containers/sandboxed-containers-4.11-release-notes.html">OpenShift sandboxed containers release notes</a></li>
+            <!--  if active, then highlight it,  otherwise nothing to do -->
+
+
+        <!-- for each topic in this topic_group, for example in Welcome 1, what topics exist?
+        Welcome 2 and Welcome 1 More -->
+
+
+          <!-- is this is a single page? That is, does this topic have more topics?
+          Welcome 1 More -->
+
+            <!-- ^ this establishs whether we are reading this current page -->
+
             <li><a class="" href="../sandboxed_containers/understanding-sandboxed-containers.html">Understanding OpenShift sandboxed containers</a></li>
             <!--  if active, then highlight it,  otherwise nothing to do -->
 
@@ -31762,7 +31775,7 @@ compute machines in your OpenShift Container Platform cluster.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>By default, the base OS RHEL with "Minimal" installation option enables firewalld serivce.  Having the firewalld service enabled on your host prevents you from accessing OpenShift Container Platform logs on the worker. Do not enable firewalld later if you wish to continue accessing OpenShift Container Platform logs on the worker.</p>
+<p>By default, the base OS RHEL with "Minimal" installation option enables firewalld service.  Having the firewalld service enabled on your host prevents you from accessing OpenShift Container Platform logs on the worker. Do not enable firewalld later if you wish to continue accessing OpenShift Container Platform logs on the worker.</p>
 </div>
 </td>
 </tr>
@@ -31777,9 +31790,23 @@ compute machines in your OpenShift Container Platform cluster.</p>
 <p>On the machine that you run the Ansible playbooks, update the required repositories:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">#</span><span class="w"> </span>subscription-manager repos <span class="nt">--disable</span><span class="o">=</span>rhel-7-server-ose-4.9-rpms <span class="se">\</span>
-                             <span class="nt">--enable</span><span class="o">=</span>rhel-7-server-ose-4.10-rpms</code></pre>
+<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">#</span><span class="w"> </span>subscription-manager repos <span class="nt">--disable</span><span class="o">=</span>rhocp-4.10-for-rhel-8-x86_64-rpms <span class="se">\</span>
+                             <span class="nt">--enable</span><span class="o">=</span>rhocp-4.11-for-rhel-8-x86_64-rpms</code></pre>
 </div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>As of OpenShift Container Platform 4.11, the Ansible playbooks are provided only for RHEL 8.  If a RHEL 7 system was used as a host for the OpenShift Container Platform 4.10 Ansible playbooks, you must either upgrade the Ansible host to RHEL 8, or create a new Ansible host on a RHEL 8 system and copy over the inventories from the old Ansible host.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </li>
 <li>
@@ -31794,8 +31821,8 @@ compute machines in your OpenShift Container Platform cluster.</p>
 <p>On each RHEL compute node, update the required repositories:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">#</span><span class="w"> </span>subscription-manager repos <span class="nt">--disable</span><span class="o">=</span>rhocp-4.9-for-rhel-8-x86_64-rpms <span class="se">\</span>
-                             <span class="nt">--enable</span><span class="o">=</span>rhocp-4.10-for-rhel-8-x86_64-rpms</code></pre>
+<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">#</span><span class="w"> </span>subscription-manager repos <span class="nt">--disable</span><span class="o">=</span>rhocp-4.10-for-rhel-8-x86_64-rpms <span class="se">\</span>
+                             <span class="nt">--enable</span><span class="o">=</span>rhocp-4.11-for-rhel-8-x86_64-rpms</code></pre>
 </div>
 </div>
 </li>

@@ -18047,6 +18047,19 @@
 
             <!-- ^ this establishs whether we are reading this current page -->
 
+            <li><a class="" href="../../sandboxed_containers/sandboxed-containers-4.11-release-notes.html">OpenShift sandboxed containers release notes</a></li>
+            <!--  if active, then highlight it,  otherwise nothing to do -->
+
+
+        <!-- for each topic in this topic_group, for example in Welcome 1, what topics exist?
+        Welcome 2 and Welcome 1 More -->
+
+
+          <!-- is this is a single page? That is, does this topic have more topics?
+          Welcome 1 More -->
+
+            <!-- ^ this establishs whether we are reading this current page -->
+
             <li><a class="" href="../../sandboxed_containers/understanding-sandboxed-containers.html">Understanding OpenShift sandboxed containers</a></li>
             <!--  if active, then highlight it,  otherwise nothing to do -->
 
@@ -31910,8 +31923,17 @@ you want to reuse the file, you must back it up now.</p>
 <pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc adm release extract <span class="se">\</span>
 <span class="nt">--credentials-requests</span> <span class="se">\</span>
 <span class="nt">--cloud</span><span class="o">=</span>alibabacloud <span class="se">\</span>
-<span class="nt">--to</span><span class="o">=</span>&lt;path_to_directory_with_list_of_credentials_requests&gt;/credrequests quay.io/&lt;path_to&gt;/ocp-release:&lt;version&gt;</code></pre>
+<span class="nt">--to</span><span class="o">=</span>&lt;path_to_directory_with_list_of_credentials_requests&gt;/credrequests <span class="se">\ </span><i class="conum" data-value="1"></i><b>(1)</b>
+<span class="gp">--quay.io/&lt;path_to&gt;</span>/ocp-release:&lt;version&gt;</code></pre>
 </div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td><code>credrequests</code> is the directory where the list of <code>CredentialsRequest</code> objects is stored. This command creates the directory if it does not exist.</td>
+</tr>
+</table>
 </div>
 <div class="admonitionblock note">
 <table>

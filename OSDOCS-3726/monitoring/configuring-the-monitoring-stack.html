@@ -18047,6 +18047,19 @@
 
             <!-- ^ this establishs whether we are reading this current page -->
 
+            <li><a class="" href="../sandboxed_containers/sandboxed-containers-4.11-release-notes.html">OpenShift sandboxed containers release notes</a></li>
+            <!--  if active, then highlight it,  otherwise nothing to do -->
+
+
+        <!-- for each topic in this topic_group, for example in Welcome 1, what topics exist?
+        Welcome 2 and Welcome 1 More -->
+
+
+          <!-- is this is a single page? That is, does this topic have more topics?
+          Welcome 1 More -->
+
+            <!-- ^ this establishs whether we are reading this current page -->
+
             <li><a class="" href="../sandboxed_containers/understanding-sandboxed-containers.html">Understanding OpenShift sandboxed containers</a></li>
             <!--  if active, then highlight it,  otherwise nothing to do -->
 
@@ -31423,7 +31436,10 @@
 </td>
 <td class="content">
 <div class="paragraph">
-<p>The Alertmanager configuration is deployed as a secret resource in the <code>openshift-monitoring</code> project. To configure additional routes for Alertmanager, you need to decode, modify, and then encode that secret. This procedure is a supported exception to the preceding statement.</p>
+<p>The Alertmanager configuration is deployed as a secret resource in the <code>openshift-monitoring</code> namespace.
+If you have enabled a separate Alertmanager instance for user-defined alert routing, an Alertmanager configuration is also deployed as a secret resource in the <code>openshift-user-workload-monitoring</code> namespace.
+To configure additional routes for any instance of Alertmanager, you need to decode, modify, and then encode that secret.
+This procedure is a supported exception to the preceding statement.</p>
 </div>
 </td>
 </tr>
@@ -31441,9 +31457,6 @@
 </li>
 <li>
 <p><strong>Enabling symptom based monitoring by using the <code>Probe</code> custom resource definition (CRD) in Prometheus Operator.</strong></p>
-</li>
-<li>
-<p><strong>Modifying Alertmanager configurations by using the <code>AlertmanagerConfig</code> CRD in Prometheus Operator.</strong></p>
 </li>
 </ul>
 </div>
@@ -31954,7 +31967,7 @@
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Alertmanager</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>alertmanagerMain</code></p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>alertmanager</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kube-state-metrics</p></td>
