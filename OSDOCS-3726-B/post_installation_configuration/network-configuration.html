@@ -32937,7 +32937,7 @@ of 1 second, which is too short for the kubelet&#8217;s probes to succeed in som
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Red Hat does not provide guidance on defining a maximum number of Neutron ports but suggests setting a value to avoid the issue of having a variety of Bulk Ports requests, that is, having multiple pods created simultaneously.</p>
+<p>A potential issue can affect Kuryr when the ports pools are populated with a variety of bulk port creation requests made at the same time. During these bulk requests, if the IP allocation for one of the IP addresses fails, the Neutron retries the operation for all ports. Red Hat suggests setting a small value for the ports pools batch to avoid large bulk port creation requests.</p>
 </div>
 </td>
 </tr>

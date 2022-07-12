@@ -33884,7 +33884,7 @@ OpenShift Container Platform services.</td>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Be aware that CIDR sizes for namespaces are not adjustable post-deployment. Red Hat does not provide direct guidance on determining the size as it requires careful consideration of the number of pods created in the namespace.</p>
+<p>Be aware that CIDR ranges for networks are not adjustable after cluster installation. Red Hat does not provide direct guidance on determining the range because it requires careful consideration of the number of pods created.</p>
 </div>
 </td>
 </tr>
@@ -34173,7 +34173,7 @@ OpenShift Container Platform services.</td>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Red Hat does not provide guidance on defining a maximum number of Neutron ports but suggests setting a value to avoid the issue of having a variety of Bulk Ports requests, that is, having multiple pods created simultaneously.</p>
+<p>A potential issue can affect Kuryr when the ports pools are populated with a variety of bulk port creation requests made at the same time. During these bulk requests, if the IP allocation for one of the IP addresses fails, the Neutron retries the operation for all ports. Red Hat suggests setting a small value for the ports pools batch to avoid large bulk port creation requests.</p>
 </div>
 </td>
 </tr>
@@ -34331,7 +34331,7 @@ Therefore, the value of <code>openStackServiceNetwork</code> must be at least tw
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Red Hat does not provide guidance on defining a maximum number of Neutron ports but suggests setting a value to avoid the issue of having a variety of Bulk Ports requests, that is, having multiple pods created simultaneously.</p>
+<p>A potential issue can affect Kuryr when the ports pools are populated with a variety of bulk port creation requests made at the same time. During these bulk requests, if the IP allocation for one of the IP addresses fails, the Neutron retries the operation for all ports. Red Hat suggests setting a small value for the ports pools batch to avoid large bulk port creation requests.</p>
 </div>
 </td>
 </tr>
