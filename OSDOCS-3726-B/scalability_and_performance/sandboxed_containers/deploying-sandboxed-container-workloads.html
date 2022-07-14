@@ -14,7 +14,7 @@
   
   
   
-  <title>Network configuration | Post-installation configuration | OpenShift Container Platform Branch Build</title>
+  <title>Deploying OpenShift sandboxed containers workloads | Sandboxed Containers Support for OpenShift | OpenShift Container Platform Branch Build</title>
   <link href="https://assets.openshift.net/content/subdomain.css" rel="stylesheet" type="text/css">
   <link href="https://docs.openshift.com/container-platform/4.1/_stylesheets/search.css" rel="stylesheet" />
   <link href="https://docs.openshift.com/container-platform/4.1/_stylesheets/autumn.css" rel="stylesheet" />
@@ -45,7 +45,7 @@
       
       var opt = {
         margin:       10,
-        filename:     'post_installation_configuration/network-configuration.pdf',
+        filename:     'sandboxed_containers/deploying-sandboxed-container-workloads.pdf',
         html2canvas:  { windowWidth: 650 },
         image:        { type: 'jpeg', quality: 0.98 }
       };
@@ -217,17 +217,17 @@
         
       </li>
       <li class="hidden-xs active">
-        <a href="../post_installation_configuration/index.html">Post-installation configuration</a>
+        <a href="../sandboxed_containers/sandboxed-containers-release-notes.html">Sandboxed Containers Support for OpenShift</a>
       </li>
       
       <li class="hidden-xs active">
-        Network configuration
+        Deploying OpenShift sandboxed containers workloads
       </li>
       
       <span text-align="right" style="float: right !important">
-        <a href="https://github.com/openshift/openshift-docs/commits/enterprise-Branch Build/post_installation_configuration/network-configuration.adoc"><span class="material-icons-outlined" title="Page history">history</span></a>
+        <a href="https://github.com/openshift/openshift-docs/commits/enterprise-Branch Build/sandboxed_containers/deploying-sandboxed-container-workloads.adoc"><span class="material-icons-outlined" title="Page history">history</span></a>
         
-        <a href="https://github.com/openshift/openshift-docs/issues/new?title=[enterprise-Branch Build] Issue in file post_installation_configuration/network-configuration.adoc">
+        <a href="https://github.com/openshift/openshift-docs/issues/new?title=[enterprise-Branch Build] Issue in file sandboxed_containers/deploying-sandboxed-container-workloads.adoc">
           <span class="material-icons-outlined" title="Open an issue">bug_report</span>
         </a>
         <a href="javascript: void(0);" onclick="getPDF();"><span class="material-icons-outlined" title="Download PDF (may take a while for large pages)">picture_as_pdf</span></a>
@@ -4118,7 +4118,7 @@
 
 
       <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicGroup5">
-        <span id="tgSpan5" class="fa fa-angle-down"></span>
+        <span id="tgSpan5" class="fa fa-angle-right"></span>
           Post-installation configuration
           <!-- prints out the names of the top level books with arrow down or to right
                So in this case: Welcome 1 and Another Book -->
@@ -4128,7 +4128,7 @@
       <!-- this then goes through all the topics within the top level groups
       depending on whether it itself contains further topics or is a single file -->
 
-      <ul id="topicGroup5" class="collapse in list-unstyled">
+      <ul id="topicGroup5" class="collapse  list-unstyled">
 
 
         <!-- for each topic in this topic_group, for example in Welcome 1, what topics exist?
@@ -4218,7 +4218,7 @@
 
             <!-- ^ this establishs whether we are reading this current page -->
 
-            <li><a class=" active" href="../post_installation_configuration/network-configuration.html">Network configuration</a></li>
+            <li><a class="" href="../post_installation_configuration/network-configuration.html">Network configuration</a></li>
             <!--  if active, then highlight it,  otherwise nothing to do -->
 
 
@@ -17733,7 +17733,7 @@
 
 
       <a class="" href="javascript:void(0);" data-toggle="collapse" data-target="#topicGroup22">
-        <span id="tgSpan22" class="fa fa-angle-right"></span>
+        <span id="tgSpan22" class="fa fa-angle-down"></span>
           Sandboxed Containers Support for OpenShift
           <!-- prints out the names of the top level books with arrow down or to right
                So in this case: Welcome 1 and Another Book -->
@@ -17743,7 +17743,7 @@
       <!-- this then goes through all the topics within the top level groups
       depending on whether it itself contains further topics or is a single file -->
 
-      <ul id="topicGroup22" class="collapse  list-unstyled">
+      <ul id="topicGroup22" class="collapse in list-unstyled">
 
 
         <!-- for each topic in this topic_group, for example in Welcome 1, what topics exist?
@@ -17781,7 +17781,7 @@
 
             <!-- ^ this establishs whether we are reading this current page -->
 
-            <li><a class="" href="../sandboxed_containers/deploying-sandboxed-container-workloads.html">Deploying OpenShift sandboxed containers workloads</a></li>
+            <li><a class=" active" href="../sandboxed_containers/deploying-sandboxed-container-workloads.html">Deploying OpenShift sandboxed containers workloads</a></li>
             <!--  if active, then highlight it,  otherwise nothing to do -->
 
 
@@ -31126,7 +31126,7 @@
       <div class="col-xs-12 col-sm-9 col-md-9 main">
         <div class="page-header">
           <h1>
-            Post-installation network configuration
+            Deploying OpenShift sandboxed containers workloads
           </h1>
         </div>
         
@@ -31136,156 +31136,44 @@
 <div id="toc" class="toc">
 <div id="toctitle" class="title"></div>
 <ul class="sectlevel1">
-<li><a href="#nw-operator-cr_post-install-network-configuration">Cluster Network Operator configuration</a></li>
-<li><a href="#nw-proxy-configure-object_post-install-network-configuration">Enabling the cluster-wide proxy</a></li>
-<li><a href="#private-clusters-setting-dns-private_post-install-network-configuration">Setting DNS to private</a></li>
-<li><a href="#post-install-configuring_ingress_cluster_traffic">Configuring ingress cluster traffic</a></li>
-<li><a href="#post-install-configuring-node-port-service-range">Configuring the node port service range</a>
+<li><a href="#sandboxed-containers-prerequisites_deploying-sandboxed-containers">Prerequisites</a>
 <ul class="sectlevel2">
-<li><a href="#post-install-configuring-node-port-service-range-prerequisites">Prerequisites</a></li>
+<li><a href="#sandboxed-containers-resource-requirements_deploying-sandboxed-containers">Resource requirements for OpenShift sandboxed containers</a></li>
+<li><a href="#sandboxed-containers-check-node-eligiblilty_deploying-sandboxed-containers">Checking whether cluster nodes are eligible to run OpenShift sandboxed containers</a></li>
 </ul>
 </li>
-<li><a href="#post-install-configuring-network-policy">Configuring network policy</a>
+<li><a href="#deploying-sandboxed-containers-workloads-web-console">Deploying OpenShift sandboxed containers workloads using the web console</a>
 <ul class="sectlevel2">
-<li><a href="#nw-networkpolicy-about_post-install-network-configuration">About network policy</a></li>
-<li><a href="#nw-networkpolicy-object_post-install-network-configuration">Example NetworkPolicy object</a></li>
-<li><a href="#nw-networkpolicy-create_post-install-network-configuration">Creating a network policy</a></li>
-<li><a href="#nw-networkpolicy-multitenant-isolation_post-install-network-configuration">Configuring multitenant isolation by using network policy</a></li>
-<li><a href="#post-install-nw-networkpolicy-creating-default-networkpolicy-objects-for-a-new-project">Creating default network policies for a new project</a></li>
-<li><a href="#modifying-template-for-new-projects_post-install-network-configuration">Modifying the template for new projects</a></li>
+<li><a href="#sandboxed-containers-installing-operator-web-console_deploying-sandboxed-containers">Installing the OpenShift sandboxed containers Operator using the web console</a></li>
+<li><a href="#sandboxed-containers-create-kataconfig-resource-web-console_deploying-sandboxed-containers">Creating the KataConfig custom resource in the web console</a></li>
+<li><a href="#sandboxed-containers-deploying-workloads-with-kata-runtime-web_deploying-sandboxed-containers">Deploying a workload in a sandboxed container using the web console</a></li>
 </ul>
 </li>
-<li><a href="#ossm-supported-configurations_post-install-network-configuration">Supported configurations</a>
+<li><a href="#deploying-sandboxed-containers-workloads-cli">Deploying OpenShift sandboxed containers workloads using the CLI</a>
 <ul class="sectlevel2">
-<li><a href="#ossm-supported-platforms_post-install-network-configuration">Supported platforms</a></li>
-<li><a href="#ossm-unsupported-configurations_post-install-network-configuration">Unsupported configurations</a></li>
-<li><a href="#ossm-supported-configurations-networks_post-install-network-configuration">Supported network configurations</a></li>
-<li><a href="#ossm-supported-configurations-sm_post-install-network-configuration">Supported configurations for Service Mesh</a></li>
-<li><a href="#ossm-supported-configurations-kiali_post-install-network-configuration">Supported configurations for Kiali</a></li>
-<li><a href="#ossm-supported-configurations-jaeger_post-install-network-configuration">Supported configurations for Distributed Tracing</a></li>
-<li><a href="#ossm-supported-configurations-webassembly_post-install-network-configuration">Supported WebAssembly module</a></li>
-<li><a href="#ossm-installation-activities_post-install-network-configuration">Operator overview</a></li>
+<li><a href="#sandboxed-containers-installing-operator-cli_deploying-sandboxed-containers">Installing the OpenShift sandboxed containers Operator using the CLI</a></li>
+<li><a href="#sandboxed-containers-create-kataconfig-rsource-cli_deploying-sandboxed-containers">Creating the KataConfig custom resource using the CLI</a></li>
+<li><a href="#sandboxed-containers-deploying-workloads-with-kata-runtime-cli_deploying-sandboxed-containers">Deploying a workload in a sandboxed container using the CLI</a></li>
 </ul>
 </li>
-<li><a href="#post-installationrouting-optimization">Optimizing routing</a>
-<ul class="sectlevel2">
-<li><a href="#baseline-router-performance_post-install-network-configuration">Baseline Ingress Controller (router) performance</a></li>
-<li><a href="#router-performance-optimizations_post-install-network-configuration">Ingress Controller (router) performance optimizations</a></li>
-</ul>
-</li>
-<li><a href="#post-installation-osp-fips">Post-installation RHOSP network configuration</a>
-<ul class="sectlevel2">
-<li><a href="#installation-osp-configuring-api-floating-ip_post-install-network-configuration">Configuring application access with floating IP addresses</a></li>
-<li><a href="#installation-osp-kuryr-port-pools_post-install-network-configuration">Kuryr ports pools</a></li>
-<li><a href="#installation-osp-kuryr-settings-active_post-install-network-configuration">Adjusting Kuryr ports pool settings in active deployments on RHOSP</a></li>
-<li><a href="#nw-osp-enabling-ovs-offload_post-install-network-configuration">Enabling OVS hardware offloading</a></li>
-</ul>
-</li>
+<li><a href="#deploying-sandboxed-containers-workloads_additional-resources">Additional resources</a></li>
 </ul>
 </div>
 <div class="paragraph">
-<p>After installing OpenShift Container Platform, you can further expand and customize your
-network to your requirements.</p>
+<p>You can install the OpenShift sandboxed containers Operator using either the web console or OpenShift CLI (<code>oc</code>). Before installing the OpenShift sandboxed containers Operator, you must prepare your OpenShift Container Platform cluster.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="nw-operator-cr_post-install-network-configuration"><a class="anchor" href="#nw-operator-cr_post-install-network-configuration"></a>Cluster Network Operator configuration</h2>
+<h2 id="sandboxed-containers-prerequisites_deploying-sandboxed-containers"><a class="anchor" href="#sandboxed-containers-prerequisites_deploying-sandboxed-containers"></a>Prerequisites</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The configuration for the cluster network is specified as part of the Cluster Network Operator (CNO) configuration and stored in a custom resource (CR) object that is named <code>cluster</code>. The CR specifies the fields for the <code>Network</code> API in the <code>operator.openshift.io</code> API group.</p>
-</div>
-<div class="paragraph">
-<p>The CNO configuration inherits the following fields during cluster installation from the <code>Network</code> API in the <code>Network.config.openshift.io</code> API group and these fields cannot be changed:</p>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"><code>clusterNetwork</code></dt>
-<dd>
-<p>IP address pools from which pod IP addresses are allocated.</p>
-</dd>
-<dt class="hdlist1"><code>serviceNetwork</code></dt>
-<dd>
-<p>IP address pool for services.</p>
-</dd>
-<dt class="hdlist1"><code>defaultNetwork.type</code></dt>
-<dd>
-<p>Cluster network provider, such as OpenShift SDN or OVN-Kubernetes.</p>
-</dd>
-</dl>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>After cluster installation, you cannot modify the fields listed in the previous section.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="nw-proxy-configure-object_post-install-network-configuration"><a class="anchor" href="#nw-proxy-configure-object_post-install-network-configuration"></a>Enabling the cluster-wide proxy</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>The Proxy object is used to manage the cluster-wide egress proxy. When a cluster is
-installed or upgraded without the proxy configured, a Proxy object is still
-generated but it will have a nil <code>spec</code>. For example:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">config.openshift.io/v1</span>
-<span class="na">kind</span><span class="pi">:</span> <span class="s">Proxy</span>
-<span class="na">metadata</span><span class="pi">:</span>
-  <span class="na">name</span><span class="pi">:</span> <span class="s">cluster</span>
-<span class="na">spec</span><span class="pi">:</span>
-  <span class="na">trustedCA</span><span class="pi">:</span>
-    <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
-<span class="na">status</span><span class="pi">:</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>A cluster administrator can configure the proxy for OpenShift Container Platform by modifying
-this <code>cluster</code> Proxy object.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Only the Proxy object named <code>cluster</code> is supported, and no additional
-proxies can be created.</p>
-</div>
-</td>
-</tr>
-</table>
+<p>Before you install OpenShift sandboxed containers, ensure that your OpenShift Container Platform cluster meets the following requirements:</p>
 </div>
 <div class="ulist">
-<div class="title">Prerequisites</div>
 <ul>
 <li>
-<p>Cluster administrator permissions</p>
-</li>
-<li>
-<p>OpenShift Container Platform <code>oc</code> CLI tool installed</p>
-</li>
-</ul>
-</div>
-<div class="olist arabic">
-<div class="title">Procedure</div>
-<ol class="arabic">
-<li>
-<p>Create a ConfigMap that contains any additional CA certificates required for
-proxying HTTPS connections.</p>
+<p>Your cluster must be installed on on-premise bare-metal infrastructure with Red Hat Enterprise Linux CoreOS (RHCOS) workers. You can use any installation method including user-provisioned, installer-provisioned, or assisted installer to deploy your cluster.</p>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -31293,194 +31181,25 @@ proxying HTTPS connections.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<div class="paragraph">
-<p>You can skip this step if the proxy&#8217;s identity certificate is signed by an
-authority from the RHCOS trust bundle.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>OpenShift sandboxed containers only supports RHCOS worker nodes. RHEL nodes are not supported.</p>
+</li>
+<li>
+<p>Nested virtualization is not supported.</p>
+</li>
+</ul>
 </div>
 </td>
 </tr>
 </table>
 </div>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Create a file called <code>user-ca-bundle.yaml</code> with the following contents, and provide the values of your PEM-encoded certificates:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
-<span class="na">data</span><span class="pi">:</span>
-  <span class="s">ca-bundle.crt</span><span class="pi">:</span> <span class="pi">|</span> <i class="conum" data-value="1"></i><b>(1)</b>
-    <span class="s">&lt;MY_PEM_ENCODED_CERTS&gt; </span><i class="conum" data-value="2"></i><b>(2)</b>
-<span class="na">kind</span><span class="pi">:</span> <span class="s">ConfigMap</span>
-<span class="na">metadata</span><span class="pi">:</span>
-  <span class="na">name</span><span class="pi">:</span> <span class="s">user-ca-bundle</span> <i class="conum" data-value="3"></i><b>(3)</b>
-  <span class="na">namespace</span><span class="pi">:</span> <span class="s">openshift-config</span> <i class="conum" data-value="4"></i><b>(4)</b></code></pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>This data key must be named <code>ca-bundle.crt</code>.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>One or more PEM-encoded X.509 certificates used to sign the proxy&#8217;s
-identity certificate.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>The ConfigMap name that will be referenced from the Proxy object.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>The ConfigMap must be in the <code>openshift-config</code> namespace.</td>
-</tr>
-</table>
-</div>
 </li>
 <li>
-<p>Create the ConfigMap from this file:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc create <span class="nt">-f</span> user-ca-bundle.yaml</code></pre>
-</div>
-</div>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Use the <code>oc edit</code> command to modify the Proxy object:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc edit proxy/cluster</code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>Configure the necessary fields for the proxy:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">config.openshift.io/v1</span>
-<span class="na">kind</span><span class="pi">:</span> <span class="s">Proxy</span>
-<span class="na">metadata</span><span class="pi">:</span>
-  <span class="na">name</span><span class="pi">:</span> <span class="s">cluster</span>
-<span class="na">spec</span><span class="pi">:</span>
-  <span class="na">httpProxy</span><span class="pi">:</span> <span class="s">http://&lt;username&gt;:&lt;pswd&gt;@&lt;ip&gt;:&lt;port&gt;</span> <i class="conum" data-value="1"></i><b>(1)</b>
-  <span class="na">httpsProxy</span><span class="pi">:</span> <span class="s">http://&lt;username&gt;:&lt;pswd&gt;@&lt;ip&gt;:&lt;port&gt;</span> <i class="conum" data-value="2"></i><b>(2)</b>
-  <span class="na">noProxy</span><span class="pi">:</span> <span class="s">example.com</span> <i class="conum" data-value="3"></i><b>(3)</b>
-  <span class="na">readinessEndpoints</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s">http://www.google.com</span> <i class="conum" data-value="4"></i><b>(4)</b>
-  <span class="pi">-</span> <span class="s">https://www.google.com</span>
-  <span class="na">trustedCA</span><span class="pi">:</span>
-    <span class="na">name</span><span class="pi">:</span> <span class="s">user-ca-bundle</span> <i class="conum" data-value="5"></i><b>(5)</b></code></pre>
-</div>
-</div>
+<p>You can install OpenShift sandboxed containers on Amazon Web Services (AWS) bare-metal instances. Bare-metal instances offered by other cloud providers are not supported.</p>
 <div class="openblock">
 <div class="content">
-<div class="colist arabic">
-<table>
-<tr>
-<td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>A proxy URL to use for creating HTTP connections outside the cluster. The
-URL scheme must be <code>http</code>.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>A proxy URL to use for creating HTTPS connections outside the cluster.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>A comma-separated list of destination domain names, domains, IP addresses or
-other network CIDRs to exclude proxying.
-<div class="paragraph">
-<p>Preface a domain with <code>.</code> to match subdomains only. For example, <code>.y.com</code> matches <code>x.y.com</code>, but not <code>y.com</code>. Use <code>*</code> to bypass proxy for all destinations.
-If you scale up workers that are not included in the network defined by the <code>networking.machineNetwork[].cidr</code> field from the installation configuration, you must add them to this list to prevent connection issues.</p>
-</div>
-<div class="paragraph">
-<p>This field is ignored if neither the <code>httpProxy</code> or <code>httpsProxy</code> fields are set.</p>
-</div></td>
-</tr>
-<tr>
-<td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>One or more URLs external to the cluster to use to perform a readiness check
-before writing the <code>httpProxy</code> and <code>httpsProxy</code> values to status.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="5"></i><b>5</b></td>
-<td>A reference to the ConfigMap in the <code>openshift-config</code> namespace that
-contains additional CA certificates required for proxying HTTPS connections.
-Note that the ConfigMap must already exist before referencing it here. This
-field is required unless the proxy&#8217;s identity certificate is signed by an
-authority from the RHCOS trust bundle.</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-</li>
-<li>
-<p>Save the file to apply the changes.</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="private-clusters-setting-dns-private_post-install-network-configuration"><a class="anchor" href="#private-clusters-setting-dns-private_post-install-network-configuration"></a>Setting DNS to private</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>After you deploy a cluster, you can modify its DNS to use only a private zone.</p>
-</div>
-<div class="olist arabic">
-<div class="title">Procedure</div>
-<ol class="arabic">
-<li>
-<p>Review the <code>DNS</code> custom resource for your cluster:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc get dnses.config.openshift.io/cluster <span class="nt">-o</span> yaml</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">Example output</div>
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">config.openshift.io/v1</span>
-<span class="na">kind</span><span class="pi">:</span> <span class="s">DNS</span>
-<span class="na">metadata</span><span class="pi">:</span>
-  <span class="na">creationTimestamp</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2019-10-25T18:27:09Z"</span>
-  <span class="na">generation</span><span class="pi">:</span> <span class="m">2</span>
-  <span class="na">name</span><span class="pi">:</span> <span class="s">cluster</span>
-  <span class="na">resourceVersion</span><span class="pi">:</span> <span class="s2">"</span><span class="s">37966"</span>
-  <span class="na">selfLink</span><span class="pi">:</span> <span class="s">/apis/config.openshift.io/v1/dnses/cluster</span>
-  <span class="na">uid</span><span class="pi">:</span> <span class="s">0e714746-f755-11f9-9cb1-02ff55d8f976</span>
-<span class="na">spec</span><span class="pi">:</span>
-  <span class="na">baseDomain</span><span class="pi">:</span> <span class="s">&lt;base_domain&gt;</span>
-  <span class="na">privateZone</span><span class="pi">:</span>
-    <span class="na">tags</span><span class="pi">:</span>
-      <span class="na">Name</span><span class="pi">:</span> <span class="s">&lt;infrastructure_id&gt;-int</span>
-      <span class="s">kubernetes.io/cluster/&lt;infrastructure_id&gt;</span><span class="pi">:</span> <span class="s">owned</span>
-  <span class="na">publicZone</span><span class="pi">:</span>
-    <span class="na">id</span><span class="pi">:</span> <span class="s">Z2XXXXXXXXXXA4</span>
-<span class="na">status</span><span class="pi">:</span> <span class="pi">{}</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Note that the <code>spec</code> section contains both a private and a public zone.</p>
-</div>
-</li>
-<li>
-<p>Patch the <code>DNS</code> custom resource to remove the public zone:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc patch dnses.config.openshift.io/cluster <span class="nt">--type</span><span class="o">=</span>merge <span class="nt">--patch</span><span class="o">=</span><span class="s1">'{"spec": {"publicZone": null}}'</span>
-<span class="go">dns.config.openshift.io/cluster patched</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Because the Ingress Controller consults the <code>DNS</code> definition when it creates <code>Ingress</code> objects, when you create or modify <code>Ingress</code> objects, only private records are created.</p>
-</div>
 <div class="admonitionblock important">
 <table>
 <tr>
@@ -31489,1538 +31208,7 @@ authority from the RHCOS trust bundle.</td>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>DNS records for the existing Ingress objects are not modified when you remove the public zone.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</li>
-<li>
-<p>Optional: Review the <code>DNS</code> custom resource for your cluster and confirm that the public zone was removed:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc get dnses.config.openshift.io/cluster <span class="nt">-o</span> yaml</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">Example output</div>
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">config.openshift.io/v1</span>
-<span class="na">kind</span><span class="pi">:</span> <span class="s">DNS</span>
-<span class="na">metadata</span><span class="pi">:</span>
-  <span class="na">creationTimestamp</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2019-10-25T18:27:09Z"</span>
-  <span class="na">generation</span><span class="pi">:</span> <span class="m">2</span>
-  <span class="na">name</span><span class="pi">:</span> <span class="s">cluster</span>
-  <span class="na">resourceVersion</span><span class="pi">:</span> <span class="s2">"</span><span class="s">37966"</span>
-  <span class="na">selfLink</span><span class="pi">:</span> <span class="s">/apis/config.openshift.io/v1/dnses/cluster</span>
-  <span class="na">uid</span><span class="pi">:</span> <span class="s">0e714746-f755-11f9-9cb1-02ff55d8f976</span>
-<span class="na">spec</span><span class="pi">:</span>
-  <span class="na">baseDomain</span><span class="pi">:</span> <span class="s">&lt;base_domain&gt;</span>
-  <span class="na">privateZone</span><span class="pi">:</span>
-    <span class="na">tags</span><span class="pi">:</span>
-      <span class="na">Name</span><span class="pi">:</span> <span class="s">&lt;infrastructure_id&gt;-int</span>
-      <span class="s">kubernetes.io/cluster/&lt;infrastructure_id&gt;-wfpg4</span><span class="pi">:</span> <span class="s">owned</span>
-<span class="na">status</span><span class="pi">:</span> <span class="pi">{}</span></code></pre>
-</div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="post-install-configuring_ingress_cluster_traffic"><a class="anchor" href="#post-install-configuring_ingress_cluster_traffic"></a>Configuring ingress cluster traffic</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>OpenShift Container Platform provides the following methods for communicating from outside the cluster with services running in the cluster:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>If you have HTTP/HTTPS, use an Ingress Controller.</p>
-</li>
-<li>
-<p>If you have a TLS-encrypted protocol other than HTTPS, such as TLS with the SNI header, use an Ingress Controller.</p>
-</li>
-<li>
-<p>Otherwise, use a load balancer, an external IP, or a node port.</p>
-</li>
-</ul>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Method</th>
-<th class="tableblock halign-left valign-top">Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../networking/configuring_ingress_cluster_traffic/configuring-ingress-cluster-traffic-ingress-controller.html#configuring-ingress-cluster-traffic-ingress-controller">Use an Ingress Controller</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Allows access to HTTP/HTTPS traffic and TLS-encrypted protocols other than HTTPS, such as TLS with the SNI header.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../networking/configuring_ingress_cluster_traffic/configuring-ingress-cluster-traffic-load-balancer.html#configuring-ingress-cluster-traffic-load-balancer">Automatically assign an external IP by using a load balancer service</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Allows traffic to non-standard ports through an IP address assigned from a pool.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../networking/configuring_ingress_cluster_traffic/configuring-ingress-cluster-traffic-service-external-ip.html#configuring-ingress-cluster-traffic-service-external-ip">Manually assign an external IP to a service</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Allows traffic to non-standard ports through a specific IP address.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../networking/configuring_ingress_cluster_traffic/configuring-ingress-cluster-traffic-nodeport.html#configuring-ingress-cluster-traffic-nodeport">Configure a <code>NodePort</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Expose a service on all nodes in the cluster.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="sect1">
-<h2 id="post-install-configuring-node-port-service-range"><a class="anchor" href="#post-install-configuring-node-port-service-range"></a>Configuring the node port service range</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>As a cluster administrator, you can expand the available node port range. If your cluster uses of a large number of node ports, you might need to increase the number of available ports.</p>
-</div>
-<div class="paragraph">
-<p>The default port range is <code>30000-32767</code>. You can never reduce the port range, even if you first expand it beyond the default range.</p>
-</div>
-<div class="sect2">
-<h3 id="post-install-configuring-node-port-service-range-prerequisites"><a class="anchor" href="#post-install-configuring-node-port-service-range-prerequisites"></a>Prerequisites</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>Your cluster infrastructure must allow access to the ports that you specify within the expanded range. For example, if you expand the node port range to <code>30000-32900</code>, the inclusive port range of <code>32768-32900</code> must be allowed by your firewall or packet filtering configuration.</p>
-</li>
-</ul>
-</div>
-<div class="sect3">
-<h4 id="nw-nodeport-service-range-edit_post-install-network-configuration"><a class="anchor" href="#nw-nodeport-service-range-edit_post-install-network-configuration"></a>Expanding the node port range</h4>
-<div class="paragraph">
-<p>You can expand the node port range for the cluster.</p>
-</div>
-<div class="ulist">
-<div class="title">Prerequisites</div>
-<ul>
-<li>
-<p>Install the OpenShift CLI (<code>oc</code>).</p>
-</li>
-<li>
-<p>Log in to the cluster with a user with <code>cluster-admin</code> privileges.</p>
-</li>
-</ul>
-</div>
-<div class="olist arabic">
-<div class="title">Procedure</div>
-<ol class="arabic">
-<li>
-<p>To expand the node port range, enter the following command. Replace <code>&lt;port&gt;</code> with the largest port number in the new range.</p>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc patch network.config.openshift.io cluster <span class="nt">--type</span><span class="o">=</span>merge <span class="nt">-p</span> <span class="se">\</span>
-  <span class="s1">'{
-</span><span class="go">    "spec":
-</span><span class="gp">      { "serviceNodePortRange": "30000-&lt;port&gt;</span><span class="s2">" }
-</span><span class="go">  }'</span></code></pre>
-</div>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>You can alternatively apply the following YAML to update the node port range:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">config.openshift.io/v1</span>
-<span class="na">kind</span><span class="pi">:</span> <span class="s">Network</span>
-<span class="na">metadata</span><span class="pi">:</span>
-  <span class="na">name</span><span class="pi">:</span> <span class="s">cluster</span>
-<span class="na">spec</span><span class="pi">:</span>
-  <span class="na">serviceNodePortRange</span><span class="pi">:</span> <span class="s2">"</span><span class="s">30000-&lt;port&gt;"</span></code></pre>
-</div>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="listingblock">
-<div class="title">Example output</div>
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="go">network.config.openshift.io/cluster patched</span></code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>To confirm that the configuration is active, enter the following command. It can take several minutes for the update to apply.</p>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc get configmaps <span class="nt">-n</span> openshift-kube-apiserver config <span class="se">\</span>
-  <span class="nt">-o</span> <span class="nv">jsonpath</span><span class="o">=</span><span class="s2">"{.data['config</span><span class="se">\.</span><span class="s2">yaml']}"</span> | <span class="se">\</span>
-  <span class="nb">grep</span> <span class="nt">-Eo</span> <span class="s1">'"service-node-port-range":["[[:digit:]]+-[[:digit:]]+"]'</span></code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">Example output</div>
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="go">"service-node-port-range":["30000-33000"]</span></code></pre>
-</div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="post-install-configuring-network-policy"><a class="anchor" href="#post-install-configuring-network-policy"></a>Configuring network policy</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>As a cluster administrator or project administrator, you can configure network policies for a project.</p>
-</div>
-<div class="sect2">
-<h3 id="nw-networkpolicy-about_post-install-network-configuration"><a class="anchor" href="#nw-networkpolicy-about_post-install-network-configuration"></a>About network policy</h3>
-<div class="paragraph">
-<p>In a cluster using a Kubernetes Container Network Interface (CNI) plug-in that supports Kubernetes network policy, network isolation is controlled entirely by <code>NetworkPolicy</code> objects.
-In OpenShift Container Platform Branch Build, OpenShift SDN supports using network policy in its default network isolation mode.</p>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Network policy does not apply to the host network namespace. Pods with host networking enabled are unaffected by network policy rules.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>By default, all pods in a project are accessible from other pods and network endpoints. To isolate one or more pods in a project, you can create <code>NetworkPolicy</code> objects in that project to indicate the allowed incoming connections. Project administrators can create and delete <code>NetworkPolicy</code> objects within their own project.</p>
-</div>
-<div class="paragraph">
-<p>If a pod is matched by selectors in one or more <code>NetworkPolicy</code> objects, then the pod will accept only connections that are allowed by at least one of those <code>NetworkPolicy</code> objects. A pod that is not selected by any <code>NetworkPolicy</code> objects is fully accessible.</p>
-</div>
-<div class="paragraph">
-<p>The following example <code>NetworkPolicy</code> objects demonstrate supporting different scenarios:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Deny all traffic:</p>
-<div class="paragraph">
-<p>To make a project deny by default, add a <code>NetworkPolicy</code> object that matches all pods but accepts no traffic:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="na">kind</span><span class="pi">:</span> <span class="s">NetworkPolicy</span>
-<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">networking.k8s.io/v1</span>
-<span class="na">metadata</span><span class="pi">:</span>
-  <span class="na">name</span><span class="pi">:</span> <span class="s">deny-by-default</span>
-<span class="na">spec</span><span class="pi">:</span>
-  <span class="na">podSelector</span><span class="pi">:</span> <span class="pi">{}</span>
-  <span class="na">ingress</span><span class="pi">:</span> <span class="pi">[]</span></code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>Only allow connections from the OpenShift Container Platform Ingress Controller:</p>
-<div class="paragraph">
-<p>To make a project allow only connections from the OpenShift Container Platform Ingress Controller, add the following <code>NetworkPolicy</code> object.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">networking.k8s.io/v1</span>
-<span class="na">kind</span><span class="pi">:</span> <span class="s">NetworkPolicy</span>
-<span class="na">metadata</span><span class="pi">:</span>
-  <span class="na">name</span><span class="pi">:</span> <span class="s">allow-from-openshift-ingress</span>
-<span class="na">spec</span><span class="pi">:</span>
-  <span class="na">ingress</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="na">from</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="na">namespaceSelector</span><span class="pi">:</span>
-        <span class="na">matchLabels</span><span class="pi">:</span>
-          <span class="s">network.openshift.io/policy-group</span><span class="pi">:</span> <span class="s">ingress</span>
-  <span class="na">podSelector</span><span class="pi">:</span> <span class="pi">{}</span>
-  <span class="na">policyTypes</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s">Ingress</span></code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>Only accept connections from pods within a project:</p>
-<div class="paragraph">
-<p>To make pods accept connections from other pods in the same project, but reject all other connections from pods in other projects, add the following <code>NetworkPolicy</code> object:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="na">kind</span><span class="pi">:</span> <span class="s">NetworkPolicy</span>
-<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">networking.k8s.io/v1</span>
-<span class="na">metadata</span><span class="pi">:</span>
-  <span class="na">name</span><span class="pi">:</span> <span class="s">allow-same-namespace</span>
-<span class="na">spec</span><span class="pi">:</span>
-  <span class="na">podSelector</span><span class="pi">:</span> <span class="pi">{}</span>
-  <span class="na">ingress</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="na">from</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="na">podSelector</span><span class="pi">:</span> <span class="pi">{}</span></code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>Only allow HTTP and HTTPS traffic based on pod labels:</p>
-<div class="paragraph">
-<p>To enable only HTTP and HTTPS access to the pods with a specific label (<code>role=frontend</code> in following example), add a <code>NetworkPolicy</code> object similar to the following:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="na">kind</span><span class="pi">:</span> <span class="s">NetworkPolicy</span>
-<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">networking.k8s.io/v1</span>
-<span class="na">metadata</span><span class="pi">:</span>
-  <span class="na">name</span><span class="pi">:</span> <span class="s">allow-http-and-https</span>
-<span class="na">spec</span><span class="pi">:</span>
-  <span class="na">podSelector</span><span class="pi">:</span>
-    <span class="na">matchLabels</span><span class="pi">:</span>
-      <span class="na">role</span><span class="pi">:</span> <span class="s">frontend</span>
-  <span class="na">ingress</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="na">ports</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="na">protocol</span><span class="pi">:</span> <span class="s">TCP</span>
-      <span class="na">port</span><span class="pi">:</span> <span class="m">80</span>
-    <span class="pi">-</span> <span class="na">protocol</span><span class="pi">:</span> <span class="s">TCP</span>
-      <span class="na">port</span><span class="pi">:</span> <span class="s">443</span></code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>Accept connections by using both namespace and pod selectors:</p>
-<div class="paragraph">
-<p>To match network traffic by combining namespace and pod selectors, you can use a <code>NetworkPolicy</code> object similar to the following:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="na">kind</span><span class="pi">:</span> <span class="s">NetworkPolicy</span>
-<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">networking.k8s.io/v1</span>
-<span class="na">metadata</span><span class="pi">:</span>
-  <span class="na">name</span><span class="pi">:</span> <span class="s">allow-pod-and-namespace-both</span>
-<span class="na">spec</span><span class="pi">:</span>
-  <span class="na">podSelector</span><span class="pi">:</span>
-    <span class="na">matchLabels</span><span class="pi">:</span>
-      <span class="na">name</span><span class="pi">:</span> <span class="s">test-pods</span>
-  <span class="na">ingress</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="na">from</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="na">namespaceSelector</span><span class="pi">:</span>
-          <span class="na">matchLabels</span><span class="pi">:</span>
-            <span class="na">project</span><span class="pi">:</span> <span class="s">project_name</span>
-        <span class="na">podSelector</span><span class="pi">:</span>
-          <span class="na">matchLabels</span><span class="pi">:</span>
-            <span class="na">name</span><span class="pi">:</span> <span class="s">test-pods</span></code></pre>
-</div>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><code>NetworkPolicy</code> objects are additive, which means you can combine multiple <code>NetworkPolicy</code> objects together to satisfy complex network requirements.</p>
-</div>
-<div class="paragraph">
-<p>For example, for the <code>NetworkPolicy</code> objects defined in previous samples, you can define both <code>allow-same-namespace</code> and <code>allow-http-and-https</code> policies within the same project. Thus allowing the pods with the label <code>role=frontend</code>, to accept any connection allowed by each policy. That is, connections on any port from pods in the same namespace, and connections on ports <code>80</code> and <code>443</code> from pods in any namespace.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="nw-networkpolicy-object_post-install-network-configuration"><a class="anchor" href="#nw-networkpolicy-object_post-install-network-configuration"></a>Example NetworkPolicy object</h3>
-<div class="paragraph">
-<p>The following annotates an example NetworkPolicy object:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="na">kind</span><span class="pi">:</span> <span class="s">NetworkPolicy</span>
-<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">networking.k8s.io/v1</span>
-<span class="na">metadata</span><span class="pi">:</span>
-  <span class="na">name</span><span class="pi">:</span> <span class="s">allow-27107</span> <i class="conum" data-value="1"></i><b>(1)</b>
-<span class="na">spec</span><span class="pi">:</span>
-  <span class="na">podSelector</span><span class="pi">:</span> <i class="conum" data-value="2"></i><b>(2)</b>
-    <span class="na">matchLabels</span><span class="pi">:</span>
-      <span class="na">app</span><span class="pi">:</span> <span class="s">mongodb</span>
-  <span class="na">ingress</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="na">from</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="na">podSelector</span><span class="pi">:</span> <i class="conum" data-value="3"></i><b>(3)</b>
-        <span class="na">matchLabels</span><span class="pi">:</span>
-          <span class="na">app</span><span class="pi">:</span> <span class="s">app</span>
-    <span class="na">ports</span><span class="pi">:</span> <i class="conum" data-value="4"></i><b>(4)</b>
-    <span class="pi">-</span> <span class="na">protocol</span><span class="pi">:</span> <span class="s">TCP</span>
-      <span class="na">port</span><span class="pi">:</span> <span class="s">27017</span></code></pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>The name of the NetworkPolicy object.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>A selector that describes the pods to which the policy applies. The policy object can
-only select pods in the project that defines the NetworkPolicy object.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>A selector that matches the pods from which the policy object allows ingress traffic. The selector matches pods in the same namespace as the NetworkPolicy.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>A list of one or more destination ports on which to accept traffic.</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="nw-networkpolicy-create_post-install-network-configuration"><a class="anchor" href="#nw-networkpolicy-create_post-install-network-configuration"></a>Creating a network policy</h3>
-<div class="paragraph">
-<p>To define granular rules describing ingress or egress network traffic allowed for namespaces in your cluster, you can create a network policy.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>If you log in with a user with the <code>cluster-admin</code> role, then you can create a network policy in any namespace in the cluster.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="ulist">
-<div class="title">Prerequisites</div>
-<ul>
-<li>
-<p>Your cluster uses a cluster network provider that supports <code>NetworkPolicy</code> objects, such as
-the OpenShift SDN network provider with <code>mode: NetworkPolicy</code> set.
-This mode is the default for OpenShift SDN.</p>
-</li>
-<li>
-<p>You installed the OpenShift CLI (<code>oc</code>).</p>
-</li>
-<li>
-<p>You are logged in to the cluster with a user with <code>admin</code> privileges.</p>
-</li>
-<li>
-<p>You are working in the namespace that the network policy applies to.</p>
-</li>
-</ul>
-</div>
-<div class="olist arabic">
-<div class="title">Procedure</div>
-<ol class="arabic">
-<li>
-<p>Create a policy rule:</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Create a <code>&lt;policy_name&gt;.yaml</code> file:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span><span class="nb">touch</span> &lt;policy_name&gt;.yaml</code></pre>
-</div>
-</div>
-<div class="openblock">
-<div class="content">
-<div class="paragraph">
-<p>where:</p>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"><code>&lt;policy_name&gt;</code></dt>
-<dd>
-<p>Specifies the network policy file name.</p>
-</dd>
-</dl>
-</div>
-</div>
-</div>
-</li>
-<li>
-<p>Define a network policy in the file that you just created, such as in the following examples:</p>
-<div class="listingblock">
-<div class="title">Deny ingress from all pods in all namespaces</div>
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="na">kind</span><span class="pi">:</span> <span class="s">NetworkPolicy</span>
-<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">networking.k8s.io/v1</span>
-<span class="na">metadata</span><span class="pi">:</span>
-  <span class="na">name</span><span class="pi">:</span> <span class="s">deny-by-default</span>
-<span class="na">spec</span><span class="pi">:</span>
-  <span class="na">podSelector</span><span class="pi">:</span>
-  <span class="na">ingress</span><span class="pi">:</span> <span class="pi">[]</span></code></pre>
-</div>
-</div>
-</li>
-</ol>
-</div>
-<div class="listingblock">
-<div class="title">Allow ingress from all pods in the same namespace</div>
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="na">kind</span><span class="pi">:</span> <span class="s">NetworkPolicy</span>
-<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">networking.k8s.io/v1</span>
-<span class="na">metadata</span><span class="pi">:</span>
-  <span class="na">name</span><span class="pi">:</span> <span class="s">allow-same-namespace</span>
-<span class="na">spec</span><span class="pi">:</span>
-  <span class="na">podSelector</span><span class="pi">:</span>
-  <span class="na">ingress</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="na">from</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="na">podSelector</span><span class="pi">:</span> <span class="pi">{}</span></code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>To create the network policy object, enter the following command:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc apply <span class="nt">-f</span> &lt;policy_name&gt;.yaml <span class="nt">-n</span> &lt;namespace&gt;</code></pre>
-</div>
-</div>
-<div class="openblock">
-<div class="content">
-<div class="paragraph">
-<p>where:</p>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"><code>&lt;policy_name&gt;</code></dt>
-<dd>
-<p>Specifies the network policy file name.</p>
-</dd>
-<dt class="hdlist1"><code>&lt;namespace&gt;</code></dt>
-<dd>
-<p>Optional: Specifies the namespace if the object is defined in a different namespace than the current namespace.</p>
-</dd>
-</dl>
-</div>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">Example output</div>
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="go">networkpolicy.networking.k8s.io/default-deny created</span></code></pre>
-</div>
-</div>
-</li>
-</ol>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>If you log in to the web console with <code>cluster-admin</code> privileges, you have a choice of creating a network policy in any namespace in the cluster directly in YAML or from a form in the web console.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="nw-networkpolicy-multitenant-isolation_post-install-network-configuration"><a class="anchor" href="#nw-networkpolicy-multitenant-isolation_post-install-network-configuration"></a>Configuring multitenant isolation by using network policy</h3>
-<div class="paragraph">
-<p>You can configure your project to isolate it from pods and services in other
-project namespaces.</p>
-</div>
-<div class="ulist">
-<div class="title">Prerequisites</div>
-<ul>
-<li>
-<p>Your cluster uses a cluster network provider that supports <code>NetworkPolicy</code> objects, such as
-the OpenShift SDN network provider with <code>mode: NetworkPolicy</code> set.
-This mode is the default for OpenShift SDN.</p>
-</li>
-<li>
-<p>You installed the OpenShift CLI (<code>oc</code>).</p>
-</li>
-<li>
-<p>You are logged in to the cluster with a user with <code>admin</code> privileges.</p>
-</li>
-</ul>
-</div>
-<div class="olist arabic">
-<div class="title">Procedure</div>
-<ol class="arabic">
-<li>
-<p>Create the following <code>NetworkPolicy</code> objects:</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>A policy named <code>allow-from-openshift-ingress</code>.</p>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span><span class="nb">cat</span> <span class="o">&lt;&lt;</span> <span class="no">EOF</span><span class="sh">| oc create -f -
-</span><span class="go">apiVersion: networking.k8s.io/v1
-kind: NetworkPolicy
-metadata:
-  name: allow-from-openshift-ingress
-spec:
-  ingress:
-  - from:
-    - namespaceSelector:
-        matchLabels:
-          policy-group.network.openshift.io/ingress: ""
-  podSelector: {}
-  policyTypes:
-  - Ingress
-EOF</span></code></pre>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p><code>policy-group.network.openshift.io/ingress: ""</code> is the preferred namespace selector label for OpenShift SDN. You can use the <code>network.openshift.io/policy-group: ingress</code> namespace selector label, but this is a legacy label.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</li>
-<li>
-<p>A policy named <code>allow-from-openshift-monitoring</code>:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span><span class="nb">cat</span> <span class="o">&lt;&lt;</span> <span class="no">EOF</span><span class="sh">| oc create -f -
-</span><span class="go">apiVersion: networking.k8s.io/v1
-kind: NetworkPolicy
-metadata:
-  name: allow-from-openshift-monitoring
-spec:
-  ingress:
-  - from:
-    - namespaceSelector:
-        matchLabels:
-          network.openshift.io/policy-group: monitoring
-  podSelector: {}
-  policyTypes:
-  - Ingress
-EOF</span></code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>A policy named <code>allow-same-namespace</code>:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span><span class="nb">cat</span> <span class="o">&lt;&lt;</span> <span class="no">EOF</span><span class="sh">| oc create -f -
-</span><span class="go">kind: NetworkPolicy
-apiVersion: networking.k8s.io/v1
-metadata:
-  name: allow-same-namespace
-spec:
-  podSelector:
-  ingress:
-  - from:
-    - podSelector: {}
-EOF</span></code></pre>
-</div>
-</div>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Optional: To confirm that the network policies exist in your current project, enter the following command:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc describe networkpolicy</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">Example output</div>
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="text">Name:         allow-from-openshift-ingress
-Namespace:    example1
-Created on:   2020-06-09 00:28:17 -0400 EDT
-Labels:       &lt;none&gt;
-Annotations:  &lt;none&gt;
-Spec:
-  PodSelector:     &lt;none&gt; (Allowing the specific traffic to all pods in this namespace)
-  Allowing ingress traffic:
-    To Port: &lt;any&gt; (traffic allowed to all ports)
-    From:
-      NamespaceSelector: network.openshift.io/policy-group: ingress
-  Not affecting egress traffic
-  Policy Types: Ingress
-
-
-Name:         allow-from-openshift-monitoring
-Namespace:    example1
-Created on:   2020-06-09 00:29:57 -0400 EDT
-Labels:       &lt;none&gt;
-Annotations:  &lt;none&gt;
-Spec:
-  PodSelector:     &lt;none&gt; (Allowing the specific traffic to all pods in this namespace)
-  Allowing ingress traffic:
-    To Port: &lt;any&gt; (traffic allowed to all ports)
-    From:
-      NamespaceSelector: network.openshift.io/policy-group: monitoring
-  Not affecting egress traffic
-  Policy Types: Ingress</code></pre>
-</div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="post-install-nw-networkpolicy-creating-default-networkpolicy-objects-for-a-new-project"><a class="anchor" href="#post-install-nw-networkpolicy-creating-default-networkpolicy-objects-for-a-new-project"></a>Creating default network policies for a new project</h3>
-<div class="paragraph">
-<p>As a cluster administrator, you can modify the new project template to
-automatically include <code>NetworkPolicy</code> objects when you create a new project.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="modifying-template-for-new-projects_post-install-network-configuration"><a class="anchor" href="#modifying-template-for-new-projects_post-install-network-configuration"></a>Modifying the template for new projects</h3>
-<div class="paragraph">
-<p>As a cluster administrator, you can modify the default project template so that
-new projects are created using your custom requirements.</p>
-</div>
-<div class="paragraph">
-<p>To create your own custom project template:</p>
-</div>
-<div class="olist arabic">
-<div class="title">Procedure</div>
-<ol class="arabic">
-<li>
-<p>Log in as a user with <code>cluster-admin</code> privileges.</p>
-</li>
-<li>
-<p>Generate the default project template:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc adm create-bootstrap-project-template <span class="nt">-o</span> yaml <span class="o">&gt;</span> template.yaml</code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>Use a text editor to modify the generated <code>template.yaml</code> file by adding
-objects or modifying existing objects.</p>
-</li>
-<li>
-<p>The project template must be created in the <code>openshift-config</code> namespace. Load
-your modified template:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc create <span class="nt">-f</span> template.yaml <span class="nt">-n</span> openshift-config</code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>Edit the project configuration resource using the web console or CLI.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Using the web console:</p>
-<div class="olist lowerroman">
-<ol class="lowerroman" type="i">
-<li>
-<p>Navigate to the <strong>Administration</strong> &#8594; <strong>Cluster Settings</strong> page.</p>
-</li>
-<li>
-<p>Click <strong>Configuration</strong> to view all configuration resources.</p>
-</li>
-<li>
-<p>Find the entry for <strong>Project</strong> and click <strong>Edit YAML</strong>.</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Using the CLI:</p>
-<div class="olist lowerroman">
-<ol class="lowerroman" type="i">
-<li>
-<p>Edit the <code>project.config.openshift.io/cluster</code> resource:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc edit project.config.openshift.io/cluster</code></pre>
-</div>
-</div>
-</li>
-</ol>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Update the <code>spec</code> section to include the <code>projectRequestTemplate</code> and <code>name</code>
-parameters, and set the name of your uploaded project template. The default name
-is <code>project-request</code>.</p>
-<div class="listingblock">
-<div class="title">Project configuration resource with custom project template</div>
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">config.openshift.io/v1</span>
-<span class="na">kind</span><span class="pi">:</span> <span class="s">Project</span>
-<span class="na">metadata</span><span class="pi">:</span>
-  <span class="s">...</span>
-<span class="na">spec</span><span class="pi">:</span>
-  <span class="na">projectRequestTemplate</span><span class="pi">:</span>
-    <span class="na">name</span><span class="pi">:</span> <span class="s">&lt;template_name&gt;</span></code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>After you save your changes, create a new project to verify that your changes
-were successfully applied.</p>
-</li>
-</ol>
-</div>
-<div class="sect3">
-<h4 id="nw-networkpolicy-project-defaults_post-install-network-configuration"><a class="anchor" href="#nw-networkpolicy-project-defaults_post-install-network-configuration"></a>Adding network policies to the new project template</h4>
-<div class="paragraph">
-<p>As a cluster administrator, you can add network policies to the default template for new projects.
-OpenShift Container Platform will automatically create all the <code>NetworkPolicy</code> objects specified in the template in the project.</p>
-</div>
-<div class="ulist">
-<div class="title">Prerequisites</div>
-<ul>
-<li>
-<p>Your cluster uses a default CNI network provider that supports <code>NetworkPolicy</code> objects, such as the OpenShift SDN network provider with <code>mode: NetworkPolicy</code> set. This mode is the default for OpenShift SDN.</p>
-</li>
-<li>
-<p>You installed the OpenShift CLI (<code>oc</code>).</p>
-</li>
-<li>
-<p>You must log in to the cluster with a user with <code>cluster-admin</code> privileges.</p>
-</li>
-<li>
-<p>You must have created a custom default project template for new projects.</p>
-</li>
-</ul>
-</div>
-<div class="olist arabic">
-<div class="title">Procedure</div>
-<ol class="arabic">
-<li>
-<p>Edit the default template for a new project by running the following command:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc edit template &lt;project_template&gt; <span class="nt">-n</span> openshift-config</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Replace <code>&lt;project_template&gt;</code> with the name of the default template that you
-configured for your cluster. The default template name is <code>project-request</code>.</p>
-</div>
-</li>
-<li>
-<p>In the template, add each <code>NetworkPolicy</code> object as an element to the <code>objects</code> parameter. The <code>objects</code> parameter accepts a collection of one or more objects.</p>
-<div class="paragraph">
-<p>In the following example, the <code>objects</code> parameter collection includes several <code>NetworkPolicy</code> objects.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="na">objects</span><span class="pi">:</span>
-<span class="pi">-</span> <span class="na">apiVersion</span><span class="pi">:</span> <span class="s">networking.k8s.io/v1</span>
-  <span class="na">kind</span><span class="pi">:</span> <span class="s">NetworkPolicy</span>
-  <span class="na">metadata</span><span class="pi">:</span>
-    <span class="na">name</span><span class="pi">:</span> <span class="s">allow-from-same-namespace</span>
-  <span class="na">spec</span><span class="pi">:</span>
-    <span class="na">podSelector</span><span class="pi">:</span> <span class="pi">{}</span>
-    <span class="na">ingress</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="na">from</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="na">podSelector</span><span class="pi">:</span> <span class="pi">{}</span>
-<span class="pi">-</span> <span class="na">apiVersion</span><span class="pi">:</span> <span class="s">networking.k8s.io/v1</span>
-  <span class="na">kind</span><span class="pi">:</span> <span class="s">NetworkPolicy</span>
-  <span class="na">metadata</span><span class="pi">:</span>
-    <span class="na">name</span><span class="pi">:</span> <span class="s">allow-from-openshift-ingress</span>
-  <span class="na">spec</span><span class="pi">:</span>
-    <span class="na">ingress</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="na">from</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="na">namespaceSelector</span><span class="pi">:</span>
-          <span class="na">matchLabels</span><span class="pi">:</span>
-            <span class="s">network.openshift.io/policy-group</span><span class="pi">:</span> <span class="s">ingress</span>
-    <span class="na">podSelector</span><span class="pi">:</span> <span class="pi">{}</span>
-    <span class="na">policyTypes</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">Ingress</span>
-<span class="nn">...</span></code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>Optional: Create a new project to confirm that your network policy objects are created successfully by running the following commands:</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Create a new project:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc new-project &lt;project&gt; <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Replace <code>&lt;project&gt;</code> with the name for the project you are creating.</td>
-</tr>
-</table>
-</div>
-</li>
-<li>
-<p>Confirm that the network policy objects in the new project template exist in the new project:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc get networkpolicy
-<span class="go">NAME                           POD-SELECTOR   AGE
-</span><span class="gp">allow-from-openshift-ingress   &lt;none&gt;</span><span class="w">         </span>7s
-<span class="gp">allow-from-same-namespace      &lt;none&gt;</span><span class="w">         </span>7s</code></pre>
-</div>
-</div>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="ossm-supported-configurations_post-install-network-configuration"><a class="anchor" href="#ossm-supported-configurations_post-install-network-configuration"></a>Supported configurations</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>The following configurations are supported for the current release of Red Hat OpenShift Service Mesh.</p>
-</div>
-<div class="sect2">
-<h3 id="ossm-supported-platforms_post-install-network-configuration"><a class="anchor" href="#ossm-supported-platforms_post-install-network-configuration"></a>Supported platforms</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>OpenShift Container Platform version 4.6 or later.</p>
-</li>
-<li>
-<p>Red Hat OpenShift Dedicated version 4.</p>
-</li>
-<li>
-<p>Azure Red Hat OpenShift version 4.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>For additional information about Red Hat OpenShift Service Mesh lifecycle and supported platforms, refer to the <a href="https://access.redhat.com/support/policy/updates/openshift#ossm">Support Policy</a>.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="ossm-unsupported-configurations_post-install-network-configuration"><a class="anchor" href="#ossm-unsupported-configurations_post-install-network-configuration"></a>Unsupported configurations</h3>
-<div class="paragraph">
-<p>Explicitly unsupported cases include:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>OpenShift Online is not supported for Red Hat OpenShift Service Mesh.</p>
-</li>
-<li>
-<p>Red Hat OpenShift Service Mesh does not support the management of microservices outside the cluster where Service Mesh is running.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="ossm-supported-configurations-networks_post-install-network-configuration"><a class="anchor" href="#ossm-supported-configurations-networks_post-install-network-configuration"></a>Supported network configurations</h3>
-<div class="paragraph">
-<p>Red Hat OpenShift Service Mesh supports the following network configurations.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>OpenShift-SDN</p>
-</li>
-<li>
-<p>OVN-Kubernetes is supported on OpenShift Container Platform 4.7.32+, OpenShift Container Platform 4.8.12+, and OpenShift Container Platform 4.9+.</p>
-</li>
-<li>
-<p>Third-Party Container Network Interface (CNI) plug-ins that have been certified on OpenShift Container Platform and passed Service Mesh conformance testing. See <a href="https://access.redhat.com/articles/5436171">Certified OpenShift CNI Plug-ins</a> for more information.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="ossm-supported-configurations-sm_post-install-network-configuration"><a class="anchor" href="#ossm-supported-configurations-sm_post-install-network-configuration"></a>Supported configurations for Service Mesh</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>This release of Red Hat OpenShift Service Mesh is only available on OpenShift Container Platform x86_64, IBM Z, and IBM Power Systems.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>IBM Z is only supported on OpenShift Container Platform 4.6 and later.</p>
-</li>
-<li>
-<p>IBM Power Systems is only supported on OpenShift Container Platform 4.6 and later.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Configurations where all Service Mesh components are contained within a single OpenShift Container Platform cluster.</p>
-</li>
-<li>
-<p>Configurations that do not integrate external services such as virtual machines.</p>
-</li>
-<li>
-<p>Red Hat OpenShift Service Mesh does not support <code>EnvoyFilter</code> configuration except where explicitly documented.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="ossm-supported-configurations-kiali_post-install-network-configuration"><a class="anchor" href="#ossm-supported-configurations-kiali_post-install-network-configuration"></a>Supported configurations for Kiali</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>The Kiali observability console is only supported on the two most recent releases of the Chrome, Edge, Firefox, or Safari browsers.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="ossm-supported-configurations-jaeger_post-install-network-configuration"><a class="anchor" href="#ossm-supported-configurations-jaeger_post-install-network-configuration"></a>Supported configurations for Distributed Tracing</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>Jaeger agent as a sidecar is the only supported configuration for Jaeger. Jaeger as a daemonset is not supported for multitenant installations or OpenShift Dedicated.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="ossm-supported-configurations-webassembly_post-install-network-configuration"><a class="anchor" href="#ossm-supported-configurations-webassembly_post-install-network-configuration"></a>Supported WebAssembly module</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>3scale WebAssembly is the only provided WebAssembly module. You can create custom WebAssembly modules.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="ossm-installation-activities_post-install-network-configuration"><a class="anchor" href="#ossm-installation-activities_post-install-network-configuration"></a>Operator overview</h3>
-<div class="paragraph">
-<p>Red Hat OpenShift Service Mesh requires the following four Operators:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>OpenShift Elasticsearch</strong> - (Optional) Provides database storage for tracing and logging with the distributed tracing platform. It is based on the open source <a href="https://www.elastic.co/">Elasticsearch</a> project.</p>
-</li>
-<li>
-<p><strong>Red Hat OpenShift distributed tracing platform</strong> - Provides distributed tracing to monitor and troubleshoot transactions in complex distributed systems. It is based on the open source <a href="https://www.jaegertracing.io/">Jaeger</a> project.</p>
-</li>
-<li>
-<p><strong>Kiali</strong> - Provides observability for your service mesh. Allows you to view configurations, monitor traffic, and analyze traces in a single console. It is based on the open source <a href="https://www.kiali.io/">Kiali</a> project.</p>
-</li>
-<li>
-<p><strong>Red Hat OpenShift Service Mesh</strong> - Allows you to connect, secure, control, and observe the microservices that comprise your applications. The Service Mesh Operator defines and monitors the <code>ServiceMeshControlPlane</code> resources that manage the deployment, updating, and deletion of the Service Mesh components. It is based on the open source <a href="https://istio.io/">Istio</a> project.</p>
-</li>
-</ul>
-</div>
-<div class="ulist">
-<div class="title">Next steps</div>
-<ul>
-<li>
-<p><a href="../service_mesh/v2x/installing-ossm.html#installing-ossm">Install Red Hat OpenShift Service Mesh</a> in your OpenShift Container Platform environment.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="post-installationrouting-optimization"><a class="anchor" href="#post-installationrouting-optimization"></a>Optimizing routing</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>The OpenShift Container Platform HAProxy router scales to optimize performance.</p>
-</div>
-<div class="sect2">
-<h3 id="baseline-router-performance_post-install-network-configuration"><a class="anchor" href="#baseline-router-performance_post-install-network-configuration"></a>Baseline Ingress Controller (router) performance</h3>
-<div class="paragraph">
-<p>The OpenShift Container Platform Ingress Controller, or router, is the Ingress point for all external traffic destined for OpenShift Container Platform services.</p>
-</div>
-<div class="paragraph">
-<p>When evaluating a single HAProxy router performance in terms of HTTP requests handled per second, the performance varies depending on many factors. In particular:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>HTTP keep-alive/close mode</p>
-</li>
-<li>
-<p>Route type</p>
-</li>
-<li>
-<p>TLS session resumption client support</p>
-</li>
-<li>
-<p>Number of concurrent connections per target route</p>
-</li>
-<li>
-<p>Number of target routes</p>
-</li>
-<li>
-<p>Back end server page size</p>
-</li>
-<li>
-<p>Underlying infrastructure (network/SDN solution, CPU, and so on)</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>While performance in your specific environment will vary, Red Hat lab tests on a public cloud instance of size 4 vCPU/16GB RAM. A single HAProxy router handling 100 routes terminated by backends serving 1kB static pages is able to handle the following number of transactions per second.</p>
-</div>
-<div class="paragraph">
-<p>In HTTP keep-alive mode scenarios:</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top"><strong>Encryption</strong></th>
-<th class="tableblock halign-left valign-top"><strong>LoadBalancerService</strong></th>
-<th class="tableblock halign-left valign-top"><strong>HostNetwork</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">21515</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">29622</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">edge</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">16743</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">22913</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">passthrough</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">36786</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">53295</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">re-encrypt</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">21583</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">25198</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>In HTTP close (no keep-alive) scenarios:</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top"><strong>Encryption</strong></th>
-<th class="tableblock halign-left valign-top"><strong>LoadBalancerService</strong></th>
-<th class="tableblock halign-left valign-top"><strong>HostNetwork</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">5719</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">8273</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">edge</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2729</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4069</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">passthrough</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4121</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">5344</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">re-encrypt</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2320</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2941</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>Default Ingress Controller configuration with <code>ROUTER_THREADS=4</code> was used and two different endpoint publishing strategies (LoadBalancerService/HostNetwork) were tested.
-TLS session resumption was used for encrypted routes. With HTTP keep-alive, a single HAProxy router is capable of saturating 1 Gbit NIC at page sizes as small as 8 kB.</p>
-</div>
-<div class="paragraph">
-<p>When running on bare metal with modern processors, you can expect roughly twice the performance of the public cloud instance above. This overhead is introduced by the virtualization layer in place on public clouds and holds mostly true for private cloud-based virtualization as well. The following table is a guide to how many applications to use behind the router:</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 66.6667%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top"><strong>Number of applications</strong></th>
-<th class="tableblock halign-left valign-top"><strong>Application type</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">5-10</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">static file/web server or caching proxy</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">100-1000</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">applications generating dynamic content</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>In general, HAProxy can support routes for 5 to 1000 applications, depending on
-the technology in use. Ingress Controller performance might be limited by the
-capabilities and performance of the applications behind it, such as language or
-static versus dynamic content.</p>
-</div>
-<div class="paragraph">
-<p>Ingress, or router, sharding should be used to serve more routes towards applications and help horizontally scale the routing tier.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="router-performance-optimizations_post-install-network-configuration"><a class="anchor" href="#router-performance-optimizations_post-install-network-configuration"></a>Ingress Controller (router) performance optimizations</h3>
-<div class="paragraph">
-<p>OpenShift Container Platform no longer supports modifying Ingress Controller deployments by setting environment variables such as <code>ROUTER_THREADS</code>, <code>ROUTER_DEFAULT_TUNNEL_TIMEOUT</code>, <code>ROUTER_DEFAULT_CLIENT_TIMEOUT</code>, <code>ROUTER_DEFAULT_SERVER_TIMEOUT</code>, and <code>RELOAD_INTERVAL</code>.</p>
-</div>
-<div class="paragraph">
-<p>You can modify the Ingress Controller deployment, but if the Ingress Operator is enabled, the configuration is overwritten.</p>
-</div>
-<div class="sect3">
-<h4 id="configuring-ingress-controller-liveness-readiness-and-startup-probes"><a class="anchor" href="#configuring-ingress-controller-liveness-readiness-and-startup-probes"></a>Configuring Ingress Controller liveness, readiness, and startup probes</h4>
-<div class="paragraph">
-<p>Cluster administrators can configure the timeout values for the kubelet&#8217;s liveness, readiness, and startup probes for router deployments that are managed by the OpenShift Container Platform Ingress Controller (router). The liveness and readiness probes of the router use the default timeout value
-of 1 second, which is too short for the kubelet&#8217;s probes to succeed in some scenarios. Probe timeouts can cause unwanted router restarts that interrupt application connections. The ability to set larger timeout values can reduce the risk of unnecessary and unwanted restarts.</p>
-</div>
-<div class="paragraph">
-<p>You can update the <code>timeoutSeconds</code> value on the <code>livenessProbe</code>, <code>readinessProbe</code>, and <code>startupProbe</code> parameters of the router container.</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 27.2727%;">
-<col style="width: 72.7273%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Parameter</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><code>livenessProbe</code></p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>The <code>livenessProbe</code> reports to the kubelet whether a pod is dead and needs to be restarted.</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><code>readinessProbe</code></p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>The <code>readinessProbe</code> reports whether a pod is healthy or unhealthy. When the readiness probe reports an unhealthy pod, then the kubelet marks the pod as not ready to accept traffic. Subsequently, the endpoints for that pod are marked as not ready, and this status propogates to the kube-proxy. On cloud platforms with a configured load balancer, the kube-proxy communicates to the cloud load-balancer not to send traffic to the node with that pod.</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><code>startupProbe</code></p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>The <code>startupProbe</code> gives the router pod up to 2 minutes to initialize before the kubelet begins sending the router liveness and readiness probes.  This initialization time can prevent routers with many routes or endpoints from prematurely restarting.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>The timeout configuration option is an advanced tuning technique that can be used to work around issues. However, these issues should eventually be diagnosed and possibly a support case or Bugzilla report opened for any issues that causes probes to time out.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The following example demonstrates how you can directly patch the default router deployment to set a 5-second timeout for the liveness and readiness probes:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc <span class="nt">-n</span> openshift-ingress patch deploy/router-default <span class="nt">--type</span><span class="o">=</span>strategic <span class="nt">--patch</span><span class="o">=</span><span class="s1">'{"spec":{"template":{"spec":{"containers":[{"name":"router","livenessProbe":{"timeoutSeconds":5},"readinessProbe":{"timeoutSeconds":5}}]}}}}'</span></code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">Verification</div>
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc <span class="nt">-n</span> openshift-ingress describe deploy/router-default | <span class="nb">grep</span> <span class="nt">-e</span> Liveness: <span class="nt">-e</span> Readiness:
-<span class="gp">    Liveness:   http-get http://:1936/healthz delay=0s timeout=5s period=10s #</span><span class="nv">success</span><span class="o">=</span>1 <span class="c">#failure=3</span>
-<span class="gp">    Readiness:  http-get http://:1936/healthz/ready delay=0s timeout=5s period=10s #</span><span class="nv">success</span><span class="o">=</span>1 <span class="c">#failure=3</span></code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="post-installation-osp-fips"><a class="anchor" href="#post-installation-osp-fips"></a>Post-installation RHOSP network configuration</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>You can configure some aspects of an OpenShift Container Platform on Red Hat OpenStack Platform (RHOSP) cluster after installation.</p>
-</div>
-<div class="sect2">
-<h3 id="installation-osp-configuring-api-floating-ip_post-install-network-configuration"><a class="anchor" href="#installation-osp-configuring-api-floating-ip_post-install-network-configuration"></a>Configuring application access with floating IP addresses</h3>
-<div class="paragraph">
-<p>After you install OpenShift Container Platform, configure Red Hat OpenStack Platform (RHOSP) to allow application network traffic.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>You do not need to perform this procedure if you provided values for <code>platform.openstack.apiFloatingIP</code> and <code>platform.openstack.ingressFloatingIP</code> in the <code>install-config.yaml</code> file, or <code>os_api_fip</code> and <code>os_ingress_fip</code> in the <code>inventory.yaml</code> playbook, during installation. The floating IP addresses are already set.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="ulist">
-<div class="title">Prerequisites</div>
-<ul>
-<li>
-<p>OpenShift Container Platform cluster must be installed</p>
-</li>
-<li>
-<p>Floating IP addresses are enabled as described in the OpenShift Container Platform on RHOSP installation documentation.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<div class="title">Procedure</div>
-<p>After you install the OpenShift Container Platform cluster, attach a floating IP address to the ingress port:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Show the port:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>openstack port show &lt;cluster_name&gt;-&lt;cluster_ID&gt;-ingress-port</code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>Attach the port to the IP address:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>openstack floating ip <span class="nb">set</span> <span class="nt">--port</span> &lt;ingress_port_ID&gt; &lt;apps_FIP&gt;</code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>Add a wildcard <code>A</code> record for <code>*apps.</code> to your DNS file:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="dns">*.apps.&lt;cluster_name&gt;.&lt;base_domain&gt;  IN  A  &lt;apps_FIP&gt;</code></pre>
-</div>
-</div>
-</li>
-</ol>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>If you do not control the DNS server but want to enable application access for non-production purposes, you can add these hostnames to <code>/etc/hosts</code>:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="dns">&lt;apps_FIP&gt; console-openshift-console.apps.&lt;cluster name&gt;.&lt;base domain&gt;
-&lt;apps_FIP&gt; integrated-oauth-server-openshift-authentication.apps.&lt;cluster name&gt;.&lt;base domain&gt;
-&lt;apps_FIP&gt; oauth-openshift.apps.&lt;cluster name&gt;.&lt;base domain&gt;
-&lt;apps_FIP&gt; prometheus-k8s-openshift-monitoring.apps.&lt;cluster name&gt;.&lt;base domain&gt;
-&lt;apps_FIP&gt; grafana-openshift-monitoring.apps.&lt;cluster name&gt;.&lt;base domain&gt;
-&lt;apps_FIP&gt; &lt;app name&gt;.apps.&lt;cluster name&gt;.&lt;base domain&gt;</code></pre>
-</div>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="installation-osp-kuryr-port-pools_post-install-network-configuration"><a class="anchor" href="#installation-osp-kuryr-port-pools_post-install-network-configuration"></a>Kuryr ports pools</h3>
-<div class="paragraph">
-<p>A Kuryr ports pool maintains a number of ports on standby for pod creation.</p>
-</div>
-<div class="paragraph">
-<p>Keeping ports on standby minimizes pod creation time. Without ports pools, Kuryr must explicitly request port creation or deletion whenever a pod is created or deleted.</p>
-</div>
-<div class="paragraph">
-<p>The Neutron ports that Kuryr uses are created in subnets that are tied to namespaces. These pod ports are also added as subports to the primary port of OpenShift Container Platform cluster nodes.</p>
-</div>
-<div class="paragraph">
-<p>Because Kuryr keeps each namespace in a separate subnet, a separate ports pool is maintained for each namespace-worker pair.</p>
-</div>
-<div class="paragraph">
-<p>Prior to installing a cluster, you can set the following parameters in the <code>cluster-network-03-config.yml</code> manifest file to configure ports pool behavior:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>The <code>enablePortPoolsPrepopulation</code> parameter controls pool prepopulation, which forces Kuryr to add Neutron ports to the pools when the first pod that is configured to use the dedicated network for pods is created in a namespace. The default value is <code>false</code>.</p>
-</li>
-<li>
-<p>The <code>poolMinPorts</code> parameter is the minimum number of free ports that are kept in the pool. The default value is <code>1</code>.</p>
-</li>
-<li>
-<p>The <code>poolMaxPorts</code> parameter is the maximum number of free ports that are kept in the pool. A value of <code>0</code> disables that upper bound. This is the default setting.</p>
-<div class="paragraph">
-<p>If your OpenStack port quota is low, or you have a limited number of IP addresses on the pod network, consider setting this option to ensure that unneeded ports are deleted.</p>
-</div>
-</li>
-<li>
-<p>The <code>poolBatchPorts</code> parameter defines the maximum number of Neutron ports that can be created at once. The default value is <code>3</code>.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="installation-osp-kuryr-settings-active_post-install-network-configuration"><a class="anchor" href="#installation-osp-kuryr-settings-active_post-install-network-configuration"></a>Adjusting Kuryr ports pool settings in active deployments on RHOSP</h3>
-<div class="paragraph">
-<p>You can use a custom resource (CR) to configure how Kuryr manages Red Hat OpenStack Platform (RHOSP) Neutron ports to control the speed and efficiency of pod creation on a deployed cluster.</p>
-</div>
-<div class="olist arabic">
-<div class="title">Procedure</div>
-<ol class="arabic">
-<li>
-<p>From a command line, open the Cluster Network Operator (CNO) CR for editing:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc edit networks.operator.openshift.io cluster</code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>Edit the settings to meet your requirements. The following file is provided as an example:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">operator.openshift.io/v1</span>
-<span class="na">kind</span><span class="pi">:</span> <span class="s">Network</span>
-<span class="na">metadata</span><span class="pi">:</span>
-  <span class="na">name</span><span class="pi">:</span> <span class="s">cluster</span>
-<span class="na">spec</span><span class="pi">:</span>
-  <span class="na">clusterNetwork</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="na">cidr</span><span class="pi">:</span> <span class="s">10.128.0.0/14</span>
-    <span class="na">hostPrefix</span><span class="pi">:</span> <span class="m">23</span>
-  <span class="na">serviceNetwork</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s">172.30.0.0/16</span>
-  <span class="na">defaultNetwork</span><span class="pi">:</span>
-    <span class="na">type</span><span class="pi">:</span> <span class="s">Kuryr</span>
-    <span class="na">kuryrConfig</span><span class="pi">:</span>
-      <span class="na">enablePortPoolsPrepopulation</span><span class="pi">:</span> <span class="no">false</span> <i class="conum" data-value="1"></i><b>(1)</b>
-      <span class="na">poolMinPorts</span><span class="pi">:</span> <span class="s">1</span> <i class="conum" data-value="2"></i><b>(2)</b>
-      <span class="na">poolBatchPorts</span><span class="pi">:</span> <span class="s">3</span> <i class="conum" data-value="3"></i><b>(3)</b>
-      <span class="na">poolMaxPorts</span><span class="pi">:</span> <span class="s">5</span> <i class="conum" data-value="4"></i><b>(4)</b></code></pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Set <code>enablePortPoolsPrepopulation</code> to <code>true</code> to make Kuryr create Neutron ports when the first pod that is configured to use the dedicated network for pods is created in a namespace. This setting raises the Neutron ports quota but can reduce the time that is required to spawn pods. The default value is <code>false</code>.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Kuryr creates new ports for a pool if the number of free ports in that pool is lower than the value of <code>poolMinPorts</code>. The default value is <code>1</code>.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="3"></i><b>3</b></td>
-<td><code>poolBatchPorts</code> controls the number of new ports that are created if the number of free ports is lower than the value of <code>poolMinPorts</code>. The default value is <code>3</code>.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>If the number of free ports in a pool is higher than the value of <code>poolMaxPorts</code>, Kuryr deletes them until the number matches that value. Setting the value to <code>0</code> disables this upper bound, preventing pools from shrinking. The default value is <code>0</code>.</td>
-</tr>
-</table>
-</div>
-</li>
-<li>
-<p>Save your changes and quit the text editor to commit your changes.</p>
-</li>
-</ol>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Modifying these options on a running cluster forces the kuryr-controller and kuryr-cni pods to restart. As a result, the creation of new pods and services will be delayed.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="nw-osp-enabling-ovs-offload_post-install-network-configuration"><a class="anchor" href="#nw-osp-enabling-ovs-offload_post-install-network-configuration"></a>Enabling OVS hardware offloading</h3>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>OVS hardware offloading is a Technology Preview feature only. Technology Preview features
+<p>Installing OpenShift sandboxed containers on AWS bare-metal instances is a Technology Preview feature only. Technology Preview features
 are not supported with Red Hat production service level agreements (SLAs) and
 might not be functionally complete. Red Hat does not recommend using them
 in production. These features provide early access to upcoming product
@@ -33035,23 +31223,207 @@ features, see <a href="https://access.redhat.com/support/offerings/techpreview/"
 </tr>
 </table>
 </div>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="sandboxed-containers-resource-requirements_deploying-sandboxed-containers"><a class="anchor" href="#sandboxed-containers-resource-requirements_deploying-sandboxed-containers"></a>Resource requirements for OpenShift sandboxed containers</h3>
 <div class="paragraph">
-<p>For clusters that run on Red Hat OpenStack Platform (RHOSP), you can enable <a href="https://www.openvswitch.org/">Open vSwitch (OVS)</a> hardware offloading.</p>
+<p>OpenShift sandboxed containers lets users run workloads on their OpenShift Container Platform clusters inside a sandboxed runtime (Kata). Each pod is represented by a virtual machine (VM). Each VM runs in a QEMU process and hosts a <code>kata-agent</code> process that acts as a supervisor for managing container workloads, and the processes running in those containers. Two additional processes add more overhead:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>containerd-shim-kata-v2</code> is used to communicate with the pod.</p>
+</li>
+<li>
+<p><code>virtiofsd</code> handles host file system access on behalf of the guest.</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>OVS is a multi-layer virtual switch that enables large-scale, multi-server network virtualization.</p>
+<p>Each VM is configured with a default amount of memory. Additional memory is hot-plugged into the VM for containers that explicitly request memory.</p>
+</div>
+<div class="paragraph">
+<p>A container running without a memory resource consumes free memory until the total memory used by the VM reaches the default allocation. The guest and its I/O buffers also consume memory.</p>
+</div>
+<div class="paragraph">
+<p>If a container is given a specific amount of memory, then that memory is hot-plugged into the VM before the container starts.</p>
+</div>
+<div class="paragraph">
+<p>When a memory limit is specified, the workload is terminated if it consumes more memory than the limit. If no memory limit is specified, the kernel running on the VM might run out of memory. If the kernel runs out of memory, it might terminate other processes on the VM.</p>
+</div>
+<div class="paragraph">
+<div class="title">Default memory sizes</div>
+<p>The following table lists some the default values for resource allocation.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Resource</th>
+<th class="tableblock halign-left valign-top">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Memory allocated by default to a virtual machine</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2Gi</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Guest Linux kernel memory usage at boot</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">~110Mi</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Memory used by the QEMU process (excluding VM memory)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">~30Mi</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Memory used by the <code>virtiofsd</code> process (excluding VM I/O buffers)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">~10Mi</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Memory used by the <code>containerd-shim-kata-v2</code> process</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">~20Mi</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">File buffer cache data after running <code>dnf install</code> on Fedora</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">~300Mi* <sup>[1]</sup></p></td>
+</tr>
+</tbody>
+</table>
+<div class="openblock small">
+<div class="content">
+<div class="paragraph">
+<p>File buffers appear and are accounted for in multiple locations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>In the guest where it appears as file buffer cache.</p>
+</li>
+<li>
+<p>In the <code>virtiofsd</code> daemon that maps allowed user-space file I/O operations.</p>
+</li>
+<li>
+<p>In the QEMU process as guest memory.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Total memory usage is properly accounted for by the memory utilization metrics, which only count that memory once.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p><a href="https://kubernetes.io/docs/concepts/scheduling-eviction/pod-overhead/">Pod overhead</a> describes the amount of system resources that a pod on a node uses. You can get the current pod overhead for the Kata runtime by using <code>oc describe runtimeclass kata</code> as shown below.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc describe runtimeclass kata</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Example output</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="go">kind: RuntimeClass
+apiVersion: node.k8s.io/v1
+metadata:
+  name: kata
+overhead:
+  podFixed:
+    memory: "500Mi"
+    cpu: "500m"</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can change the pod overhead by changing the <code>spec.overhead</code> field for a <code>RuntimeClass</code>. For example, if the configuration that you run for your containers consumes more than 350Mi of memory for the QEMU process and guest kernel data, you can alter the <code>RuntimeClass</code> overhead to suit your needs.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The specified default overhead values are supported by Red Hat. Changing default overhead values is not supported and can result in technical issues.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>When performing any kind of file system I/O in the guest, file buffers are allocated in the guest kernel. The file buffers are also mapped in the QEMU process on the host, as well as in the <code>virtiofsd</code> process.</p>
+</div>
+<div class="paragraph">
+<p>For example, if you use 300Mi of file buffer cache in the guest, both QEMU and <code>virtiofsd</code> appear to use 300Mi additional memory. However, the same memory is being used in all three cases. In other words, the total memory usage is only 300Mi, mapped in three different places. This is correctly accounted for when reporting the memory utilization metrics.</p>
+</div>
+<div class="ulist _additional-resources">
+<div class="title">Additional resources</div>
+<ul>
+<li>
+<p><a href="../installing/installing_bare_metal/installing-bare-metal.html#installing-bare-metal">Installing a user-provisioned cluster on bare metal</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sandboxed-containers-check-node-eligiblilty_deploying-sandboxed-containers"><a class="anchor" href="#sandboxed-containers-check-node-eligiblilty_deploying-sandboxed-containers"></a>Checking whether cluster nodes are eligible to run OpenShift sandboxed containers</h3>
+<div class="paragraph">
+<p>Before running OpenShift sandboxed containers, you can check whether the nodes in your cluster are eligible to run Kata containers. Some cluster nodes might not comply with sandboxed containers' minimum requirements. The most common reason for node ineligibility is the lack of virtualization support on the node. If you attempt to run sandboxed workloads on ineligible nodes, you will experience errors. You can use the Node Feature Discovery Operator (NFD) and a <code>NodeFeatureDiscovery</code> resource to automatically check node eligibility.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you want to install the Kata runtime on only selected worker nodes that you know are eligible, apply the <code>feature.node.kubernetes.io/runtime.kata=true</code> label to the selected nodes and set <code>checkNodeEligibility: true</code> in the <code>KataConfig</code> resource.</p>
+</div>
+<div class="paragraph">
+<p>Alternatively, to install the Kata runtime on all worker nodes, set <code>checkNodeEligibility: false</code> in the <code>KataConfig</code> resource.</p>
+</div>
+<div class="paragraph">
+<p>In both these scenarios, you do not need to create the <code>NodeFeatureDiscovery</code> resource. You should only apply the <code>feature.node.kubernetes.io/runtime.kata=true</code> label manually if you are sure that the node is eligible to run Kata containers.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following procedure applies the <code>feature.node.kubernetes.io/runtime.kata=true</code> label to all eligible nodes and configures the <code>KataConfig</code> resource to check for node eligibility.</p>
 </div>
 <div class="ulist">
 <div class="title">Prerequisites</div>
 <ul>
 <li>
-<p>You installed a cluster on RHOSP that is configured for single-root input/output virtualization (SR-IOV).</p>
+<p>Install the OpenShift CLI (<code>oc</code>).</p>
 </li>
 <li>
-<p>You installed the SR-IOV Network Operator on your cluster.</p>
+<p>Log in as a user with <code>cluster-admin</code> privileges.</p>
 </li>
 <li>
-<p>You created two <code>hw-offload</code> type virtual function (VF) interfaces on your cluster.</p>
+<p>Install the Node Feature Discovery (NFD) Operator.</p>
 </li>
 </ul>
 </div>
@@ -33059,148 +31431,861 @@ features, see <a href="https://access.redhat.com/support/offerings/techpreview/"
 <div class="title">Procedure</div>
 <ol class="arabic">
 <li>
-<p>From a command line, enter the following command to disable the admission webhook:</p>
+<p>Create a <code>NodeFeatureDiscovery</code> resource to detect node capabilities suitable for running Kata containers:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Save the following YAML in the <code>nfd.yaml</code> file:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc patch sriovoperatorconfig default <span class="nt">--type</span><span class="o">=</span>merge <span class="nt">-n</span> openshift-sriov-network-operator <span class="nt">--patch</span> <span class="s1">'{ "spec": { "enableOperatorWebhook": false } }'</span></code></pre>
+<pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">nfd.openshift.io/v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">NodeFeatureDiscovery</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">nfd-kata</span>
+  <span class="na">namespace</span><span class="pi">:</span> <span class="s">openshift-nfd</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">operand</span><span class="pi">:</span>
+    <span class="na">image</span><span class="pi">:</span> <span class="s">quay.io/openshift/origin-node-feature-discovery:4.10</span>
+    <span class="na">imagePullPolicy</span><span class="pi">:</span> <span class="s">Always</span>
+    <span class="na">servicePort</span><span class="pi">:</span> <span class="m">12000</span>
+  <span class="na">workerConfig</span><span class="pi">:</span>
+    <span class="na">configData</span><span class="pi">:</span> <span class="pi">|</span>
+      <span class="s">sources:</span>
+         <span class="s">custom:</span>
+           <span class="s">- name: "feature.node.kubernetes.io/runtime.kata"</span>
+             <span class="s">matchOn:</span>
+               <span class="s">- cpuId: ["SSE4", "VMX"]</span>
+                 <span class="s">loadedKMod: ["kvm", "kvm_intel"]</span>
+               <span class="s">- cpuId: ["SSE4", "SVM"]</span>
+                 <span class="s">loadedKMod: ["kvm", "kvm_amd"]</span></code></pre>
 </div>
 </div>
 </li>
 <li>
-<p>Create an <code>SriovNetworkNodePolicy</code> policy for the two <code>hw-offload</code> type VF interfaces that are on your cluster:</p>
+<p>Create the <code>NodeFeatureDiscovery</code> custom resource (CR):</p>
 <div class="listingblock">
-<div class="title">The first virtual function interface</div>
 <div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">sriovnetwork.openshift.io/v1</span>
-<span class="na">kind</span><span class="pi">:</span> <span class="s">SriovNetworkNodePolicy</span> <i class="conum" data-value="1"></i><b>(1)</b>
-<span class="na">metadata</span><span class="pi">:</span>
-  <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">hwoffload9"</span>
-  <span class="na">namespace</span><span class="pi">:</span> <span class="s">openshift-sriov-network-operator</span>
-<span class="na">spec</span><span class="pi">:</span>
-  <span class="na">deviceType</span><span class="pi">:</span> <span class="s">netdevice</span>
-  <span class="na">isRdma</span><span class="pi">:</span> <span class="no">true</span>
-  <span class="na">nicSelector</span><span class="pi">:</span>
-    <span class="na">pfNames</span><span class="pi">:</span> <i class="conum" data-value="2"></i><b>(2)</b>
-    <span class="pi">-</span> <span class="s">ens6</span>
-  <span class="na">nodeSelector</span><span class="pi">:</span>
-    <span class="s">feature.node.kubernetes.io/network-sriov.capable</span><span class="pi">:</span> <span class="s1">'</span><span class="s">true'</span>
-  <span class="na">numVfs</span><span class="pi">:</span> <span class="m">1</span>
-  <span class="na">priority</span><span class="pi">:</span> <span class="m">99</span>
-  <span class="na">resourceName</span><span class="pi">:</span> <span class="s2">"</span><span class="s">hwoffload9"</span></code></pre>
+<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc create <span class="nt">-f</span> nfd.yaml</code></pre>
 </div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Insert the <code>SriovNetworkNodePolicy</code> value here.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Both interfaces must include physical function (PF) names.</td>
-</tr>
-</table>
 </div>
 <div class="listingblock">
-<div class="title">The second virtual function interface</div>
+<div class="title">Example output</div>
 <div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">sriovnetwork.openshift.io/v1</span>
-<span class="na">kind</span><span class="pi">:</span> <span class="s">SriovNetworkNodePolicy</span> <i class="conum" data-value="1"></i><b>(1)</b>
-<span class="na">metadata</span><span class="pi">:</span>
-  <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">hwoffload10"</span>
-  <span class="na">namespace</span><span class="pi">:</span> <span class="s">openshift-sriov-network-operator</span>
-<span class="na">spec</span><span class="pi">:</span>
-  <span class="na">deviceType</span><span class="pi">:</span> <span class="s">netdevice</span>
-  <span class="na">isRdma</span><span class="pi">:</span> <span class="no">true</span>
-  <span class="na">nicSelector</span><span class="pi">:</span>
-    <span class="na">pfNames</span><span class="pi">:</span> <i class="conum" data-value="2"></i><b>(2)</b>
-    <span class="pi">-</span> <span class="s">ens5</span>
-  <span class="na">nodeSelector</span><span class="pi">:</span>
-    <span class="s">feature.node.kubernetes.io/network-sriov.capable</span><span class="pi">:</span> <span class="s1">'</span><span class="s">true'</span>
-  <span class="na">numVfs</span><span class="pi">:</span> <span class="m">1</span>
-  <span class="na">priority</span><span class="pi">:</span> <span class="m">99</span>
-  <span class="na">resourceName</span><span class="pi">:</span> <span class="s2">"</span><span class="s">hwoffload10"</span></code></pre>
+<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="go">nodefeaturediscovery.nfd.openshift.io/nfd-kata created</span></code></pre>
 </div>
 </div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Insert the <code>SriovNetworkNodePolicy</code> value here.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Both interfaces must include physical function (PF) names.</td>
-</tr>
-</table>
+<div class="paragraph">
+<p>A <code>feature.node.kubernetes.io/runtime.kata=true</code> label is applied to all qualifying worker nodes.</p>
+</div>
+</li>
+</ol>
 </div>
 </li>
 <li>
-<p>Create <code>NetworkAttachmentDefinition</code> resources for the two interfaces:</p>
+<p>Set the <code>checkNodeEligibility</code> field to <code>true</code> in the <code>KataConfig</code> resource to enable the feature, for example:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Save the following YAML in the <code>kata-config.yaml</code> file:</p>
 <div class="listingblock">
-<div class="title">A <code>NetworkAttachmentDefinition</code> resource for the first interface</div>
 <div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">k8s.cni.cncf.io/v1</span>
-<span class="na">kind</span><span class="pi">:</span> <span class="s">NetworkAttachmentDefinition</span>
+<pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">kataconfiguration.openshift.io/v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">KataConfig</span>
 <span class="na">metadata</span><span class="pi">:</span>
-  <span class="na">annotations</span><span class="pi">:</span>
-    <span class="s">k8s.v1.cni.cncf.io/resourceName</span><span class="pi">:</span> <span class="s">openshift.io/hwoffload9</span>
-  <span class="na">name</span><span class="pi">:</span> <span class="s">hwoffload9</span>
-  <span class="na">namespace</span><span class="pi">:</span> <span class="s">default</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">example-kataconfig</span>
 <span class="na">spec</span><span class="pi">:</span>
-    <span class="na">config</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{</span><span class="nv"> </span><span class="s">"cniVersion":"0.3.1",</span><span class="nv"> </span><span class="s">"name":"hwoffload9","type":"host-device","device":"ens6"</span>
-    <span class="s">}'</span></code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">A <code>NetworkAttachmentDefinition</code> resource for the second interface</div>
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">k8s.cni.cncf.io/v1</span>
-<span class="na">kind</span><span class="pi">:</span> <span class="s">NetworkAttachmentDefinition</span>
-<span class="na">metadata</span><span class="pi">:</span>
-  <span class="na">annotations</span><span class="pi">:</span>
-    <span class="s">k8s.v1.cni.cncf.io/resourceName</span><span class="pi">:</span> <span class="s">openshift.io/hwoffload10</span>
-  <span class="na">name</span><span class="pi">:</span> <span class="s">hwoffload10</span>
-  <span class="na">namespace</span><span class="pi">:</span> <span class="s">default</span>
-<span class="na">spec</span><span class="pi">:</span>
-    <span class="na">config</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{</span><span class="nv"> </span><span class="s">"cniVersion":"0.3.1",</span><span class="nv"> </span><span class="s">"name":"hwoffload10","type":"host-device","device":"ens5"</span>
-    <span class="s">}'</span></code></pre>
+  <span class="na">checkNodeEligibility</span><span class="pi">:</span> <span class="no">true</span></code></pre>
 </div>
 </div>
 </li>
 <li>
-<p>Use the interfaces that you created with a pod. For example:</p>
+<p>Create the <code>KataConfig</code> CR:</p>
 <div class="listingblock">
-<div class="title">A pod that uses the two OVS offload interfaces</div>
 <div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
-<span class="na">kind</span><span class="pi">:</span> <span class="s">Pod</span>
-<span class="na">metadata</span><span class="pi">:</span>
-  <span class="na">name</span><span class="pi">:</span> <span class="s">dpdk-testpmd</span>
-  <span class="na">namespace</span><span class="pi">:</span> <span class="s">default</span>
-  <span class="na">annotations</span><span class="pi">:</span>
-    <span class="s">irq-load-balancing.crio.io</span><span class="pi">:</span> <span class="s">disable</span>
-    <span class="s">cpu-quota.crio.io</span><span class="pi">:</span> <span class="s">disable</span>
-    <span class="s">k8s.v1.cni.cncf.io/networks</span><span class="pi">:</span> <span class="s1">'</span><span class="s">[</span>
-      <span class="s">{</span>
-       <span class="s">"name":</span><span class="nv"> </span><span class="s">"hwoffload9",</span>
-       <span class="s">"namespace":</span><span class="nv"> </span><span class="s">"default"</span>
-      <span class="s">},</span>
-      <span class="s">{</span>
-       <span class="s">"name":</span><span class="nv"> </span><span class="s">"hwoffload10",</span>
-       <span class="s">"namespace":</span><span class="nv"> </span><span class="s">"default"</span>
-      <span class="s">}</span>
-    <span class="s">]'</span>
-<span class="na">spec</span><span class="pi">:</span>
-  <span class="na">restartPolicy</span><span class="pi">:</span> <span class="s">Never</span>
-  <span class="na">containers</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">dpdk-testpmd</span>
-    <span class="na">image</span><span class="pi">:</span> <span class="s">quay.io/krister/centos8_nfv-container-dpdk-testpmd:latest</span></code></pre>
+<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc create <span class="nt">-f</span> kata-config.yaml</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Example output</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="go">kataconfig.kataconfiguration.openshift.io/example-kataconfig created</span></code></pre>
 </div>
 </div>
 </li>
 </ol>
 </div>
+</li>
+</ol>
+</div>
+<div class="ulist">
+<div class="title">Verification</div>
+<ul>
+<li>
+<p>Verify that qualifying nodes in the cluster have the correct label applied:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc get nodes <span class="nt">--selector</span><span class="o">=</span><span class="s1">'feature.node.kubernetes.io/runtime.kata=true'</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Example output</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="go">NAME                           STATUS                     ROLES    AGE     VERSION
+compute-3.example.com          Ready                      worker   4h38m   v1.23.3+e419edf
+compute-2.example.com          Ready                      worker   4h35m   v1.23.3+e419edf</span></code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist _additional-resources">
+<div class="title">Additional resources</div>
+<ul>
+<li>
+<p>For more information about installing the Node Feature Discovery (NFD) Operator, see <a href="../hardware_enablement/psap-node-feature-discovery-operator.html#installing-the-node-feature-discovery-operator_node-feature-discovery-operator">Installing NFD</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="deploying-sandboxed-containers-workloads-web-console"><a class="anchor" href="#deploying-sandboxed-containers-workloads-web-console"></a>Deploying OpenShift sandboxed containers workloads using the web console</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can deploy OpenShift sandboxed containers workloads from the web console. First, you must install the OpenShift sandboxed containers Operator, then create the <code>KataConfig</code> custom resource (CR). Once you are ready to deploy a workload in a sandboxed container, you must manually add <code>kata</code> as the <code>runtimeClassName</code> to the workload YAML file.</p>
+</div>
+<div class="sect2">
+<h3 id="sandboxed-containers-installing-operator-web-console_deploying-sandboxed-containers"><a class="anchor" href="#sandboxed-containers-installing-operator-web-console_deploying-sandboxed-containers"></a>Installing the OpenShift sandboxed containers Operator using the web console</h3>
+<div class="paragraph">
+<p>You can install the OpenShift sandboxed containers Operator from the OpenShift Container Platform web console.</p>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>You have OpenShift Container Platform Branch Build installed.</p>
+</li>
+<li>
+<p>You have access to the cluster as a user with the <code>cluster-admin</code> role.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>From the <strong>Administrator</strong> perspective in the web console, navigate to <strong>Operators</strong> → <strong>OperatorHub</strong>.</p>
+</li>
+<li>
+<p>In the <strong>Filter by keyword</strong> field, type <code>OpenShift sandboxed containers</code>.</p>
+</li>
+<li>
+<p>Select the <strong>OpenShift sandboxed containers</strong> tile.</p>
+</li>
+<li>
+<p>Read the information about the Operator and click <strong>Install</strong>.</p>
+</li>
+<li>
+<p>On the <strong>Install Operator</strong> page:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Select <strong>stable-1.1</strong> from the list of available <strong>Update Channel</strong> options.</p>
+</li>
+<li>
+<p>Verify that <strong>Operator recommended Namespace</strong> is selected for <strong>Installed Namespace</strong>. This installs the Operator in the mandatory <code>openshift-sandboxed-containers-operator</code> namespace. If this namespace does not yet exist, it is automatically created.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Attempting to install the OpenShift sandboxed containers Operator in a namespace other than <code>openshift-sandboxed-containers-operator</code> causes the installation to fail.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Verify that <strong>Automatic</strong> is selected for <strong>Approval Strategy</strong>. <strong>Automatic</strong> is the default value, and enables automatic updates to OpenShift sandboxed containers when a new z-stream release is available.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Click <strong>Install</strong>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The OpenShift sandboxed containers Operator is now installed on your cluster.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Verification</div>
+<ol class="arabic">
+<li>
+<p>From the <strong>Administrator</strong> perspective in the web console, navigate to <strong>Operators</strong> → <strong>Installed Operators</strong>.</p>
+</li>
+<li>
+<p>Verify that the OpenShift sandboxed containers Operator is listed in the in operators list.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sandboxed-containers-create-kataconfig-resource-web-console_deploying-sandboxed-containers"><a class="anchor" href="#sandboxed-containers-create-kataconfig-resource-web-console_deploying-sandboxed-containers"></a>Creating the KataConfig custom resource in the web console</h3>
+<div class="paragraph">
+<p>You must create one <code>KataConfig</code> custom resource (CR) to enable installing <code>kata</code> as a <code>RuntimeClass</code> on your cluster nodes.</p>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>You have installed OpenShift Container Platform Branch Build on your cluster.</p>
+</li>
+<li>
+<p>You have access to the cluster as a user with the <code>cluster-admin</code> role.</p>
+</li>
+<li>
+<p>You have installed the OpenShift sandboxed containers Operator.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Kata is installed on all worker nodes by default. If you want to install <code>kata</code> as a <code>RuntimeClass</code> only on specific nodes, you can add labels to those nodes, then define the label in the <code>KataConfig</code> CR when you create it.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>From the <strong>Administrator</strong> perspective in the web console, navigate to <strong>Operators</strong> → <strong>Installed Operators</strong>.</p>
+</li>
+<li>
+<p>Select the OpenShift sandboxed containers Operator from the list of operators.</p>
+</li>
+<li>
+<p>In the <strong>KataConfig</strong> tab, click <strong>Create KataConfig</strong>.</p>
+</li>
+<li>
+<p>In the <strong>Create KataConfig</strong> page, select to configure the <code>KataConfig</code> CR via <strong>YAML view</strong>.</p>
+</li>
+<li>
+<p>Copy and paste the following manifest into the <strong>YAML view</strong>:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">kataconfiguration.openshift.io/v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">KataConfig</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">cluster-kataconfig</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">kataMonitorImage</span><span class="pi">:</span> <span class="s">registry.redhat.io/openshift-sandboxed-containers/osc-monitor-rhel8:1.2.0</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you want to install <code>kata</code> as a <code>RuntimeClass</code> only on selected nodes, include the label in the manifest:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">kataconfiguration.openshift.io/v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">KataConfig</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">cluster-kataconfig</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">kataMonitorImage</span><span class="pi">:</span> <span class="s">registry.redhat.io/openshift-sandboxed-containers/osc-monitor-rhel8:1.2.0</span>
+  <span class="na">kataConfigPoolSelector</span><span class="pi">:</span>
+    <span class="na">matchLabels</span><span class="pi">:</span>
+      <span class="s">&lt;label_key&gt;</span><span class="pi">:</span> <span class="s1">'</span><span class="s">&lt;label_value&gt;'</span></code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Click <strong>Create</strong>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The new <code>KataConfig</code> CR is created and begins to install <code>kata</code> as a <code>RuntimeClass</code> on the worker nodes.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>OpenShift sandboxed containers installs Kata only as a secondary, optional runtime on the cluster and not as the primary runtime.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">Verification</div>
+<ol class="arabic">
+<li>
+<p>In the <strong>KataConfig</strong> tab, select the new <code>KataConfig</code> CR.</p>
+</li>
+<li>
+<p>In the <strong>KataConfig</strong> page, select the <strong>YAML</strong> tab.</p>
+</li>
+<li>
+<p>Monitor the <strong>installationStatus</strong> field in the status.</p>
+<div class="paragraph">
+<p>A message appears each time there is an update. Click <strong>Reload</strong> to view the updated <code>KataConfig</code> CR.</p>
+</div>
+<div class="paragraph">
+<p>Once the value of <strong>Completed nodes</strong> equals the number of worker or labeled nodes, the installation is complete. The status also contains a list of nodes where the installation is completed.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sandboxed-containers-deploying-workloads-with-kata-runtime-web_deploying-sandboxed-containers"><a class="anchor" href="#sandboxed-containers-deploying-workloads-with-kata-runtime-web_deploying-sandboxed-containers"></a>Deploying a workload in a sandboxed container using the web console</h3>
+<div class="paragraph">
+<p>OpenShift sandboxed containers installs Kata as a secondary, optional runtime on your cluster, and not as the primary runtime.</p>
+</div>
+<div class="paragraph">
+<p>To deploy a pod-templated workload in a sandboxed container, you must manually add <code>kata</code> as the <code>runtimeClassName</code> to the workload YAML file.</p>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>You have installed OpenShift Container Platform Branch Build on your cluster.</p>
+</li>
+<li>
+<p>You have access to the cluster as a user with the <code>cluster-admin</code> role.</p>
+</li>
+<li>
+<p>You have installed the OpenShift sandboxed containers Operator.</p>
+</li>
+<li>
+<p>You have created a <code>KataConfig</code> custom resource (CR).</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>From the <strong>Administrator</strong> perspective in the web console, expand <strong>Workloads</strong> and select the type of workload you want to create.</p>
+</li>
+<li>
+<p>In the workload page, click to create the workload.</p>
+</li>
+<li>
+<p>In the YAML file for the workload, in the <strong>spec</strong> field where the container is listed, add <code>runtimeClassName: kata</code>.</p>
+<div class="listingblock">
+<div class="title">Example for Pod</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="yaml">    <span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+    <span class="na">kind</span><span class="pi">:</span> <span class="s">Pod</span>
+    <span class="na">metadata</span><span class="pi">:</span>
+      <span class="na">name</span><span class="pi">:</span> <span class="s">example</span>
+      <span class="na">labels</span><span class="pi">:</span>
+        <span class="na">app</span><span class="pi">:</span> <span class="s">httpd</span>
+      <span class="na">namespace</span><span class="pi">:</span> <span class="s">openshift-sandboxed-containers-operator</span>
+    <span class="na">spec</span><span class="pi">:</span>
+      <span class="na">runtimeClassName</span><span class="pi">:</span> <span class="s">kata</span>
+      <span class="na">containers</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">httpd</span>
+          <span class="na">image</span><span class="pi">:</span> <span class="s1">'</span><span class="s">image-registry.openshift-image-registry.svc:5000/openshift/httpd:latest'</span>
+          <span class="na">ports</span><span class="pi">:</span>
+            <span class="pi">-</span> <span class="na">containerPort</span><span class="pi">:</span> <span class="s">8080</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Example for Deployment</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="yaml">    <span class="na">apiVersion</span><span class="pi">:</span> <span class="s">apps/v1</span>
+    <span class="na">kind</span><span class="pi">:</span> <span class="s">Deployment</span>
+    <span class="na">metadata</span><span class="pi">:</span>
+      <span class="na">name</span><span class="pi">:</span> <span class="s">example</span>
+      <span class="na">namespace</span><span class="pi">:</span> <span class="s">openshift-sandboxed-containers-operator</span>
+    <span class="na">spec</span><span class="pi">:</span>
+      <span class="na">selector</span><span class="pi">:</span>
+        <span class="na">matchLabels</span><span class="pi">:</span>
+          <span class="na">app</span><span class="pi">:</span> <span class="s">httpd</span>
+      <span class="na">replicas</span><span class="pi">:</span> <span class="m">3</span>
+      <span class="na">template</span><span class="pi">:</span>
+        <span class="na">metadata</span><span class="pi">:</span>
+          <span class="na">labels</span><span class="pi">:</span>
+            <span class="na">app</span><span class="pi">:</span> <span class="s">httpd</span>
+        <span class="na">spec</span><span class="pi">:</span>
+          <span class="na">runtimeClassName</span><span class="pi">:</span> <span class="s">kata</span>
+          <span class="na">containers</span><span class="pi">:</span>
+            <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">httpd</span>
+              <span class="na">image</span><span class="pi">:</span> <span class="pi">&gt;-</span>
+                <span class="s">image-registry.openshift-image-registry.svc:5000/openshift/httpd:latest</span>
+              <span class="na">ports</span><span class="pi">:</span>
+                <span class="pi">-</span> <span class="na">containerPort</span><span class="pi">:</span> <span class="s">8080</span></code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Click <strong>Save</strong>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>OpenShift Container Platform creates the workload and begins scheduling it.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="deploying-sandboxed-containers-workloads-cli"><a class="anchor" href="#deploying-sandboxed-containers-workloads-cli"></a>Deploying OpenShift sandboxed containers workloads using the CLI</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can deploy OpenShift sandboxed containers workloads using the CLI. First, you must install the OpenShift sandboxed containers Operator, then create the <code>KataConfig</code> custom resource. Once you are ready to deploy a workload in a sandboxed container, you must add <code>kata</code> as the <code>runtimeClassName</code> to the workload YAML file.</p>
+</div>
+<div class="sect2">
+<h3 id="sandboxed-containers-installing-operator-cli_deploying-sandboxed-containers"><a class="anchor" href="#sandboxed-containers-installing-operator-cli_deploying-sandboxed-containers"></a>Installing the OpenShift sandboxed containers Operator using the CLI</h3>
+<div class="paragraph">
+<p>You can install the OpenShift sandboxed containers Operator using the OpenShift Container Platform CLI.</p>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>You have OpenShift Container Platform Branch Build installed on your cluster.</p>
+</li>
+<li>
+<p>You have installed the OpenShift CLI (<code>oc</code>).</p>
+</li>
+<li>
+<p>You have access to the cluster as a user with the <code>cluster-admin</code> role.</p>
+</li>
+<li>
+<p>You have subscribed to the OpenShift sandboxed containers catalog.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Subscribing to the OpenShift sandboxed containers catalog provides <code>openshift-sandboxed-containers-operator</code> namespace access to the OpenShift sandboxed containers Operator.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Create the <code>Namespace</code> object for the OpenShift sandboxed containers Operator.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Create a <code>Namespace</code> object YAML file that contains the following manifest:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Namespace</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">openshift-sandboxed-containers-operator</span></code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Create the <code>Namespace</code> object:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc create <span class="nt">-f</span> Namespace.yaml</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Create the <code>OperatorGroup</code> object for the OpenShift sandboxed containers Operator.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Create an <code>OperatorGroup</code> object YAML file that contains the following manifest:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">operators.coreos.com/v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">OperatorGroup</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">openshift-sandboxed-containers-operator</span>
+  <span class="na">namespace</span><span class="pi">:</span> <span class="s">openshift-sandboxed-containers-operator</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">targetNamespaces</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">openshift-sandboxed-containers-operator</span></code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Create the <code>OperatorGroup</code> object:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc create <span class="nt">-f</span> OperatorGroup.yaml</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Create the <code>Subscription</code> object to subscribe the <code>Namespace</code> to the OpenShift sandboxed containers Operator.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Create a <code>Subscription</code> object YAML file that contains the following manifest:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">operators.coreos.com/v1alpha1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Subscription</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">openshift-sandboxed-containers-operator</span>
+  <span class="na">namespace</span><span class="pi">:</span> <span class="s">openshift-sandboxed-containers-operator</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">channel</span><span class="pi">:</span> <span class="s2">"</span><span class="s">stable-1.1"</span>
+  <span class="na">installPlanApproval</span><span class="pi">:</span> <span class="s">Automatic</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">sandboxed-containers-operator</span>
+  <span class="na">source</span><span class="pi">:</span> <span class="s">redhat-operators</span>
+  <span class="na">sourceNamespace</span><span class="pi">:</span> <span class="s">openshift-marketplace</span>
+  <span class="na">startingCSV</span><span class="pi">:</span> <span class="s">sandboxed-containers-operator.v1.2.0</span></code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Create the <code>Subscription</code> object:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc create <span class="nt">-f</span> Subscription.yaml</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The OpenShift sandboxed containers Operator is now installed on your cluster.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>All  the object file names listed above are suggestions. You can create the object YAML files using other names.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<div class="title">Verification</div>
+<ul>
+<li>
+<p>Ensure that the Operator is correctly installed:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc get csv <span class="nt">-n</span> openshift-sandboxed-containers-operator</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Example output</div>
+<div class="content">
+<pre class="nowrap">NAME                             DISPLAY                                  VERSION  REPLACES                    PHASE
+openshift-sandboxed-containers   openshift-sandboxed-containers-operator  {sandboxed-containers-version}.0   {sandboxed-containers-legacy-version}   Succeeded</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist _additional-resources">
+<div class="title">Additional resources</div>
+<ul>
+<li>
+<p><a href="../operators/admin/olm-adding-operators-to-cluster.html#olm-installing-operator-from-operatorhub-using-cli_olm-adding-operators-to-a-cluster">Installing from OperatorHub using the CLI</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sandboxed-containers-create-kataconfig-rsource-cli_deploying-sandboxed-containers"><a class="anchor" href="#sandboxed-containers-create-kataconfig-rsource-cli_deploying-sandboxed-containers"></a>Creating the KataConfig custom resource using the CLI</h3>
+<div class="paragraph">
+<p>You must create one <code>KataConfig</code> custom resource (CR) to install <code>kata</code> as a <code>RuntimeClass</code> on your nodes. Creating the <code>KataConfig</code> CR triggers the OpenShift sandboxed containers Operator to do the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Install the needed RHCOS extensions, such as QEMU and <code>kata-containers</code>, on your RHCOS node.</p>
+</li>
+<li>
+<p>Ensure that the <a href="https://github.com/cri-o/cri-o">CRI-O</a> runtime is configured with the correct <code>kata</code> runtime handlers.</p>
+</li>
+<li>
+<p>Create a <code>RuntimeClass</code> CR named <code>kata</code> with a default configuration. This enables users to configure workloads to use <code>kata</code> as the runtime by referencing the CR in the <code>RuntimeClassName</code> field. This CR also specifies the resource overhead for the runtime.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Kata is installed on all worker nodes by default. If you want to install <code>kata</code> as a <code>RuntimeClass</code> only on specific nodes, you can add labels to those nodes, then define the label in the <code>KataConfig</code> CR when you create it.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>You have installed OpenShift Container Platform Branch Build on your cluster.</p>
+</li>
+<li>
+<p>You have installed the OpenShift CLI (<code>oc</code>).</p>
+</li>
+<li>
+<p>You have access to the cluster as a user with the <code>cluster-admin</code> role.</p>
+</li>
+<li>
+<p>You have installed the OpenShift sandboxed containers Operator.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Create a YAML file with the following manifest:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">kataconfiguration.openshift.io/v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">KataConfig</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">cluster-kataconfig</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">kataMonitorImage</span><span class="pi">:</span> <span class="s">registry.redhat.io/openshift-sandboxed-containers/osc-monitor-rhel8:1.2.0</span></code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>(Optional) If you want to install <code>kata</code> as a <code>RuntimeClass</code> only on selected nodes, create a YAML file that includes the label in the manifest:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">kataconfiguration.openshift.io/v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">KataConfig</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">cluster-kataconfig</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">kataMonitorImage</span><span class="pi">:</span> <span class="s">registry.redhat.io/openshift-sandboxed-containers/osc-monitor-rhel8:1.2.0</span>
+  <span class="na">kataConfigPoolSelector</span><span class="pi">:</span>
+    <span class="na">matchLabels</span><span class="pi">:</span>
+      <span class="s">&lt;label_key&gt;</span><span class="pi">:</span> <span class="s1">'</span><span class="s">&lt;label_value&gt;'</span></code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Create the <code>KataConfig</code> resource:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc create <span class="nt">-f</span> &lt;file name&gt;.yaml</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The new <code>KataConfig</code> CR is created and begins to install <code>kata</code> as a <code>RuntimeClass</code> on the worker nodes.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>OpenShift sandboxed containers installs Kata only as a secondary, optional runtime on the cluster and not as the primary runtime.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<div class="title">Verification</div>
+<ul>
+<li>
+<p>Monitor the installation progress:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>watch <span class="s2">"oc describe kataconfig | sed -n /^Status:/,/^Events/p"</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Once the value of <strong>Is In Progress</strong> appears as <code>false</code>, the installation is complete.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist _additional-resources">
+<div class="title">Additional resources</div>
+<ul>
+<li>
+<p><a href="../nodes/nodes/nodes-nodes-working.html#nodes-nodes-working-updating_nodes-nodes-working">Understanding how to update labels on nodes</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sandboxed-containers-deploying-workloads-with-kata-runtime-cli_deploying-sandboxed-containers"><a class="anchor" href="#sandboxed-containers-deploying-workloads-with-kata-runtime-cli_deploying-sandboxed-containers"></a>Deploying a workload in a sandboxed container using the CLI</h3>
+<div class="paragraph">
+<p>OpenShift sandboxed containers installs Kata as a secondary, optional runtime on your cluster, and not as the primary runtime.</p>
+</div>
+<div class="paragraph">
+<p>To deploy a pod-templated workload in a sandboxed container, you must add <code>kata</code> as the <code>runtimeClassName</code> to the workload YAML file.</p>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>You have installed OpenShift Container Platform Branch Build on your cluster.</p>
+</li>
+<li>
+<p>You have installed the OpenShift CLI (<code>oc</code>).</p>
+</li>
+<li>
+<p>You have access to the cluster as a user with the <code>cluster-admin</code> role.</p>
+</li>
+<li>
+<p>You have installed the OpenShift sandboxed containers Operator.</p>
+</li>
+<li>
+<p>You have created a <code>KataConfig</code> custom resource (CR).</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Procedure</div>
+<ul>
+<li>
+<p>Add <code>runtimeClassName: kata</code> to any pod-templated object:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Pod</code> objects</p>
+</li>
+<li>
+<p><code>ReplicaSet</code> objects</p>
+</li>
+<li>
+<p><code>ReplicationController</code> objects</p>
+</li>
+<li>
+<p><code>StatefulSet</code> objects</p>
+</li>
+<li>
+<p><code>Deployment</code> objects</p>
+</li>
+<li>
+<p><code>DeploymentConfig</code> objects</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Example for Pod objects</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="yaml">  <span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+  <span class="na">kind</span><span class="pi">:</span> <span class="s">Pod</span>
+  <span class="na">metadata</span><span class="pi">:</span>
+   <span class="na">name</span><span class="pi">:</span> <span class="s">mypod</span>
+  <span class="na">spec</span><span class="pi">:</span>
+    <span class="na">runtimeClassName</span><span class="pi">:</span> <span class="s">kata</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Example for Deployment objects</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="yaml">  <span class="na">apiVersion</span><span class="pi">:</span> <span class="s">apps/v1</span>
+  <span class="na">kind</span><span class="pi">:</span> <span class="s">Deployment</span>
+  <span class="na">metadata</span><span class="pi">:</span>
+    <span class="na">name</span><span class="pi">:</span> <span class="s">mypod</span>
+    <span class="na">labels</span><span class="pi">:</span>
+      <span class="na">app</span><span class="pi">:</span> <span class="s">mypod</span>
+  <span class="na">spec</span><span class="pi">:</span>
+    <span class="na">replicas</span><span class="pi">:</span> <span class="m">3</span>
+    <span class="na">selector</span><span class="pi">:</span>
+      <span class="na">matchLabels</span><span class="pi">:</span>
+        <span class="na">app</span><span class="pi">:</span> <span class="s">mypod</span>
+    <span class="na">template</span><span class="pi">:</span>
+      <span class="na">metadata</span><span class="pi">:</span>
+        <span class="na">labels</span><span class="pi">:</span>
+          <span class="na">app</span><span class="pi">:</span> <span class="s">mypod</span>
+      <span class="na">spec</span><span class="pi">:</span>
+        <span class="na">runtimeClassName</span><span class="pi">:</span> <span class="s">kata</span>
+        <span class="na">containers</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">mypod</span>
+          <span class="na">image</span><span class="pi">:</span> <span class="s">myImage</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>OpenShift Container Platform creates the workload and begins scheduling it.</p>
+</div>
+<div class="ulist">
+<div class="title">Verification</div>
+<ul>
+<li>
+<p>Inspect the <code>runtimeClassName</code> field on a pod-templated object. If the <code>runtimeClassName</code> is <code>kata</code>, then the workload is running on a OpenShift sandboxed containers.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 _additional-resources">
+<h2 id="deploying-sandboxed-containers-workloads_additional-resources"><a class="anchor" href="#deploying-sandboxed-containers-workloads_additional-resources"></a>Additional resources</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>The OpenShift sandboxed containers Operator is supported in a restricted network environment. For more information, <a href="../operators/admin/olm-restricted-networks.html#olm-restricted-networks">Using Operator Lifecycle Manager on restricted networks</a>.</p>
+</li>
+<li>
+<p>When using a disconnected cluster on a restricted network, you must <a href="../operators/admin/olm-configuring-proxy-support.html#olm-configuring-proxy-support">configure proxy support in Operator Lifecycle Manager</a> to access the OperatorHub. Using a proxy allows the cluster to fetch the OpenShift sandboxed containers Operator.</p>
+</li>
+</ul>
 </div>
 </div>
 </div>

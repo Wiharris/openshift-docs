@@ -34165,20 +34165,6 @@ OpenShift Container Platform services.</td>
 </li>
 </ul>
 </div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>A potential issue can affect Kuryr when the ports pools are populated with a variety of bulk port creation requests made at the same time. During these bulk requests, if the IP allocation for one of the IP addresses fails, the Neutron retries the operation for all ports. Red Hat suggests setting a small value for the ports pools batch to avoid large bulk port creation requests.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
 </div>
 <div class="sect2">
 <h3 id="installation-osp-kuryr-settings-installing_installing-openstack-installer-kuryr"><a class="anchor" href="#installation-osp-kuryr-settings-installing_installing-openstack-installer-kuryr"></a>Adjusting Kuryr ports pools during installation</h3>
@@ -34322,20 +34308,6 @@ Therefore, the value of <code>openStackServiceNetwork</code> must be at least tw
 <p>Optional: Back up the <code>manifests/cluster-network-03-config.yml</code> file. The installation program deletes the <code>manifests/</code> directory while creating the cluster.</p>
 </li>
 </ol>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>A potential issue can affect Kuryr when the ports pools are populated with a variety of bulk port creation requests made at the same time. During these bulk requests, if the IP allocation for one of the IP addresses fails, the Neutron retries the operation for all ports. Red Hat suggests setting a small value for the ports pools batch to avoid large bulk port creation requests.</p>
-</div>
-</td>
-</tr>
-</table>
 </div>
 </div>
 </div>
