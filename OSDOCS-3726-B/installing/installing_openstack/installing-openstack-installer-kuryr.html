@@ -33795,6 +33795,20 @@ set values for <code>platform.openstack.apiVIP</code> and <code>platform.opensta
 </tr>
 </table>
 </div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The CIDR ranges for networks are not adjustable after cluster installation. Red Hat does not provide direct guidance on determining the range during cluster installation because it requires careful consideration of the number of created pods per namespace.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect2">
 <h3 id="installation-osp-kuryr-config-yaml_installing-openstack-installer-kuryr"><a class="anchor" href="#installation-osp-kuryr-config-yaml_installing-openstack-installer-kuryr"></a>Sample customized <code>install-config.yaml</code> file for RHOSP with Kuryr</h3>
@@ -33873,20 +33887,6 @@ installer, so there is no need to set them. But if your environment does not
 meet both requirements, Kuryr SDN will not properly work. Trunks are needed
 to connect the pods to the RHOSP network and Octavia is required to create the
 OpenShift Container Platform services.</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Be aware that CIDR ranges for networks are not adjustable after cluster installation. Red Hat does not provide direct guidance on determining the range because it requires careful consideration of the number of created pods per namespace.</p>
-</div>
-</td>
 </tr>
 </table>
 </div>
