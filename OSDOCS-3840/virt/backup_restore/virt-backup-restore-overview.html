@@ -12,7 +12,7 @@
   <meta content="IE=edge" http-equiv="X-UA-Compatible">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   
-  <title>Backup and restore overview - Backup and restore | Virtualization | OpenShift Container Platform Branch Build</title>
+  <title>Backing up and restoring virtual machines - Backup and restore | Virtualization | OpenShift Container Platform Branch Build</title>
   <link href="https://assets.openshift.net/content/subdomain.css" rel="stylesheet" type="text/css">
   <link href="https://docs.openshift.com/container-platform/4.1/_stylesheets/search.css" rel="stylesheet" />
   <link href="https://docs.openshift.com/container-platform/4.1/_stylesheets/autumn.css" rel="stylesheet" />
@@ -213,7 +213,7 @@
       </li>
       <li class="hidden-xs active"><a href="../../virt/backup_restore/virt-backup-restore-overview.html">Backup and restore</a></li>
       <li class="hidden-xs active">
-        Backup and restore overview
+        Backing up and restoring virtual machines
       </li>
       
       <span text-align="right" style="float: right !important">
@@ -29577,79 +29577,7 @@
 
                   <li>
                     <a class=" active" href="../../virt/backup_restore/virt-backup-restore-overview.html">
-                      Backup and restore overview
-                    </a>
-                  </li>
-
-                
-
-
-                <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
-                     Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
-
-                
-                
-                
-                
-                
-
-                <!-- is this is a single page? That is, does this topic have more topics?
-                 Welcome 2 Index Page and Welcome 2 More -->
-
-
-
-
-                  <li>
-                    <a class="" href="../../virt/backup_restore/virt-installing-configuring-oadp.html">
-                      Installing and configuring OADP
-                    </a>
-                  </li>
-
-                
-
-
-                <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
-                     Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
-
-                
-                
-                
-                
-                
-
-                <!-- is this is a single page? That is, does this topic have more topics?
-                 Welcome 2 Index Page and Welcome 2 More -->
-
-
-
-
-                  <li>
-                    <a class="" href="../../virt/backup_restore/virt-backing-up-vms.html">
-                      Backing up virtual machines
-                    </a>
-                  </li>
-
-                
-
-
-                <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
-                     Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
-
-                
-                
-                
-                
-                
-
-                <!-- is this is a single page? That is, does this topic have more topics?
-                 Welcome 2 Index Page and Welcome 2 More -->
-
-
-
-
-                  <li>
-                    <a class="" href="../../virt/backup_restore/virt-restoring-vms.html">
-                      Restoring virtual machines
+                      Backing up and restoring virtual machines
                     </a>
                   </li>
 
@@ -31192,7 +31120,7 @@
       <div class="col-xs-12 col-sm-9 col-md-9 main">
         <div class="page-header">
           <h1>
-            Backup and restore overview
+            Backing up and restoring virtual machines
           </h1>
         </div>
         
@@ -31206,7 +31134,7 @@
 </ul>
 </div>
 <div class="paragraph">
-<p>As a cluster administrator, you back up and restore OpenShift Virtualization virtual machines (VMs) by using the OpenShift API for Data Protection (OADP).</p>
+<p>You back up and restore virtual machines by using the <a href="../../backup_and_restore/index.html#application-backup-restore-operations-overview">OpenShift API for Data Protection (OADP)</a>.</p>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -31231,25 +31159,38 @@ features, see <a href="https://access.redhat.com/support/offerings/techpreview/"
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>You install the OADP Operator by using Operator Lifecycle Manager. The Operator installs <a href="https://velero.io/docs/v1.7/">Velero 1.7</a>. You create a <code>Secret</code> for the backup storage provider and then you install the Data Protection Application.</p>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>Access to the cluster as a user with the <code>cluster-admin</code> role.</p>
+</li>
+</ul>
 </div>
-<div class="paragraph">
-<p>You back up VMs by creating a <code>Backup</code> custom resource (CR).</p>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Install the <a href="../../backup_and_restore/application_backup_and_restore/installing/about-installing-oadp.html#about-installing-oadp">OADP Operator</a> according to the instructions for your storage provider.</p>
+</li>
+<li>
+<p>Install the <a href="../../backup_and_restore/application_backup_and_restore/installing/installing-oadp-ocs.html#oadp-installing-dpa_installing-oadp-ocs">Data Protection Application</a> with the <code>kubevirt</code> and <code>openshift</code> <a href="../../backup_and_restore/application_backup_and_restore/oadp-features-plugins.html#oadp-plugins_oadp-features-plugins">plugins</a>.</p>
+</li>
+<li>
+<p>Back up virtual machines by creating a <a href="../../backup_and_restore/application_backup_and_restore/backing_up_and_restoring/backing-up-applications.html#backing-up-applications"><code>Backup</code> custom resource (CR)</a>.</p>
+</li>
+<li>
+<p>Restore the <code>Backup</code> CR by creating a <a href="../../backup_and_restore/application_backup_and_restore/backing_up_and_restoring/restoring-applications.html#restoring-applications"><code>Restore</code> CR</a>.</p>
+</li>
+</ol>
 </div>
-<div class="paragraph">
-<p>You restore the <code>Backup</code> CR by creating a <code>Restore</code> CR.</p>
 </div>
 </div>
-</div>
-<div class="sect1">
+<div class="sect1 _additional-resources">
 <h2 id="additional-resources_virt-backup-restore-overview"><a class="anchor" href="#additional-resources_virt-backup-restore-overview"></a>Additional resources</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
-<li>
-<p><a href="../../backup_and_restore/index.html#application-backup-restore-operations-overview_backup-restore-overview">OADP overview</a></p>
-</li>
 <li>
 <p><a href="../../backup_and_restore/application_backup_and_restore/oadp-features-plugins.html#oadp-features-plugins">OADP features and plugins</a></p>
 </li>

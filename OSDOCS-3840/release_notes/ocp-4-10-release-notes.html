@@ -29577,79 +29577,7 @@
 
                   <li>
                     <a class="" href="../virt/backup_restore/virt-backup-restore-overview.html">
-                      Backup and restore overview
-                    </a>
-                  </li>
-
-                
-
-
-                <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
-                     Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
-
-                
-                
-                
-                
-                
-
-                <!-- is this is a single page? That is, does this topic have more topics?
-                 Welcome 2 Index Page and Welcome 2 More -->
-
-
-
-
-                  <li>
-                    <a class="" href="../virt/backup_restore/virt-installing-configuring-oadp.html">
-                      Installing and configuring OADP
-                    </a>
-                  </li>
-
-                
-
-
-                <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
-                     Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
-
-                
-                
-                
-                
-                
-
-                <!-- is this is a single page? That is, does this topic have more topics?
-                 Welcome 2 Index Page and Welcome 2 More -->
-
-
-
-
-                  <li>
-                    <a class="" href="../virt/backup_restore/virt-backing-up-vms.html">
-                      Backing up virtual machines
-                    </a>
-                  </li>
-
-                
-
-
-                <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
-                     Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
-
-                
-                
-                
-                
-                
-
-                <!-- is this is a single page? That is, does this topic have more topics?
-                 Welcome 2 Index Page and Welcome 2 More -->
-
-
-
-
-                  <li>
-                    <a class="" href="../virt/backup_restore/virt-restoring-vms.html">
-                      Restoring virtual machines
+                      Backing up and restoring virtual machines
                     </a>
                   </li>
 
@@ -31262,12 +31190,8 @@
 <li><a href="#ocp-4-10-18">RHBA-2022:4944 - OpenShift Container Platform 4.10.18 bug fix and security update</a></li>
 <li><a href="#ocp-4-10-20">RHBA-2022:5172 - OpenShift Container Platform 4.10.20 bug fix update</a></li>
 <li><a href="#ocp-4-10-21">RHBA-2022:5428 - OpenShift Container Platform 4.10.21 bug fix update</a></li>
-</ul>
-</li>
-<li><a href="#ocp-4-10-21-new-features">New features</a>
-<ul class="sectlevel3">
-<li><a href="#ocp-4-10-21-updating">Updating</a></li>
 <li><a href="#ocp-4-10-22">RHBA-2022:5513 - OpenShift Container Platform 4.10.22 bug fix update</a></li>
+<li><a href="#ocp-4-10-23">RHBA-2022:5568 - OpenShift Container Platform 4.10.23 bug fix update</a></li>
 </ul>
 </li>
 </ul>
@@ -33456,18 +33380,18 @@ The following components and services now use the TLS security profile:</p>
 <div class="paragraph">
 <p>For more information, see <a href="../authentication/managing_cloud_provider_credentials/cco-mode-gcp-workload-identity.html#cco-mode-gcp-workload-identity">Using manual mode with GCP Workload Identity</a>.</p>
 </div>
-<div class="admonitionblock important">
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-important" title="Important"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
 <div class="paragraph">
 <p>In OpenShift Container Platform 4.10.8, image registry support for using GCP Workload Identity was removed due to the discovery of <a href="https://bugzilla.redhat.com/show_bug.cgi?id=2069807">an adverse impact to the image registry</a>. To use the image registry on an OpenShift Container Platform 4.10.8 cluster that uses Workload Identity, you must configure the image registry to use long-lived credentials instead.</p>
 </div>
 <div class="paragraph">
-<p>OpenShift Container Platform 4.10.21 has released updates that re-enable support for the Google Cloud Platform Workload Identity for the image registry, which was removed between 4.10.8 and 4.10.20. For more information, see changes reflected in (<a href="https://access.redhat.com/articles/6898641)">KCS</a>).</p>
+<p>With OpenShift Container Platform 4.10.21, support for using GCP Workload Identity with the image registry is restored. For more information about the status of this feature between OpenShift Container Platform 4.10.8 and 4.10.20, see the related <a href="https://access.redhat.com/articles/6898641)">Knowledgebase article</a>.</p>
 </div>
 </td>
 </tr>
@@ -35609,7 +35533,7 @@ and recreate it without a BFD profile. (<a href="https://bugzilla.redhat.com/sho
 <p>Starting with OpenShift Container Platform 4.10.8, support for Google Cloud Platform Workload Identity has been removed from OpenShift Container Platform 4.10 for the image registry. This change is due to the discovery of <a href="https://bugzilla.redhat.com/show_bug.cgi?id=2069807">an adverse impact to the image registry</a>.</p>
 </div>
 <div class="paragraph">
-<p>OpenShift Container Platform 4.10.21 has released updates that re-enable support for the Google Cloud Platform Workload Identity for the image registry, which was removed between 4.10.8 and 4.10.20. For more information, see changes reflected in (<a href="https://access.redhat.com/articles/6898641)">KCS</a>).</p>
+<p>With OpenShift Container Platform 4.10.21, support for using GCP Workload Identity with the image registry is restored. For more information about the status of this feature between OpenShift Container Platform 4.10.8 and 4.10.20, see the related <a href="https://access.redhat.com/articles/6898641)">Knowledgebase article</a>.</p>
 </div>
 </div>
 <div class="sect3">
@@ -36024,19 +35948,17 @@ and recreate it without a BFD profile. (<a href="https://bugzilla.redhat.com/sho
 <div class="paragraph">
 <p><a href="https://access.redhat.com/solutions/6966086">OpenShift Container Platform 4.10.21 container image list</a></p>
 </div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="ocp-4-10-21-new-features"><a class="anchor" href="#ocp-4-10-21-new-features"></a>New features</h2>
-<div class="sectionbody">
+<div class="sect3">
+<h4 id="ocp-4-10-21-new-features"><a class="anchor" href="#ocp-4-10-21-new-features"></a>New features</h4>
 <div class="paragraph">
 <p>The feature change in OpenShift Container Platform 4.10.8 to remove support for Google Cloud Platform (GCP) Workload Identity for the image registry has been resolved in OpenShift Container Platform 4.10.21.</p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="ocp-4-10-21-updating"><a class="anchor" href="#ocp-4-10-21-updating"></a>Updating</h4>
 <div class="paragraph">
 <p>To update an existing OpenShift Container Platform 4.10 cluster to this latest release, see <a href="../updating/updating-cluster-cli.html">Updating a cluster within a minor version by using the CLI</a> for instructions.</p>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -36055,6 +35977,37 @@ and recreate it without a BFD profile. (<a href="https://bugzilla.redhat.com/sho
 </div>
 <div class="sect3">
 <h4 id="ocp-4-10-22-upgrading"><a class="anchor" href="#ocp-4-10-22-upgrading"></a>Updating</h4>
+<div class="paragraph">
+<p>To update an existing OpenShift Container Platform 4.10 cluster to this latest release, see <a href="../updating/updating-cluster-cli.html">Updating a cluster within a minor version by using the CLI</a> for instructions.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ocp-4-10-23"><a class="anchor" href="#ocp-4-10-23"></a>RHBA-2022:5568 - OpenShift Container Platform 4.10.23 bug fix update</h3>
+<div class="paragraph">
+<p>Issued: 2022-07-20</p>
+</div>
+<div class="paragraph">
+<p>OpenShift Container Platform release 4.10.23 is now available. The bug fixes that are included in the update are listed in the <a href="https://access.redhat.com/errata/RHBA-2022:5568">RHBA-2022:5568</a> advisory. The RPM packages that are included in the update are provided by the <a href="https://access.redhat.com/errata/RHBA-2022:5567">RHBA-2022:5567</a> advisory.</p>
+</div>
+<div class="paragraph">
+<p>Space precluded documenting all of the container images for this release in the advisory. See the following article for notes on the container images in this release:</p>
+</div>
+<div class="paragraph">
+<p><a href="https://access.redhat.com/solutions/6968082">OpenShift Container Platform 4.10.23 container image list</a></p>
+</div>
+<div class="sect3">
+<h4 id="ocp-4-10-23-bug-fixes"><a class="anchor" href="#ocp-4-10-23-bug-fixes"></a>Bug fixes</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Previously, the Ingress Operator detected changes made through the Ingress Controller and set the <code>Upgradeable</code> status condition of the Ingress Operator to <code>False</code>. The <code>False</code> status condition blocked upgrades. With this update, the Ingress Operator no longer blocks upgrades. (<a href="https://bugzilla.redhat.com/show_bug.cgi?id=2097735"><strong>BZ#2097735</strong></a>)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="ocp-4-10-23-upgrading"><a class="anchor" href="#ocp-4-10-23-upgrading"></a>Updating</h4>
 <div class="paragraph">
 <p>To update an existing OpenShift Container Platform 4.10 cluster to this latest release, see <a href="../updating/updating-cluster-cli.html">Updating a cluster within a minor version by using the CLI</a> for instructions.</p>
 </div>

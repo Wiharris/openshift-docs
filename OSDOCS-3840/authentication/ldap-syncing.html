@@ -29577,79 +29577,7 @@
 
                   <li>
                     <a class="" href="../virt/backup_restore/virt-backup-restore-overview.html">
-                      Backup and restore overview
-                    </a>
-                  </li>
-
-                
-
-
-                <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
-                     Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
-
-                
-                
-                
-                
-                
-
-                <!-- is this is a single page? That is, does this topic have more topics?
-                 Welcome 2 Index Page and Welcome 2 More -->
-
-
-
-
-                  <li>
-                    <a class="" href="../virt/backup_restore/virt-installing-configuring-oadp.html">
-                      Installing and configuring OADP
-                    </a>
-                  </li>
-
-                
-
-
-                <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
-                     Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
-
-                
-                
-                
-                
-                
-
-                <!-- is this is a single page? That is, does this topic have more topics?
-                 Welcome 2 Index Page and Welcome 2 More -->
-
-
-
-
-                  <li>
-                    <a class="" href="../virt/backup_restore/virt-backing-up-vms.html">
-                      Backing up virtual machines
-                    </a>
-                  </li>
-
-                
-
-
-                <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
-                     Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
-
-                
-                
-                
-                
-                
-
-                <!-- is this is a single page? That is, does this topic have more topics?
-                 Welcome 2 Index Page and Welcome 2 More -->
-
-
-
-
-                  <li>
-                    <a class="" href="../virt/backup_restore/virt-restoring-vms.html">
-                      Restoring virtual machines
+                      Backing up and restoring virtual machines
                     </a>
                   </li>
 
@@ -32171,6 +32099,7 @@ as used for the sync job.</p>
   <span class="na">jobTemplate</span><span class="pi">:</span>
     <span class="na">spec</span><span class="pi">:</span>
       <span class="na">backoffLimit</span><span class="pi">:</span> <span class="m">0</span>
+      <span class="na">ttlSecondsAfterFinished</span><span class="pi">:</span> <span class="s">1800</span>                                                  <i class="conum" data-value="3"></i><b>(3)</b>
       <span class="na">template</span><span class="pi">:</span>
         <span class="na">spec</span><span class="pi">:</span>
           <span class="na">containers</span><span class="pi">:</span>
@@ -32179,7 +32108,7 @@ as used for the sync job.</p>
               <span class="na">command</span><span class="pi">:</span>
                 <span class="pi">-</span> <span class="s2">"</span><span class="s">/bin/bash"</span>
                 <span class="pi">-</span> <span class="s2">"</span><span class="s">-c"</span>
-                <span class="pi">-</span> <span class="s2">"</span><span class="s">oc</span><span class="nv"> </span><span class="s">adm</span><span class="nv"> </span><span class="s">groups</span><span class="nv"> </span><span class="s">sync</span><span class="nv"> </span><span class="s">--sync-config=/etc/config/sync.yaml</span><span class="nv"> </span><span class="s">--confirm"</span> <i class="conum" data-value="3"></i><b>(3)</b>
+                <span class="pi">-</span> <span class="s2">"</span><span class="s">oc</span><span class="nv"> </span><span class="s">adm</span><span class="nv"> </span><span class="s">groups</span><span class="nv"> </span><span class="s">sync</span><span class="nv"> </span><span class="s">--sync-config=/etc/config/sync.yaml</span><span class="nv"> </span><span class="s">--confirm"</span> <i class="conum" data-value="4"></i><b>(4)</b>
               <span class="na">volumeMounts</span><span class="pi">:</span>
                 <span class="pi">-</span> <span class="na">mountPath</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/etc/config"</span>
                   <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ldap-sync-volume"</span>
@@ -32193,10 +32122,10 @@ as used for the sync job.</p>
                 <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ldap-group-syncer"</span>
             <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ldap-bind-password"</span>
               <span class="na">secret</span><span class="pi">:</span>
-                <span class="na">secretName</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ldap-secret"</span>                                            <i class="conum" data-value="4"></i><b>(4)</b>
+                <span class="na">secretName</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ldap-secret"</span>                                            <i class="conum" data-value="5"></i><b>(5)</b>
             <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ldap-ca"</span>
               <span class="na">configMap</span><span class="pi">:</span>
-                <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ca-config-map"</span>                                                <i class="conum" data-value="5"></i><b>(5)</b>
+                <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ca-config-map"</span>                                                <i class="conum" data-value="6"></i><b>(6)</b>
           <span class="na">restartPolicy</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Never"</span>
           <span class="na">terminationGracePeriodSeconds</span><span class="pi">:</span> <span class="m">30</span>
           <span class="na">activeDeadlineSeconds</span><span class="pi">:</span> <span class="m">500</span>
@@ -32216,14 +32145,18 @@ as used for the sync job.</p>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>The LDAP sync command for the cron job to run. Passes in the sync configuration file that was defined in the config map.</td>
+<td>How long, in seconds, to keep finished jobs. This should match the period of the job schedule in order to clean old failed jobs and prevent unnecessary alerts. For more information, see <a href="https://kubernetes.io/docs/concepts/workloads/controllers/ttlafterfinished">TTL-after-finished Controller</a> in the Kubernetes documentation.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>This secret was created when the LDAP IDP was configured.</td>
+<td>The LDAP sync command for the cron job to run. Passes in the sync configuration file that was defined in the config map.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>This secret was created when the LDAP IDP was configured.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
 <td>This config map was created when the LDAP IDP was configured.</td>
 </tr>
 </table>

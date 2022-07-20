@@ -29577,79 +29577,7 @@
 
                   <li>
                     <a class="" href="../../../virt/backup_restore/virt-backup-restore-overview.html">
-                      Backup and restore overview
-                    </a>
-                  </li>
-
-                
-
-
-                <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
-                     Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
-
-                
-                
-                
-                
-                
-
-                <!-- is this is a single page? That is, does this topic have more topics?
-                 Welcome 2 Index Page and Welcome 2 More -->
-
-
-
-
-                  <li>
-                    <a class="" href="../../../virt/backup_restore/virt-installing-configuring-oadp.html">
-                      Installing and configuring OADP
-                    </a>
-                  </li>
-
-                
-
-
-                <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
-                     Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
-
-                
-                
-                
-                
-                
-
-                <!-- is this is a single page? That is, does this topic have more topics?
-                 Welcome 2 Index Page and Welcome 2 More -->
-
-
-
-
-                  <li>
-                    <a class="" href="../../../virt/backup_restore/virt-backing-up-vms.html">
-                      Backing up virtual machines
-                    </a>
-                  </li>
-
-                
-
-
-                <!-- for each topic in this topic_group, in Welcome 2, what topics exist?
-                     Welcome 2 Index Page, Welcome 3 and Welcome 2 More - we list them all.. -->
-
-                
-                
-                
-                
-                
-
-                <!-- is this is a single page? That is, does this topic have more topics?
-                 Welcome 2 Index Page and Welcome 2 More -->
-
-
-
-
-                  <li>
-                    <a class="" href="../../../virt/backup_restore/virt-restoring-vms.html">
-                      Restoring virtual machines
+                      Backing up and restoring virtual machines
                     </a>
                   </li>
 
@@ -31686,55 +31614,60 @@ features, see <a href="https://access.redhat.com/support/offerings/techpreview/"
   <span class="na">configuration</span><span class="pi">:</span>
     <span class="na">velero</span><span class="pi">:</span>
       <span class="na">defaultPlugins</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="s">gcp</span> <i class="conum" data-value="1"></i><b>(1)</b>
-        <span class="pi">-</span> <span class="s">csi</span> <i class="conum" data-value="2"></i><b>(2)</b>
-        <span class="pi">-</span> <span class="s">openshift</span> <i class="conum" data-value="3"></i><b>(3)</b>
+        <span class="pi">-</span> <span class="s">kubevirt</span> <i class="conum" data-value="1"></i><b>(1)</b>
+        <span class="pi">-</span> <span class="s">gcp</span> <i class="conum" data-value="2"></i><b>(2)</b>
+        <span class="pi">-</span> <span class="s">csi</span> <i class="conum" data-value="3"></i><b>(3)</b>
+        <span class="pi">-</span> <span class="s">openshift</span> <i class="conum" data-value="4"></i><b>(4)</b>
     <span class="na">restic</span><span class="pi">:</span>
-      <span class="na">enable</span><span class="pi">:</span> <span class="no">true</span> <i class="conum" data-value="4"></i><b>(4)</b>
+      <span class="na">enable</span><span class="pi">:</span> <span class="no">true</span> <i class="conum" data-value="5"></i><b>(5)</b>
   <span class="na">backupLocations</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="na">velero</span><span class="pi">:</span>
-        <span class="na">provider</span><span class="pi">:</span> <span class="s">gcp</span> <i class="conum" data-value="5"></i><b>(5)</b>
+        <span class="na">provider</span><span class="pi">:</span> <span class="s">gcp</span> <i class="conum" data-value="6"></i><b>(6)</b>
         <span class="na">default</span><span class="pi">:</span> <span class="no">true</span>
         <span class="na">credential</span><span class="pi">:</span>
           <span class="na">key</span><span class="pi">:</span> <span class="s">cloud</span>
-          <span class="na">name</span><span class="pi">:</span> <span class="s">&lt;default_secret&gt;</span> <i class="conum" data-value="6"></i><b>(6)</b>
+          <span class="na">name</span><span class="pi">:</span> <span class="s">&lt;default_secret&gt;</span> <i class="conum" data-value="7"></i><b>(7)</b>
         <span class="na">objectStorage</span><span class="pi">:</span>
-          <span class="na">bucket</span><span class="pi">:</span> <span class="s">&lt;bucket_name&gt;</span> <i class="conum" data-value="7"></i><b>(7)</b>
-          <span class="na">prefix</span><span class="pi">:</span> <span class="s">&lt;prefix&gt;</span> <i class="conum" data-value="8"></i><b>(8)</b></code></pre>
+          <span class="na">bucket</span><span class="pi">:</span> <span class="s">&lt;bucket_name&gt;</span> <i class="conum" data-value="8"></i><b>(8)</b>
+          <span class="na">prefix</span><span class="pi">:</span> <span class="s">&lt;prefix&gt;</span> <i class="conum" data-value="9"></i><b>(9)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Specify the default plug-in for the backup provider, for example, <code>gcp</code>, if appropriate.</td>
+<td>Optional: The <code>kubevirt</code> plug-in is used with OpenShift Virtualization.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Specify the <code>csi</code> default plug-in if you use CSI snapshots to back up PVs. The <code>csi</code> plug-in uses the <a href="https://velero.io/docs/main/csi/">Velero CSI beta snapshot APIs</a>. You do not need to configure a snapshot location.</td>
+<td>Specify the default plug-in for the backup provider, for example, <code>gcp</code>, if appropriate.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>The <code>openshift</code> plug-in is mandatory.</td>
+<td>Specify the <code>csi</code> default plug-in if you use CSI snapshots to back up PVs. The <code>csi</code> plug-in uses the <a href="https://velero.io/docs/main/csi/">Velero CSI beta snapshot APIs</a>. You do not need to configure a snapshot location.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>Set to <code>false</code> if you want to disable the Restic installation. Restic deploys a daemon set, which means that each worker node has <code>Restic</code> pods running. You configure Restic for backups by adding <code>spec.defaultVolumesToRestic: true</code> to the <code>Backup</code> CR.</td>
+<td>The <code>openshift</code> plug-in is mandatory.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="5"></i><b>5</b></td>
-<td>Specify the backup provider.</td>
+<td>Set to <code>false</code> if you want to disable the Restic installation. Restic deploys a daemon set, which means that each worker node has <code>Restic</code> pods running. You configure Restic for backups by adding <code>spec.defaultVolumesToRestic: true</code> to the <code>Backup</code> CR.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="6"></i><b>6</b></td>
-<td>If you use a default plug-in for the backup provider, you must specify the correct default name for the <code>Secret</code>, for example, <code>cloud-credentials-gcp</code>. If you specify a custom name, the custom name is used for the backup location. If you do not specify a <code>Secret</code> name, the default name is used.</td>
+<td>Specify the backup provider.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="7"></i><b>7</b></td>
-<td>Specify a bucket as the backup storage location. If the bucket is not a dedicated bucket for Velero backups, you must specify a prefix.</td>
+<td>If you use a default plug-in for the backup provider, you must specify the correct default name for the <code>Secret</code>, for example, <code>cloud-credentials-gcp</code>. If you specify a custom name, the custom name is used for the backup location. If you do not specify a <code>Secret</code> name, the default name is used.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="8"></i><b>8</b></td>
+<td>Specify a bucket as the backup storage location. If the bucket is not a dedicated bucket for Velero backups, you must specify a prefix.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="9"></i><b>9</b></td>
 <td>Specify a prefix for Velero backups, for example, <code>velero</code>, if the bucket is used for multiple purposes.</td>
 </tr>
 </table>
