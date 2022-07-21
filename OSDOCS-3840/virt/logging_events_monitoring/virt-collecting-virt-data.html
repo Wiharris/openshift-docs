@@ -31256,7 +31256,7 @@ cluster, including features and objects associated with OpenShift Virtualization
 <div class="paragraph">
 <p>To collect OpenShift Virtualization data with <code>must-gather</code>, you must specify the
 OpenShift Virtualization image:
-<code>--image=registry.redhat.io/container-native-virtualization/cnv-must-gather-rhel8:v4.10.2</code>.</p>
+<code>--image=registry.redhat.io/container-native-virtualization/cnv-must-gather-rhel8:v4.10.3</code>.</p>
 </div>
 </div>
 </div>
@@ -31303,7 +31303,7 @@ OpenShift Virtualization image:
 <div class="content">
 <pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc adm must-gather <span class="se">\</span>
  <span class="nt">--image-stream</span><span class="o">=</span>openshift/must-gather <span class="se">\ </span><i class="conum" data-value="1"></i><b>(1)</b>
-<span class="go"> --image=registry.redhat.io/container-native-virtualization/cnv-must-gather-rhel8:v4.10.2 <i class="conum" data-value="2"></i><b>(2)</b>
+<span class="go"> --image=registry.redhat.io/container-native-virtualization/cnv-must-gather-rhel8:v4.10.3 <i class="conum" data-value="2"></i><b>(2)</b>
 </span></code></pre>
 </div>
 </div>
@@ -31577,7 +31577,7 @@ actual directory name.</td>
 <div class="listingblock">
 <div class="title">Syntax</div>
 <div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc adm must-gather <span class="nt">--image</span><span class="o">=</span>registry.redhat.io/container-native-virtualization/cnv-must-gather-rhel8:v4.10.2 <span class="se">\</span>
+<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc adm must-gather <span class="nt">--image</span><span class="o">=</span>registry.redhat.io/container-native-virtualization/cnv-must-gather-rhel8:v4.10.3 <span class="se">\</span>
  <span class="nt">--</span> &lt;environment_variable_1&gt; &lt;environment_variable_2&gt; &lt;script_name&gt;</code></pre>
 </div>
 </div>
@@ -31588,7 +31588,7 @@ actual directory name.</td>
 <p>The following command collects extensive VM details for the <code>my-vm</code> VM in the <code>mynamespace</code> namespace:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc adm must-gather <span class="nt">--image</span><span class="o">=</span>registry.redhat.io/container-native-virtualization/cnv-must-gather-rhel8:v4.10.2 <span class="nt">--</span> <span class="nv">NS</span><span class="o">=</span>mynamespace <span class="nv">VM</span><span class="o">=</span>my-vm gather_vms_details</code></pre>
+<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc adm must-gather <span class="nt">--image</span><span class="o">=</span>registry.redhat.io/container-native-virtualization/cnv-must-gather-rhel8:v4.10.3 <span class="nt">--</span> <span class="nv">NS</span><span class="o">=</span>mynamespace <span class="nv">VM</span><span class="o">=</span>my-vm gather_vms_details</code></pre>
 </div>
 </div>
 <div class="admonitionblock important">
@@ -31610,7 +31610,7 @@ actual directory name.</td>
 <p>The following command collects default <code>must-gather</code> information by using a maximum of three parallel processes:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc adm must-gather <span class="nt">--image</span><span class="o">=</span>registry.redhat.io/container-native-virtualization/cnv-must-gather-rhel8:v4.10.2 <span class="nt">--</span> <span class="nv">PROS</span><span class="o">=</span>3 gather</code></pre>
+<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc adm must-gather <span class="nt">--image</span><span class="o">=</span>registry.redhat.io/container-native-virtualization/cnv-must-gather-rhel8:v4.10.3 <span class="nt">--</span> <span class="nv">PROS</span><span class="o">=</span>3 gather</code></pre>
 </div>
 </div>
 </li>
@@ -31618,7 +31618,7 @@ actual directory name.</td>
 <p>The following command collects image and image stream information from the cluster:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc adm must-gather <span class="nt">--image</span><span class="o">=</span>registry.redhat.io/container-native-virtualization/cnv-must-gather-rhel8:v4.10.2 <span class="nt">--</span> gather_images</code></pre>
+<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc adm must-gather <span class="nt">--image</span><span class="o">=</span>registry.redhat.io/container-native-virtualization/cnv-must-gather-rhel8:v4.10.3 <span class="nt">--</span> gather_images</code></pre>
 </div>
 </div>
 </li>

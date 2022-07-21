@@ -31560,7 +31560,7 @@ compute machines in your OpenShift Container Platform cluster.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>By default, the base OS RHEL with "Minimal" installation option enables firewalld serivce.  Having the firewalld service enabled on your host prevents you from accessing OpenShift Container Platform logs on the worker. Do not enable firewalld later if you wish to continue accessing OpenShift Container Platform logs on the worker.</p>
+<p>By default, the base OS RHEL with "Minimal" installation option enables firewalld service.  Having the firewalld service enabled on your host prevents you from accessing OpenShift Container Platform logs on the worker. Do not enable firewalld later if you wish to continue accessing OpenShift Container Platform logs on the worker.</p>
 </div>
 </td>
 </tr>
@@ -31578,6 +31578,20 @@ compute machines in your OpenShift Container Platform cluster.</p>
 <pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">#</span><span class="w"> </span>subscription-manager repos <span class="nt">--disable</span><span class="o">=</span>rhel-7-server-ose-4.9-rpms <span class="se">\</span>
                              <span class="nt">--enable</span><span class="o">=</span>rhel-7-server-ose-4.10-rpms</code></pre>
 </div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>As of OpenShift Container Platform 4.10.23, running the Ansible playbooks on RHEL 7 is deprecated, and suggested only for the purpose of updating existing installations.  After completing this procedure, you must either upgrade the Ansible host to RHEL 8, or create a new Ansible host on a RHEL 8 system and copy over the inventories from the old Ansible host.  Starting with OpenShift Container Platform 4.11, the Ansible playbooks are provided only for RHEL 8.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </li>
 <li>
