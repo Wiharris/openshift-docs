@@ -31251,6 +31251,23 @@
 </tr>
 </table>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>In OpenShift Container Platform 4.10.8, image registry support for using GCP Workload Identity was removed due to the discovery of <a href="https://bugzilla.redhat.com/show_bug.cgi?id=2069807">an adverse impact to the image registry</a>. To use the image registry on an OpenShift Container Platform 4.10.8 cluster that uses Workload Identity, you must configure the image registry to use long-lived credentials instead.</p>
+</div>
+<div class="paragraph">
+<p>With OpenShift Container Platform 4.10.21, support for using GCP Workload Identity with the image registry is restored. For more information about the status of this feature between OpenShift Container Platform 4.10.8 and 4.10.20, see the related <a href="https://access.redhat.com/articles/6898641">Knowledgebase article</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 <div class="sect1">
