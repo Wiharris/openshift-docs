@@ -28021,16 +28021,6 @@
 
 
                     <li>
-                      <a class="" href="../virt/virtual_machines/advanced_vm_management/virt-managing-guest-memory.html" style="padding-left: 70px;">
-                        Managing guest memory
-                      </a>
-                    </li>
-
-
-                    <!-- list all topics within Welcome 3 here. Note that we are not coding this for more subtopics here -->
-
-
-                    <li>
                       <a class="" href="../virt/virtual_machines/advanced_vm_management/virt-using-huge-pages-with-vms.html" style="padding-left: 70px;">
                         Using huge pages with virtual machines
                       </a>
@@ -28172,7 +28162,7 @@
 
                     <li>
                       <a class="" href="../virt/virtual_machines/importing_vms/virt-importing-virtual-machine-images-datavolumes-block.html" style="padding-left: 70px;">
-                        Importing virtual machine images to block storage with data volumes
+                        Importing virtual machine images into block storage with data volumes
                       </a>
                     </li>
 
@@ -35546,16 +35536,12 @@ Pods with this toleration are not removed from a node that has taints.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="na">spec</span><span class="pi">:</span>
-<span class="s">....</span>
-  <span class="s">template</span><span class="pi">:</span>
-<span class="s">....</span>
-    <span class="s">spec</span><span class="pi">:</span>
-      <span class="na">tolerations</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="na">key</span><span class="pi">:</span> <span class="s2">"</span><span class="s">disktype"</span>
-        <span class="na">value</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ssd"</span>
-        <span class="na">operator</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Equal"</span>
-        <span class="na">effect</span><span class="pi">:</span> <span class="s2">"</span><span class="s">NoSchedule"</span>
-        <span class="na">tolerationSeconds</span><span class="pi">:</span> <span class="s">3600</span></code></pre>
+  <span class="na">tolerations</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">key</span><span class="pi">:</span> <span class="s2">"</span><span class="s">disktype"</span>
+      <span class="na">value</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ssd"</span>
+      <span class="na">operator</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Equal"</span>
+      <span class="na">effect</span><span class="pi">:</span> <span class="s2">"</span><span class="s">NoSchedule"</span>
+      <span class="na">tolerationSeconds</span><span class="pi">:</span> <span class="s">3600</span></code></pre>
 </div>
 </div>
 </li>
@@ -35645,15 +35631,11 @@ Pods with this toleration are not removed from a node that has taints.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="na">spec</span><span class="pi">:</span>
-<span class="s">....</span>
-  <span class="s">template</span><span class="pi">:</span>
-<span class="s">....</span>
-    <span class="s">spec</span><span class="pi">:</span>
-      <span class="na">tolerations</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="na">key</span><span class="pi">:</span> <span class="s2">"</span><span class="s">key2"</span>
-        <span class="na">operator</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Exists"</span>
-        <span class="na">effect</span><span class="pi">:</span> <span class="s2">"</span><span class="s">NoExecute"</span>
-        <span class="na">tolerationSeconds</span><span class="pi">:</span> <span class="s">3600</span></code></pre>
+  <span class="na">tolerations</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">key</span><span class="pi">:</span> <span class="s2">"</span><span class="s">key2"</span>
+    <span class="na">operator</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Exists"</span>
+    <span class="na">effect</span><span class="pi">:</span> <span class="s2">"</span><span class="s">NoExecute"</span>
+    <span class="na">tolerationSeconds</span><span class="pi">:</span> <span class="s">3600</span></code></pre>
 </div>
 </div>
 </li>

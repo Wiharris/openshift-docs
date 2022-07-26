@@ -28021,16 +28021,6 @@
 
 
                     <li>
-                      <a class="" href="../virt/virtual_machines/advanced_vm_management/virt-managing-guest-memory.html" style="padding-left: 70px;">
-                        Managing guest memory
-                      </a>
-                    </li>
-
-
-                    <!-- list all topics within Welcome 3 here. Note that we are not coding this for more subtopics here -->
-
-
-                    <li>
                       <a class="" href="../virt/virtual_machines/advanced_vm_management/virt-using-huge-pages-with-vms.html" style="padding-left: 70px;">
                         Using huge pages with virtual machines
                       </a>
@@ -28172,7 +28162,7 @@
 
                     <li>
                       <a class="" href="../virt/virtual_machines/importing_vms/virt-importing-virtual-machine-images-datavolumes-block.html" style="padding-left: 70px;">
-                        Importing virtual machine images to block storage with data volumes
+                        Importing virtual machine images into block storage with data volumes
                       </a>
                     </li>
 
@@ -31192,6 +31182,7 @@
 <li><a href="#ocp-4-10-21">RHBA-2022:5428 - OpenShift Container Platform 4.10.21 bug fix update</a></li>
 <li><a href="#ocp-4-10-22">RHBA-2022:5513 - OpenShift Container Platform 4.10.22 bug fix update</a></li>
 <li><a href="#ocp-4-10-23">RHBA-2022:5568 - OpenShift Container Platform 4.10.23 bug fix update</a></li>
+<li><a href="#ocp-4-10-24">RHBA-2022:5663 - OpenShift Container Platform 4.10.24 bug fix and security update</a></li>
 </ul>
 </li>
 </ul>
@@ -33714,6 +33705,12 @@ Because it uses Kubernetes 1.23, OpenShift Container Platform 4.10 does not allo
 Out-of-tree Container Storage Interface (CSI) driver is the recommended way to write volume drivers in OpenShift Container Platform. Maintainers of FlexVolume drivers should implement a CSI driver and move users of FlexVolume to CSI. Users of FlexVolume should move their workloads to CSI driver.</p>
 </div>
 </div>
+<div class="sect3">
+<h4 id="ocp-4-10-deprecated-oc-rhel7"><a class="anchor" href="#ocp-4-10-deprecated-oc-rhel7"></a>RHEL 7 support for the OpenShift CLI (oc) is deprecated</h4>
+<div class="paragraph">
+<p>Support for using Red Hat Enterprise Linux (RHEL) 7 with the OpenShift CLI (<code>oc</code>) is deprecated and will be removed in a future OpenShift Container Platform release.</p>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="ocp-4-10-removed-features"><a class="anchor" href="#ocp-4-10-removed-features"></a>Removed features</h3>
@@ -33854,79 +33851,6 @@ Out-of-tree Container Storage Interface (CSI) driver is the recommended way to w
 </td>
 </tr>
 </table>
-</div>
-</div>
-<div class="sect3">
-<h4 id="ocp-4-10-removed-feature-auth-gcp-workload-identity"><a class="anchor" href="#ocp-4-10-removed-feature-auth-gcp-workload-identity"></a>Image registry support for Google Cloud Platform Workload Identity removed</h4>
-<div class="paragraph">
-<p>OpenShift Container Platform 4.10.3 introduced the ability to configure the Cloud Credential Operator (CCO) to use Google Cloud Platform (GCP) Workload Identity by using the CCO utility <code>ccoctl</code>.</p>
-</div>
-<div class="ulist">
-<div class="title">Prerequisites</div>
-<ul>
-<li>
-<p>You have installed an OpenShift Container Platform cluster that uses manual mode with GCP Workload Identity.</p>
-</li>
-<li>
-<p>You have obtained and initialized the <a href="https://cloud.google.com/sdk/docs/initializing">gcloud CLI</a>.</p>
-</li>
-</ul>
-</div>
-<div class="olist arabic">
-<div class="title">Procedure</div>
-<ol class="arabic">
-<li>
-<p>Obtain the email address of the IAM service account that the <code>ccoctl</code> created for the OpenShift Container Platform image registry by running the following command:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>gcloud iam service-accounts list <span class="nt">--filter</span><span class="o">=</span><span class="s2">"displayName=&lt;name&gt;-openshift-image-registry-gcs"</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>where <code>&lt;name&gt;</code> is the user-defined name for all <code>ccoctl</code>-created GCP resources used for tracking.</p>
-</div>
-</li>
-<li>
-<p>Create a long-lived credentials key file for the OpenShift Container Platform image registry by running the following command:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>gcloud iam service-accounts keys create &lt;path_to_image_registry_service_account_keyfile&gt; <span class="nt">--iam-account</span><span class="o">=</span>&lt;image_registry_service_account_email&gt;</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>where:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>&lt;path_to_image_registry_service_account_keyfile&gt;</code> is the path to a location you choose in which to store the key file for the image registry&#8217;s IAM service account.</p>
-</li>
-<li>
-<p><code>&lt;image_registry_service_account_email&gt;</code> is the email address of the IAM service account that the <code>ccoctl</code> created for the OpenShift Container Platform image registry.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Generate a Base64-encoded string for the image registry key file by running the following command:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span><span class="nb">cat</span> &lt;path_to_image_registry_service_account_keyfile&gt; | <span class="nb">base64</span> <span class="nt">-w</span> 0</code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>In the <code>installer-cloud-credentials</code> secret in the <code>openshift-image-registry</code> namespace, replace the contents of the <code>data.service_account.json</code> field with the Base64-encoded key file by running the following command:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc patch secret installer-cloud-credentials <span class="nt">-n</span> openshift-image-registry <span class="nt">--patch</span> <span class="s1">'{"data":{"service_account.json":"&lt;base64_encoded_credentials_key&gt;"}}'</span></code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>Continue the upgrade process.</p>
-</li>
-</ol>
 </div>
 </div>
 </div>
@@ -36008,6 +35932,27 @@ and recreate it without a BFD profile. (<a href="https://bugzilla.redhat.com/sho
 </div>
 <div class="sect3">
 <h4 id="ocp-4-10-23-upgrading"><a class="anchor" href="#ocp-4-10-23-upgrading"></a>Updating</h4>
+<div class="paragraph">
+<p>To update an existing OpenShift Container Platform 4.10 cluster to this latest release, see <a href="../updating/updating-cluster-cli.html">Updating a cluster within a minor version by using the CLI</a> for instructions.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ocp-4-10-24"><a class="anchor" href="#ocp-4-10-24"></a>RHBA-2022:5663 - OpenShift Container Platform 4.10.24 bug fix and security update</h3>
+<div class="paragraph">
+<p>Issued: 2022-07-25</p>
+</div>
+<div class="paragraph">
+<p>OpenShift Container Platform release 4.10.24 is now available. The bug fixes that are included in the update are listed in the <a href="https://access.redhat.com/errata/RHBA-2022:5663">RHBA-2022:5663</a> advisory. There are no RPM packages for this release.</p>
+</div>
+<div class="paragraph">
+<p>Space precluded documenting all of the container images for this release in the advisory. See the following article for notes on the container images in this release:</p>
+</div>
+<div class="paragraph">
+<p><a href="https://access.redhat.com/solutions/6969074">OpenShift Container Platform 4.10.24 container image list</a></p>
+</div>
+<div class="sect3">
+<h4 id="ocp-4-10-24-upgrading"><a class="anchor" href="#ocp-4-10-24-upgrading"></a>Updating</h4>
 <div class="paragraph">
 <p>To update an existing OpenShift Container Platform 4.10 cluster to this latest release, see <a href="../updating/updating-cluster-cli.html">Updating a cluster within a minor version by using the CLI</a> for instructions.</p>
 </div>

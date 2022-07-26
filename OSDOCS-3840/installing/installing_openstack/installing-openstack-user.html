@@ -28021,16 +28021,6 @@
 
 
                     <li>
-                      <a class="" href="../../virt/virtual_machines/advanced_vm_management/virt-managing-guest-memory.html" style="padding-left: 70px;">
-                        Managing guest memory
-                      </a>
-                    </li>
-
-
-                    <!-- list all topics within Welcome 3 here. Note that we are not coding this for more subtopics here -->
-
-
-                    <li>
                       <a class="" href="../../virt/virtual_machines/advanced_vm_management/virt-using-huge-pages-with-vms.html" style="padding-left: 70px;">
                         Using huge pages with virtual machines
                       </a>
@@ -28172,7 +28162,7 @@
 
                     <li>
                       <a class="" href="../../virt/virtual_machines/importing_vms/virt-importing-virtual-machine-images-datavolumes-block.html" style="padding-left: 70px;">
-                        Importing virtual machine images to block storage with data volumes
+                        Importing virtual machine images into block storage with data volumes
                       </a>
                     </li>
 
@@ -31134,7 +31124,8 @@
 <li><a href="#cluster-entitlements_installing-openstack-user">Internet access for OpenShift Container Platform</a></li>
 <li><a href="#installation-osp-default-deployment_installing-openstack-user">Resource guidelines for installing OpenShift Container Platform on RHOSP</a>
 <ul class="sectlevel2">
-<li><a href="#installation-osp-control-compute-machines_installing-openstack-user">Control plane and compute machines</a></li>
+<li><a href="#installation-osp-control-machines_installing-openstack-user">Control plane machines</a></li>
+<li><a href="#installation-osp-compute-machines_installing-openstack-user">Compute machines</a></li>
 <li><a href="#installation-osp-bootstrap-machine_installing-openstack-user">Bootstrap machine</a></li>
 </ul>
 </li>
@@ -31366,10 +31357,10 @@ By default, your security group and security group rule quotas might be low. If 
 <p>An OpenShift Container Platform deployment comprises control plane machines, compute machines, and a bootstrap machine.</p>
 </div>
 <div class="sect2">
-<h3 id="installation-osp-control-compute-machines_installing-openstack-user"><a class="anchor" href="#installation-osp-control-compute-machines_installing-openstack-user"></a>Control plane and compute machines</h3>
+<h3 id="installation-osp-control-machines_installing-openstack-user"><a class="anchor" href="#installation-osp-control-machines_installing-openstack-user"></a>Control plane machines</h3>
 <div class="paragraph">
-<p>By default, the OpenShift Container Platform installation process stands up three control
-plane and three compute machines.</p>
+<p>By default, the OpenShift Container Platform installation process creates three control
+plane machines.</p>
 </div>
 <div class="paragraph">
 <p>Each machine requires:</p>
@@ -31384,6 +31375,29 @@ plane and three compute machines.</p>
 </li>
 <li>
 <p>A flavor with at least 16 GB memory, 4 vCPUs, and 100 GB storage space</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="installation-osp-compute-machines_installing-openstack-user"><a class="anchor" href="#installation-osp-compute-machines_installing-openstack-user"></a>Compute machines</h3>
+<div class="paragraph">
+<p>By default, the OpenShift Container Platform installation process creates three compute
+machines.</p>
+</div>
+<div class="paragraph">
+<p>Each machine requires:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>An instance from the RHOSP quota</p>
+</li>
+<li>
+<p>A port from the RHOSP quota</p>
+</li>
+<li>
+<p>A flavor with at least 8 GB memory, 2 vCPUs, and 100 GB storage space</p>
 </li>
 </ul>
 </div>

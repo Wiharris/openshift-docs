@@ -28021,16 +28021,6 @@
 
 
                     <li>
-                      <a class="" href="../../virt/virtual_machines/advanced_vm_management/virt-managing-guest-memory.html" style="padding-left: 70px;">
-                        Managing guest memory
-                      </a>
-                    </li>
-
-
-                    <!-- list all topics within Welcome 3 here. Note that we are not coding this for more subtopics here -->
-
-
-                    <li>
                       <a class="" href="../../virt/virtual_machines/advanced_vm_management/virt-using-huge-pages-with-vms.html" style="padding-left: 70px;">
                         Using huge pages with virtual machines
                       </a>
@@ -28172,7 +28162,7 @@
 
                     <li>
                       <a class="" href="../../virt/virtual_machines/importing_vms/virt-importing-virtual-machine-images-datavolumes-block.html" style="padding-left: 70px;">
-                        Importing virtual machine images to block storage with data volumes
+                        Importing virtual machine images into block storage with data volumes
                       </a>
                     </li>
 
@@ -31143,7 +31133,7 @@
 <li><a href="#virt-networking-wizard-fields-web_virt-edit-vms">Networking fields</a></li>
 </ul>
 </li>
-<li><a href="#virt-vm-edit-cdrom_virt-edit-vms">Editing CD-ROMs for Virtual Machines</a></li>
+<li><a href="#virt-vm-edit-cdrom_virt-edit-vms">Editing CD-ROMs for VirtualMachines</a></li>
 <li><a href="#additional-resources_virt-edit-vms_virt-edit-vms">Additional resources</a></li>
 </ul>
 </div>
@@ -31165,16 +31155,13 @@
 <div class="title">Procedure</div>
 <ol class="arabic">
 <li>
-<p>Click <strong>Workloads</strong> &#8594; <strong>Virtualization</strong> from the side menu.</p>
+<p>Click <strong>Virtualization</strong> &#8594; <strong>VirtualMachines</strong> from the side menu.</p>
 </li>
 <li>
-<p>Click the <strong>Virtual Machines</strong> tab.</p>
+<p>Optional: Use the <strong>Filter</strong> drop-down menu to sort the list of virtual machines by attributes such as status, template, node, or operating system (OS).</p>
 </li>
 <li>
-<p>Select a virtual machine.</p>
-</li>
-<li>
-<p>Click the <strong>Details</strong> tab.</p>
+<p>Select a virtual machine to open the <strong>VirtualMachine details</strong> page.</p>
 </li>
 <li>
 <p>Click the pencil icon to make a field editable.</p>
@@ -31231,7 +31218,7 @@ top of the page displays a list of all changes that will be applied when the vir
 <div class="title">Procedure</div>
 <ol class="arabic">
 <li>
-<p>Click <strong>Workloads</strong> &#8594; <strong>Virtualization</strong> from the side menu.</p>
+<p>Click <strong>Virtualization</strong> &#8594; <strong>VirtualMachines</strong> from the side menu.</p>
 </li>
 <li>
 <p>Select a virtual machine.</p>
@@ -31318,26 +31305,23 @@ top of the page displays a list of all changes that will be applied when the vir
 <div class="title">Procedure</div>
 <ol class="arabic">
 <li>
-<p>Click <strong>Workloads</strong> &#8594; <strong>Virtualization</strong> from the side menu.</p>
+<p>Click <strong>Virtualization</strong> &#8594; <strong>VirtualMachines</strong> from the side menu.</p>
 </li>
 <li>
-<p>Click the <strong>Virtual Machines</strong> tab.</p>
+<p>Select a virtual machine to open the <strong>VirtualMachine details</strong> screen.</p>
 </li>
 <li>
-<p>Select a virtual machine to open the <strong>Virtual Machine Overview</strong> screen.</p>
+<p>Click the <strong>Disks</strong> tab and then click <strong>Add disk</strong>.</p>
 </li>
 <li>
-<p>Click the <strong>Disks</strong> tab.</p>
-</li>
-<li>
-<p>In the <strong>Add Disk</strong> window, specify the <strong>Source</strong>, <strong>Name</strong>, <strong>Size</strong>, <strong>Type</strong>, <strong>Interface</strong>, and <strong>Storage Class</strong>.</p>
+<p>In the <strong>Add disk</strong> window, specify the <strong>Source</strong>, <strong>Name</strong>, <strong>Size</strong>, <strong>Type</strong>, <strong>Interface</strong>, and <strong>Storage Class</strong>.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Advanced: You can enable preallocation if you use a blank disk source and require maximum write performance when creating data volumes. To do so, select the <strong>Enable preallocation</strong> checkbox.</p>
+<p>Optional: You can enable preallocation if you use a blank disk source and require maximum write performance when creating data volumes. To do so, select the <strong>Enable preallocation</strong> checkbox.</p>
 </li>
 <li>
-<p>Optional: In the <strong>Advanced</strong> list, specify the <strong>Volume Mode</strong> and <strong>Access Mode</strong> for the virtual disk. If you do not specify these parameters, the system uses the default values from the <code>kubevirt-storage-class-defaults</code> config map.</p>
+<p>Optional: You can clear <strong>Apply optimized StorageProfile settings</strong> to change the <strong>Volume Mode</strong> and <strong>Access Mode</strong> for the virtual disk. If you do not specify these parameters, the system uses the default values from the <code>kubevirt-storage-class-defaults</code> config map.</p>
 </li>
 </ol>
 </div>
@@ -31399,7 +31383,7 @@ top of the page displays a list of all changes that will be applied when the vir
 <p>Import via URL (creates PVC)</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Import content via URL (HTTP or S3 endpoint).</p>
+<p>Import content via URL (HTTP or HTTPS endpoint).</p>
 </div></div></td>
 </tr>
 <tr>
@@ -31567,13 +31551,10 @@ top of the page displays a list of all changes that will be applied when the vir
 <div class="title">Procedure</div>
 <ol class="arabic">
 <li>
-<p>Click <strong>Workloads</strong> &#8594; <strong>Virtualization</strong> from the side menu.</p>
+<p>Click <strong>Virtualization</strong> &#8594; <strong>VirtualMachines</strong> from the side menu.</p>
 </li>
 <li>
-<p>Click the <strong>Virtual Machines</strong> tab.</p>
-</li>
-<li>
-<p>Select a virtual machine to open the <strong>Virtual Machine Overview</strong> screen.</p>
+<p>Select a virtual machine to open the <strong>VirtualMachine details</strong> screen.</p>
 </li>
 <li>
 <p>Click the <strong>Network Interfaces</strong> tab.</p>
@@ -31646,7 +31627,7 @@ top of the page displays a list of all changes that will be applied when the vir
 </div>
 </div>
 <div class="sect1">
-<h2 id="virt-vm-edit-cdrom_virt-edit-vms"><a class="anchor" href="#virt-vm-edit-cdrom_virt-edit-vms"></a>Editing CD-ROMs for Virtual Machines</h2>
+<h2 id="virt-vm-edit-cdrom_virt-edit-vms"><a class="anchor" href="#virt-vm-edit-cdrom_virt-edit-vms"></a>Editing CD-ROMs for VirtualMachines</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Use the following procedure to edit CD-ROMs for virtual machines.</p>
@@ -31655,13 +31636,10 @@ top of the page displays a list of all changes that will be applied when the vir
 <div class="title">Procedure</div>
 <ol class="arabic">
 <li>
-<p>Click <strong>Workloads</strong> &#8594; <strong>Virtualization</strong> from the side menu.</p>
+<p>Click <strong>Virtualization</strong> &#8594;  <strong>VirtualMachines</strong> from the side menu.</p>
 </li>
 <li>
-<p>Click the <strong>Virtual Machines</strong> tab.</p>
-</li>
-<li>
-<p>Select a virtual machine to open the <strong>Virtual Machine Overview</strong> screen.</p>
+<p>Select a virtual machine to open the <strong>VirtualMachine details</strong> screen.</p>
 </li>
 <li>
 <p>Click the <strong>Disks</strong> tab.</p>

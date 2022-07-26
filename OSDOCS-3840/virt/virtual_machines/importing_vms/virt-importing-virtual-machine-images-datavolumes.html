@@ -28021,16 +28021,6 @@
 
 
                     <li>
-                      <a class="" href="../../../virt/virtual_machines/advanced_vm_management/virt-managing-guest-memory.html" style="padding-left: 70px;">
-                        Managing guest memory
-                      </a>
-                    </li>
-
-
-                    <!-- list all topics within Welcome 3 here. Note that we are not coding this for more subtopics here -->
-
-
-                    <li>
                       <a class="" href="../../../virt/virtual_machines/advanced_vm_management/virt-using-huge-pages-with-vms.html" style="padding-left: 70px;">
                         Using huge pages with virtual machines
                       </a>
@@ -28172,7 +28162,7 @@
 
                     <li>
                       <a class="" href="../../../virt/virtual_machines/importing_vms/virt-importing-virtual-machine-images-datavolumes-block.html" style="padding-left: 70px;">
-                        Importing virtual machine images to block storage with data volumes
+                        Importing virtual machine images into block storage with data volumes
                       </a>
                     </li>
 
@@ -31133,7 +31123,7 @@
 <li><a href="#prerequisites">Prerequisites</a></li>
 <li><a href="#virt-cdi-supported-operations-matrix_virt-importing-virtual-machine-images-datavolumes">CDI supported operations matrix</a></li>
 <li><a href="#virt-about-datavolumes_virt-importing-virtual-machine-images-datavolumes">About data volumes</a></li>
-<li><a href="#virt-importing-vm-datavolume_virt-importing-virtual-machine-images-datavolumes">Importing a virtual machine image into a persistent volume claim by using a data volume</a></li>
+<li><a href="#virt-importing-vm-datavolume_virt-importing-virtual-machine-images-datavolumes">Importing a virtual machine image into storage by using a data volume</a></li>
 <li><a href="#virt-importing-virtual-machine-images-datavolumes_additional-resources">Additional resources</a></li>
 </ul>
 </div>
@@ -31298,50 +31288,38 @@ from being started before the PVC has been prepared.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="virt-importing-vm-datavolume_virt-importing-virtual-machine-images-datavolumes"><a class="anchor" href="#virt-importing-vm-datavolume_virt-importing-virtual-machine-images-datavolumes"></a>Importing a virtual machine image into a persistent volume claim by using a data volume</h2>
+<h2 id="virt-importing-vm-datavolume_virt-importing-virtual-machine-images-datavolumes"><a class="anchor" href="#virt-importing-vm-datavolume_virt-importing-virtual-machine-images-datavolumes"></a>Importing a virtual machine image into storage by using a data volume</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can import a virtual machine image into a persistent volume claim (PVC) by using a data volume.</p>
+<p>You can import a virtual machine image into storage by using a data volume.</p>
 </div>
 <div class="paragraph">
-<p>The virtual machine image can be hosted at an HTTP or HTTPS endpoint, or the image can be built into a container disk and stored in a container registry.</p>
+<p>The virtual machine image can be hosted at an HTTP or HTTPS endpoint or the image can be built into a container disk and stored in a container registry.</p>
 </div>
 <div class="paragraph">
-<p>To create a virtual machine from an imported virtual machine image, specify the image or container disk endpoint in the <code>VirtualMachine</code> configuration file before you create the virtual machine.</p>
+<p>You specify the data source for the image in a <code>VirtualMachine</code> configuration file. When the virtual machine is created, the data volume with the virtual machine image is imported into storage.</p>
 </div>
 <div class="ulist">
 <div class="title">Prerequisites</div>
 <ul>
 <li>
-<p>You have installed the OpenShift CLI (<code>oc</code>).</p>
-</li>
-<li>
-<p>Your cluster has at least one available persistent volume.</p>
-</li>
-<li>
 <p>To import a virtual machine image you must have the following:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>A virtual machine disk image in RAW, ISO, or QCOW2 format, optionally
-compressed by using <code>xz</code> or <code>gz</code>.</p>
+<p>A virtual machine disk image in RAW, ISO, or QCOW2 format, optionally compressed by using <code>xz</code> or <code>gz</code>.</p>
 </li>
 <li>
-<p>An HTTP endpoint where the image is hosted, along with any authentication
-credentials needed to access the data source. For example: <code><a href="http://www.example.com/path/to/data" class="bare">http://www.example.com/path/to/data</a></code></p>
+<p>An HTTP or HTTPS endpoint where the image is hosted, along with any authentication credentials needed to access the data source.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>To import a container disk you must have the following:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>A container disk built from a virtual machine image stored in your container image registry, along with any authentication credentials needed to access the data source. For example: <code>docker://registry.example.com/container-image</code></p>
+<p>To import a container disk, you must have a virtual machine image built into a container disk and stored in a container registry, along with any authentication credentials needed to access the data source.</p>
 </li>
-</ul>
-</div>
+<li>
+<p>If the virtual machine must communicate with servers that use self-signed certificates or certificates not signed by the system CA bundle, you must create a config map in the same namespace as the data volume.</p>
 </li>
 </ul>
 </div>
@@ -31349,34 +31327,40 @@ credentials needed to access the data source. For example: <code><a href="http:/
 <div class="title">Procedure</div>
 <ol class="arabic">
 <li>
-<p>Optional: If your data source requires authentication credentials, edit the
-<code>endpoint-secret.yaml</code> file, and apply the updated configuration to the cluster:</p>
+<p>If your data source requires authentication, create a <code>Secret</code> manifest, specifying the data source credentials, and save it as <code>endpoint-secret.yaml</code>:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
 <span class="na">kind</span><span class="pi">:</span> <span class="s">Secret</span>
 <span class="na">metadata</span><span class="pi">:</span>
-  <span class="na">name</span><span class="pi">:</span> <span class="s">&lt;endpoint-secret&gt;</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">endpoint-secret</span> <i class="conum" data-value="1"></i><b>(1)</b>
   <span class="na">labels</span><span class="pi">:</span>
     <span class="na">app</span><span class="pi">:</span> <span class="s">containerized-data-importer</span>
 <span class="na">type</span><span class="pi">:</span> <span class="s">Opaque</span>
 <span class="na">data</span><span class="pi">:</span>
-  <span class="na">accessKeyId</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> <i class="conum" data-value="1"></i><b>(1)</b>
-  <span class="na">secretKey</span><span class="pi">:</span>   <span class="s2">"</span><span class="s">"</span> <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
+  <span class="na">accessKeyId</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> <i class="conum" data-value="2"></i><b>(2)</b>
+  <span class="na">secretKey</span><span class="pi">:</span>   <span class="s2">"</span><span class="s">"</span> <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Optional: your key or user name, base64 encoded</td>
+<td>Specify the name of the <code>Secret</code>.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Optional: your secret or password, base64 encoded</td>
+<td>Specify the Base64-encoded key ID or user name.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Specify the Base64-encoded secret key or password.</td>
 </tr>
 </table>
 </div>
+</li>
+<li>
+<p>Apply the <code>Secret</code> manifest:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc apply <span class="nt">-f</span> endpoint-secret.yaml</code></pre>
@@ -31384,92 +31368,98 @@ credentials needed to access the data source. For example: <code><a href="http:/
 </div>
 </li>
 <li>
-<p>Edit the virtual machine configuration file, specifying the data source for
-the virtual machine image you want to import. In this example, a Fedora image is imported from an <code>http</code> source:</p>
+<p>Edit the <code>VirtualMachine</code> manifest, specifying the data source for the virtual machine image you want to import, and save it as <code>vm-fedora-datavolume.yaml</code>:</p>
+<details>
+<summary class="title">Details</summary>
+<div class="content">
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">kubevirt.io/v1</span>
-<span class="na">kind</span><span class="pi">:</span> <span class="s">VirtualMachine</span>
-<span class="na">metadata</span><span class="pi">:</span>
-  <span class="na">creationTimestamp</span><span class="pi">:</span> <span class="no">null</span>
-  <span class="na">labels</span><span class="pi">:</span>
-    <span class="s">kubevirt.io/vm</span><span class="pi">:</span> <span class="s">vm-fedora-datavolume</span>
-  <span class="na">name</span><span class="pi">:</span> <span class="s">vm-fedora-datavolume</span>
-<span class="na">spec</span><span class="pi">:</span>
-  <span class="na">dataVolumeTemplates</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="na">metadata</span><span class="pi">:</span>
-      <span class="na">creationTimestamp</span><span class="pi">:</span> <span class="no">null</span>
-      <span class="na">name</span><span class="pi">:</span> <span class="s">fedora-dv</span>
-    <span class="na">spec</span><span class="pi">:</span>
-      <span class="na">pvc</span><span class="pi">:</span>
-        <span class="na">accessModes</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="s">ReadWriteOnce</span>
-        <span class="na">resources</span><span class="pi">:</span>
-          <span class="na">requests</span><span class="pi">:</span>
-            <span class="na">storage</span><span class="pi">:</span> <span class="s">10Gi</span>
-        <span class="na">storageClassName</span><span class="pi">:</span> <span class="s">local</span>
-      <span class="na">source</span><span class="pi">:</span>
-        <span class="na">http</span><span class="pi">:</span> <i class="conum" data-value="1"></i><b>(1)</b>
-          <span class="na">url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">https://download.fedoraproject.org/pub/fedora/linux/releases/33/Cloud/x86_64/images/Fedora-Cloud-Base-33-1.2.x86_64.qcow2"</span> <i class="conum" data-value="2"></i><b>(2)</b>
-          <span class="na">secretRef</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> <i class="conum" data-value="3"></i><b>(3)</b>
-          <span class="na">certConfigMap</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> <i class="conum" data-value="4"></i><b>(4)</b>
-    <span class="na">status</span><span class="pi">:</span> <span class="pi">{}</span>
-  <span class="na">running</span><span class="pi">:</span> <span class="no">true</span>
-  <span class="na">template</span><span class="pi">:</span>
-    <span class="na">metadata</span><span class="pi">:</span>
-      <span class="na">creationTimestamp</span><span class="pi">:</span> <span class="no">null</span>
-      <span class="na">labels</span><span class="pi">:</span>
-        <span class="s">kubevirt.io/vm</span><span class="pi">:</span> <span class="s">vm-fedora-datavolume</span>
-    <span class="na">spec</span><span class="pi">:</span>
-      <span class="na">domain</span><span class="pi">:</span>
-        <span class="na">devices</span><span class="pi">:</span>
-          <span class="na">disks</span><span class="pi">:</span>
-          <span class="pi">-</span> <span class="na">disk</span><span class="pi">:</span>
-              <span class="na">bus</span><span class="pi">:</span> <span class="s">virtio</span>
-            <span class="na">name</span><span class="pi">:</span> <span class="s">datavolumedisk1</span>
-        <span class="na">machine</span><span class="pi">:</span>
-          <span class="na">type</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> <i class="conum" data-value="5"></i><b>(5)</b>
-        <span class="na">resources</span><span class="pi">:</span>
-          <span class="na">requests</span><span class="pi">:</span>
-            <span class="na">memory</span><span class="pi">:</span> <span class="s">1.5Gi</span>
-      <span class="na">terminationGracePeriodSeconds</span><span class="pi">:</span> <span class="m">180</span>
-      <span class="na">volumes</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="na">dataVolume</span><span class="pi">:</span>
-          <span class="na">name</span><span class="pi">:</span> <span class="s">fedora-dv</span>
-        <span class="na">name</span><span class="pi">:</span> <span class="s">datavolumedisk1</span>
-<span class="na">status</span><span class="pi">:</span> <span class="pi">{}</span></code></pre>
+<pre class="nowrap">apiVersion: kubevirt.io/v1
+kind: VirtualMachine
+metadata:
+  creationTimestamp: null
+  labels:
+    kubevirt.io/vm: vm-fedora-datavolume
+  name: vm-fedora-datavolume <i class="conum" data-value="1"></i><b>(1)</b>
+spec:
+  dataVolumeTemplates:
+  - metadata:
+      creationTimestamp: null
+      name: fedora-dv <i class="conum" data-value="2"></i><b>(2)</b>
+    spec:
+      storage:
+        resources:
+          requests:
+            storage: 10Gi
+        storageClassName: local
+      source:
+        http: <i class="conum" data-value="3"></i><b>(3)</b>
+          url: "https://mirror.arizona.edu/fedora/linux/releases/35/Cloud/x86_64/images/Fedora-Cloud-Base-35-1.2.x86_64.qcow2" <i class="conum" data-value="4"></i><b>(4)</b>
+          secretRef: endpoint-secret <i class="conum" data-value="5"></i><b>(5)</b>
+          certConfigMap: "" <i class="conum" data-value="6"></i><b>(6)</b>
+    status: {}
+  running: true
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        kubevirt.io/vm: vm-fedora-datavolume
+    spec:
+      domain:
+        devices:
+          disks:
+          - disk:
+              bus: virtio
+            name: datavolumedisk1
+        machine:
+          type: ""
+        resources:
+          requests:
+            memory: 1.5Gi
+      terminationGracePeriodSeconds: 180
+      volumes:
+      - dataVolume:
+          name: fedora-dv
+        name: datavolumedisk1
+status: {}</pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>The source type to import the image from. This example uses an HTTP endpoint. To import a container disk from a registry, replace <code>http</code> with <code>registry</code>.</td>
+<td>Specify the name of the virtual machine.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>The source of the virtual machine image you want to import. This example references a virtual machine image at an HTTP endpoint. An example of a container registry endpoint is <code>url: "docker://kubevirt/fedora-cloud-container-disk-demo:latest"</code>.</td>
+<td>Specify the name of the data volume.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>The <code>secretRef</code> parameter is optional.</td>
+<td>Specify <code>http</code> for an HTTP or HTTPS endpoint. Specify <code>registry</code> for a container disk image imported from a registry.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>The <code>certConfigMap</code> is required for communicating with servers that use self-signed certificates or certificates not signed by the system CA bundle. The referenced config map must be in the same namespace as the data volume.</td>
+<td>The source of the virtual machine image you want to import. This example references a virtual machine image at an HTTPS endpoint. An example of a container registry endpoint is <code>url: "docker://kubevirt/fedora-cloud-container-disk-demo:latest"</code>.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="5"></i><b>5</b></td>
-<td>Specify <code>type: dataVolume</code> or <code>type: ""</code>. If you specify any other value for <code>type</code>, such as <code>persistentVolumeClaim</code>, a warning is displayed, and the virtual machine does not start.</td>
+<td>Required if you created a <code>Secret</code> for the data source.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>Optional: Specify a CA certificate config map.</td>
 </tr>
 </table>
 </div>
+</div>
+</details>
 </li>
 <li>
 <p>Create the virtual machine:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc create <span class="nt">-f</span> vm-&lt;name&gt;-datavolume.yaml</code></pre>
+<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc create <span class="nt">-f</span> vm-fedora-datavolume.yaml</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -31480,10 +31470,10 @@ the virtual machine image you want to import. In this example, a Fedora image is
 </td>
 <td class="content">
 <div class="paragraph">
-<p>The <code>oc create</code> command creates the data volume and the virtual machine. The CDI controller creates an underlying PVC with the correct annotation, and the import process begins. When the import completes, the data volume status changes to <code>Succeeded</code>, and the virtual machine is allowed to start.</p>
+<p>The <code>oc create</code> command creates the data volume and the virtual machine. The CDI controller creates an underlying PVC with the correct annotation and the import process begins. When the import is complete, the data volume status changes to <code>Succeeded</code>. You can start the virtual machine.</p>
 </div>
 <div class="paragraph">
-<p>Data volume provisioning happens in the background, so there is no need to monitor it. You can start the virtual machine, and it will not run until the import is complete.</p>
+<p>Data volume provisioning happens in the background, so there is no need to monitor the process.</p>
 </div>
 </td>
 </tr>
@@ -31504,27 +31494,26 @@ the virtual machine image you want to import. In this example, a Fedora image is
 </div>
 </li>
 <li>
-<p>Monitor the data volume status until it shows <code>Succeeded</code> by running the following command:</p>
+<p>Monitor the data volume until its status is <code>Succeeded</code> by running the following command:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc describe dv &lt;datavolume-name&gt; <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc describe dv fedora-dv <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>The name of the data volume as specified under <code>dataVolumeTemplates.metadata.name</code> in the virtual machine
-configuration file. In the example configuration above, this is <code>fedora-dv</code>.</td>
+<td>Specify the data volume name that you defined in the <code>VirtualMachine</code> manifest.</td>
 </tr>
 </table>
 </div>
 </li>
 <li>
-<p>To verify that provisioning is complete and that the VMI has started, try accessing its serial console by running the following command:</p>
+<p>Verify that provisioning is complete and that the virtual machine has started by accessing its serial console:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>virtctl console &lt;vm-fedora-datavolume&gt;</code></pre>
+<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>virtctl console vm-fedora-datavolume</code></pre>
 </div>
 </div>
 </li>

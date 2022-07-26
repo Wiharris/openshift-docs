@@ -28021,16 +28021,6 @@
 
 
                     <li>
-                      <a class="" href="../../virt/virtual_machines/advanced_vm_management/virt-managing-guest-memory.html" style="padding-left: 70px;">
-                        Managing guest memory
-                      </a>
-                    </li>
-
-
-                    <!-- list all topics within Welcome 3 here. Note that we are not coding this for more subtopics here -->
-
-
-                    <li>
                       <a class="" href="../../virt/virtual_machines/advanced_vm_management/virt-using-huge-pages-with-vms.html" style="padding-left: 70px;">
                         Using huge pages with virtual machines
                       </a>
@@ -28172,7 +28162,7 @@
 
                     <li>
                       <a class="" href="../../virt/virtual_machines/importing_vms/virt-importing-virtual-machine-images-datavolumes-block.html" style="padding-left: 70px;">
-                        Importing virtual machine images to block storage with data volumes
+                        Importing virtual machine images into block storage with data volumes
                       </a>
                     </li>
 
@@ -31138,8 +31128,7 @@
 </ul>
 </div>
 <div class="paragraph">
-<p>You can update a virtual machine template in the web console, either by editing
-the full configuration in the YAML editor or by selecting a custom template in the <strong>Templates</strong> tab and modifying the editable items.</p>
+<p>You can update a virtual machine template in the web console, either by editing the full configuration in the YAML editor or by selecting a custom template on the <strong>Virtualization</strong> &#8594; <strong>Templates</strong> page and modifying the editable items.</p>
 </div>
 </div>
 </div>
@@ -31156,16 +31145,13 @@ the full configuration in the YAML editor or by selecting a custom template in t
 <div class="title">Procedure</div>
 <ol class="arabic">
 <li>
-<p>Click <strong>Workloads</strong> &#8594; <strong>Virtualization</strong> from the side menu.</p>
+<p>Click <strong>Virtualization</strong> &#8594; <strong>Templates</strong> from the side menu.</p>
 </li>
 <li>
-<p>Click the <strong>Templates</strong> tab.</p>
+<p>Optional: Use the <strong>Filter</strong> drop-down menu to sort the list of virtual machine templates by attributes such as status, template, node, or operating system (OS).</p>
 </li>
 <li>
-<p>Select a virtual machine template.</p>
-</li>
-<li>
-<p>Click the <strong>VM Template Details</strong> tab.</p>
+<p>Select a virtual machine template to open the <strong>Template details</strong> page.</p>
 </li>
 <li>
 <p>Click the pencil icon to make a field editable.</p>
@@ -31207,13 +31193,10 @@ the full configuration in the YAML editor or by selecting a custom template in t
 <div class="title">Procedure</div>
 <ol class="arabic">
 <li>
-<p>In the OpenShift Virtualization console, click <strong>Workloads</strong> &#8594; <strong>Virtualization</strong> from the side menu.</p>
+<p>In the OpenShift Container Platform console, click <strong>Virtualization</strong> &#8594; <strong>Templates</strong> from the side menu.</p>
 </li>
 <li>
-<p>Click the <strong>Templates</strong> tab.</p>
-</li>
-<li>
-<p>Select a template to open the <strong>VM Template Details</strong> screen.</p>
+<p>Click a template to open the <strong>Template details</strong> page.</p>
 </li>
 <li>
 <p>Click the <strong>YAML</strong> tab to display the editable configuration.</p>
@@ -31238,26 +31221,23 @@ the full configuration in the YAML editor or by selecting a custom template in t
 <div class="title">Procedure</div>
 <ol class="arabic">
 <li>
-<p>Click <strong>Workloads</strong> &#8594; <strong>Virtualization</strong> from the side menu.</p>
+<p>Click <strong>Virtualization</strong> &#8594; <strong>Templates</strong> from the side menu.</p>
 </li>
 <li>
-<p>Click the <strong>Templates</strong> tab.</p>
+<p>Select a virtual machine template to open the <strong>Template details</strong> screen.</p>
 </li>
 <li>
-<p>Select a virtual machine template to open the <strong>VM Template Details</strong> screen.</p>
+<p>Click the <strong>Disks</strong> tab and then click <strong>Add disk</strong>.</p>
 </li>
 <li>
-<p>Click the <strong>Disks</strong> tab.</p>
-</li>
-<li>
-<p>In the <strong>Add Disk</strong> window, specify the <strong>Source</strong>, <strong>Name</strong>, <strong>Size</strong>, <strong>Type</strong>, <strong>Interface</strong>, and <strong>Storage Class</strong>.</p>
+<p>In the <strong>Add disk</strong> window, specify the <strong>Source</strong>, <strong>Name</strong>, <strong>Size</strong>, <strong>Type</strong>, <strong>Interface</strong>, and <strong>Storage Class</strong>.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Advanced: You can enable preallocation if you use a blank disk source and require maximum write performance when creating data volumes. To do so, select the <strong>Enable preallocation</strong> checkbox.</p>
+<p>Optional: You can enable preallocation if you use a blank disk source and require maximum write performance when creating data volumes. To do so, select the <strong>Enable preallocation</strong> checkbox.</p>
 </li>
 <li>
-<p>Optional: In the <strong>Advanced</strong> list, specify the <strong>Volume Mode</strong> and <strong>Access Mode</strong> for the virtual disk. If you do not specify these parameters, the system uses the default values from the <code>kubevirt-storage-class-defaults</code> config map.</p>
+<p>Optional: You can clear <strong>Apply optimized StorageProfile settings</strong> to change the <strong>Volume Mode</strong> and <strong>Access Mode</strong> for the virtual disk. If you do not specify these parameters, the system uses the default values from the <code>kubevirt-storage-class-defaults</code> config map.</p>
 </li>
 </ol>
 </div>
@@ -31279,13 +31259,10 @@ the full configuration in the YAML editor or by selecting a custom template in t
 <div class="title">Procedure</div>
 <ol class="arabic">
 <li>
-<p>Click <strong>Workloads</strong> &#8594; <strong>Virtualization</strong> from the side menu.</p>
+<p>Click <strong>Virtualization</strong> &#8594; <strong>Templates</strong> from the side menu.</p>
 </li>
 <li>
-<p>Click the <strong>Templates</strong> tab.</p>
-</li>
-<li>
-<p>Select a virtual machine template to open the <strong>VM Template Details</strong> screen.</p>
+<p>Select a virtual machine template to open the <strong>Template details</strong> screen.</p>
 </li>
 <li>
 <p>Click the <strong>Network Interfaces</strong> tab.</p>
@@ -31313,13 +31290,10 @@ the full configuration in the YAML editor or by selecting a custom template in t
 <div class="title">Procedure</div>
 <ol class="arabic">
 <li>
-<p>Click <strong>Workloads</strong> &#8594; <strong>Virtualization</strong> from the side menu.</p>
+<p>Click <strong>Virtualization</strong> &#8594;  <strong>Templates</strong> from the side menu.</p>
 </li>
 <li>
-<p>Click the <strong>Templates</strong> tab.</p>
-</li>
-<li>
-<p>Select a virtual machine template to open the <strong>VM Template Details</strong> screen.</p>
+<p>Select a virtual machine template to open the <strong>Template details</strong> screen.</p>
 </li>
 <li>
 <p>Click the <strong>Disks</strong> tab.</p>

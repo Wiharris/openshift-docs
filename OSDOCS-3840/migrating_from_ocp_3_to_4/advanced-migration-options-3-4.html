@@ -28021,16 +28021,6 @@
 
 
                     <li>
-                      <a class="" href="../virt/virtual_machines/advanced_vm_management/virt-managing-guest-memory.html" style="padding-left: 70px;">
-                        Managing guest memory
-                      </a>
-                    </li>
-
-
-                    <!-- list all topics within Welcome 3 here. Note that we are not coding this for more subtopics here -->
-
-
-                    <li>
                       <a class="" href="../virt/virtual_machines/advanced_vm_management/virt-using-huge-pages-with-vms.html" style="padding-left: 70px;">
                         Using huge pages with virtual machines
                       </a>
@@ -28172,7 +28162,7 @@
 
                     <li>
                       <a class="" href="../virt/virtual_machines/importing_vms/virt-importing-virtual-machine-images-datavolumes-block.html" style="padding-left: 70px;">
-                        Importing virtual machine images to block storage with data volumes
+                        Importing virtual machine images into block storage with data volumes
                       </a>
                     </li>
 
@@ -32612,14 +32602,14 @@ Events:
   <span class="na">gather_facts</span><span class="pi">:</span> <span class="no">false</span>
   <span class="na">tasks</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="na">set_fact</span><span class="pi">:</span>
-      <span class="na">namespaces</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">(lookup(</span><span class="nv"> </span><span class="s">'env',</span><span class="nv"> </span><span class="s">'migration_namespaces')).split(',')</span><span class="nv"> </span><span class="s">}}"</span>
+      <span class="na">namespaces</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">(lookup(</span><span class="nv"> </span><span class="s">'env',</span><span class="nv"> </span><span class="s">'MIGRATION_NAMESPACES')).split(',')</span><span class="nv"> </span><span class="s">}}"</span>
 
   <span class="pi">-</span> <span class="na">debug</span><span class="pi">:</span>
       <span class="na">msg</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">item</span><span class="nv"> </span><span class="s">}}"</span>
     <span class="na">with_items</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">namespaces</span><span class="nv"> </span><span class="s">}}"</span>
 
   <span class="pi">-</span> <span class="na">debug</span><span class="pi">:</span>
-      <span class="na">msg</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">lookup(</span><span class="nv"> </span><span class="s">'env',</span><span class="nv"> </span><span class="s">'migplan_name')</span><span class="nv"> </span><span class="s">}}"</span></code></pre>
+      <span class="na">msg</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">lookup(</span><span class="nv"> </span><span class="s">'env',</span><span class="nv"> </span><span class="s">'MIGRATION_PLAN_NAME')</span><span class="nv"> </span><span class="s">}}"</span></code></pre>
 </div>
 </div>
 </div>

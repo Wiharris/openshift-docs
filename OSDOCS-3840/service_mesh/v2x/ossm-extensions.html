@@ -28021,16 +28021,6 @@
 
 
                     <li>
-                      <a class="" href="../../virt/virtual_machines/advanced_vm_management/virt-managing-guest-memory.html" style="padding-left: 70px;">
-                        Managing guest memory
-                      </a>
-                    </li>
-
-
-                    <!-- list all topics within Welcome 3 here. Note that we are not coding this for more subtopics here -->
-
-
-                    <li>
                       <a class="" href="../../virt/virtual_machines/advanced_vm_management/virt-using-huge-pages-with-vms.html" style="padding-left: 70px;">
                         Using huge pages with virtual machines
                       </a>
@@ -28172,7 +28162,7 @@
 
                     <li>
                       <a class="" href="../../virt/virtual_machines/importing_vms/virt-importing-virtual-machine-images-datavolumes-block.html" style="padding-left: 70px;">
-                        Importing virtual machine images to block storage with data volumes
+                        Importing virtual machine images into block storage with data volumes
                       </a>
                     </li>
 
@@ -31143,6 +31133,13 @@
 <li><a href="#ossm-smextensions-deploy_ossm-extensions">Deploying <code>ServiceMeshExtension</code> resources</a></li>
 </ul>
 </li>
+<li><a href="#ossm-extensions-migration-overview_ossm-extensions">Migrating from <code>ServiceMeshExtension</code> to <code>WasmPlugin</code> resources</a>
+<ul class="sectlevel2">
+<li><a href="#ossm-extensions-migration-api-changes_ossm-extensions">API changes</a></li>
+<li><a href="#ossm-extensions-migration-format-changes_ossm-extensions">Container image format changes</a></li>
+<li><a href="#ossm-extensions-migrating-to-wasmplugin_ossm-extensions">Migrating to <code>WasmPlugin</code> resources</a></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="paragraph">
@@ -31563,7 +31560,7 @@
 <p>Always</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>We will always pull the latest version of an image when applying this plugin.</p>
+<p>Always pull the latest version of an image when applying this plug-in.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -31600,7 +31597,7 @@
 </tbody>
 </table>
 <div class="paragraph">
-<p><code>PluginPhase</code> specifies the phase in the filter chain where the plugin will be injected.</p>
+<p><code>PluginPhase</code> specifies the phase in the filter chain where the plug-in will be injected.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 6. PluginPhase</caption>
@@ -31620,7 +31617,7 @@
 <p>&lt;empty&gt;</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Control plane decides where to insert the plugin. This will generally be at the end of the filter chain, right before the Router. Do not specify PluginPhase if the plugin is independent of others.</p>
+<p>Control plane decides where to insert the plug-in. This will generally be at the end of the filter chain, right before the Router. Do not specify PluginPhase if the plug-in is independent of others.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -31628,7 +31625,7 @@
 <p>AUTHN</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Insert plugin before Istio authentication filters.</p>
+<p>Insert plug-in before Istio authentication filters.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -31636,7 +31633,7 @@
 <p>AUTHZ</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Insert plugin before Istio authorization filters and after Istio authentication filters.</p>
+<p>Insert plug-in before Istio authorization filters and after Istio authentication filters.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -31644,7 +31641,7 @@
 <p>STATS</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Insert plugin before Istio stats filters and after Istio authorization filters.</p>
+<p>Insert plug-in before Istio stats filters and after Istio authorization filters.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -31971,6 +31968,190 @@
 <pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc apply <span class="nt">-f</span> &lt;extension&gt;.yaml</code></pre>
 </div>
 </div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="ossm-extensions-migration-overview_ossm-extensions"><a class="anchor" href="#ossm-extensions-migration-overview_ossm-extensions"></a>Migrating from <code>ServiceMeshExtension</code> to <code>WasmPlugin</code> resources</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>ServiceMeshExtension</code> API is deprecated as of Red Hat OpenShift Service Mesh version 2.2 and will be removed in a future release. If you are using the <code>ServiceMeshExtention</code> API, you must migrate to the <code>WasmPlugin</code> API to continue using your WebAssembly extensions.</p>
+</div>
+<div class="paragraph">
+<p>The APIs are very similar. The migration consists of two steps:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Renaming your plug-in file and updating the module packaging.</p>
+</li>
+<li>
+<p>Creating a <code>WasmPlugin</code> resource that references the updated container image.</p>
+</li>
+</ol>
+</div>
+<div class="sect2">
+<h3 id="ossm-extensions-migration-api-changes_ossm-extensions"><a class="anchor" href="#ossm-extensions-migration-api-changes_ossm-extensions"></a>API changes</h3>
+<div class="paragraph">
+<p>The new <code>WasmPlugin</code> API is similar to the <code>ServiceMeshExtension</code>, but with a few differences, especially in the field names:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 9. Field changes between <code>ServiceMeshExtensions</code> and <code>WasmPlugin</code></caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">ServiceMeshExtension</th>
+<th class="tableblock halign-left valign-top">WasmPlugin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>spec.config</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>spec.pluginConfig</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>spec.workloadSelector</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>spec.selector</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>spec.image</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>spec.url</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>spec.phase</code> valid values: PreAuthN, PostAuthN, PreAuthZ, PostAuthZ, PreStats, PostStats</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>spec.phase</code> valid values: &lt;empty&gt;, AUTHN, AUTHZ, STATS</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The following is an example of how a <code>ServiceMeshExtension</code> resource could be converted into a <code>WasmPlugin</code> resource.</p>
+</div>
+<div class="listingblock">
+<div class="title">ServiceMeshExtension resource</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">maistra.io/v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">ServiceMeshExtension</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">header-append</span>
+  <span class="na">namespace</span><span class="pi">:</span> <span class="s">istio-system</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">workloadSelector</span><span class="pi">:</span>
+    <span class="na">labels</span><span class="pi">:</span>
+      <span class="na">app</span><span class="pi">:</span> <span class="s">httpbin</span>
+  <span class="na">config</span><span class="pi">:</span>
+    <span class="na">first-header</span><span class="pi">:</span> <span class="s">some-value</span>
+    <span class="na">another-header</span><span class="pi">:</span> <span class="s">another-value</span>
+  <span class="na">image</span><span class="pi">:</span> <span class="s">quay.io/maistra-dev/header-append-filter:2.2</span>
+  <span class="na">phase</span><span class="pi">:</span> <span class="s">PostAuthZ</span>
+  <span class="na">priority</span><span class="pi">:</span> <span class="s">100</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">New WasmPlugin resource equivalent to the ServiceMeshExtension above</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">extensions.istio.io/v1alpha1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">WasmPlugin</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">header-append</span>
+  <span class="na">namespace</span><span class="pi">:</span> <span class="s">istio-system</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">selector</span><span class="pi">:</span>
+    <span class="na">matchLabels</span><span class="pi">:</span>
+      <span class="na">app</span><span class="pi">:</span> <span class="s">httpbin</span>
+  <span class="na">url</span><span class="pi">:</span> <span class="s">oci://quay.io/maistra-dev/header-append-filter:2.2</span>
+  <span class="na">phase</span><span class="pi">:</span> <span class="s">STATS</span>
+  <span class="na">pluginConfig</span><span class="pi">:</span>
+    <span class="na">first-header</span><span class="pi">:</span> <span class="s">some-value</span>
+    <span class="na">another-header</span><span class="pi">:</span> <span class="s">another-value</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ossm-extensions-migration-format-changes_ossm-extensions"><a class="anchor" href="#ossm-extensions-migration-format-changes_ossm-extensions"></a>Container image format changes</h3>
+<div class="paragraph">
+<p>The new <code>WasmPlugin</code> container image format is similar to the <code>ServiceMeshExtensions</code>, with the following differences:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>ServiceMeshExtension</code> container format required a metadata file named <code>manifest.yaml</code> in the root directory of the container filesystem. The <code>WasmPlugin</code> container format does not require a <code>manifest.yaml</code> file.</p>
+</li>
+<li>
+<p>The <code>.wasm</code> file (the actual plug-in) that previously could have any filename now must be named <code>plugin.wasm</code> and must be located in the root directory of the container filesystem.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ossm-extensions-migrating-to-wasmplugin_ossm-extensions"><a class="anchor" href="#ossm-extensions-migrating-to-wasmplugin_ossm-extensions"></a>Migrating to <code>WasmPlugin</code> resources</h3>
+<div class="paragraph">
+<p>To upgrade your WebAssembly extensions from the <code>ServiceMeshExtension</code> API to the <code>WasmPlugin</code> API, you rename your plug-in file.</p>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p><code>ServiceMeshControlPlane</code> is upgraded to version 2.2 or later.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Because both plug-ins will be called for every request, you might want to remove your existing <code>ServiceMeshExtension</code> resource before creating the new <code>WasmPlugin</code> resource. You might get undesired results having two plug-ins active at the same time.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Update your container image. If the plug-in is already in <code>/plugin.wasm</code> inside the container, skip to the next step.  If not:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Ensure the plug-in file is named <code>plugin.wasm</code>. You must name the extension file <code>plugin.wasm</code>.</p>
+</li>
+<li>
+<p>Ensure the plug-in file is located in the root (/) directory. You must store extension files in the root of the container filesystem..</p>
+</li>
+<li>
+<p>Rebuild your container image and push it to a container registry.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Remove the <code>ServiceMeshExtension</code> resource and create a <code>WasmPlugin</code> resource that refers to the new container image you built.</p>
 </li>
 </ol>
 </div>

@@ -28021,16 +28021,6 @@
 
 
                     <li>
-                      <a class="" href="../../virt/virtual_machines/advanced_vm_management/virt-managing-guest-memory.html" style="padding-left: 70px;">
-                        Managing guest memory
-                      </a>
-                    </li>
-
-
-                    <!-- list all topics within Welcome 3 here. Note that we are not coding this for more subtopics here -->
-
-
-                    <li>
                       <a class="" href="../../virt/virtual_machines/advanced_vm_management/virt-using-huge-pages-with-vms.html" style="padding-left: 70px;">
                         Using huge pages with virtual machines
                       </a>
@@ -28172,7 +28162,7 @@
 
                     <li>
                       <a class="" href="../../virt/virtual_machines/importing_vms/virt-importing-virtual-machine-images-datavolumes-block.html" style="padding-left: 70px;">
-                        Importing virtual machine images to block storage with data volumes
+                        Importing virtual machine images into block storage with data volumes
                       </a>
                     </li>
 
@@ -31145,9 +31135,10 @@
 <li><a href="#general-troubleshooting-poison-pill-operator_poison-pill-operator-remediate-nodes">General troubleshooting</a></li>
 <li><a href="#checking-daemon-set_poison-pill-operator-remediate-nodes">Checking the daemon set</a></li>
 <li><a href="#unsuccessful_remediationpoison-pill-operator-remediate-nodes">Unsuccessful remediation</a></li>
-<li><a href="#daemon-set-exists_poison-pill-operator-remediate-nodes">Daemon set exists even after uninstalling the Poison Pill Operator</a></li>
+<li><a href="#daemon-set-exists_poison-pill-operator-remediate-nodes">Daemon set and other Poison Pill Operator resources exist even after uninstalling the Poison Pill Operator</a></li>
 </ul>
 </li>
+<li><a href="#gather-data-poison-pill">Gathering data about the Poison Pill Operator</a></li>
 <li><a href="#additional-resources-poison-pill-operator-installation">Additional resources</a></li>
 </ul>
 </div>
@@ -31771,24 +31762,42 @@ poison-pill-config   10d</span></code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="daemon-set-exists_poison-pill-operator-remediate-nodes"><a class="anchor" href="#daemon-set-exists_poison-pill-operator-remediate-nodes"></a>Daemon set exists even after uninstalling the Poison Pill Operator</h3>
+<h3 id="daemon-set-exists_poison-pill-operator-remediate-nodes"><a class="anchor" href="#daemon-set-exists_poison-pill-operator-remediate-nodes"></a>Daemon set and other Poison Pill Operator resources exist even after uninstalling the Poison Pill Operator</h3>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Issue</dt>
 <dd>
-<p>The Poison Pill daemon set exists even after after uninstalling the Operator.</p>
+<p>The Poison Pill Operator resources, such as the daemon set, configuration CR, and the remediation template CR, exist even after after uninstalling the Operator.</p>
 </dd>
 <dt class="hdlist1">Resolution</dt>
 <dd>
-<p>To remove the Poison Pill daemon set, manually delete the <code>PoisonPillConfig</code> CR. Run the following command:</p>
+<p>To remove the Poison Pill Operator resources, delete the resources by running the following commands for each resource type:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc delete ds &lt;poison-pill-daemonset&gt; <span class="nt">-n</span> &lt;namespace&gt;</code></pre>
+<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc delete ds &lt;poison-pill-ds&gt; <span class="nt">-n</span> &lt;namespace&gt;</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc delete ppc &lt;poison-pill-config&gt; <span class="nt">-n</span> &lt;namespace&gt;</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc delete pprt &lt;poison-pill-remediation-template&gt; <span class="nt">-n</span> &lt;namespace&gt;</code></pre>
 </div>
 </div>
 </dd>
 </dl>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="gather-data-poison-pill"><a class="anchor" href="#gather-data-poison-pill"></a>Gathering data about the Poison Pill Operator</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To collect debugging information about the Poison Pill Operator, use the <code>must-gather</code> tool. For information about the <code>must-gather</code> image for the Poison Pill Operator, see <a href="../../support/gathering-cluster-data.html#gathering-data-specific-features_gathering-cluster-data">Gathering data about specific features</a>.</p>
 </div>
 </div>
 </div>
@@ -31799,6 +31808,9 @@ poison-pill-config   10d</span></code></pre>
 <ul>
 <li>
 <p>The Poison Pill Operator is supported in a restricted network environment. For more information, see <a href="../../operators/admin/olm-restricted-networks.html#olm-restricted-networks">Using Operator Lifecycle Manager on restricted networks</a>.</p>
+</li>
+<li>
+<p><a href="../../operators/admin/olm-deleting-operators-from-cluster.html#olm-deleting-operators-from-a-cluster">Deleting Operators from a cluster</a></p>
 </li>
 </ul>
 </div>

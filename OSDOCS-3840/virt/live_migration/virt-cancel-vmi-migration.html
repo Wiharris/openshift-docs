@@ -28021,16 +28021,6 @@
 
 
                     <li>
-                      <a class="" href="../../virt/virtual_machines/advanced_vm_management/virt-managing-guest-memory.html" style="padding-left: 70px;">
-                        Managing guest memory
-                      </a>
-                    </li>
-
-
-                    <!-- list all topics within Welcome 3 here. Note that we are not coding this for more subtopics here -->
-
-
-                    <li>
                       <a class="" href="../../virt/virtual_machines/advanced_vm_management/virt-using-huge-pages-with-vms.html" style="padding-left: 70px;">
                         Using huge pages with virtual machines
                       </a>
@@ -28172,7 +28162,7 @@
 
                     <li>
                       <a class="" href="../../virt/virtual_machines/importing_vms/virt-importing-virtual-machine-images-datavolumes-block.html" style="padding-left: 70px;">
-                        Importing virtual machine images to block storage with data volumes
+                        Importing virtual machine images into block storage with data volumes
                       </a>
                     </li>
 
@@ -31147,34 +31137,24 @@ on the original node.</p>
 <h2 id="virt-cancelling-vm-migration-web_virt-cancel-vmi-migration"><a class="anchor" href="#virt-cancelling-vm-migration-web_virt-cancel-vmi-migration"></a>Cancelling live migration of a virtual machine instance in the web console</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can cancel a live migration of the virtual machine instance using the
-Options menu <span class="image"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAjCAIAAADqn+bCAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAA+0lEQVRIie2WMQqEMBBFJ47gUXRBLyBYqbUXULCx9CR2XsAb6AlUEM9kpckW7obdZhwWYWHXX/3i8TPJZEKEUgpOlXFu3JX4V4kmB2qaZhgGKSUiZlkWxzEBC84N9zxv27bdO47Tti0Bs3at4wBgXVca/lJnfN/XPggCGmadIwAsywIAiGhZFk1ydy2EYJKgGCqK4vZUVVU0zKpxnmftp2mi4S/1GhG1N82DMWNNYVmW4zgqpRAxTVMa5t4evlg11nXd9/1eY57nSZIQMKtG13WllLu3bbvrOgJmdUbHwfur8Xniqw6Hh5UYRdGDNowwDA+WvP4UV+JPJ94B1gKUWcTOCT0AAAAASUVORK5CYII=" alt="kebab" title="Options menu"></span> found on each virtual machine in the
-<strong>Virtualization</strong> &#8594; <strong>Virtual Machines</strong> tab, or from the <strong>Actions</strong> menu
-available on all tabs in the <strong>Virtual Machine Overview</strong> screen.</p>
+<p>You can cancel a live migration of the virtual machine instance using the Options menu <span class="image"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAjCAIAAADqn+bCAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAA+0lEQVRIie2WMQqEMBBFJ47gUXRBLyBYqbUXULCx9CR2XsAb6AlUEM9kpckW7obdZhwWYWHXX/3i8TPJZEKEUgpOlXFu3JX4V4kmB2qaZhgGKSUiZlkWxzEBC84N9zxv27bdO47Tti0Bs3at4wBgXVca/lJnfN/XPggCGmadIwAsywIAiGhZFk1ydy2EYJKgGCqK4vZUVVU0zKpxnmftp2mi4S/1GhG1N82DMWNNYVmW4zgqpRAxTVMa5t4evlg11nXd9/1eY57nSZIQMKtG13WllLu3bbvrOgJmdUbHwfur8Xniqw6Hh5UYRdGDNowwDA+WvP4UV+JPJ94B1gKUWcTOCT0AAAAASUVORK5CYII=" alt="kebab" title="Options menu"></span> found on each virtual machine on the <strong>VirtualMachines</strong> page or from the <strong>Actions</strong> menu on the <strong>VirtualMachine details</strong> page.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Procedure</div>
 <ol class="arabic">
 <li>
-<p>In the OpenShift Virtualization console, click <strong>Workloads</strong> &#8594; <strong>Virtualization</strong> from the side menu.</p>
+<p>In the OpenShift Container Platform console, click <strong>Virtualization</strong> &#8594; <strong>VirtualMachines</strong> from the side menu.</p>
 </li>
 <li>
-<p>Click the <strong>Virtual Machines</strong> tab.</p>
-</li>
-<li>
-<p>You can cancel the migration from this screen, which makes it easier to
-perform actions on multiple virtual machines, or from the
-<strong>Virtual Machine Overview</strong> screen where you can view comprehensive details
-of the selected virtual machine:</p>
+<p>You can cancel the migration from this screen, which makes it easier to perform actions on multiple virtual machines, or from the
+<strong>VirtualMachine details</strong> page where you can view comprehensive details of the selected virtual machine:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Click the Options menu <span class="image"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAjCAIAAADqn+bCAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAA+0lEQVRIie2WMQqEMBBFJ47gUXRBLyBYqbUXULCx9CR2XsAb6AlUEM9kpckW7obdZhwWYWHXX/3i8TPJZEKEUgpOlXFu3JX4V4kmB2qaZhgGKSUiZlkWxzEBC84N9zxv27bdO47Tti0Bs3at4wBgXVca/lJnfN/XPggCGmadIwAsywIAiGhZFk1ydy2EYJKgGCqK4vZUVVU0zKpxnmftp2mi4S/1GhG1N82DMWNNYVmW4zgqpRAxTVMa5t4evlg11nXd9/1eY57nSZIQMKtG13WllLu3bbvrOgJmdUbHwfur8Xniqw6Hh5UYRdGDNowwDA+WvP4UV+JPJ94B1gKUWcTOCT0AAAAASUVORK5CYII=" alt="kebab" title="Options menu"></span> at the end of virtual machine and select
-<strong>Cancel Virtual Machine Migration</strong>.</p>
+<p>Click the Options menu <span class="image"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAjCAIAAADqn+bCAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAA+0lEQVRIie2WMQqEMBBFJ47gUXRBLyBYqbUXULCx9CR2XsAb6AlUEM9kpckW7obdZhwWYWHXX/3i8TPJZEKEUgpOlXFu3JX4V4kmB2qaZhgGKSUiZlkWxzEBC84N9zxv27bdO47Tti0Bs3at4wBgXVca/lJnfN/XPggCGmadIwAsywIAiGhZFk1ydy2EYJKgGCqK4vZUVVU0zKpxnmftp2mi4S/1GhG1N82DMWNNYVmW4zgqpRAxTVMa5t4evlg11nXd9/1eY57nSZIQMKtG13WllLu3bbvrOgJmdUbHwfur8Xniqw6Hh5UYRdGDNowwDA+WvP4UV+JPJ94B1gKUWcTOCT0AAAAASUVORK5CYII=" alt="kebab" title="Options menu"></span> at the end of virtual machine and select <strong>Cancel Virtual Machine Migration</strong>.</p>
 </li>
 <li>
-<p>Select a virtual machine name to open the <strong>Virtual Machine Overview</strong>
-screen and click <strong>Actions</strong> &#8594; <strong>Cancel Virtual Machine Migration</strong>.</p>
+<p>Select a virtual machine name to open the <strong>VirtualMachine details</strong> page and click <strong>Actions</strong> &#8594; <strong>Cancel Virtual Machine Migration</strong>.</p>
 </li>
 </ul>
 </div>

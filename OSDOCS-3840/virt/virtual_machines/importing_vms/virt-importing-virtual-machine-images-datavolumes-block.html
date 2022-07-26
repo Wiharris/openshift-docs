@@ -12,7 +12,7 @@
   <meta content="IE=edge" http-equiv="X-UA-Compatible">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   
-  <title>Importing virtual machine images to block storage with data volumes | Virtualization | OpenShift Container Platform Branch Build</title>
+  <title>Importing virtual machine images into block storage with data volumes | Virtualization | OpenShift Container Platform Branch Build</title>
   <link href="https://assets.openshift.net/content/subdomain.css" rel="stylesheet" type="text/css">
   <link href="https://docs.openshift.com/container-platform/4.1/_stylesheets/search.css" rel="stylesheet" />
   <link href="https://docs.openshift.com/container-platform/4.1/_stylesheets/autumn.css" rel="stylesheet" />
@@ -213,7 +213,7 @@
       </li>
       
       <li class="hidden-xs active">
-        Importing virtual machine images to block storage with data volumes
+        Importing virtual machine images into block storage with data volumes
       </li>
       
       <span text-align="right" style="float: right !important">
@@ -28021,16 +28021,6 @@
 
 
                     <li>
-                      <a class="" href="../../../virt/virtual_machines/advanced_vm_management/virt-managing-guest-memory.html" style="padding-left: 70px;">
-                        Managing guest memory
-                      </a>
-                    </li>
-
-
-                    <!-- list all topics within Welcome 3 here. Note that we are not coding this for more subtopics here -->
-
-
-                    <li>
                       <a class="" href="../../../virt/virtual_machines/advanced_vm_management/virt-using-huge-pages-with-vms.html" style="padding-left: 70px;">
                         Using huge pages with virtual machines
                       </a>
@@ -28172,7 +28162,7 @@
 
                     <li>
                       <a class=" active" href="../../../virt/virtual_machines/importing_vms/virt-importing-virtual-machine-images-datavolumes-block.html" style="padding-left: 70px;">
-                        Importing virtual machine images to block storage with data volumes
+                        Importing virtual machine images into block storage with data volumes
                       </a>
                     </li>
 
@@ -31120,7 +31110,7 @@
       <div class="col-xs-12 col-sm-9 col-md-9 main">
         <div class="page-header">
           <h1>
-            Importing virtual machine images to block storage with data volumes
+            Importing virtual machine images into block storage with data volumes
           </h1>
         </div>
         
@@ -31134,7 +31124,7 @@
 <li><a href="#virt-about-datavolumes_virt-importing-virtual-machine-images-datavolumes-block">About data volumes</a></li>
 <li><a href="#virt-about-block-pvs_virt-importing-virtual-machine-images-datavolumes-block">About block persistent volumes</a></li>
 <li><a href="#virt-creating-local-block-pv_virt-importing-virtual-machine-images-datavolumes-block">Creating a local block persistent volume</a></li>
-<li><a href="#virt-importing-vm-to-block-pv_virt-importing-virtual-machine-images-datavolumes-block">Importing a virtual machine image to a block persistent volume using data volumes</a></li>
+<li><a href="#virt-importing-vm-to-block-pv_virt-importing-virtual-machine-images-datavolumes-block">Importing a virtual machine image into block storage by using a data volume</a></li>
 <li><a href="#virt-cdi-supported-operations-matrix_virt-importing-virtual-machine-images-datavolumes-block">CDI supported operations matrix</a></li>
 <li><a href="#virt-importing-virtual-machine-images-datavolumes-block_additional-resources">Additional resources</a></li>
 </ul>
@@ -31324,22 +31314,19 @@ The following example creates a file <code>loop10</code> with a size of 2Gb (20 
 </div>
 </div>
 <div class="sect1">
-<h2 id="virt-importing-vm-to-block-pv_virt-importing-virtual-machine-images-datavolumes-block"><a class="anchor" href="#virt-importing-vm-to-block-pv_virt-importing-virtual-machine-images-datavolumes-block"></a>Importing a virtual machine image to a block persistent volume using data volumes</h2>
+<h2 id="virt-importing-vm-to-block-pv_virt-importing-virtual-machine-images-datavolumes-block"><a class="anchor" href="#virt-importing-vm-to-block-pv_virt-importing-virtual-machine-images-datavolumes-block"></a>Importing a virtual machine image into block storage by using a data volume</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can import an existing virtual machine image into your OpenShift Container Platform cluster. OpenShift Virtualization uses data volumes to automate the importing data and the creation of an underlying persistent volume claim (PVC). You can then reference the data volume in a virtual machine manifest.</p>
+<p>You can import a virtual machine image into block storage by using a data volume. You reference the data volume in a <code>VirtualMachine</code> manifest before you create a virtual machine.</p>
 </div>
 <div class="ulist">
 <div class="title">Prerequisites</div>
 <ul>
 <li>
-<p>A virtual machine disk image, in RAW, ISO, or QCOW2 format, optionally compressed by using <code>xz</code> or <code>gz</code>.</p>
+<p>A virtual machine disk image in RAW, ISO, or QCOW2 format, optionally compressed by using <code>xz</code> or <code>gz</code>.</p>
 </li>
 <li>
-<p>An <code>HTTP</code> or <code>s3</code> endpoint where the image is hosted, along with any authentication credentials needed to access the data source</p>
-</li>
-<li>
-<p>At least one available block PV.</p>
+<p>An HTTP or HTTPS endpoint where the image is hosted, along with any authentication credentials needed to access the data source.</p>
 </li>
 </ul>
 </div>
@@ -31347,77 +31334,72 @@ The following example creates a file <code>loop10</code> with a size of 2Gb (20 
 <div class="title">Procedure</div>
 <ol class="arabic">
 <li>
-<p>If your data source requires authentication credentials, edit the <code>endpoint-secret.yaml</code> file, and apply the updated configuration to the cluster.</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Edit the <code>endpoint-secret.yaml</code> file with your preferred text editor:</p>
+<p>If your data source requires authentication, create a <code>Secret</code> manifest, specifying the data source credentials, and save it as <code>endpoint-secret.yaml</code>:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
 <span class="na">kind</span><span class="pi">:</span> <span class="s">Secret</span>
 <span class="na">metadata</span><span class="pi">:</span>
-  <span class="na">name</span><span class="pi">:</span> <span class="s">&lt;endpoint-secret&gt;</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">endpoint-secret</span> <i class="conum" data-value="1"></i><b>(1)</b>
   <span class="na">labels</span><span class="pi">:</span>
     <span class="na">app</span><span class="pi">:</span> <span class="s">containerized-data-importer</span>
 <span class="na">type</span><span class="pi">:</span> <span class="s">Opaque</span>
 <span class="na">data</span><span class="pi">:</span>
-  <span class="na">accessKeyId</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> <i class="conum" data-value="1"></i><b>(1)</b>
-  <span class="na">secretKey</span><span class="pi">:</span>   <span class="s2">"</span><span class="s">"</span> <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
+  <span class="na">accessKeyId</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> <i class="conum" data-value="2"></i><b>(2)</b>
+  <span class="na">secretKey</span><span class="pi">:</span>   <span class="s2">"</span><span class="s">"</span> <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Optional: your key or user name, base64 encoded</td>
+<td>Specify the name of the <code>Secret</code>.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Optional: your secret or password, base64 encoded</td>
+<td>Specify the Base64-encoded key ID or user name.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Specify the Base64-encoded secret key or password.</td>
 </tr>
 </table>
 </div>
 </li>
 <li>
-<p>Update the secret by running the following command:</p>
+<p>Apply the <code>Secret</code> manifest:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc apply <span class="nt">-f</span> endpoint-secret.yaml</code></pre>
 </div>
 </div>
 </li>
-</ol>
-</div>
-</li>
 <li>
-<p>Create a <code>DataVolume</code> manifest that specifies the data source for the image you want to import and <code>volumeMode: Block</code> so that an available block PV is used.</p>
+<p>Create a <code>DataVolume</code> manifest, specifying the data source for the virtual machine image and <code>Block</code> for <code>storage.volumeMode</code>.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight nowrap"><code data-lang="yaml"><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">cdi.kubevirt.io/v1beta1</span>
 <span class="na">kind</span><span class="pi">:</span> <span class="s">DataVolume</span>
 <span class="na">metadata</span><span class="pi">:</span>
-  <span class="na">name</span><span class="pi">:</span> <span class="s">&lt;import-pv-datavolume&gt;</span> <i class="conum" data-value="1"></i><b>(1)</b>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">import-pv-datavolume</span> <i class="conum" data-value="1"></i><b>(1)</b>
 <span class="na">spec</span><span class="pi">:</span>
   <span class="na">storageClassName</span><span class="pi">:</span> <span class="s">local</span> <i class="conum" data-value="2"></i><b>(2)</b>
-  <span class="na">source</span><span class="pi">:</span>
+    <span class="s">source</span><span class="pi">:</span>
       <span class="na">http</span><span class="pi">:</span>
-         <span class="na">url</span><span class="pi">:</span> <span class="s">&lt;http://download.fedoraproject.org/pub/fedora/linux/releases/28/Cloud/x86_64/images/Fedora-Cloud-Base-28-1.1.x86_64.qcow2&gt;</span> <i class="conum" data-value="3"></i><b>(3)</b>
-         <span class="na">secretRef</span><span class="pi">:</span> <span class="s">&lt;endpoint-secret&gt;</span> <i class="conum" data-value="4"></i><b>(4)</b>
-  <span class="na">pvc</span><span class="pi">:</span>
+        <span class="na">url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">https://mirror.arizona.edu/fedora/linux/releases/35/Cloud/x86_64/images/Fedora-Cloud-Base-35-1.2.x86_64.qcow2"</span> <i class="conum" data-value="3"></i><b>(3)</b>
+        <span class="na">secretRef</span><span class="pi">:</span> <span class="s">endpoint-secret</span> <i class="conum" data-value="4"></i><b>(4)</b>
+  <span class="na">storage</span><span class="pi">:</span>
     <span class="na">volumeMode</span><span class="pi">:</span> <span class="s">Block</span> <i class="conum" data-value="5"></i><b>(5)</b>
-    <span class="na">accessModes</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">ReadWriteOnce</span>
     <span class="na">resources</span><span class="pi">:</span>
       <span class="na">requests</span><span class="pi">:</span>
-        <span class="na">storage</span><span class="pi">:</span> <span class="s">&lt;2Gi&gt;</span></code></pre>
+        <span class="na">storage</span><span class="pi">:</span> <span class="s">10Gi</span></code></pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>The name of the data volume.</td>
+<td>Specify the name of the data volume.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
@@ -31425,36 +31407,31 @@ The following example creates a file <code>loop10</code> with a size of 2Gb (20 
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>The <code>HTTP</code> source of the image to import.</td>
+<td>Specify the HTTP or HTTPS URL of the image to import.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>Only required if the data source requires authentication.</td>
+<td>Required if you created a <code>Secret</code> for the data source.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="5"></i><b>5</b></td>
-<td>Required for importing to a block PV.</td>
+<td>The volume mode and access mode are detected automatically for known storage provisioners. Otherwise, specify <code>Block</code>.</td>
 </tr>
 </table>
 </div>
 </li>
 <li>
-<p>Create the data volume to import the virtual machine image by running the following command:</p>
+<p>Create the data volume to import the virtual machine image:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc create <span class="nt">-f</span> &lt;import-pv-datavolume.yaml&gt;<i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc create <span class="nt">-f</span> import-pv-datavolume.yaml</code></pre>
 </div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>The file name of the data volume that you created in the previous step.</td>
-</tr>
-</table>
 </div>
 </li>
 </ol>
+</div>
+<div class="paragraph">
+<p>You can reference this data volume in a <code>VirtualMachine</code> manifest before you create a virtual machine.</p>
 </div>
 </div>
 </div>

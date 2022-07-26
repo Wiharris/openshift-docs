@@ -28021,16 +28021,6 @@
 
 
                     <li>
-                      <a class="" href="../../../virt/virtual_machines/advanced_vm_management/virt-managing-guest-memory.html" style="padding-left: 70px;">
-                        Managing guest memory
-                      </a>
-                    </li>
-
-
-                    <!-- list all topics within Welcome 3 here. Note that we are not coding this for more subtopics here -->
-
-
-                    <li>
                       <a class="" href="../../../virt/virtual_machines/advanced_vm_management/virt-using-huge-pages-with-vms.html" style="padding-left: 70px;">
                         Using huge pages with virtual machines
                       </a>
@@ -28172,7 +28162,7 @@
 
                     <li>
                       <a class="" href="../../../virt/virtual_machines/importing_vms/virt-importing-virtual-machine-images-datavolumes-block.html" style="padding-left: 70px;">
-                        Importing virtual machine images to block storage with data volumes
+                        Importing virtual machine images into block storage with data volumes
                       </a>
                     </li>
 
@@ -31466,32 +31456,37 @@ section.</p>
 <div class="paragraph">
 <p>Create and attach additional NICs to a virtual machine from the web console.</p>
 </div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>A network attachment definition must be available.</p>
+</li>
+</ul>
+</div>
 <div class="olist arabic">
 <div class="title">Procedure</div>
 <ol class="arabic">
 <li>
-<p>In the correct project in the OpenShift Virtualization console, click <strong>Workloads</strong> &#8594; <strong>Virtualization</strong> from the side menu.</p>
+<p>In the correct project in the OpenShift Container Platform console, click <strong>Virtualization</strong> &#8594; <strong>VirtualMachines</strong> from the side menu.</p>
 </li>
 <li>
-<p>Click the <strong>Virtual Machines</strong> tab.</p>
+<p>Select a virtual machine to open the <strong>VirtualMachine details</strong> page.</p>
 </li>
 <li>
-<p>Select a virtual machine to open the <strong>Virtual Machine Overview</strong> screen.</p>
-</li>
-<li>
-<p>Click <strong>Network Interfaces</strong> to display the NICs already attached to the virtual machine.</p>
+<p>Click the <strong>Network Interfaces</strong> tab to view the NICs already attached to the virtual machine.</p>
 </li>
 <li>
 <p>Click <strong>Add Network Interface</strong> to create a new slot in the list.</p>
 </li>
 <li>
-<p>Use the <strong>Network</strong> drop-down list to select the network attachment definition for the additional network.</p>
+<p>Select a network attachment definition from the <strong>Network</strong> list for the additional network.</p>
 </li>
 <li>
 <p>Fill in the <strong>Name</strong>, <strong>Model</strong>, <strong>Type</strong>, and <strong>MAC Address</strong> for the new NIC.</p>
 </li>
 <li>
-<p>Click <strong>Add</strong> to save and attach the NIC to the virtual machine.</p>
+<p>Click <strong>Save</strong> to save and attach the NIC to the virtual machine.</p>
 </li>
 </ol>
 </div>

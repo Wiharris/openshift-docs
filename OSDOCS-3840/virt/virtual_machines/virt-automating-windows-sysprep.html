@@ -28021,16 +28021,6 @@
 
 
                     <li>
-                      <a class="" href="../../virt/virtual_machines/advanced_vm_management/virt-managing-guest-memory.html" style="padding-left: 70px;">
-                        Managing guest memory
-                      </a>
-                    </li>
-
-
-                    <!-- list all topics within Welcome 3 here. Note that we are not coding this for more subtopics here -->
-
-
-                    <li>
                       <a class="" href="../../virt/virtual_machines/advanced_vm_management/virt-using-huge-pages-with-vms.html" style="padding-left: 70px;">
                         Using huge pages with virtual machines
                       </a>
@@ -28172,7 +28162,7 @@
 
                     <li>
                       <a class="" href="../../virt/virtual_machines/importing_vms/virt-importing-virtual-machine-images-datavolumes-block.html" style="padding-left: 70px;">
-                        Importing virtual machine images to block storage with data volumes
+                        Importing virtual machine images into block storage with data volumes
                       </a>
                     </li>
 
@@ -31205,7 +31195,7 @@
 <h2 id="virt-generalizing-windows-sysprep_virt-automating-windows-sysprep"><a class="anchor" href="#virt-generalizing-windows-sysprep_virt-automating-windows-sysprep"></a>Generalizing a Windows VM using sysprep</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Generalizing an image allows that image to remove all system-specific configuration data when the image is deployed on a virtual machine.</p>
+<p>Generalizing an image allows that image to remove all system-specific configuration data when the image is deployed on a virtual machine (VM).</p>
 </div>
 <div class="paragraph">
 <p>Before generalizing the VM, you must ensure the <code>sysprep</code> tool cannot detect an answer file after the unattended Windows installation.</p>
@@ -31214,23 +31204,19 @@
 <div class="title">Procedure</div>
 <ol class="arabic">
 <li>
-<p>Remove the <code>sysprep</code> disk.</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>In the web console, select <strong>Virtualization</strong> &#8594; <strong>Virtual Machines</strong>, and select the relevant VM.</p>
+<p>In the web console, click <strong>Virtualization</strong> &#8594; <strong>VirtualMachines</strong>.</p>
 </li>
 <li>
-<p>Click <strong>Disks</strong>.</p>
+<p>Select a Windows VM to open the <strong>VirtualMachine details</strong> page.</p>
 </li>
 <li>
-<p>Click the Options menu <span class="image"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAjCAIAAADqn+bCAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAA+0lEQVRIie2WMQqEMBBFJ47gUXRBLyBYqbUXULCx9CR2XsAb6AlUEM9kpckW7obdZhwWYWHXX/3i8TPJZEKEUgpOlXFu3JX4V4kmB2qaZhgGKSUiZlkWxzEBC84N9zxv27bdO47Tti0Bs3at4wBgXVca/lJnfN/XPggCGmadIwAsywIAiGhZFk1ydy2EYJKgGCqK4vZUVVU0zKpxnmftp2mi4S/1GhG1N82DMWNNYVmW4zgqpRAxTVMa5t4evlg11nXd9/1eY57nSZIQMKtG13WllLu3bbvrOgJmdUbHwfur8Xniqw6Hh5UYRdGDNowwDA+WvP4UV+JPJ94B1gKUWcTOCT0AAAAASUVORK5CYII=" alt="kebab" title="Options menu"></span> for the <code>sysprep</code> disk, then click <strong>Delete</strong>.</p>
+<p>Click the <strong>Disks</strong> tab.</p>
 </li>
 <li>
-<p>Click <strong>Detach</strong> in the <strong>Detach sysprep disk</strong> dialog.</p>
+<p>Click the Options menu <span class="image"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAjCAIAAADqn+bCAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAA+0lEQVRIie2WMQqEMBBFJ47gUXRBLyBYqbUXULCx9CR2XsAb6AlUEM9kpckW7obdZhwWYWHXX/3i8TPJZEKEUgpOlXFu3JX4V4kmB2qaZhgGKSUiZlkWxzEBC84N9zxv27bdO47Tti0Bs3at4wBgXVca/lJnfN/XPggCGmadIwAsywIAiGhZFk1ydy2EYJKgGCqK4vZUVVU0zKpxnmftp2mi4S/1GhG1N82DMWNNYVmW4zgqpRAxTVMa5t4evlg11nXd9/1eY57nSZIQMKtG13WllLu3bbvrOgJmdUbHwfur8Xniqw6Hh5UYRdGDNowwDA+WvP4UV+JPJ94B1gKUWcTOCT0AAAAASUVORK5CYII=" alt="kebab" title="Options menu"></span> for the <code>sysprep</code> disk and select <strong>Detach</strong>.</p>
 </li>
-</ol>
-</div>
+<li>
+<p>Click <strong>Detach</strong>.</p>
 </li>
 <li>
 <p>Rename <code>C:\Windows\Panther\unattend.xml</code> to avoid detection by the <code>sysprep</code> tool.</p>

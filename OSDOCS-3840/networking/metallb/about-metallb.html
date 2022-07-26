@@ -28021,16 +28021,6 @@
 
 
                     <li>
-                      <a class="" href="../../virt/virtual_machines/advanced_vm_management/virt-managing-guest-memory.html" style="padding-left: 70px;">
-                        Managing guest memory
-                      </a>
-                    </li>
-
-
-                    <!-- list all topics within Welcome 3 here. Note that we are not coding this for more subtopics here -->
-
-
-                    <li>
                       <a class="" href="../../virt/virtual_machines/advanced_vm_management/virt-using-huge-pages-with-vms.html" style="padding-left: 70px;">
                         Using huge pages with virtual machines
                       </a>
@@ -28172,7 +28162,7 @@
 
                     <li>
                       <a class="" href="../../virt/virtual_machines/importing_vms/virt-importing-virtual-machine-images-datavolumes-block.html" style="padding-left: 70px;">
-                        Importing virtual machine images to block storage with data volumes
+                        Importing virtual machine images into block storage with data volumes
                       </a>
                     </li>
 
@@ -31304,6 +31294,20 @@ The service proxy chooses an endpoint each time a connection is established.</p>
 <div class="paragraph">
 <p>In layer 2 mode, the <code>speaker</code> pod on one node announces the external IP address for a service to the host network.
 From a network perspective, the node appears to have multiple IP addresses assigned to a network interface.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Since layer 2 mode relies on ARP and NDP, the client must be on the same subnet of the nodes announcing the service in order for MetalLB to work. Additionally, the IP address assigned to the service must be on the same subnet of the network used by the client to reach the service.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>The <code>speaker</code> pod responds to ARP requests for IPv4 services and NDP requests for IPv6.</p>

@@ -28021,16 +28021,6 @@
 
 
                     <li>
-                      <a class="" href="../../virt/virtual_machines/advanced_vm_management/virt-managing-guest-memory.html" style="padding-left: 70px;">
-                        Managing guest memory
-                      </a>
-                    </li>
-
-
-                    <!-- list all topics within Welcome 3 here. Note that we are not coding this for more subtopics here -->
-
-
-                    <li>
                       <a class="" href="../../virt/virtual_machines/advanced_vm_management/virt-using-huge-pages-with-vms.html" style="padding-left: 70px;">
                         Using huge pages with virtual machines
                       </a>
@@ -28172,7 +28162,7 @@
 
                     <li>
                       <a class="" href="../../virt/virtual_machines/importing_vms/virt-importing-virtual-machine-images-datavolumes-block.html" style="padding-left: 70px;">
-                        Importing virtual machine images to block storage with data volumes
+                        Importing virtual machine images into block storage with data volumes
                       </a>
                     </li>
 
@@ -31168,25 +31158,22 @@ the OpenShift Container Platform web console and by using CLI commands.</p>
 <h3 id="virt-vm-serial-console-web_virt-accessing-vm-consoles"><a class="anchor" href="#virt-vm-serial-console-web_virt-accessing-vm-consoles"></a>Connecting to the serial console</h3>
 <div class="paragraph">
 <p>Connect to the serial console of a running virtual machine from the <strong>Console</strong>
-tab in the <strong>Virtual Machine Overview</strong> screen of the web console.</p>
+tab on the <strong>VirtualMachine details</strong> page of the web console.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Procedure</div>
 <ol class="arabic">
 <li>
-<p>In the OpenShift Virtualization console, click <strong>Workloads</strong> &#8594; <strong>Virtualization</strong> from the side menu.</p>
+<p>In the OpenShift Container Platform console, click <strong>Virtualization</strong> &#8594; <strong>VirtualMachines</strong> from the side menu.</p>
 </li>
 <li>
-<p>Click the <strong>Virtual Machines</strong> tab.</p>
+<p>Select a virtual machine to open the <strong>VirtualMachine details</strong> page.</p>
 </li>
 <li>
-<p>Select a virtual machine to open the <strong>Virtual Machine Overview</strong> page.</p>
+<p>Click the <strong>Console</strong> tab. The VNC console opens by default.</p>
 </li>
 <li>
-<p>Click <strong>Console</strong>. The VNC console opens by default.</p>
-</li>
-<li>
-<p>Select <strong>Disconnect before switching</strong> to ensure that only one console session is open at a time. Otherwise, the VNC console session remains active in the background.</p>
+<p>Click <strong>Disconnect</strong> to ensure that only one console session is open at a time. Otherwise, the VNC console session remains active in the background.</p>
 </li>
 <li>
 <p>Click the <strong>VNC Console</strong> drop-down list and select <strong>Serial Console</strong>.</p>
@@ -31204,19 +31191,16 @@ tab in the <strong>Virtual Machine Overview</strong> screen of the web console.<
 <h3 id="virt-connecting-vnc-console_virt-accessing-vm-consoles"><a class="anchor" href="#virt-connecting-vnc-console_virt-accessing-vm-consoles"></a>Connecting to the VNC console</h3>
 <div class="paragraph">
 <p>Connect to the VNC console of a running virtual machine from the <strong>Console</strong> tab
-in the <strong>Virtual Machine Overview</strong> screen of the web console.</p>
+on the <strong>VirtualMachine details</strong> page of the web console.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Procedure</div>
 <ol class="arabic">
 <li>
-<p>In the OpenShift Virtualization console, click <strong>Workloads</strong> &#8594; <strong>Virtualization</strong> from the side menu.</p>
+<p>In the OpenShift Container Platform console, click <strong>Virtualization</strong> &#8594; <strong>VirtualMachines</strong> from the side menu.</p>
 </li>
 <li>
-<p>Click the <strong>Virtual Machines</strong> tab.</p>
-</li>
-<li>
-<p>Select a virtual machine to open the <strong>Virtual Machine Overview</strong> page.</p>
+<p>Select a virtual machine to open the <strong>VirtualMachine details</strong> page.</p>
 </li>
 <li>
 <p>Click the <strong>Console</strong> tab. The VNC console opens by default.</p>
@@ -31237,24 +31221,19 @@ in the <strong>Virtual Machine Overview</strong> screen of the web console.</p>
 provides a better console experience for connecting to Windows virtual machines.</p>
 </div>
 <div class="paragraph">
-<p>To connect to a Windows virtual machine with RDP, download the <code>console.rdp</code>
-file for the virtual machine from the <strong>Consoles</strong> tab in the
-<strong>Virtual Machine Details</strong> screen of the web console and supply it to your
-preferred RDP client.</p>
+<p>To connect to a Windows virtual machine with RDP, download the <code>console.rdp</code> file for the virtual machine from the <strong>Consoles</strong> tab on the <strong>VirtualMachine Details</strong> page of the web console and supply it to your preferred RDP client.</p>
 </div>
 <div class="ulist">
 <div class="title">Prerequisites</div>
 <ul>
 <li>
-<p>A running Windows virtual machine with the QEMU guest agent installed. The
-<code>qemu-guest-agent</code> is included in the VirtIO drivers.</p>
+<p>A running Windows virtual machine with the QEMU guest agent installed. The <code>qemu-guest-agent</code> is included in the VirtIO drivers.</p>
 </li>
 <li>
 <p>A layer-2 NIC attached to the virtual machine.</p>
 </li>
 <li>
-<p>An RDP client installed on a machine on the same network as the
-Windows virtual machine.</p>
+<p>An RDP client installed on a machine on the same network as the Windows virtual machine.</p>
 </li>
 </ul>
 </div>
@@ -31262,13 +31241,10 @@ Windows virtual machine.</p>
 <div class="title">Procedure</div>
 <ol class="arabic">
 <li>
-<p>In the OpenShift Virtualization console, click <strong>Workloads</strong> &#8594; <strong>Virtualization</strong> from the side menu.</p>
+<p>In the OpenShift Container Platform console, click <strong>Virtualization</strong> &#8594; <strong>VirtualMachines</strong> from the side menu.</p>
 </li>
 <li>
-<p>Click the <strong>Virtual Machines</strong> tab.</p>
-</li>
-<li>
-<p>Select a Windows virtual machine to open the <strong>Virtual Machine Overview</strong> screen.</p>
+<p>Click a Windows virtual machine to open the <strong>VirtualMachine details</strong> page.</p>
 </li>
 <li>
 <p>Click the <strong>Console</strong> tab.</p>

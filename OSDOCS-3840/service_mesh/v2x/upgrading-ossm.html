@@ -28021,16 +28021,6 @@
 
 
                     <li>
-                      <a class="" href="../../virt/virtual_machines/advanced_vm_management/virt-managing-guest-memory.html" style="padding-left: 70px;">
-                        Managing guest memory
-                      </a>
-                    </li>
-
-
-                    <!-- list all topics within Welcome 3 here. Note that we are not coding this for more subtopics here -->
-
-
-                    <li>
                       <a class="" href="../../virt/virtual_machines/advanced_vm_management/virt-using-huge-pages-with-vms.html" style="padding-left: 70px;">
                         Using huge pages with virtual machines
                       </a>
@@ -28172,7 +28162,7 @@
 
                     <li>
                       <a class="" href="../../virt/virtual_machines/importing_vms/virt-importing-virtual-machine-images-datavolumes-block.html" style="padding-left: 70px;">
-                        Importing virtual machine images to block storage with data volumes
+                        Importing virtual machine images into block storage with data volumes
                       </a>
                     </li>
 
@@ -31132,14 +31122,14 @@
 <ul class="sectlevel1">
 <li><a href="#ossm-versions_ossm-upgrade">Understanding Service Mesh versions</a></li>
 <li><a href="#ossm-upgrade-considerations_ossm-upgrade">Upgrade considerations</a></li>
-<li><a href="#ossm-upgrading-operator_ossm-upgrade">Upgrading the Operators</a></li>
-<li><a href="#ossm-upgrading-to-21_ossm-upgrade">Upgrading Red Hat OpenShift Service Mesh from version 2.0 to version 2.1</a>
+<li><a href="#ossm-upgrading-operator_ossm-upgrade">Upgrading the Operators</a>
 <ul class="sectlevel2">
-<li><a href="#ossm-upgrading-upgrade-2-1_ossm-upgrade">Upgrading to Red Hat OpenShift Service Mesh 2.1</a></li>
-<li><a href="#ossm-upgrading-differences-arch_ossm-upgrade">Changes from prior release</a></li>
-<li><a href="#ossm-upgrading-mig-apps_ossm-upgrade">Next steps for migrating your applications and workloads</a></li>
+<li><a href="#ossm-upgrading-from-21-22_ossm-upgrade">Upgrading to Red Hat OpenShift Service Mesh 2.2</a></li>
+<li><a href="#ossm-upgrade-20-21-changes_ossm-upgrade">Upgrade changes from version 2.0 to version 2.1</a></li>
+<li><a href="#ossm-upgrading-from-20-21_ossm-upgrade">Upgrading to Red Hat OpenShift Service Mesh 2.1</a></li>
 </ul>
 </li>
+<li><a href="#ossm-upgrading-apps-workloads_ossm-upgrade">Updating your applications and workloads</a></li>
 <li><a href="#ossm-migrating-to-20_ossm-upgrade">Migrating Red Hat OpenShift Service Mesh from version 1.1 to version 2.0</a>
 <ul class="sectlevel2">
 <li><a href="#ossm-migrating_ossm-upgrade">Upgrading Red Hat OpenShift Service Mesh</a></li>
@@ -31321,16 +31311,8 @@
 <div class="paragraph">
 <p>For more information about upgrading Operators, refer to the <a href="../../operators/admin/olm-upgrading-operators.html">Operator Lifecycle Manager</a> documentation.</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="ossm-upgrading-to-21_ossm-upgrade"><a class="anchor" href="#ossm-upgrading-to-21_ossm-upgrade"></a>Upgrading Red Hat OpenShift Service Mesh from version 2.0 to version 2.1</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Upgrading from version 2.0 to 2.1 requires manual steps that migrate your workloads and application to a new instance of Red Hat OpenShift Service Mesh running the new version.</p>
-</div>
 <div class="sect2">
-<h3 id="ossm-upgrading-upgrade-2-1_ossm-upgrade"><a class="anchor" href="#ossm-upgrading-upgrade-2-1_ossm-upgrade"></a>Upgrading to Red Hat OpenShift Service Mesh 2.1</h3>
+<h3 id="ossm-upgrading-from-21-22_ossm-upgrade"><a class="anchor" href="#ossm-upgrading-from-21-22_ossm-upgrade"></a>Upgrading to Red Hat OpenShift Service Mesh 2.2</h3>
 <div class="paragraph">
 <p>To upgrade Red Hat OpenShift Service Mesh, you must update the version field of the Red Hat OpenShift Service Mesh <code>ServiceMeshControlPlane</code> v2 resource. Then, once it&#8217;s configured and applied, restart the application pods to update each sidecar proxy and its configuration.</p>
 </div>
@@ -31338,13 +31320,13 @@
 <div class="title">Prerequisites</div>
 <ul>
 <li>
-<p>You are running OpenShift Container Platform 4.6 or later.</p>
+<p>You are running OpenShift Container Platform 4.9 or later.</p>
 </li>
 <li>
-<p>You have the Red Hat OpenShift Service Mesh version 2.1.0 operator. If the <strong>automatic</strong> upgrade path is enabled, the operator automatically downloads the latest information. However, there are steps you must take to use the features in Red Hat OpenShift Service Mesh version 2.1.</p>
+<p>You have the Red Hat OpenShift Service Mesh version 2.2.x operator.</p>
 </li>
 <li>
-<p>You must upgrade from Red Hat OpenShift Service Mesh 2.0 to 2.1. You cannot upgrade <code>ServiceMeshControlPlane</code> from 1.1 to 2.1 directly.</p>
+<p>You cannot upgrade your <code>ServiceMeshControlPlane</code> from 1.1 to 2.2 directly.  Because of possibly breaking changes at each stage, you must migrate from 1.1 to 2.0, then upgrade from 2.0 to 2.1, then upgrade 2.1 to 2.2.</p>
 </li>
 </ul>
 </div>
@@ -31389,27 +31371,18 @@
 </div>
 </li>
 <li>
-<p>Update the <code>.spec.version</code> field from v2.0 to v2.1, and apply the configuration.</p>
-<div class="paragraph">
-<p>If you see the following message, update the existing <code>Mixer</code> type to <code>Istiod</code> type in the existing Control Plane spec before you update the <code>.spec.version</code> field:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="text">An error occurred
-admission webhook smcp.validation.maistra.io denied the request: [support for policy.type "Mixer" and policy.Mixer options have been removed in v2.1, please use another alternative, support for telemetry.type "Mixer" and telemetry.Mixer options have been removed in v2.1, please use another alternative]”</code></pre>
-</div>
-</div>
+<p>Update the <code>.spec.version</code> field from v2.1 to v2.2, and apply the configuration.</p>
 <div class="paragraph">
 <p>For example:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="go">spec:
-  policy:
-    type: Istiod
-  telemetry:
-    type: Istiod
-  version: v2.1</span></code></pre>
+<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="go">apiVersion: maistra.io/v2
+kind: ServiceMeshControlPlane
+metadata:
+  name: basic
+spec:
+  version: v2.2</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -31436,9 +31409,9 @@ admission webhook smcp.validation.maistra.io denied the request: [support for po
 </div>
 </div>
 <div class="sect2">
-<h3 id="ossm-upgrading-differences-arch_ossm-upgrade"><a class="anchor" href="#ossm-upgrading-differences-arch_ossm-upgrade"></a>Changes from prior release</h3>
+<h3 id="ossm-upgrade-20-21-changes_ossm-upgrade"><a class="anchor" href="#ossm-upgrade-20-21-changes_ossm-upgrade"></a>Upgrade changes from version 2.0 to version 2.1</h3>
 <div class="paragraph">
-<p>This upgrade introduces the following architectural and behavioral changes.</p>
+<p>Upgrading the control plane from version 2.0 to 2.1 introduces the following architectural and behavioral changes.</p>
 </div>
 <div class="paragraph">
 <div class="title">Architecture changes</div>
@@ -31448,20 +31421,20 @@ admission webhook smcp.validation.maistra.io denied the request: [support for po
 <div class="title">Behavioral changes</div>
 <ul>
 <li>
-<p><code>AuthorizationPolicy</code> updates</p>
+<p><code>AuthorizationPolicy</code> updates:</p>
 <div class="ulist">
 <ul>
 <li>
 <p>With the PROXY protocol, if you&#8217;re using <code>ipBlocks</code> and <code>notIpBlocks</code> to specify remote IP addresses, update the configuration to use <code>remoteIpBlocks</code> and <code>notRemoteIpBlocks</code> instead.</p>
 </li>
 <li>
-<p>Added support for nested JSON Web Token (JWT) claims</p>
+<p>Added support for nested JSON Web Token (JWT) claims.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><code>EnvoyFilter</code> breaking changes</p>
+<p><code>EnvoyFilter</code> breaking changes&gt;</p>
 <div class="ulist">
 <ul>
 <li>
@@ -31497,7 +31470,118 @@ admission webhook smcp.validation.maistra.io denied the request: [support for po
 </div>
 </div>
 <div class="sect2">
-<h3 id="ossm-upgrading-mig-apps_ossm-upgrade"><a class="anchor" href="#ossm-upgrading-mig-apps_ossm-upgrade"></a>Next steps for migrating your applications and workloads</h3>
+<h3 id="ossm-upgrading-from-20-21_ossm-upgrade"><a class="anchor" href="#ossm-upgrading-from-20-21_ossm-upgrade"></a>Upgrading to Red Hat OpenShift Service Mesh 2.1</h3>
+<div class="paragraph">
+<p>To upgrade Red Hat OpenShift Service Mesh, you must update the version field of the Red Hat OpenShift Service Mesh <code>ServiceMeshControlPlane</code> v2 resource. Then, once it&#8217;s configured and applied, restart the application pods to update each sidecar proxy and its configuration.</p>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>You are running OpenShift Container Platform 4.6 or later.</p>
+</li>
+<li>
+<p>You have the Red Hat OpenShift Service Mesh version 2.1.x operator. If the <strong>automatic</strong> upgrade path is enabled, the operator automatically downloads the latest information. However, there are steps you must take to use the features in Red Hat OpenShift Service Mesh version 2.1.</p>
+</li>
+<li>
+<p>You must upgrade from Red Hat OpenShift Service Mesh 2.0 to 2.1. You cannot upgrade <code>ServiceMeshControlPlane</code> from 1.1 to 2.1 directly.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Switch to the project that contains your <code>ServiceMeshControlPlane</code> resource. In this example, <code>istio-system</code> is the name of the control plane project.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc project istio-system</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Check your v2 <code>ServiceMeshControlPlane</code> resource configuration to verify it is valid.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Run the following command to view your <code>ServiceMeshControlPlane</code> resource as a v2 resource.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc get smcp <span class="nt">-o</span> yaml</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Back up your control plane configuration.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Update the <code>.spec.version</code> field from v2.0 to v2.1, and apply the configuration.</p>
+<div class="paragraph">
+<p>If you see the following message, update the existing <code>Mixer</code> type to <code>Istiod</code> type in the existing Control Plane spec before you update the <code>.spec.version</code> field:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="text">An error occurred
+admission webhook smcp.validation.maistra.io denied the request: [support for policy.type "Mixer" and policy.Mixer options have been removed in v2.1, please use another alternative, support for telemetry.type "Mixer" and telemetry.Mixer options have been removed in v2.1, please use another alternative]”</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="go">apiVersion: maistra.io/v2
+kind: ServiceMeshControlPlane
+spec:
+  policy:
+    type: Istiod
+  telemetry:
+    type: Istiod
+  version: v2.1</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Alternatively, instead of using the command line, you can use the web console to edit the control plane. In the OpenShift Container Platform web console, click <strong>Project</strong> and select the project name you just entered.</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Click <strong>Operators</strong> &#8594; <strong>Installed Operators</strong>.</p>
+</li>
+<li>
+<p>Find your <code>ServiceMeshControlPlane</code> instance.</p>
+</li>
+<li>
+<p>Select <strong>YAML view</strong> and update text of the YAML file, as shown in the previous example.</p>
+</li>
+<li>
+<p>Click <strong>Save</strong>.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="ossm-upgrading-apps-workloads_ossm-upgrade"><a class="anchor" href="#ossm-upgrading-apps-workloads_ossm-upgrade"></a>Updating your applications and workloads</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>To complete the migration, restart all of the application pods in the mesh to upgrade the Envoy sidecar proxies and their configuration.</p>
 </div>
@@ -31511,7 +31595,6 @@ admission webhook smcp.validation.maistra.io denied the request: [support for po
 </div>
 <div class="paragraph">
 <p>You must perform a rolling update for all applications that make up the mesh.</p>
-</div>
 </div>
 </div>
 </div>
