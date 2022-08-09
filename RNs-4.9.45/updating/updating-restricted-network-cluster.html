@@ -30043,13 +30043,23 @@ docker://example.io/example/ubi-minimal</code></pre>
   <span class="na">repositoryDigestMirrors</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="na">mirrors</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">example.io/example/ubi-minimal</span> <i class="conum" data-value="1"></i><b>(1)</b>
-    <span class="na">source</span><span class="pi">:</span> <span class="s">registry.access.redhat.com/ubi8/ubi-minimal</span> <i class="conum" data-value="2"></i><b>(2)</b>
-  <span class="pi">-</span> <span class="na">mirrors</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">example.com/example/ubi-minimal</span>
-    <span class="na">source</span><span class="pi">:</span> <span class="s">registry.access.redhat.com/ubi8/ubi-minimal</span>
+    <span class="pi">-</span> <span class="s">example.com/example/ubi-minimal</span> <i class="conum" data-value="2"></i><b>(2)</b>
+    <span class="na">source</span><span class="pi">:</span> <span class="s">registry.access.redhat.com/ubi8/ubi-minimal</span> <i class="conum" data-value="3"></i><b>(3)</b>
   <span class="pi">-</span> <span class="na">mirrors</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">mirror.example.com/redhat</span>
-    <span class="na">source</span><span class="pi">:</span> <span class="s">registry.redhat.io/openshift4</span> <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
+    <span class="na">source</span><span class="pi">:</span> <span class="s">registry.redhat.io/openshift4</span> <i class="conum" data-value="4"></i><b>(4)</b>
+  <span class="pi">-</span> <span class="na">mirrors</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">mirror.example.com</span>
+    <span class="na">source</span><span class="pi">:</span> <span class="s">registry.redhat.io</span> <i class="conum" data-value="5"></i><b>(5)</b>
+  <span class="pi">-</span> <span class="na">mirrors</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">mirror.example.net/image</span>
+    <span class="na">source</span><span class="pi">:</span> <span class="s">registry.example.com/example/myimage</span> <i class="conum" data-value="6"></i><b>(6)</b>
+  <span class="pi">-</span> <span class="na">mirrors</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">mirror.example.net</span>
+    <span class="na">source</span><span class="pi">:</span> <span class="s">registry.example.com/example</span> <i class="conum" data-value="7"></i><b>(7)</b>
+  <span class="pi">-</span> <span class="na">mirrors</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">mirror.example.net/registry-example-com</span>
+    <span class="na">source</span><span class="pi">:</span> <span class="s">registry.example.com</span> <i class="conum" data-value="8"></i><b>(8)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -30060,11 +30070,31 @@ docker://example.io/example/ubi-minimal</code></pre>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Indicates the registry and repository containing the content that is mirrored.</td>
+<td>Indicates multiple mirror repositories for each target repository. If one mirror is down, the target repository can use another mirror.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Indicates the registry and repository containing the content that is mirrored.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
 <td>You can configure a namespace inside a registry to use any image in that namespace. If you use a registry domain as a source, the <code>ImageContentSourcePolicy</code> resource is applied to all repositories from the registry.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>If you configure the registry name, the <code>ImageContentSourcePolicy</code> resource is applied to all repositories from a source registry to a mirror registry.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>Pulls the image <code>mirror.example.net/image@sha256:&#8230;&#8203;</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="7"></i><b>7</b></td>
+<td>Pulls the image <code>myimage</code> in the source registry namespace from the mirror <code>mirror.example.net/myimage@sha256:&#8230;&#8203;</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="8"></i><b>8</b></td>
+<td>Pulls the image <code>registry.example.com/example/myimage</code> from the mirror registry <code>mirror.example.net/registry-example-com/example/myimage@sha256:&#8230;&#8203;</code>. The <code>ImageContentSourcePolicy</code> resource is applied to all repositories from a source registry to a mirror registry <code>mirror.example.net/registry-example-com</code>.</td>
 </tr>
 </table>
 </div>
@@ -30095,16 +30125,16 @@ docker://example.io/example/ubi-minimal</code></pre>
 <div class="title">Example output</div>
 <div class="content">
 <pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="go">NAME                           STATUS                     ROLES    AGE  VERSION
-ip-10-0-137-44.ec2.internal    Ready                      worker   7m   v1.22.1
-ip-10-0-138-148.ec2.internal   Ready                      master   11m  v1.22.1
-ip-10-0-139-122.ec2.internal   Ready                      master   11m  v1.22.1
-ip-10-0-147-35.ec2.internal    Ready,SchedulingDisabled   worker   7m   v1.22.1
-ip-10-0-153-12.ec2.internal    Ready                      worker   7m   v1.22.1
-ip-10-0-154-10.ec2.internal    Ready                      master   11m  v1.22.1</span></code></pre>
+ip-10-0-137-44.ec2.internal    Ready                      worker   7m   v1.24.0
+ip-10-0-138-148.ec2.internal   Ready                      master   11m  v1.24.0
+ip-10-0-139-122.ec2.internal   Ready                      master   11m  v1.24.0
+ip-10-0-147-35.ec2.internal    Ready                      worker   7m   v1.24.0
+ip-10-0-153-12.ec2.internal    Ready                      worker   7m   v1.24.0
+ip-10-0-154-10.ec2.internal    Ready                      master   11m  v1.24.0</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>You can see that scheduling on each worker node is disabled as the change is being applied.</p>
+<p>The <code>Imagecontentsourcepolicy</code> resource does not restart the nodes.</p>
 </div>
 </li>
 <li>
@@ -30142,20 +30172,58 @@ the changes were made:</p>
 <div class="title">Example output</div>
 <div class="content">
 <pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="go">unqualified-search-registries = ["registry.access.redhat.com", "docker.io"]
+short-name-mode = ""
+
 [[registry]]
-  location = "registry.access.redhat.com/ubi8/"
-  insecure = false
-  blocked = false
-  mirror-by-digest-only = true
   prefix = ""
+  location = "registry.access.redhat.com/ubi8/ubi-minimal"
+  mirror-by-digest-only = true
 
   [[registry.mirror]]
-    location = "example.io/example/ubi8-minimal"
-    insecure = false
+    location = "example.io/example/ubi-minimal"
 
   [[registry.mirror]]
-    location = "example.com/example/ubi8-minimal"
-    insecure = false</span></code></pre>
+    location = "example.com/example/ubi-minimal"
+
+[[registry]]
+  prefix = ""
+  location = "registry.example.com"
+  mirror-by-digest-only = true
+
+  [[registry.mirror]]
+    location = "mirror.example.net/registry-example-com"
+
+[[registry]]
+  prefix = ""
+  location = "registry.example.com/example"
+  mirror-by-digest-only = true
+
+  [[registry.mirror]]
+    location = "mirror.example.net"
+
+[[registry]]
+  prefix = ""
+  location = "registry.example.com/example/myimage"
+  mirror-by-digest-only = true
+
+  [[registry.mirror]]
+    location = "mirror.example.net/image"
+
+[[registry]]
+  prefix = ""
+  location = "registry.redhat.io"
+  mirror-by-digest-only = true
+
+  [[registry.mirror]]
+    location = "mirror.example.com"
+
+[[registry]]
+  prefix = ""
+  location = "registry.redhat.io/openshift4"
+  mirror-by-digest-only = true
+
+  [[registry.mirror]]
+    location = "mirror.example.com/redhat"</span></code></pre>
 </div>
 </div>
 </li>
