@@ -29113,14 +29113,16 @@ Although etcd is not particularly I/O intensive, it requires a low latency block
 <div class="paragraph">
 <p>Avoid NAS or SAN setups and spinning drives. Always benchmark by using utilities such as fio. Continuously monitor the cluster performance as it increases.</p>
 </div>
-<div class="admonitionblock important">
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-important" title="Important"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Avoid using the Network File System (NFS) protocol or other network based file systems.
+<div class="paragraph">
+<p>Avoid using the Network File System (NFS) protocol or other network based file systems.</p>
+</div>
 </td>
 </tr>
 </table>
