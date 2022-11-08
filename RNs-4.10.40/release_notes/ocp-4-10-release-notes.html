@@ -37059,7 +37059,7 @@ sigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).Start.func2
 <div class="ulist">
 <ul>
 <li>
-<p>Previously, <code>noAllowedAddressPairs</code> settings applied to all subnets on the same network instead of the one matching its corresponding subnet. Due to this, all ports had no address pairs. With this fix, <code>noAllowedAddressPairs</code> is now in its proper setting, ensuring each port is filtered to match its corresponding subnet. (<a href="https://issues.redhat.com/browse/OCPBUGS-1951)"><strong>OCPBUGS-1951</strong></a>)</p>
+<p>Before this update, the <code>noAllowedAddressPairs</code> setting applied to all subnets on the same network. With this update, the <code>noAllowedAddressPairs</code> setting now only applies to its matching subnet. (<a href="https://issues.redhat.com/browse/OCPBUGS-1951)"><strong>OCPBUGS-1951</strong></a>)</p>
 </li>
 </ul>
 </div>

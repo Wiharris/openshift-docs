@@ -34310,15 +34310,16 @@ on all nodes the cluster, even though it does not manage the control plane nodes
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Start a debug session for a node:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>oc debug node/&lt;node_name&gt;</code></pre>
-</div>
-</div>
+<p>From the <strong>Administrator</strong> perspective in the web console, navigate to <strong>Compute</strong> &#8594; <strong>Nodes</strong>.</p>
 </li>
 <li>
-<p>Change your root directory to the host:</p>
+<p>Select a node.</p>
+</li>
+<li>
+<p>In the <strong>Node details</strong> page, click <strong>Terminal</strong>.</p>
+</li>
+<li>
+<p>In the terminal window, change your root directory to <code>/host</code>:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">sh-4.2#</span><span class="w"> </span><span class="nb">chroot</span> /host</code></pre>
@@ -34722,7 +34723,7 @@ Encryption mode set to identity and everything is decrypted</span></code></pre>
 </div>
 </li>
 <li>
-<p>Change your root directory to the host:</p>
+<p>Change your root directory to <code>/host</code>:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">sh-4.2#</span><span class="w"> </span><span class="nb">chroot</span> /host</code></pre>
