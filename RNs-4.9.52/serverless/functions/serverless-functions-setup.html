@@ -29300,8 +29300,8 @@
 <div id="toctitle" class="title"></div>
 <ul class="sectlevel1">
 <li><a href="#prerequisites_serverless-functions-setup">Prerequisites</a></li>
-<li><a href="#serverless-functions-podman_serverless-functions-setup">Setting up podman</a></li>
-<li><a href="#serverless-functions-podman-macos_serverless-functions-setup">Setting up podman on macOS</a></li>
+<li><a href="#serverless-functions-podman_serverless-functions-setup">Setting up Podman</a></li>
+<li><a href="#serverless-functions-podman-macos_serverless-functions-setup">Setting up Podman on macOS</a></li>
 <li><a href="#next-steps_serverless-functions-setup">Next steps</a></li>
 </ul>
 </div>
@@ -29365,7 +29365,10 @@ features, see <a href="https://access.redhat.com/support/offerings/techpreview/"
 <p>You have the <a href="../../serverless/cli_tools/installing-kn.html#installing-kn">Knative (<code>kn</code>) CLI</a> installed. Installing the Knative CLI enables the use of <code>kn func</code> commands which you can use to create and manage functions.</p>
 </li>
 <li>
-<p>You have installed Docker Container Engine or podman version 3.4.7 or higher, and have access to an available image registry, such as the OpenShift Container Registry.</p>
+<p>You have installed Docker Container Engine or Podman version 3.4.7 or higher.</p>
+</li>
+<li>
+<p>You have access to an available image registry, such as the OpenShift Container Registry.</p>
 </li>
 <li>
 <p>If you are using <a href="https://quay.io/">Quay.io</a> as the image registry, you must ensure that either the repository is not private, or that you have followed the OpenShift Container Platform documentation on <a href="../../openshift_images/managing_images/using-image-pull-secrets.html#images-allow-pods-to-reference-images-from-secure-registries_using-image-pull-secrets">Allowing pods to reference images from other secured registries</a>.</p>
@@ -29378,16 +29381,16 @@ features, see <a href="https://access.redhat.com/support/offerings/techpreview/"
 </div>
 </div>
 <div class="sect1">
-<h2 id="serverless-functions-podman_serverless-functions-setup"><a class="anchor" href="#serverless-functions-podman_serverless-functions-setup"></a>Setting up podman</h2>
+<h2 id="serverless-functions-podman_serverless-functions-setup"><a class="anchor" href="#serverless-functions-podman_serverless-functions-setup"></a>Setting up Podman</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To use advanced container management features, you might want to use podman with OpenShift Serverless Functions. To do so, you need to start the podman service and configure the Knative (<code>kn</code>) CLI to connect to it.</p>
+<p>To use advanced container management features, you might want to use Podman with OpenShift Serverless Functions. To do so, you need to start the Podman service and configure the Knative (<code>kn</code>) CLI to connect to it.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Procedure</div>
 <ol class="arabic">
 <li>
-<p>Start the podman service that serves the Docker API on a UNIX socket at <code>${XDG_RUNTIME_DIR}/podman/podman.sock</code>:</p>
+<p>Start the Podman service that serves the Docker API on a UNIX socket at <code>${XDG_RUNTIME_DIR}/podman/podman.sock</code>:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>systemctl start <span class="nt">--user</span> podman.socket</code></pre>
@@ -29429,16 +29432,16 @@ features, see <a href="https://access.redhat.com/support/offerings/techpreview/"
 </div>
 </div>
 <div class="sect1">
-<h2 id="serverless-functions-podman-macos_serverless-functions-setup"><a class="anchor" href="#serverless-functions-podman-macos_serverless-functions-setup"></a>Setting up podman on macOS</h2>
+<h2 id="serverless-functions-podman-macos_serverless-functions-setup"><a class="anchor" href="#serverless-functions-podman-macos_serverless-functions-setup"></a>Setting up Podman on macOS</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To use advanced container management features, you might want to use podman with OpenShift Serverless Functions. To do so on macOS, you need to start the podman machine and configure the Knative (<code>kn</code>) CLI to connect to it.</p>
+<p>To use advanced container management features, you might want to use Podman with OpenShift Serverless Functions. To do so on macOS, you need to start the Podman machine and configure the Knative (<code>kn</code>) CLI to connect to it.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Procedure</div>
 <ol class="arabic">
 <li>
-<p>Create the podman machine:</p>
+<p>Create the Podman machine:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>podman machine init <span class="nt">--memory</span><span class="o">=</span>8192 <span class="nt">--cpus</span><span class="o">=</span>2 <span class="nt">--disk-size</span><span class="o">=</span>20</code></pre>
@@ -29446,7 +29449,7 @@ features, see <a href="https://access.redhat.com/support/offerings/techpreview/"
 </div>
 </li>
 <li>
-<p>Start the podman machine, which serves the Docker API on a UNIX socket:</p>
+<p>Start the Podman machine, which serves the Docker API on a UNIX socket:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight nowrap"><code data-lang="terminal"><span class="gp">$</span><span class="w"> </span>podman machine start
@@ -29505,7 +29508,7 @@ Machine "podman-machine-default" started successfully</span></code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p>For more information about Docker Container Engine or podman, see <a href="../../architecture/understanding-development.html#container-build-tool-options">Container build tool options</a>.</p>
+<p>For more information about Docker Container Engine or Podman, see <a href="../../architecture/understanding-development.html#container-build-tool-options">Container build tool options</a>.</p>
 </li>
 <li>
 <p>See <a href="../../serverless/functions/serverless-functions-getting-started.html#serverless-functions-getting-started">Getting started with functions</a>.</p>

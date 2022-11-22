@@ -29299,6 +29299,7 @@
 <div id="toc" class="toc">
 <div id="toctitle" class="title"></div>
 <ul class="sectlevel1">
+<li><a href="#openshift-registry-common-terms_registry-overview">Common registry terms</a></li>
 <li><a href="#registry-integrated-openshift-registry_registry-overview">Integrated OpenShift Container Platform registry</a></li>
 <li><a href="#registry-third-party-registries_registry-overview">Third-party registries</a>
 <ul class="sectlevel2">
@@ -29311,6 +29312,78 @@
 </div>
 <div class="paragraph">
 <p>OpenShift Container Platform can build images from your source code, deploy them, and manage their lifecycle. It provides an internal, integrated container image registry that can be deployed in your OpenShift Container Platform environment to locally manage images. This overview contains reference information and links for registries commonly used with OpenShift Container Platform, with a focus on the internal image registry.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="openshift-registry-common-terms_registry-overview"><a class="anchor" href="#openshift-registry-common-terms_registry-overview"></a>Common registry terms</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This glossary defines the common terms that are used in the registry content.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">container</dt>
+<dd>
+<p>Lightweight and executable images that consist software and all its dependencies. Because containers virtualize the operating system, you can run containers in data center, a public or private cloud, or your local host.</p>
+</dd>
+<dt class="hdlist1">Image Registry Operator</dt>
+<dd>
+<p>The Image Registry Operator runs in the <code>openshift-image-registry</code> namespace, and manages the registry instance in that location.</p>
+</dd>
+<dt class="hdlist1">image repository</dt>
+<dd>
+<p>An image repository is a collection of related container images and tags identifying images.</p>
+</dd>
+<dt class="hdlist1">mirror registry</dt>
+<dd>
+<p>The mirror registry is a registry that holds the mirror of OpenShift Container Platform images.</p>
+</dd>
+<dt class="hdlist1">namespace</dt>
+<dd>
+<p>A namespace isolates groups of resources within a single cluster.</p>
+</dd>
+<dt class="hdlist1">OpenShift Container Platform registry</dt>
+<dd>
+<p>OpenShift Container Platform registry is the registry provided by OpenShift Container Platform to manage images.</p>
+</dd>
+<dt class="hdlist1">pod</dt>
+<dd>
+<p>The pod is the smallest logical unit in Kubernetes. A pod is comprised of one or more containers to run in a worker node.</p>
+</dd>
+<dt class="hdlist1">private registry</dt>
+<dd>
+<p>A registry is a server that implements the container image registry API. A private registry is a registry that requires authentication to allow users access its contents.</p>
+</dd>
+<dt class="hdlist1">public registry</dt>
+<dd>
+<p>A registry is a server that implements the container image registry API. A public registry is a registry that serves its contently publicly.</p>
+</dd>
+<dt class="hdlist1">Quay.io</dt>
+<dd>
+<p>A public Red Hat Quay Container Registry instance provided and maintained by Red Hat, that serves most of the container images and Operators to OpenShift Container Platform clusters.</p>
+</dd>
+<dt class="hdlist1">registry authentication</dt>
+<dd>
+<p>To push and pull images to and from private image repositories, the registry needs to authenticate its users with credentials.</p>
+</dd>
+<dt class="hdlist1">route</dt>
+<dd>
+<p>Exposes a service to allow for network access to pods from users and applications outside the OpenShift Container Platform instance.</p>
+</dd>
+<dt class="hdlist1">scale down</dt>
+<dd>
+<p>To decrease the number of replicas.</p>
+</dd>
+<dt class="hdlist1">scale up</dt>
+<dd>
+<p>To increase the number of replicas.</p>
+</dd>
+<dt class="hdlist1">service</dt>
+<dd>
+<p>A service exposes a running application on a set of pods.</p>
+</dd>
+</dl>
 </div>
 </div>
 </div>

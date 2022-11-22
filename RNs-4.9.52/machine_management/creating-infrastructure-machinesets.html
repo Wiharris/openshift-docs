@@ -31014,7 +31014,7 @@ Taints:             node-role.kubernetes.io/infra:NoSchedule
 <div class="content">
 <pre class="rouge highlight nowrap"><code data-lang="yaml">  <span class="na">spec</span><span class="pi">:</span>
     <span class="na">nodePlacement</span><span class="pi">:</span>
-      <span class="na">nodeSelector</span><span class="pi">:</span>
+      <span class="na">nodeSelector</span><span class="pi">:</span> <i class="conum" data-value="1"></i><b>(1)</b>
         <span class="na">matchLabels</span><span class="pi">:</span>
           <span class="s">node-role.kubernetes.io/infra</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
     <span class="na">tolerations</span><span class="pi">:</span>
@@ -31030,7 +31030,7 @@ Taints:             node-role.kubernetes.io/infra:NoSchedule
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Add a <code>nodeSelector</code> parameter with the appropriate value to the component you want to move. You can use a <code>nodeSelector</code> in the format shown or use <code>&lt;key&gt;: &lt;value&gt;</code> pairs, based on the value specified for the node.  If you added a taint to the infrasructure node, also add a matching toleration.</td>
+<td>Add a <code>nodeSelector</code> parameter with the appropriate value to the component you want to move. You can use a <code>nodeSelector</code> in the format shown or use <code>&lt;key&gt;: &lt;value&gt;</code> pairs, based on the value specified for the node. If you added a taint to the infrastructure node, also add a matching toleration.</td>
 </tr>
 </table>
 </div>
