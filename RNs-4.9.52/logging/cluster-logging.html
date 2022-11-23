@@ -29299,6 +29299,7 @@
 <div id="toc" class="toc">
 <div id="toctitle" class="title"></div>
 <ul class="sectlevel1">
+<li><a href="#openshift-logging-common-terms_cluster-logging">Common OpenShift Container Platform Logging terms</a></li>
 <li><a href="#cluster-logging-about_cluster-logging">About deploying the logging subsystem for Red Hat OpenShift</a>
 <ul class="sectlevel2">
 <li><a href="#cluster-logging-json-logging-about_cluster-logging">About JSON OpenShift Container Platform Logging</a></li>
@@ -29352,6 +29353,118 @@ The logging subsystem aggregates these logs from throughout your cluster and sto
 </td>
 </tr>
 </table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="openshift-logging-common-terms_cluster-logging"><a class="anchor" href="#openshift-logging-common-terms_cluster-logging"></a>Common OpenShift Container Platform Logging terms</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This glossary defines common terms that are used in the OpenShift Container Platform Logging content.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">annotation</dt>
+<dd>
+<p>You can use annotations to attach metadata to objects.</p>
+</dd>
+<dt class="hdlist1">Cluster Logging Operator (CLO)</dt>
+<dd>
+<p>The Cluster Logging Operator provides a set of APIs to control the collection and forwarding of application, infrastructure, and audit logs.</p>
+</dd>
+<dt class="hdlist1">Custom Resource (CR)</dt>
+<dd>
+<p>A CR is an extension of the Kubernetes API. To configure OpenShift Container Platform Logging and log forwarding, you can customize the <code>ClusterLogging</code> and the <code>ClusterLogForwarder</code> custom resources.</p>
+</dd>
+<dt class="hdlist1">event router</dt>
+<dd>
+<p>The event router is a pod that watches OpenShift Container Platform events. It collects logs by using OpenShift Container Platform Logging.</p>
+</dd>
+<dt class="hdlist1">Fluentd</dt>
+<dd>
+<p>Fluentd is a log collector that resides on each OpenShift Container Platform node. It gathers application, infrastructure, and audit logs and forwards them to different outputs.</p>
+</dd>
+<dt class="hdlist1">garbage collection</dt>
+<dd>
+<p>Garbage collection is the process of cleaning up cluster resources, such as terminated containers and images that are not referenced by any running pods.</p>
+</dd>
+<dt class="hdlist1">Elasticsearch</dt>
+<dd>
+<p>Elasticsearch is a distributed search and analytics engine. OpenShift Container Platform uses ELasticsearch as a default log store for OpenShift Container Platform Logging.</p>
+</dd>
+<dt class="hdlist1">Elasticsearch Operator</dt>
+<dd>
+<p>Elasticsearch operator is used to run Elasticsearch cluster on top of OpenShift Container Platform. The Elasticsearch Operator provides self-service for the Elasticsearch cluster operations and is used by OpenShift Container Platform Logging.</p>
+</dd>
+<dt class="hdlist1">indexing</dt>
+<dd>
+<p>Indexing is a data structure technique that is used to quickly locate and access data. Indexing optimizes the performance by minimizing the amount of disk access required when a query is processed.</p>
+</dd>
+<dt class="hdlist1">JSON logging</dt>
+<dd>
+<p>OpenShift Container Platform Logging Log Forwarding API enables you to parse JSON logs into a structured object and forward them to either OpenShift Container Platform Logging-managed Elasticsearch or any other third-party system supported by the Log Forwarding API.</p>
+</dd>
+<dt class="hdlist1">Kibana</dt>
+<dd>
+<p>Kibana is a browser-based console interface to query, discover, and visualize your Elasticsearch data through histograms, line graphs, and pie charts.</p>
+</dd>
+<dt class="hdlist1">Kubernetes API server</dt>
+<dd>
+<p>Kubernetes API server validates and configures data for the API objects.</p>
+</dd>
+<dt class="hdlist1">Labels</dt>
+<dd>
+<p>Labels are key-value pairs that you can use to organize and select subsets of objects, such as a pod.</p>
+</dd>
+<dt class="hdlist1">Logging</dt>
+<dd>
+<p>With OpenShift Container Platform Logging you can aggregate application, infrastructure, and audit logs throughout your cluster. You can also store them to a default log store, forward them to third party systems, and query and visualize the stored logs in the default log store.</p>
+</dd>
+<dt class="hdlist1">logging collector</dt>
+<dd>
+<p>A logging collector collects logs from the cluster, formats them, and forwards them to the log store or third party systems.</p>
+</dd>
+<dt class="hdlist1">log store</dt>
+<dd>
+<p>A log store is used to store aggregated logs. You can use the default Elasticsearch log store or forward logs to external log stores. The default log store is optimized and tested for short-term storage.</p>
+</dd>
+<dt class="hdlist1">log visualizer</dt>
+<dd>
+<p>Log visualizer is the user interface (UI) component you can use to view information such as logs, graphs, charts, and other metrics. The current implementation is Kibana.</p>
+</dd>
+<dt class="hdlist1">node</dt>
+<dd>
+<p>A node is a worker machine in the OpenShift Container Platform cluster. A node is either a virtual machine (VM) or a physical machine.</p>
+</dd>
+<dt class="hdlist1">Operators</dt>
+<dd>
+<p>Operators are the preferred method of packaging, deploying, and managing a Kubernetes application in an OpenShift Container Platform cluster. An Operator takes human operational knowledge and encodes it into software that is packaged and shared with customers.</p>
+</dd>
+<dt class="hdlist1">pod</dt>
+<dd>
+<p>A pod is the smallest logical unit in Kubernetes. A pod consists of one or more containers and runs on a worker node..</p>
+</dd>
+<dt class="hdlist1">Role-based access control (RBAC)</dt>
+<dd>
+<p>RBAC is a key security control to ensure that cluster users and workloads have access only to resources required to execute their roles.</p>
+</dd>
+<dt class="hdlist1">shards</dt>
+<dd>
+<p>Elasticsearch organizes the log data from Fluentd into datastores, or indices, then subdivides each index into multiple pieces called shards.</p>
+</dd>
+<dt class="hdlist1">taint</dt>
+<dd>
+<p>Taints ensure that pods are scheduled onto appropriate nodes. You can apply one or more taints on a node.</p>
+</dd>
+<dt class="hdlist1">toleration</dt>
+<dd>
+<p>You can apply tolerations to pods. Tolerations allow the scheduler to schedule pods with matching taints.</p>
+</dd>
+<dt class="hdlist1">web console</dt>
+<dd>
+<p>A user interface (UI) to manage OpenShift Container Platform.</p>
+</dd>
+</dl>
 </div>
 </div>
 </div>

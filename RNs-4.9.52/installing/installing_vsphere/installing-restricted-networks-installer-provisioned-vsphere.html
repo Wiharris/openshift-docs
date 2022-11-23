@@ -29329,6 +29329,7 @@
 <li><a href="#installation-registry-storage-config_installing-restricted-networks-installer-provisioned-vsphere">Image registry storage configuration</a></li>
 </ul>
 </li>
+<li><a href="#installation-vsphere-steal-clock-accounting_installing-restricted-networks-installer-provisioned-vsphere">Steal clock accounting</a></li>
 <li><a href="#cluster-telemetry_installing-restricted-networks-installer-provisioned-vsphere">Telemetry access for OpenShift Container Platform</a></li>
 <li><a href="#next-steps_installing-restricted-networks-installer-provisioned-vsphere">Next steps</a></li>
 </ul>
@@ -32588,6 +32589,17 @@ image-registry   4.7                                  True        False         
 </ol>
 </div>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="installation-vsphere-steal-clock-accounting_installing-restricted-networks-installer-provisioned-vsphere"><a class="anchor" href="#installation-vsphere-steal-clock-accounting_installing-restricted-networks-installer-provisioned-vsphere"></a>Steal clock accounting</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>By default, the installation program provisions the cluster&#8217;s virtual machines without enabling the steal clock accounting parameter (<code>stealclock.enabled</code>). Enabling steal clock accounting can help with troubleshooting cluster issues. After the cluster is deployed, use the vSphere Client to enable this parameter on each of the virtual machines.</p>
+</div>
+<div class="paragraph">
+<p>For more information, see this <a href="https://access.redhat.com/solutions/302283">Red Hat knowledge base article</a>.</p>
 </div>
 </div>
 </div>

@@ -29314,7 +29314,21 @@
 <h2 id="private-clusters-about_configuring-private-cluster"><a class="anchor" href="#private-clusters-about_configuring-private-cluster"></a>About private clusters</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>By default, OpenShift Container Platform is provisioned using publicly-accessible DNS and endpoints. You can set the DNS, Ingress Controller, and API server to private after you deploy your cluster.</p>
+<p>By default, OpenShift Container Platform is provisioned using publicly-accessible DNS and endpoints. You can set the DNS, Ingress Controller, and API server to private after you deploy your private cluster.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If the cluster has any public subnets, load balancer services created by administrators might be publicly accessible. To ensure cluster security, verify that these services are explicitly annotated as private.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <h3 id="private-clusters-about-dns_configuring-private-cluster" class="discrete">DNS</h3>
 <div class="paragraph">

@@ -29304,6 +29304,7 @@
 <li><a href="#persistent-storage-cinder-creating-pv_persistent-storage-cinder">Creating the persistent volume</a></li>
 <li><a href="#persistent-storage-cinder-pv-format_persistent-storage-cinder">Persistent volume formatting</a></li>
 <li><a href="#persistent-storage-cinder-volume-security_persistent-storage-cinder">Cinder volume security</a></li>
+<li><a href="#persistent-storage-cinder-maximum-volume_persistent-storage-cinder">Maximum number of Cinder volumes on a node</a></li>
 </ul>
 </li>
 </ul>
@@ -29549,6 +29550,20 @@ name and <code>securityContext</code>:</p>
 </div>
 </li>
 </ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="persistent-storage-cinder-maximum-volume_persistent-storage-cinder"><a class="anchor" href="#persistent-storage-cinder-maximum-volume_persistent-storage-cinder"></a>Maximum number of Cinder volumes on a node</h3>
+<div class="paragraph">
+<p>By default, OpenShift Container Platform supports a maximum of 256 Cinder volumes attached to one node, and the Cinder predicate that limits attachable volumes is disabled. To enable the predicate, add <code>MaxCinderVolumeCount</code> string to the <code>predicates</code> field in the scheduler policy.</p>
+</div>
+<div class="ulist _additional-resources">
+<div class="title">Additional resources</div>
+<ul>
+<li>
+<p>For more information on modifying the scheduler policy, see <a href="../../nodes/scheduling/nodes-scheduler-default.html#nodes-scheduler-default-modifying_nodes-scheduler-default">Modifying scheduler policies</a>.</p>
+</li>
+</ul>
 </div>
 </div>
 </div>

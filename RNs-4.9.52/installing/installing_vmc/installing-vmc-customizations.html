@@ -29329,6 +29329,7 @@
 </ul>
 </li>
 <li><a href="#vsphere-pv-backup_installing-vmc-customizations">Backing up VMware vSphere volumes</a></li>
+<li><a href="#installation-vsphere-steal-clock-accounting_installing-vmc-customizations">Steal clock accounting</a></li>
 <li><a href="#cluster-telemetry_installing-vmc-customizations">Telemetry access for OpenShift Container Platform</a></li>
 <li><a href="#next-steps">Next steps</a></li>
 </ul>
@@ -32755,6 +32756,17 @@ have more than one replica.</p>
 <p>Delete the cloned volume.</p>
 </li>
 </ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="installation-vsphere-steal-clock-accounting_installing-vmc-customizations"><a class="anchor" href="#installation-vsphere-steal-clock-accounting_installing-vmc-customizations"></a>Steal clock accounting</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>By default, the installation program provisions the cluster&#8217;s virtual machines without enabling the steal clock accounting parameter (<code>stealclock.enabled</code>). Enabling steal clock accounting can help with troubleshooting cluster issues. After the cluster is deployed, use the vSphere Client to enable this parameter on each of the virtual machines.</p>
+</div>
+<div class="paragraph">
+<p>For more information, see this <a href="https://access.redhat.com/solutions/302283">Red Hat knowledge base article</a>.</p>
 </div>
 </div>
 </div>

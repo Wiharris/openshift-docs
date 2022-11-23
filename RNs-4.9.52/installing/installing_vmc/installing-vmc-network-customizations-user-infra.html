@@ -32804,7 +32804,10 @@ installation files in.</td>
 </div>
 </li>
 <li>
-<p>Click <strong>Edit Configuration</strong>, and on the <strong>Configuration Parameters</strong> window, click <strong>Add Configuration Params</strong>. Define the following parameter names and values:</p>
+<p>Click <strong>Edit Configuration</strong>, and on the <strong>Configuration Parameters</strong> window, search the list of available parameters for steal clock accounting (<code>stealclock.enable</code>). If it is available, set its value to <code>TRUE</code>. Enabling steal clock accounting can help with troubleshooting cluster issues.</p>
+</li>
+<li>
+<p>Click <strong>Add Configuration Params</strong>. Define the following parameter names and values:</p>
 <div class="ulist">
 <ul>
 <li>
@@ -32815,6 +32818,9 @@ installation files in.</td>
 </li>
 <li>
 <p><code>disk.EnableUUID</code>: Specify <code>TRUE</code>.</p>
+</li>
+<li>
+<p><code>stealclock.enable</code>: If this parameter was not defined, add it and specify <code>TRUE</code>.</p>
 </li>
 </ul>
 </div>
