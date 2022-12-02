@@ -37523,6 +37523,16 @@ sigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).Start.func2
 </div>
 </div>
 <div class="sect3">
+<h4 id="ocp-4-10-44-enhancements"><a class="anchor" href="#ocp-4-10-44-enhancements"></a>Enhancements</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>IPv6 unsolicited neighbor advertisements and IPv4 gratuitous address resolution protocol now default on the SR-IOV CNI plug-in. Pods created with the Single Root I/O Virtualization (SR-IOV) CNI plug-in, where the IP address management CNI plug-in has assigned IPs, now send IPv6 unsolicited neighbor advertisements and/or IPv4 gratuitous address resolution protocol by default onto the network. This enhancement notifies hosts of the new pod&#8217;s MAC address for a particular IP to refresh ARP/NDP caches with the correct information. For more information, see <a href="../networking/hardware_networks/about-sriov.html#supported-devices_about-sriov">Supported devices</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
 <h4 id="ocp-4-10-44-bug-fixes"><a class="anchor" href="#ocp-4-10-44-bug-fixes"></a>Bug fixes</h4>
 <div class="ulist">
 <ul>
