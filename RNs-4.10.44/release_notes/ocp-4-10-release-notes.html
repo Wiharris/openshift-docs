@@ -37527,7 +37527,7 @@ sigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).Start.func2
 <div class="ulist">
 <ul>
 <li>
-<p>Before this update, the installer failed to terminate the cluster when the content-type is missing from the object storage. This caused an error in the Red Hat OpenStack Platform (RHOSP) SDK. With this update, the content type is force to appear in the object storage, resulting in the cluster&#8217;s termination from the installer. (<a href="https://issues.redhat.com/browse/OCPBUGS-4160?jql=key%20in%20(%27OCPBUGS-3999%27%2C%27OCPBUGS-4123%27%2C%27OCPBUGS-4134%27%2C%27OCPBUGS-4160%27)"><strong>OCPBUGS-4160</strong></a>)</p>
+<p>Previously, object storage instances responded with <code>204 No Content</code> when there was no content to display. The Red Hat OpenStack Platform (RHOSP) SDK used in OpenShift Container Platform did not handle 204s correctly. With this update, the installation program works around the issue when there are zero items to list. (<a href="https://issues.redhat.com/browse/OCPBUGS-4160">OCPBUGS-4160</a>)</p>
 </li>
 </ul>
 </div>
